@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="451.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_UP.SingupController">
+   <children>
+      <AnchorPane layoutX="50.0" layoutY="36.0" prefHeight="379.0" prefWidth="486.0" style="-fx-background-color: black;">
+         <children>
+            <Label alignment="CENTER" layoutX="123.0" layoutY="10.0" prefHeight="32.0" prefWidth="226.0" text="SIGN UP AS A" textFill="#15d16b">
+               <font>
+                  <Font name="System Bold Italic" size="22.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="commbox2" layoutX="190.0" layoutY="52.0" prefHeight="26.0" prefWidth="88.0" promptText="USER" />
+            <Label alignment="CENTER" layoutX="31.0" layoutY="104.0" prefHeight="22.0" prefWidth="82.0" style="-fx-background-color: green;" text="Name:" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="31.0" layoutY="163.0" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: green;" text="Username:" textFill="RED">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="31.0" layoutY="135.0" prefHeight="22.0" prefWidth="82.0" style="-fx-background-color: green;" text="Mail:" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="31.0" layoutY="194.0" prefHeight="22.0" prefWidth="82.0" style="-fx-background-color: green;" text="Phone:" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="31.0" layoutY="222.0" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: green;" text="DOB:" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="31.0" layoutY="256.0" prefHeight="22.0" prefWidth="82.0" style="-fx-background-color: green;" text="Gender:" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="289.0" layoutY="226.0" prefHeight="22.0" prefWidth="82.0" style="-fx-background-color: green;" text="District:" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="sign_in_box1" layoutX="384.0" layoutY="224.0" prefHeight="22.0" prefWidth="88.0" promptText="USER" />
+            <Label alignment="CENTER" layoutX="289.0" layoutY="194.0" prefHeight="22.0" prefWidth="82.0" style="-fx-background-color: green;" text="Division:" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="sign_in_box11" layoutX="384.0" layoutY="192.0" prefHeight="22.0" prefWidth="88.0" promptText="USER" />
+            <Label alignment="CENTER" layoutX="289.0" layoutY="256.0" prefHeight="22.0" prefWidth="82.0" style="-fx-background-color: green;" text="B.G:" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="sign_in_box12" layoutX="384.0" layoutY="254.0" prefHeight="22.0" prefWidth="88.0" promptText="USER" />
+            <Label alignment="CENTER" layoutX="62.0" layoutY="290.0" prefHeight="26.0" prefWidth="206.0" style="-fx-background-color: green;" text="Interested Volunter Field:" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="sign_in_box121" layoutX="299.0" layoutY="290.0" prefHeight="26.0" prefWidth="143.0" promptText="USER" />
+            <Button defaultButton="true" layoutX="192.0" layoutY="331.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: blue; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="#1fd97c" />
+            <Label alignment="CENTER" layoutX="288.0" layoutY="163.0" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: green;" text="Password:" textFill="RED">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <TextField layoutX="128.0" layoutY="102.0" prefHeight="22.0" prefWidth="246.0" promptText="Username" />
+            <TextField layoutX="128.0" layoutY="133.0" prefHeight="15.0" prefWidth="246.0" promptText="Username" />
+            <TextField layoutX="128.0" layoutY="163.0" prefHeight="26.0" prefWidth="137.0" promptText="Username" />
+            <TextField layoutX="128.0" layoutY="192.0" prefHeight="26.0" prefWidth="137.0" promptText="Username" />
+            <DatePicker layoutX="127.0" layoutY="224.0" prefHeight="26.0" prefWidth="138.0" />
+            <ComboBox fx:id="commbox21" layoutX="128.0" layoutY="254.0" prefHeight="26.0" prefWidth="138.0" promptText="USER" />
+            <TextField layoutX="384.0" layoutY="163.0" prefHeight="26.0" prefWidth="88.0" promptText="Username" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
