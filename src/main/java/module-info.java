@@ -10,4 +10,6 @@ module com.example.shecchashoinik {
     exports Sign_in;
     opens Sign_UP to javafx.fxml;
     exports Sign_UP;
+    opens Dashboard to javafx.fxml;
+    exports Dashboard;
 }
