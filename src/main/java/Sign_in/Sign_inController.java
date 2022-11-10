@@ -1,10 +1,18 @@
 package Sign_in;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
@@ -17,6 +25,38 @@ public class Sign_inController implements Initializable {
     private ImageView user;
     @FXML
     private ImageView pass;
+    @FXML
+    private PasswordField password;
+
+    @FXML
+    private TextField username;
+    private Stage stage;
+
+    private Scene scene;
+    private Parent root;
+
+
+    @FXML
+    void sign_in(ActionEvent event) {
+
+    }
+
+    @FXML
+    void sign_up(ActionEvent event) {
+        try {
+            root = FXMLLoader.load(Sign_UP.SignupController.class.getResource("Sign_UP.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("SIGN_IN");
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
