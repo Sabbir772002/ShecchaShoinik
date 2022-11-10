@@ -29,7 +29,7 @@ public class HelloController {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Next");
+            stage.setTitle("SIGN_IN");
             stage.show();
 
         } catch (Exception e) {
@@ -39,6 +39,17 @@ public class HelloController {
 
     @FXML
     void SignUp (ActionEvent event) {
+        try {
+            root = FXMLLoader.load(Sign_UP.SignupController.class.getResource("Sign_UP.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("SIGN_IN");
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }
