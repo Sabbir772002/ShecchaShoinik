@@ -22,7 +22,7 @@
                   <Font name="Arial Black" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="bbutton" alignment="BASELINE_LEFT" layoutX="140.0" layoutY="1.0" mnemonicParsing="false" onAction="#BbankClick" prefHeight="32.0" prefWidth="122.0" style="-fx-background-color: 212020;" text="BLOOD BANK" textFill="#f7f7f7">
+            <Button fx:id="bbutton" alignment="BASELINE_LEFT" layoutX="140.0" layoutY="1.0" mnemonicParsing="false" onAction="#BbankClick" prefHeight="32.0" prefWidth="122.0" style="-fx-background-color: #212020;" text="BLOOD BANK" textFill="#f7f7f7">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -32,7 +32,7 @@
                   <Image url="@../../Font/1297136.png" />
                </image>
             </ImageView>
-            <Button fx:id="b" alignment="BASELINE_LEFT" layoutX="920.0" layoutY="4.0" mnemonicParsing="false" onAction="#Choiceclick" prefHeight="34.0" prefWidth="95.0" style="-fx-background-color: 21200xFFFFFF20;" textFill="#f7f7f7">
+            <Button fx:id="b" alignment="BASELINE_LEFT" layoutX="920.0" layoutY="4.0" mnemonicParsing="false" onAction="#Choiceclick" prefHeight="34.0" prefWidth="95.0" style="-fx-background-color: 2xFFFFF;" textFill="#f7f7f7">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
