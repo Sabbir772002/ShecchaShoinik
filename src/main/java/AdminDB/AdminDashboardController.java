@@ -1,4 +1,4 @@
-package AdminDashboard;
+package AdminDB;
 
 import Sign_in.Sign_inController;
 import javafx.event.ActionEvent;
