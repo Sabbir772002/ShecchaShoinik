@@ -84,6 +84,7 @@ public class SignupController implements Initializable {
           preparedStatement.setString(12, mail.getText());
             preparedStatement.execute();
             preparedStatement.close();
+
             connection.close();
 
             root = FXMLLoader.load(Sign_inController.class.getResource("Sign_in.fxml"));
