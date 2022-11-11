@@ -1,4 +1,4 @@
-package com.example.shecchashoinik;
+package Shecchashoinik;
 
 import Sign_in.Sign_inController;
 import javafx.event.ActionEvent;
@@ -7,13 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.util.Objects;
-
-public class HelloController {
+public class HomeController {
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -29,7 +25,7 @@ public class HelloController {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("SIGN_IN");
+            stage.setTitle("SIGN IN");
             stage.show();
 
         } catch (Exception e) {
@@ -44,7 +40,7 @@ public class HelloController {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("SIGN_IN");
+            stage.setTitle("SIGN UP");
             stage.show();
 
         } catch (Exception e) {

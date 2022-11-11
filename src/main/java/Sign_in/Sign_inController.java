@@ -46,7 +46,7 @@ public class Sign_inController implements Initializable {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("SIGN IN");
+            stage.setTitle("Dashboard");
             stage.show();
 
         } catch (Exception e) {
@@ -62,7 +62,7 @@ public class Sign_inController implements Initializable {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("SIGN IN");
+            stage.setTitle("SIGN UP");
             stage.show();
 
         } catch (Exception e) {

@@ -64,7 +64,7 @@ public class SignupController implements Initializable {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("SIGN UP");
+            stage.setTitle("SIGN IN");
             stage.show();
 
         } catch (Exception e) {

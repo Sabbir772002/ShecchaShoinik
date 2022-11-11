@@ -3,8 +3,8 @@ module com.example.shecchashoinik {
     requires javafx.fxml;
 
 
-    opens com.example.shecchashoinik to javafx.fxml;
-    exports com.example.shecchashoinik;
+    opens Shecchashoinik to javafx.fxml;
+    exports Shecchashoinik;
 
     opens Sign_in to javafx.fxml;
     exports Sign_in;
