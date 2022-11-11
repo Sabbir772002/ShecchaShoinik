@@ -42,7 +42,7 @@
             </Button>
             <ImageView fx:id="imageview" fitHeight="19.0" fitWidth="23.0" layoutX="940.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Font/user.png" />
+                  <Image url="@../../Font/user1.png" />
                </image>
             </ImageView>
          </children>

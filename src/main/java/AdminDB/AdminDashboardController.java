@@ -89,7 +89,7 @@ public class AdminDashboardController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String []choiceb={"Profile","Logout"};
         choice.getItems().addAll(choiceb);
-        File file = new File("src/main/Font/user.png");
+        File file = new File("src/main/Font/user1.png");
         Image image = new Image(file.toURI().toString());
         imageview.setImage(image);
         File file1 = new File("src/main/Font/1297136.png");
