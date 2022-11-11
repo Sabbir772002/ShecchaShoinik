@@ -29,14 +29,14 @@
                </font></Button>
             <Label layoutX="98.0" layoutY="219.0" prefHeight="18.0" prefWidth="133.0" text="Don't have an account?" />
             <Button defaultButton="true" layoutX="123.0" layoutY="241.0" mnemonicParsing="false" onAction="#sign_up" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: blue; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="WHITE" />
-            <ImageView fx:id="user" fitHeight="26.0" fitWidth="32.0" layoutX="42.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="user" fitHeight="26.0" fitWidth="32.0" layoutX="55.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../image/user.png" />
+                  <Image url="@../../Font/user-fill.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="pass" fitHeight="26.0" fitWidth="32.0" layoutX="42.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="pass" fitHeight="26.0" fitWidth="32.0" layoutX="55.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../image/pass.png" />
+                  <Image url="@../../Font/lock-outline.png" />
                </image>
             </ImageView>
          </children>

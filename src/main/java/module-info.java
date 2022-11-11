@@ -12,4 +12,6 @@ module com.example.shecchashoinik {
     exports Sign_UP;
     opens Dashboard to javafx.fxml;
     exports Dashboard;
+    opens AdminDashboard to javafx.fxml;
+    exports AdminDashboard;
 }

@@ -1,5 +1,6 @@
 package Sign_in;
 
+import AdminDashboard.AdminDashboardController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,6 +39,19 @@ public class Sign_inController implements Initializable {
 
     @FXML
     void sign_in(ActionEvent event) {
+        try {
+
+            root = FXMLLoader.load(AdminDashboardController.class.getResource("AdminDashboard.fxml"));
+
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("SIGN IN");
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -48,7 +62,7 @@ public class Sign_inController implements Initializable {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("SIGN_IN");
+            stage.setTitle("SIGN IN");
             stage.show();
 
         } catch (Exception e) {
@@ -60,12 +74,12 @@ public class Sign_inController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String items[]={"User", "Volunteer", "Volunteer Admin"};
+        String items[]={"User","Volunteer Leader","Admin"};
         sign_in_box.getItems().addAll(items);
-        File file = new File("src/main/image/user.png");
+        File file = new File("src/main/Font/user-fill.png");
         Image image = new Image(file.toURI().toString());
         user.setImage(image);
-        file = new File("src/main/image/pass.png");
+        file = new File("src/main/Font/lock-outline.png");
         image = new Image(file.toURI().toString());
         pass.setImage(image);
     }
