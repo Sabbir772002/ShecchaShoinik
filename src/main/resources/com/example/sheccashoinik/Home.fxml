@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="576.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sheccashoinik.HomeController">
+   <children>
+      <Label layoutX="23.0" layoutY="52.0" prefHeight="87.0" prefWidth="530.0" style="-fx-background-color: grey;" text="Join our community to get&#10;             connected with over million people&#10;" textFill="#36ff83">
+         <font>
+            <Font name="Arial Bold" size="25.0" />
+         </font>
+      </Label>
+      <Button fx:id="Signinb" alignment="CENTER" layoutX="230.0" layoutY="207.0" mnemonicParsing="false" onAction="#Signin" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: blue; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="Sign in">
+         <font>
+            <Font name="Book Antiqua Bold" size="22.0" />
+         </font>
+      </Button>
+      <Label layoutX="220.0" layoutY="242.0" prefHeight="26.0" prefWidth="170.0" text="No account? Create one...">
+         <font>
+            <Font name="Book Antiqua" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="Signinb1" alignment="CENTER" layoutX="230.0" layoutY="272.0" mnemonicParsing="false" onAction="#SignUp" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: green; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="Sign up">
+         <font>
+            <Font name="Book Antiqua Bold" size="22.0" />
+         </font>
+      </Button>
+      <Label layoutX="220.0" layoutY="173.0" prefHeight="26.0" prefWidth="169.0" text="Already have an account...">
+         <font>
+            <Font name="Book Antiqua" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="248.0" layoutY="14.0" prefHeight="35.0" prefWidth="138.0" style="-fx-background-color: light;" text="স্বেচ্ছাসৈনিক" textAlignment="CENTER" textFill="#d91919">
+         <font>
+            <Font name="Freestyle Script" size="19.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="42.0" fitWidth="48.0" layoutX="206.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+      </ImageView>
+   </children>
+</AnchorPane>
