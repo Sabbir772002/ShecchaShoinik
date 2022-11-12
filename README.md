@@ -1,2 +1,2 @@
 # ShecchaShoinik
-A project based on manage volunteer for freequently diaster! 
+A project based on manage volunteer for freequently disaster! 
