@@ -1,2 +1,3 @@
 # ShecchaShoinik
-new me
+
+A project based on manage volunteer for freequently diaster! 
