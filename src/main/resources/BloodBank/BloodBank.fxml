@@ -1,11 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BloodBank.BloodBankController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="228.0" layoutY="147.0" mnemonicParsing="false" text="Blood Bank" textFill="RED" />
+      <Pane layoutX="-1.0" prefHeight="126.0" prefWidth="782.0" style="-fx-background-color: #A2D0E1;">
+         <children>
+            <ImageView fitHeight="93.0" fitWidth="113.0" layoutX="30.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@WhatsApp_Image_2022-11-11_at_21.57.53-removebg-preview%20(1).png" />
+               </image>
+            </ImageView>
+            <Button layoutX="201.0" layoutY="77.0" mnemonicParsing="false" text="Button" />
+            <Button layoutX="278.0" layoutY="77.0" mnemonicParsing="false" text="Button" />
+            <Label layoutX="33.0" layoutY="89.0" text="ShecchaShoinik">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <VBox layoutY="126.0" prefHeight="411.0" prefWidth="170.0" style="-fx-background-color: #A2D0E1;">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="170.0" text="Dashboard" />
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="170.0" text="Button" />
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="170.0" text="Button" />
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="170.0" text="Button" />
+            <Button mnemonicParsing="false" prefHeight="71.0" prefWidth="170.0" text="Button" />
+            <Button mnemonicParsing="false" prefHeight="69.0" prefWidth="170.0" text="Button" />
+         </children>
+      </VBox>
+      <GridPane layoutX="181.0" layoutY="126.0" prefHeight="398.0" prefWidth="586.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="128.59998168945313" minHeight="10.0" prefHeight="57.59998779296875" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="276.8000122070313" minHeight="10.0" prefHeight="56.00001220703125" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="293.7999786376953" minHeight="10.0" prefHeight="276.9999603271484" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label prefHeight="18.0" prefWidth="334.0" text="Volunteers in my area" underline="true">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="42.0" prefWidth="586.0" GridPane.rowIndex="1">
+               <children>
+                  <TextField alignment="CENTER_RIGHT" />
+                  <Button mnemonicParsing="false" text="Search" />
+               </children>
+            </HBox>
+            <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+               <columns>
+                  <TableColumn prefWidth="303.2000274658203" text="Teams" />
+                  <TableColumn minWidth="0.0" prefWidth="282.39996337890625" text="Status" />
+               </columns>
+            </TableView>
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>
