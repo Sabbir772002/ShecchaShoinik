@@ -13,7 +13,7 @@ public class Application extends javafx.application.Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HomeController.class.getResource("Home.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 500);
-        stage.setTitle("ShecchaShoinik bhaiya kmn aso");
+        stage.setTitle("ShecchaShoinik valo thaken");
         stage.setScene(scene);
         File file = new File("src/main/Font/icon1.png");
         Image image = new Image(file.toURI().toString());
