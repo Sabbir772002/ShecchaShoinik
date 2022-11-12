@@ -10,23 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="684.0" prefWidth="1012.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminDB.AdminDashboardController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="684.0" prefWidth="1012.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminDashboard.AdminDashboardController">
    <left>
-      <VBox prefHeight="646.0" prefWidth="189.0" style="-fx-background-color: green;" BorderPane.alignment="CENTER">
-         <children>
-            <AnchorPane prefHeight="651.0" prefWidth="190.0">
-               <children>
-                  <ImageView fx:id="imageview1" fitHeight="105.0" fitWidth="123.0" layoutX="-8.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true" x="50.0" y="20.0">
-                     <image>
-                        <Image url="@../../Font/user1.png" />
-                     </image>
-                     <viewport>
-                        <Rectangle2D />
-                     </viewport>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-         </children></VBox>
+      <VBox prefHeight="646.0" prefWidth="189.0" style="-fx-background-color: green;" BorderPane.alignment="CENTER" />
    </left>
    <top>
       <AnchorPane prefHeight="38.0" prefWidth="1009.0" style="-fx-background-color: #212020;" BorderPane.alignment="CENTER">
@@ -36,7 +22,7 @@
                   <Font name="Arial Black" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="bbutton" alignment="BASELINE_LEFT" layoutX="140.0" layoutY="1.0" mnemonicParsing="false" onAction="#BbankClick" prefHeight="32.0" prefWidth="122.0" style="-fx-background-color: 212020;" text="BLOOD BANK" textFill="#f7f7f7">
+            <Button fx:id="bbutton" alignment="BASELINE_LEFT" layoutX="140.0" layoutY="1.0" mnemonicParsing="false" onAction="#BbankClick" prefHeight="32.0" prefWidth="122.0" style="-fx-background-color: #212020;" text="BLOOD BANK" textFill="#f7f7f7">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -46,7 +32,7 @@
                   <Image url="@../../Font/1297136.png" />
                </image>
             </ImageView>
-            <Button fx:id="b" alignment="BASELINE_LEFT" layoutX="920.0" layoutY="4.0" mnemonicParsing="false" onAction="#Choiceclick" prefHeight="34.0" prefWidth="95.0" style="-fx-background-color: 21200xFFFFFF20;" textFill="#f7f7f7">
+            <Button fx:id="b" alignment="BASELINE_LEFT" layoutX="920.0" layoutY="4.0" mnemonicParsing="false" onAction="#Choiceclick" prefHeight="34.0" prefWidth="95.0" style="-fx-background-color: 2xFFFFF;" textFill="#f7f7f7">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -56,7 +42,7 @@
             </Button>
             <ImageView fx:id="imageview" fitHeight="19.0" fitWidth="23.0" layoutX="940.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Font/user1.png" />
+                  <Image url="@../../Font/user.png" />
                </image>
             </ImageView>
          </children>
