@@ -1,6 +1,5 @@
 package Sign_in;
 
-import AdminDB.AdminDashboardController;
 import DB.ConnectionDb;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -51,7 +50,7 @@ public class Sign_inController implements Initializable {
 
             if (logIn().equals("Success")) {
                 try {
-                    root = FXMLLoader.load(AdminDashboardController.class.getResource("AdminDashboard.fxml"));
+                    root = FXMLLoader.load(AdminDB.AdminDashboardController.class.getResource("AdminDashboard.fxml"));
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     scene = new Scene(root);
                     stage.setScene(scene);

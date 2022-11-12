@@ -21,7 +21,7 @@
                         <Image url="@../../Font/user1.png" />
                      </image>
                      <viewport>
-                        <Rectangle2D />
+
                      </viewport>
                   </ImageView>
                </children>
