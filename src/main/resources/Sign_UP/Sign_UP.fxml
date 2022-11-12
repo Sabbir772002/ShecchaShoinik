@@ -27,7 +27,7 @@
                </font>
             </Label>
             <ComboBox fx:id="cbgroup" layoutX="423.0" layoutY="361.0" prefHeight="26.0" prefWidth="175.0" promptText="Earthquake" />
-            <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="334.0" layoutY="407.0" mnemonicParsing="false" onAction="#Sign_up" prefHeight="32.0" prefWidth="131.0" style="-fx-background-color: black; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="#f0f2f1" AnchorPane.leftAnchor="334.0">
+            <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="334.0" layoutY="407.0" mnemonicParsing="false" onAction="#Sign_up" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: black; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="#f0f2f1" AnchorPane.leftAnchor="334.0">
                <font>
                   <Font size="21.0" />
                </font>
@@ -35,10 +35,20 @@
             <TextField fx:id="name" layoutX="128.0" layoutY="102.0" prefHeight="22.0" prefWidth="246.0" promptText="Name" />
             <TextField fx:id="mail" layoutX="128.0" layoutY="143.0" prefHeight="15.0" prefWidth="246.0" promptText="Mail" />
             <TextField fx:id="username" layoutX="128.0" layoutY="176.0" prefHeight="26.0" prefWidth="137.0" promptText="Username" />
-            <TextField fx:id="phone" layoutX="609.0" layoutY="176.0" prefHeight="26.0" prefWidth="137.0" promptText="01571144383" />
+            <TextField fx:id="phone" layoutX="604.0" layoutY="176.0" prefHeight="26.0" prefWidth="143.0" promptText="01571144383" />
             <DatePicker fx:id="dob" layoutX="127.0" layoutY="254.0" prefHeight="26.0" prefWidth="138.0" promptText="07/02/1995" />
             <ComboBox fx:id="cbGender" layoutX="127.0" layoutY="297.0" prefHeight="26.0" prefWidth="138.0" promptText="Male" />
             <TextField fx:id="password" layoutX="127.0" layoutY="213.0" prefHeight="26.0" prefWidth="138.0" promptText="Password" />
+            <Label alignment="CENTER" layoutX="299.0" layoutY="453.0" prefHeight="26.0" prefWidth="206.0" text="Already have an account?" textFill="#616161">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Button layoutX="334.0" layoutY="479.0" mnemonicParsing="false" onAction="#Signin" prefHeight="27.0" prefWidth="131.0" style="-fx-background-color: green; -fx-cursor: hand; -fx-background-radius: 10,10,10,10;" text=" Sign in">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>

@@ -1,7 +1,7 @@
 package Sign_in;
 
-import AdminDashboard.AdminDashboardController;
-import Database.ConnectionDb;
+import AdminDB.AdminDashboardController;
+import DB.ConnectionDb;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,12 +14,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -30,7 +27,7 @@ public class Sign_inController implements Initializable {
     Connection con;
     public Sign_inController() {
         con = ConnectionDb.DB();
-        System.out.println("thik ase vai");
+        System.out.println("thik ase vai koibar bolboo");
     }
     @FXML
     private ComboBox<String> sign_in_box;
@@ -52,19 +49,19 @@ public class Sign_inController implements Initializable {
     @FXML
     void sign_in(ActionEvent event) {
 
-        if (logIn().equals("Success")) {
-            try {
-                root = FXMLLoader.load(AdminDashboard.AdminDashboardController.class.getResource("AdminDashboard.fxml"));
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.setTitle("Dashboard");
-                stage.show();
+            if (logIn().equals("Success")) {
+                try {
+                    root = FXMLLoader.load(AdminDashboardController.class.getResource("AdminDashboard.fxml"));
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.setTitle("Dashboard");
+                    stage.show();
 
-            } catch (Exception e) {
-                e.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-        }
 
     }
     private String logIn() {
@@ -76,7 +73,7 @@ public class Sign_inController implements Initializable {
 
             status = "Error";
         } else {
-             System.out.println("Inbox");
+           // System.out.println("Inbox");
             String sql = "SELECT * FROM userlist Where username = ? and password = ?";
             try {
                 PreparedStatement preparedStatement = con.prepareStatement(sql);
