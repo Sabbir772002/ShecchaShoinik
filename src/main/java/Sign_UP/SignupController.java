@@ -87,7 +87,7 @@ public class SignupController implements Initializable {
             preparedStatement = (PreparedStatement) connection.prepareStatement(st);
             preparedStatement.setString(1, name.getText());
             preparedStatement.setString(2, username.getText());
-            preparedStatement.setString(3, pass.getText());
+            preparedStatement.setString(3, password.getText());
             preparedStatement.setString(4, cbdivision.getValue().toString());
             preparedStatement.setString(5, cbdistrict.getValue().toString());
             preparedStatement.setString(6,dob.getValue().toString());
