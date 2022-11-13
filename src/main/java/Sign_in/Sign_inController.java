@@ -98,12 +98,12 @@ public class Sign_inController implements Initializable {
     @FXML
     void sign_up(ActionEvent event) {
         try {
-           // root = FXMLLoader.load(Sign_UP.SignupController.class.getResource("Sign_UP.fxml"));
-            root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
+           root = FXMLLoader.load(Sign_UP.SignupController.class.getResource("Sign_UP.fxml"));
+           // root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("SIGN UP");
+            stage.setTitle("Profile");
             stage.show();
 
         } catch (Exception e) {

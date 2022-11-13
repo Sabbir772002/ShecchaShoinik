@@ -13,7 +13,8 @@ import java.util.ResourceBundle;
 public class ProfileController implements Initializable {
     @FXML
     private ImageView back;
-
+    @FXML
+    private ImageView image10;
     @FXML
     private ImageView cirimage;
 
@@ -24,7 +25,7 @@ public class ProfileController implements Initializable {
     private ImageView image;
 
     @FXML
-    private ImageView image1;
+    private ImageView image100;
 
     @FXML
     private Circle image2;
@@ -38,9 +39,12 @@ public class ProfileController implements Initializable {
         file = new File("src/main/Font/-heart-icon-.png");
         image = new Image(file.toURI().toString());
         heart.setImage(image);
-        file = new File("src/main/Font/-menu-vector-icon-.png");
+        file = new File("src/main/Font/menu-vector-icon-.png");
         image = new Image(file.toURI().toString());
-        image1.setImage(image);
+        image100.setImage(image);
+        file = new File("src/main/Font/icon1.png");
+        image = new Image(file.toURI().toString());
+        image10.setImage(image);
         file = new File("src/main/Font/Angle_left_font_.png");
         image = new Image(file.toURI().toString());
         back.setImage(image);

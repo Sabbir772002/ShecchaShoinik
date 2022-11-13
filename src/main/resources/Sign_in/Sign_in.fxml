@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="579.0" prefWidth="600.0" style="-fx-background-color: #00b4d8;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_in.Sign_inController">
+<AnchorPane prefHeight="579.0" prefWidth="652.0" style="-fx-background-color: #00b4d8;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_in.Sign_inController">
    <children>
-      <AnchorPane layoutX="125.0" layoutY="127.0" prefHeight="338.0" prefWidth="349.0" style="-fx-background-color: white; -fx-background-radius: 20,20,20,20;">
+      <AnchorPane layoutX="151.0" layoutY="129.0" prefHeight="338.0" prefWidth="349.0" style="-fx-background-color: white; -fx-background-radius: 20,20,20,20;">
          <children>
             <Label layoutX="123.0" layoutY="14.0" prefHeight="22.0" prefWidth="102.0" text="You are" textFill="#0aef71">
                <font>
@@ -25,10 +25,13 @@
             <PasswordField fx:id="password" layoutX="87.0" layoutY="142.0" promptText="Password" />
             <Button layoutX="123.0" layoutY="188.0" mnemonicParsing="false" onAction="#sign_in" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: green; -fx-cursor: hand; -fx-background-radius: 10,10,10,10;" text="SIGN IN" textFill="WHITE">
                <font>
-                  <Font size="15.0" />
+                  <Font size="14.0" />
                </font></Button>
             <Label layoutX="98.0" layoutY="219.0" prefHeight="18.0" prefWidth="133.0" text="Don't have an account?" />
-            <Button defaultButton="true" layoutX="123.0" layoutY="241.0" mnemonicParsing="false" onAction="#sign_up" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: blue; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="WHITE" />
+            <Button defaultButton="true" layoutX="123.0" layoutY="241.0" mnemonicParsing="false" onAction="#sign_up" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: blue; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
             <ImageView fx:id="user" fitHeight="26.0" fitWidth="32.0" layoutX="55.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Font/user-fill.png" />
