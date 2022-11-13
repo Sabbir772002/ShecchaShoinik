@@ -92,17 +92,38 @@
                     <font>
                         <Font name="System Bold" size="13.0" />
                     </font></Button>
-                <Button layoutX="10.0" layoutY="231.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="274.0" style="-fx-background-color: #985aaa;" text="Volunteer in my area" />
-                <Button layoutX="10.0" layoutY="268.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="274.0" style="-fx-background-color: #9d5aaa;" text="Community Chat" />
-                <Button layoutX="10.0" layoutY="306.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="274.0" style="-fx-background-color: #9d5aaa;" text="F" />
-                <Button layoutX="10.0" layoutY="344.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="274.0" style="-fx-background-color: #9d5aaa;" text="G" />
-                <Button layoutX="10.0" layoutY="381.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="274.0" style="-fx-background-color: #9d5aaa;" text="H" />
-                <Button layoutX="10.0" layoutY="419.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="274.0" style="-fx-background-color: #985aaa;" text="Disaster Guidelines" />
+                <Button layoutX="10.0" layoutY="231.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="274.0" style="-fx-background-color: #985aaa;" text="Volunteer in my area">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
+                <Button layoutX="10.0" layoutY="268.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="274.0" style="-fx-background-color: #9d5aaa;" text="Community Chat">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font></Button>
+                <Button layoutX="10.0" layoutY="306.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="274.0" style="-fx-background-color: #9d5aaa;" text="F">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
+                <Button layoutX="10.0" layoutY="344.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="274.0" style="-fx-background-color: #9d5aaa;" text="G">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
+                <Button layoutX="10.0" layoutY="381.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="274.0" style="-fx-background-color: #9d5aaa;" text="H">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
+                <Button layoutX="10.0" layoutY="419.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="274.0" style="-fx-background-color: #985aaa;" text="Disaster Guidelines">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
                 <Button layoutX="10.0" layoutY="193.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="274.0" style="-fx-background-color: #985aaa;" text="Profile">
                     <font>
                         <Font name="System Bold" size="13.0" />
                     </font></Button>
-                <Button layoutX="10.0" layoutY="456.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="274.0" style="-fx-background-color: #985aaa;" text="Log out" />
+                <Button layoutX="10.0" layoutY="456.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="274.0" style="-fx-background-color: #985aaa;" text="Log out">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
             </children>
         </VBox>
     </children>

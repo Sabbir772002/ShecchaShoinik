@@ -82,6 +82,7 @@ public class SignupController implements Initializable {
     }
     @FXML
     void Sign_up(ActionEvent event) {
+        System.out.println("vai aita ki hoilo");
         try {
             String st = "INSERT INTO userlist (Name,Username,Password,Division,District,DOB,ID,Gender,Volunteer,B.G.,Phone,Mail) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
             preparedStatement = (PreparedStatement) connection.prepareStatement(st);
@@ -99,6 +100,7 @@ public class SignupController implements Initializable {
             preparedStatement.setString(12, mail.getText());
             preparedStatement.executeUpdate();
             connection.close();
+            System.out.println("THIK ASE INPUT");
         }catch (SQLException e) {
 
         }
