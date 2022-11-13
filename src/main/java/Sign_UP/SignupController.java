@@ -84,7 +84,7 @@ public class SignupController implements Initializable {
     void Sign_up(ActionEvent event) {
         System.out.println("vai aita ki hoilo");
         try {
-            String st = "INSERT INTO userlist (Name,Username,Password,Division,District,DOB,ID,Gender,Volunteer,B.G.,Phone,Mail) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+            String st = "INSERT INTO userlist (Name,Username,Password,Division,District,DOB,ID,Gender,Volunteer,BG,Phone,Mail) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
             preparedStatement = (PreparedStatement) connection.prepareStatement(st);
             preparedStatement.setString(1, name.getText());
             preparedStatement.setString(2, username.getText());
@@ -98,15 +98,10 @@ public class SignupController implements Initializable {
             preparedStatement.setString(10, bloodgroup.getValue().toString());
             preparedStatement.setString(11, phone.getText());
             preparedStatement.setString(12, mail.getText());
-            preparedStatement.executeUpdate();
+            preparedStatement.execute();
+            preparedStatement.close();
             connection.close();
             System.out.println("THIK ASE INPUT");
-        }catch (SQLException e) {
-
-        }
-
-        try {
-
             root = FXMLLoader.load(Sign_inController.class.getResource("Sign_in.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
