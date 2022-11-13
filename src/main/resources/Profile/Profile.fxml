@@ -2,29 +2,22 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="942.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="942.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Profile.ProfileController">
     <children>
-        <ImageView fitHeight="35.0" fitWidth="45.0" layoutX="320.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../Pictures/Angle_left_font_.png" />
-            </image>
+        <ImageView fx:id="back" fitHeight="35.0" fitWidth="45.0" layoutX="320.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+
         </ImageView>
-        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="782.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../Pictures/-heart-icon-.png" />
-            </image>
+        <ImageView fx:id="heart" fitHeight="35.0" fitWidth="35.0" layoutX="782.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+
         </ImageView>
-        <ImageView fitHeight="147.0" fitWidth="149.0" layoutX="461.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" rotate="1.5">
-            <image>
-                <Image url="@../Pictures/guy.png" />
-            </image>
+        <ImageView fx:id="cirimage" fitHeight="147.0" fitWidth="149.0" layoutX="461.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" rotate="1.5">
+
         </ImageView>
         <Label layoutX="425.0" layoutY="245.0" text="Peter Anderson">
             <font>
@@ -62,20 +55,16 @@
                 <Font size="14.0" />
             </font>
         </Label>
-        <Circle fill="#ededed0a" layoutX="533.0" layoutY="146.0" radius="86.0" rotate="179.2" stroke="#dc0594" strokeType="INSIDE" />
-        <ImageView fitHeight="60.0" fitWidth="53.0" layoutX="842.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../Pictures/-menu-vector-icon-.png" />
-            </image>
+        <Circle fx:id="image2" fill="#ededed0a" layoutX="533.0" layoutY="146.0" radius="86.0" rotate="179.2" stroke="#dc0594" strokeType="INSIDE" />
+        <ImageView fx:id="image10" fitHeight="60.0" fitWidth="53.0" layoutX="842.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+
         </ImageView>
         <VBox layoutX="22.0" layoutY="15.0" prefHeight="622.0" prefWidth="274.0">
             <children>
                 <AnchorPane prefHeight="136.0" prefWidth="230.0">
                     <children>
-                        <ImageView fitHeight="144.0" fitWidth="172.0" layoutX="55.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../Downloads/LOGO.png.jpg" />
-                            </image>
+                        <ImageView fx:id="image10" fitHeight="144.0" fitWidth="172.0" layoutX="55.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
+
                         </ImageView>
                     </children>
                 </AnchorPane>

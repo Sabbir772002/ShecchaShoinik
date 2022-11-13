@@ -8,6 +8,8 @@ module com.example.sheccashoinik {
 
     opens BloodBank to javafx.fxml;
     exports BloodBank;
+    opens Profile to javafx.fxml;
+    exports Profile;
 
     opens Sign_in to javafx.fxml;
     exports Sign_in;
