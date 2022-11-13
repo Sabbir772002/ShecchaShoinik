@@ -15,7 +15,7 @@ public class ConnectionDb {
     {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/sheccashoinik","root","");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/shecchashoinik","root","");
             return con;
         } catch (Exception e) {
             System.err.println("Connection paitese na vai");

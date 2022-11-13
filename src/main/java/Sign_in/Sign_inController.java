@@ -26,7 +26,7 @@ public class Sign_inController implements Initializable {
     Connection con;
     public Sign_inController() {
         con = ConnectionDb.DB();
-        System.out.println("thik ase vai koibar bolbo");
+        System.out.println("thik ase vai koibar bolboo");
     }
     @FXML
     private ComboBox<String> sign_in_box;

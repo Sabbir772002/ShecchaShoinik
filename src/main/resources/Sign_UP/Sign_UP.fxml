@@ -29,7 +29,7 @@
             <ComboBox fx:id="cbgroup" layoutX="423.0" layoutY="361.0" prefHeight="26.0" prefWidth="175.0" promptText="Earthquake" />
             <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="334.0" layoutY="407.0" mnemonicParsing="false" onAction="#Sign_up" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: black; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="#f0f2f1" AnchorPane.leftAnchor="334.0">
                <font>
-                  <Font size="21.0" />
+                  <Font size="18.0" />
                </font>
             </Button>
             <TextField fx:id="name" layoutX="128.0" layoutY="102.0" prefHeight="22.0" prefWidth="246.0" promptText="Name" />
@@ -44,9 +44,9 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Button layoutX="334.0" layoutY="479.0" mnemonicParsing="false" onAction="#Signin" prefHeight="27.0" prefWidth="131.0" style="-fx-background-color: green; -fx-cursor: hand; -fx-background-radius: 10,10,10,10;" text=" Sign in">
+            <Button layoutX="334.0" layoutY="479.0" mnemonicParsing="false" onAction="#Signin" prefHeight="27.0" prefWidth="131.0" style="-fx-background-color: green; -fx-cursor: hand; -fx-background-radius: 10,10,10,10;" text=" Sign in" textFill="#f4eaea80">
                <font>
-                  <Font name="System Bold" size="13.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Button>
          </children>

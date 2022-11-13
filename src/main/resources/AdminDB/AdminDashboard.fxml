@@ -12,21 +12,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="684.0" prefWidth="1012.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminDB.AdminDashboardController">
    <left>
-      <VBox prefHeight="646.0" prefWidth="189.0" style="-fx-background-color: green;" BorderPane.alignment="CENTER">
-         <children>
-            <AnchorPane prefHeight="651.0" prefWidth="190.0">
-               <children>
-                  <ImageView fx:id="imageview1" fitHeight="105.0" fitWidth="123.0" layoutX="-8.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true" x="50.0" y="20.0">
-                     <image>
-                        <Image url="@../../Font/user1.png" />
-                     </image>
-                     <viewport>
-
-                     </viewport>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-         </children></VBox>
+      <VBox prefHeight="646.0" prefWidth="189.0" style="-fx-background-color: green;" BorderPane.alignment="CENTER" />
    </left>
    <top>
       <AnchorPane prefHeight="38.0" prefWidth="1009.0" style="-fx-background-color: #212020;" BorderPane.alignment="CENTER">

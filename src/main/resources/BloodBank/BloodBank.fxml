@@ -23,7 +23,7 @@
          <children>
             <ImageView fitHeight="93.0" fitWidth="113.0" layoutX="30.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@WhatsApp_Image_2022-11-11_at_21.57.53-removebg-preview%20(1).png" />
+
                </image>
             </ImageView>
             <Button layoutX="201.0" layoutY="77.0" mnemonicParsing="false" text="Button" />
