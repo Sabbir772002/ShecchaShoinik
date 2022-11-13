@@ -36,9 +36,7 @@
                         <Button layoutX="181.0" layoutY="43.0" mnemonicParsing="false" text="Blood Bank" />
                         <Button layoutX="265.0" layoutY="43.0" mnemonicParsing="false" text="Button" />
                         <ImageView fitHeight="103.0" fitWidth="113.0" layoutX="34.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@WhatsApp_Image_2022-11-11_at_21.57.53-removebg-preview%20(1).png" />
-                            </image>
+
                         </ImageView>
                     </children>
                 </Pane>

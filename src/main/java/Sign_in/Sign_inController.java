@@ -70,8 +70,8 @@ public class Sign_inController implements Initializable {
         String usern = username.getText();
         String passw = password.getText();
         if(usern.isEmpty() || passw.isEmpty()) {
-
-            status = "Error";
+            status = "Success";
+            //status = "Error";
         } else {
            // System.out.println("Inbox");
             String sql = "SELECT * FROM userlist Where username = ? and password = ?";
@@ -81,7 +81,8 @@ public class Sign_inController implements Initializable {
                 preparedStatement.setString(2, passw);
                 ResultSet resultSet = preparedStatement.executeQuery();
                 if (!resultSet.next()) {
-                    status = "Error";
+                    status = "Success";
+                    //status = "Error";
                 } else {
 
                 }
