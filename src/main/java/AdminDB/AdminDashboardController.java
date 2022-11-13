@@ -112,6 +112,19 @@ public class AdminDashboardController implements Initializable {
 
     @FXML
     void logout(ActionEvent event) {
+        try {
+
+            root = FXMLLoader.load(Sign_inController.class.getResource("Sign_in.fxml"));
+
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("SIGN IN");
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
     Pane p;
@@ -172,6 +185,22 @@ public class AdminDashboardController implements Initializable {
 
             } catch (Exception e) {
                 e.printStackTrace();
+            }
+        }else{
+            try {
+                //  FxmlLoader o = new FxmlLoader();
+                p=FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
+                // Pane p =o.getpane();
+                pane1.setCenter(p);
+                stage.setTitle("Profile");
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+           /* scene = new Scene(root);
+            stage.setScene(scene);*/
+                stage.setTitle("Profile");
+                stage.show();
+                System.out.println("helloApplication");
+            }catch (Exception e) {
+
             }
         }
 
