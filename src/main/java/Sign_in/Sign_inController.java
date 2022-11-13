@@ -9,9 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -19,6 +17,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.net.URL;
 import java.sql.*;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 
@@ -49,6 +48,7 @@ public class Sign_inController implements Initializable {
     @FXML
     void sign_in(ActionEvent event) {
 
+
             if (logIn().equals("Success")) {
                 try {
                     root = FXMLLoader.load(AdminDB.AdminDashboardController.class.getResource("AdminDashboard.fxml"));
@@ -61,6 +61,18 @@ public class Sign_inController implements Initializable {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Sign in Error!");
+                alert.setHeaderText("Please input correct info or Sign Up");
+                File file = new File("src/main/Font/icon1.png");
+                Image image = new Image(file.toURI().toString());
+                stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(image);
+
+                user.setImage(image);
+                Optional<ButtonType> result=alert.showAndWait();
+
             }
 
     }
@@ -70,8 +82,8 @@ public class Sign_inController implements Initializable {
         String usern = username.getText();
         String passw = password.getText();
         if(usern.isEmpty() || passw.isEmpty()) {
-            status = "Success";
-            //status = "Error";
+            //status = "Success";
+            status = "Error";
         } else {
            // System.out.println("Inbox");
             String sql = "SELECT * FROM userlist Where username = ? and password = ?";
@@ -81,8 +93,8 @@ public class Sign_inController implements Initializable {
                 preparedStatement.setString(2, passw);
                 ResultSet resultSet = preparedStatement.executeQuery();
                 if (!resultSet.next()) {
-                    status = "Success";
-                    //status = "Error";
+                   // status = "Success";
+                    status = "Error";
                 } else {
 
                 }

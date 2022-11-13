@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -129,22 +130,25 @@ public class AdminDashboardController implements Initializable {
     }
     Pane p;
 
+
     @FXML
     void profile(ActionEvent event) {
-        try {
-          //  FxmlLoader o = new FxmlLoader();
-            p=FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
-           // Pane p =o.getpane();
-            pane1.setCenter(p);
-            stage.setTitle("Profile");
-           stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        for (int i = 0; i < 10; i++) {
+            try {
+                //  FxmlLoader o = new FxmlLoader();
+                p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
+                // Pane p =o.getpane();
+                pane1.setCenter(p);
+                stage.setTitle("Profile");
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
            /* scene = new Scene(root);
             stage.setScene(scene);*/
-            stage.setTitle("Profile");
-            stage.show();
-            System.out.println("helloApplication");
-        }catch (Exception e) {
+                stage.setTitle("Profile");
+                stage.show();
+                System.out.println("helloApplication");
+            } catch (Exception e) {
 
+            }
         }
 
     }
@@ -186,23 +190,24 @@ public class AdminDashboardController implements Initializable {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }else{
-            try {
-                //  FxmlLoader o = new FxmlLoader();
-                p=FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
-                // Pane p =o.getpane();
-                pane1.setCenter(p);
-                stage.setTitle("Profile");
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        }else {
+
+                try {
+                    //  FxmlLoader o = new FxmlLoader();
+                    p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
+                    // Pane p =o.getpane();
+                    pane1.setCenter(p);
+                    stage.setTitle("Profile");
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
            /* scene = new Scene(root);
             stage.setScene(scene);*/
-                stage.setTitle("Profile");
-                stage.show();
-                System.out.println("helloApplication");
-            }catch (Exception e) {
+                    stage.setTitle("Profile");
+                    stage.show();
+                    System.out.println("helloApplication");
+                } catch (Exception e) {
 
+                }
             }
-        }
 
     }
 
