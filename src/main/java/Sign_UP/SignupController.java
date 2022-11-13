@@ -48,7 +48,7 @@ public class SignupController implements Initializable {
     private TextField name;
 
     @FXML
-    private TextField pass;
+    private TextField password;
 
     @FXML
     private TextField phone;
@@ -87,7 +87,7 @@ public class SignupController implements Initializable {
             preparedStatement = (PreparedStatement) connection.prepareStatement(st);
             preparedStatement.setString(1, name.getText());
             preparedStatement.setString(2, username.getText());
-            preparedStatement.setString(3, pass.getText());
+            preparedStatement.setString(3, password.getText());
             preparedStatement.setString(4, cbdivision.getValue().toString());
             preparedStatement.setString(5, cbdistrict.getValue().toString());
             preparedStatement.setString(6,dob.getValue().toString());
@@ -127,12 +127,48 @@ public class SignupController implements Initializable {
         }
         if(divisionname.equals("Dhaka")){
             cbdistrict.getItems().removeAll(cbdistrict.getItems());
-            String []ditrict={"Dhaka","Gazipur","Chattogram","Barishal","Rangpur","Sylet","Khulna", "Maymensingh"};
+            String []ditrict={"Dhaka","Gazipur","Faridpur","Gopalganj","Jamalpur","Kishoreganj","Madaripur","Manikganj","Munshiganj","Narayanganj","Narshingdi","Rajbari","Shariatpur","Tangail"};
             cbdistrict.getItems().addAll(ditrict);
         }else if(divisionname.equals("Rajshahi")){
             cbdistrict.getItems().removeAll(cbdistrict.getItems());
 
-            String []ditrict={"Rajshahi","Sirajgong","Chattogram","Barishal","Rangpur","Sylet","Khulna", "Maymensingh"};
+            String []ditrict={"Rajshahi","Sirajgonj","Bogra","Chapinawabganj","Joypurhat","Naogaon","Natore","Pabna"};
+            cbdistrict.getItems().addAll(ditrict);
+        }
+        else if(divisionname.equals("Chattogram")){
+            cbdistrict.getItems().removeAll(cbdistrict.getItems());
+
+            String []ditrict={"Chattogram","Cox's Bazar", "Rangamati", "Bandarban", "Khagrachhari", "Feni", "Lakshmipur", "Comilla"," Noakhali", "Brahmanbaria" ,"Chandpur"};
+            cbdistrict.getItems().addAll(ditrict);
+        }
+        else if(divisionname.equals("Barishal")){
+            cbdistrict.getItems().removeAll(cbdistrict.getItems());
+
+            String []ditrict={"Barishal", "Barguna", "Bhola", "Jhalokati", "Pirojpur","Patuakhali"};
+            cbdistrict.getItems().addAll(ditrict);
+        }
+        else if(divisionname.equals("Sylhet")){
+            cbdistrict.getItems().removeAll(cbdistrict.getItems());
+
+            String []ditrict={"Sylhet","Habiganj","Moulvibazar","Sunamganj" };
+            cbdistrict.getItems().addAll(ditrict);
+        }
+        else if(divisionname.equals("Mymensingh")){
+            cbdistrict.getItems().removeAll(cbdistrict.getItems());
+
+            String []ditrict={"Mymensingh","Jamalpur","Netrokona","Sherpur" };
+            cbdistrict.getItems().addAll(ditrict);
+        }
+        else if(divisionname.equals("Khulna")){
+            cbdistrict.getItems().removeAll(cbdistrict.getItems());
+
+            String []ditrict={"Khulna","Bagherhat","Chuadanga","Jessore","Jinaidaha","Magura","Meherpur","Narail","Satkhira" };
+            cbdistrict.getItems().addAll(ditrict);
+        }
+        else if(divisionname.equals("Rangpur")){
+            cbdistrict.getItems().removeAll(cbdistrict.getItems());
+
+            String []ditrict={"Rangpur","Kurigram","Gaibandha","Thakurgaon","Dinajpur","Nilphamari","Panchagarh","Lalmonirhat" };
             cbdistrict.getItems().addAll(ditrict);
         }
     }
@@ -140,7 +176,7 @@ public class SignupController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String []user={"User","Volunteer Team"};
         cb_sign_up.getItems().addAll(user);
-        String []division={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylet","Khulna", "Maymensingh"};
+        String []division={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
         cbdivision.getItems().addAll(division);
         String []user1={"Male","Female","Others"};
         cbGender.getItems().addAll(user1);
