@@ -85,11 +85,11 @@ public class SignupController implements Initializable {
     @FXML
     void Sign_up(ActionEvent event) {
         System.out.println("vai aita ki hoilo");
-        if(name.getText().isEmpty() || username.getText().isEmpty() || password.getText().isEmpty()||dob.getValue().toString().length()<10|| cbdivision.getSelectionModel().isEmpty() ||cbdistrict.getSelectionModel().isEmpty() || cbgroup.getSelectionModel().isEmpty() || cbGender.getSelectionModel().isEmpty() || bloodgroup.getSelectionModel().isEmpty() || phone.getText().isEmpty() || mail.getText().isEmpty()){
+        if(name.getText().isEmpty() || username.getText().isEmpty() || password.getText().isEmpty()||dob.getValue()==null|| cbdivision.getSelectionModel().isEmpty() ||cbdistrict.getSelectionModel().isEmpty() || cbgroup.getSelectionModel().isEmpty() || cbGender.getSelectionModel().isEmpty() || bloodgroup.getSelectionModel().isEmpty() || phone.getText().isEmpty() || mail.getText().isEmpty()){
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Sign up Error!");
-            alert.setHeaderText("Something went wrong!\nPlease try again with proper info");
+            alert.setHeaderText("Something went wrong!\nPlease try again with proper info.");
            // alert.setContentText("");
             File file = new File("src/main/Font/icon1.png");
             Image image = new Image(file.toURI().toString());
@@ -192,7 +192,7 @@ public class SignupController implements Initializable {
         cbdivision.getItems().addAll(division);
         String []user1={"Male","Female","Others"};
         cbGender.getItems().addAll(user1);
-        String []user2={"EarthQuake","Blood"};
+        String []user2={"EarthQuake","Blood","Fire","Cyclone","Cidor","Others"};
         cbgroup.getItems().addAll(user2);
         String []user3={"A+","A-","B+","B-","AB+","AB-","O+","O-"};
         bloodgroup.getItems().addAll(user3);
