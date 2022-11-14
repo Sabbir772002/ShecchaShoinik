@@ -15,12 +15,11 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -76,6 +75,8 @@ public class AdminDashboardController implements Initializable {
     void BbankClick(MouseEvent event) {
 
     }
+    @FXML
+    private ScrollPane spane;
 
 
     @FXML
@@ -92,7 +93,25 @@ public class AdminDashboardController implements Initializable {
     }
 
     @FXML
-    void Diaster(ActionEvent event) {
+    void Diaster(ActionEvent event) throws IOException {
+      /*  VBox vbox[]=new VBox[3];
+        for(int i =0;i<3;i++) {
+            p = FXMLLoader.load(Sign_inController.class.getResource("Sign_in.fxml"));
+            vbox[i]=new VBox();
+            vbox[i].getChildren().add(p);
+            *//*stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("SIGN IN");
+            stage.show();*//*
+
+        }
+        //AnchorPane apane = new AnchorPane();
+        HBox a = new HBox();
+        a.getChildren().add(vbox);
+        pane1.setCenter(vbox);
+*/
+
 
     }
 
@@ -233,7 +252,7 @@ public class AdminDashboardController implements Initializable {
 
                 try {
                     //  FxmlLoader o = new FxmlLoader();
-                    root = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
+                    p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
 
                     pane1.setCenter(p);
                     stage.setTitle("Profile");
