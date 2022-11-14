@@ -29,10 +29,18 @@ public class ProfileController implements Initializable {
 
     @FXML
     private Circle image2;
+    public static String username="";
+    public String password="";
+
+
+    public static void setname(String user) {username = user;
+    }
+
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println("username= " + username);
         File file = new File("src/main/Font/guy.png");
         Image image = new Image(file.toURI().toString());
         cirimage.setImage(image);

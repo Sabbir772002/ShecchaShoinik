@@ -40,6 +40,15 @@ public class Sign_inController implements Initializable {
 
     @FXML
     private TextField username;
+
+    @FXML
+    private Label passl;
+
+    @FXML
+    private Label userl;
+    @FXML
+    private Label selectl;
+
     private Stage stage;
 
     private Scene scene;
@@ -70,7 +79,7 @@ public class Sign_inController implements Initializable {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }else{
+            }else if(logIn().equals("Error")){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Sign in Error!");
                 alert.setHeaderText("Please input correct info or Sign Up");
@@ -92,9 +101,24 @@ public class Sign_inController implements Initializable {
          usern = username.getText();
         ad.set(usern);
         String passw = password.getText();
-        if(usern.isEmpty() || passw.isEmpty()) {
+        if(usern.isEmpty() || passw.isEmpty() || sign_in_box.getSelectionModel().isEmpty()) {
+           if(usern.isEmpty()) {
+               userl.setVisible(true);
+           }else {
+               userl.setVisible(false);
+           }
+            if(passw.isEmpty()) {
+                passl.setVisible(true);
+            }else {
+                passl.setVisible(false);
+            }
+            if(sign_in_box.getSelectionModel().isEmpty()){
+                selectl.setVisible(true);
+            }else {
+                selectl.setVisible(false);
+            }
             //status = "Success";
-            status = "Error";
+            status = "Errorr";
         } else {
            // System.out.println("Inbox");
             String sql = "SELECT * FROM userlist Where username = ? and password = ?";

@@ -11,10 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -25,6 +22,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AdminDashboardController implements Initializable {
@@ -131,12 +129,25 @@ public class AdminDashboardController implements Initializable {
     @FXML
     void logout(ActionEvent event) {
         try {
-            root = FXMLLoader.load(Sign_inController.class.getResource("Sign_in.fxml"));
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("SIGN IN");
-            stage.show();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Logout Confirmation");
+            alert.setHeaderText("Are you sure you want to log out?");
+            File file = new File("src/main/Font/icon1.png");
+            Image image = new Image(file.toURI().toString());
+            stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(image);
+           // alert.initOwner(stage);
+            //alert.setGraphic(new ImageView(image));
+            //user.setImage(image);
+            Optional<ButtonType> result=alert.showAndWait();
+            if(alert.getResult().getText().equals("OK")){
+                root = FXMLLoader.load(Sign_inController.class.getResource("Sign_in.fxml"));
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.setTitle("SIGN IN");
+                stage.show();
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -150,9 +161,11 @@ public class AdminDashboardController implements Initializable {
     void profile(ActionEvent event) {
 
             try {
-                //  FxmlLoader o = new FxmlLoader();
+                // FXMLLoader o = new FXMLLoader(Profile.ProfileController.class.getResource("Profile.fxml"));
                 p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
-                // Pane p =o.getpane();
+                //Pane p =o.;
+                /*root=o.load();
+                ProfileController pc=o.getController();*/
                 pane1.setCenter(p);
                 stage.setTitle("Profile");
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -193,14 +206,25 @@ public class AdminDashboardController implements Initializable {
     void Choiceclick(ActionEvent event) {
         if(choice.getValue().toString().equals("Logout")){
             try {
-
-                 root = FXMLLoader.load(Sign_inController.class.getResource("Sign_in.fxml"));
-
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.setTitle("SIGN IN");
-                stage.show();
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Logout Confirmation");
+                alert.setHeaderText("Are you sure you want to log out?");
+                File file = new File("src/main/Font/icon1.png");
+                Image image = new Image(file.toURI().toString());
+                stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(image);
+                // alert.initOwner(stage);
+                //alert.setGraphic(new ImageView(image));
+                //user.setImage(image);
+                Optional<ButtonType> result=alert.showAndWait();
+                if(alert.getResult().getText().equals("OK")){
+                    root = FXMLLoader.load(Sign_inController.class.getResource("Sign_in.fxml"));
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.setTitle("SIGN IN");
+                    stage.show();
+                }
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -209,13 +233,12 @@ public class AdminDashboardController implements Initializable {
 
                 try {
                     //  FxmlLoader o = new FxmlLoader();
-                    p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
-                    // Pane p =o.getpane();
+                    root = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
+
                     pane1.setCenter(p);
                     stage.setTitle("Profile");
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-           /* scene = new Scene(root);
-            stage.setScene(scene);*/
+                   stage.setScene(scene);
                     stage.setTitle("Profile");
                     stage.show();
                     System.out.println("helloApplication");
