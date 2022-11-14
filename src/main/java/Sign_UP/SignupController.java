@@ -12,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
 import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
@@ -64,6 +63,8 @@ public class SignupController implements Initializable {
     Connection connection;
 
     public SignupController() {
+      //  ConnectionDb o=new ConnectionDb();
+
         connection = (Connection) ConnectionDb.DB();
     }
     @FXML

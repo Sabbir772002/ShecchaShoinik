@@ -2,6 +2,8 @@ package AdminDB;
 
 import Dashboard.ProfileController;
 import Sign_in.Sign_inController;
+import com.example.sheccashoinik.Application;
+import com.example.sheccashoinik.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -59,6 +61,13 @@ public class AdminDashboardController implements Initializable {
     @FXML
     private ImageView imageview;
 */
+    public String username="";
+
+
+    public void set(String username) {
+        this.username = username;
+    }
+
     @FXML
     private ImageView imageview1;
 
@@ -73,6 +82,14 @@ public class AdminDashboardController implements Initializable {
 
     @FXML
     void Dashboard(ActionEvent event) {
+      /* *//* Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        // Step 2
+        User u = (User) stage.getUserData();
+        // Step 3
+        String name = u.getname();*//*
+       // String email = u.getEmail();*/
+        System.out.println("vaiya ki khobor "+username);
 
     }
 
@@ -114,9 +131,7 @@ public class AdminDashboardController implements Initializable {
     @FXML
     void logout(ActionEvent event) {
         try {
-
             root = FXMLLoader.load(Sign_inController.class.getResource("Sign_in.fxml"));
-
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -133,7 +148,7 @@ public class AdminDashboardController implements Initializable {
 
     @FXML
     void profile(ActionEvent event) {
-        for (int i = 0; i < 10; i++) {
+
             try {
                 //  FxmlLoader o = new FxmlLoader();
                 p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
@@ -151,7 +166,7 @@ public class AdminDashboardController implements Initializable {
             }
         }
 
-    }
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -232,7 +247,7 @@ public class AdminDashboardController implements Initializable {
         file1 = new File("src/main/Font/icon1.png");
         Image image5 = new Image(file1.toURI().toString());
         imageview1.setImage(image5);
-
+username= Application.oname;
 
      //   choice.setOnAction(this::ChoiceClick);
 
