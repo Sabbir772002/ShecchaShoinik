@@ -1,7 +1,11 @@
 package Sign_in;
 
+import AdminDB.AdminDashboardController;
+import AdminDB.FXMLScene;
 import DB.ConnectionDb;
 import Profile.ProfileController;
+import com.example.sheccashoinik.Application;
+import com.example.sheccashoinik.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,19 +13,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-
 import java.io.File;
 import java.net.URL;
 import java.sql.*;
+import java.util.Optional;
 import java.util.ResourceBundle;
-
-
 
 public class Sign_inController implements Initializable {
     Connection con;
@@ -40,38 +40,85 @@ public class Sign_inController implements Initializable {
 
     @FXML
     private TextField username;
+
+    @FXML
+    private Label passl;
+
+    @FXML
+    private Label userl;
+    @FXML
+    private Label selectl;
+
     private Stage stage;
 
     private Scene scene;
-    private Parent root;
+     Parent root;
+    String usern="";
+    AdminDashboardController ad=new AdminDashboardController();
+
 
 
     @FXML
     void sign_in(ActionEvent event) {
-
+   Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+       User u=new User();
+       u.setname(usern);
             if (logIn().equals("Success")) {
                 try {
-                    root = FXMLLoader.load(AdminDB.AdminDashboardController.class.getResource("AdminDashboard.fxml"));
+
+                    FXMLScene scene =  FXMLScene.load("AdminDashboard.fxml");
+                    Parent root = scene.root;
+                    AdminDashboardController adminController = (AdminDashboardController) scene.controller;
+                    adminController.set(usern);
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    scene = new Scene(root);
-                    stage.setScene(scene);
+                    stage.setScene(new Scene(root));
                     stage.setTitle("Dashboard");
                     stage.show();
+
 
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            }else if(logIn().equals("Error")){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Sign in Error!");
+                alert.setHeaderText("Please input correct info or Sign Up");
+                File file = new File("src/main/Font/icon1.png");
+                Image image = new Image(file.toURI().toString());
+                stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(image);
+                alert.initOwner(stage1);
+                //alert.setGraphic(new ImageView(image));
+                //user.setImage(image);
+                Optional<ButtonType> result=alert.showAndWait();
+
             }
 
     }
     private String logIn() {
         String status = "Success";
         System.out.println( password.getText());
-        String usern = username.getText();
+         usern = username.getText();
+        ad.set(usern);
         String passw = password.getText();
-        if(usern.isEmpty() || passw.isEmpty()) {
-
-            status = "Error";
+        if(usern.isEmpty() || passw.isEmpty() || sign_in_box.getSelectionModel().isEmpty()) {
+           if(usern.isEmpty()) {
+               userl.setVisible(true);
+           }else {
+               userl.setVisible(false);
+           }
+            if(passw.isEmpty()) {
+                passl.setVisible(true);
+            }else {
+                passl.setVisible(false);
+            }
+            if(sign_in_box.getSelectionModel().isEmpty()){
+                selectl.setVisible(true);
+            }else {
+                selectl.setVisible(false);
+            }
+            //status = "Success";
+            status = "Errorr";
         } else {
            // System.out.println("Inbox");
             String sql = "SELECT * FROM userlist Where username = ? and password = ?";
@@ -81,6 +128,7 @@ public class Sign_inController implements Initializable {
                 preparedStatement.setString(2, passw);
                 ResultSet resultSet = preparedStatement.executeQuery();
                 if (!resultSet.next()) {
+                   // status = "Success";
                     status = "Error";
                 } else {
 
@@ -98,12 +146,12 @@ public class Sign_inController implements Initializable {
     @FXML
     void sign_up(ActionEvent event) {
         try {
-           // root = FXMLLoader.load(Sign_UP.SignupController.class.getResource("Sign_UP.fxml"));
-            root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
+            root = FXMLLoader.load(Sign_UP.SignupController.class.getResource("Sign_UP.fxml"));
+            // root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("SIGN UP");
+            stage.setTitle("Profile");
             stage.show();
 
         } catch (Exception e) {

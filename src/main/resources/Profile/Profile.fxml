@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="942.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Profile.ProfileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="643.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Profile.ProfileController">
     <children>
         <ImageView fx:id="back" fitHeight="35.0" fitWidth="45.0" layoutX="320.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
 
@@ -35,12 +35,12 @@
             </font>
         </Label>
         <Button layoutX="527.0" layoutY="321.0" mnemonicParsing="false" style="-fx-background-color: #985AAA; -fx-background-radius: 10px;" text="CHAT" textFill="#ece4e4" />
-        <Label layoutX="385.0" layoutY="360.0" prefHeight="26.0" prefWidth="414.0" text="Email: peter345@gmail.com">
+        <Label layoutX="429.0" layoutY="359.0" prefHeight="26.0" prefWidth="300.0" text="peter345@gmail.com">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="385.0" layoutY="401.0" prefHeight="20.0" prefWidth="183.0" text="Phone: 0123456">
+        <Label layoutX="435.0" layoutY="401.0" prefHeight="20.0" prefWidth="183.0" text="01571144383">
             <font>
                 <Font size="14.0" />
             </font>
@@ -56,14 +56,14 @@
             </font>
         </Label>
         <Circle fx:id="image2" fill="#ededed0a" layoutX="533.0" layoutY="146.0" radius="86.0" rotate="179.2" stroke="#dc0594" strokeType="INSIDE" />
-        <ImageView fx:id="image10" fitHeight="60.0" fitWidth="53.0" layoutX="842.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="image100" fitHeight="60.0" fitWidth="53.0" layoutX="842.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
 
         </ImageView>
-        <VBox layoutX="22.0" layoutY="15.0" prefHeight="622.0" prefWidth="274.0">
+        <VBox layoutX="22.0" layoutY="15.0" prefHeight="622.0" prefWidth="207.0">
             <children>
                 <AnchorPane prefHeight="136.0" prefWidth="230.0">
                     <children>
-                        <ImageView fx:id="image10" fitHeight="144.0" fitWidth="172.0" layoutX="55.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="image10" fitHeight="151.0" fitWidth="227.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
 
                         </ImageView>
                     </children>
@@ -115,5 +115,20 @@
                </font></Button>
             </children>
         </VBox>
+      <Label layoutX="383.0" layoutY="359.0" prefHeight="26.0" prefWidth="45.0" text="Email:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="383.0" layoutY="401.0" prefHeight="20.0" prefWidth="45.0" text="Phone:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="385.0" layoutY="421.0" prefHeight="20.0" prefWidth="45.0" text="Division:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

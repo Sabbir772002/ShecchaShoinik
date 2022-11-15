@@ -40,7 +40,7 @@ public class ProfileController implements Initializable {
         heart.setImage(image);
         file = new File("src/main/Font/-menu-vector-icon-.png");
         image = new Image(file.toURI().toString());
-       // image1.setImage(image);
+        image1.setImage(image);
         file = new File("src/main/Font/Angle_left_font_.png");
         image = new Image(file.toURI().toString());
         back.setImage(image);

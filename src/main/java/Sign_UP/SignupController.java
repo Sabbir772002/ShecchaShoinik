@@ -9,14 +9,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class SignupController implements Initializable {
@@ -62,6 +63,8 @@ public class SignupController implements Initializable {
     Connection connection;
 
     public SignupController() {
+      //  ConnectionDb o=new ConnectionDb();
+
         connection = (Connection) ConnectionDb.DB();
     }
     @FXML
@@ -83,34 +86,47 @@ public class SignupController implements Initializable {
     @FXML
     void Sign_up(ActionEvent event) {
         System.out.println("vai aita ki hoilo");
-        try {
-            String st = "INSERT INTO userlist (Name,Username,Password,Division,District,DOB,ID,Gender,Volunteer,BG,Phone,Mail) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-            preparedStatement = (PreparedStatement) connection.prepareStatement(st);
-            preparedStatement.setString(1, name.getText());
-            preparedStatement.setString(2, username.getText());
-            preparedStatement.setString(3, password.getText());
-            preparedStatement.setString(4, cbdivision.getValue().toString());
-            preparedStatement.setString(5, cbdistrict.getValue().toString());
-            preparedStatement.setString(6,dob.getValue().toString());
-            preparedStatement.setString(7, "1963890981");
-            preparedStatement.setString(8, cbGender.getValue().toString());
-            preparedStatement.setString(9, cbgroup.getValue().toString());
-            preparedStatement.setString(10, bloodgroup.getValue().toString());
-            preparedStatement.setString(11, phone.getText());
-            preparedStatement.setString(12, mail.getText());
-            preparedStatement.execute();
-            preparedStatement.close();
-            connection.close();
-            System.out.println("THIK ASE INPUT");
-            root = FXMLLoader.load(Sign_inController.class.getResource("Sign_in.fxml"));
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("SIGN IN");
-            stage.show();
+        if(name.getText().isEmpty() || username.getText().isEmpty() || password.getText().isEmpty()||dob.getValue()==null|| cbdivision.getSelectionModel().isEmpty() ||cbdistrict.getSelectionModel().isEmpty() || cbgroup.getSelectionModel().isEmpty() || cbGender.getSelectionModel().isEmpty() || bloodgroup.getSelectionModel().isEmpty() || phone.getText().isEmpty() || mail.getText().isEmpty()){
 
-        } catch (Exception e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Sign up Error!");
+            alert.setHeaderText("Something went wrong!\nPlease try again with proper info.");
+           // alert.setContentText("");
+            File file = new File("src/main/Font/icon1.png");
+            Image image = new Image(file.toURI().toString());
+            stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(image);
+            Optional<ButtonType> result=alert.showAndWait();
+        }else {
+            try {
+                String st = "INSERT INTO userlist (Name,Username,Password,Division,District,DOB,ID,Gender,Volunteer,BG,Phone,Mail) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                preparedStatement = (PreparedStatement) connection.prepareStatement(st);
+                preparedStatement.setString(1, name.getText());
+                preparedStatement.setString(2, username.getText());
+                preparedStatement.setString(3, password.getText());
+                preparedStatement.setString(4, cbdivision.getValue().toString());
+                preparedStatement.setString(5, cbdistrict.getValue().toString());
+                preparedStatement.setString(6, dob.getValue().toString());
+                preparedStatement.setString(7, "1963890981");
+                preparedStatement.setString(8, cbGender.getValue().toString());
+                preparedStatement.setString(9, cbgroup.getValue().toString());
+                preparedStatement.setString(10, bloodgroup.getValue().toString());
+                preparedStatement.setString(11, phone.getText());
+                preparedStatement.setString(12, mail.getText());
+                preparedStatement.execute();
+                preparedStatement.close();
+                connection.close();
+                System.out.println("THIK ASE INPUT");
+                root = FXMLLoader.load(Sign_inController.class.getResource("Sign_in.fxml"));
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.setTitle("SIGN IN");
+                stage.show();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
     }
@@ -177,7 +193,7 @@ public class SignupController implements Initializable {
         cbdivision.getItems().addAll(division);
         String []user1={"Male","Female","Others"};
         cbGender.getItems().addAll(user1);
-        String []user2={"EarthQuake","Blood"};
+        String []user2={"EarthQuake","Blood","Fire","Cyclone","Cidor","Others"};
         cbgroup.getItems().addAll(user2);
         String []user3={"A+","A-","B+","B-","AB+","AB-","O+","O-"};
         bloodgroup.getItems().addAll(user3);
