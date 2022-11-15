@@ -94,23 +94,27 @@ public class AdminDashboardController implements Initializable {
 
     @FXML
     void Diaster(ActionEvent event) throws IOException {
-      /*  VBox vbox[]=new VBox[3];
-        for(int i =0;i<3;i++) {
-            p = FXMLLoader.load(Sign_inController.class.getResource("Sign_in.fxml"));
-            vbox[i]=new VBox();
-            vbox[i].getChildren().add(p);
-            *//*stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("SIGN IN");
-            stage.show();*//*
 
-        }
-        //AnchorPane apane = new AnchorPane();
-        HBox a = new HBox();
-        a.getChildren().add(vbox);
-        pane1.setCenter(vbox);
-*/
+
+
+        //for cheking purposes only
+                  /*  VBox vbox[]=new VBox[3];
+                    for(int i =0;i<3;i++) {
+                        p = FXMLLoader.load(Sign_inController.class.getResource("Sign_in.fxml"));
+                        vbox[i]=new VBox();
+                        vbox[i].getChildren().add(p);
+                        *//*stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.setTitle("SIGN IN");
+                        stage.show();*//*
+
+                    }
+                    //AnchorPane apane = new AnchorPane();
+                    HBox a = new HBox();
+                    a.getChildren().add(vbox);
+                    pane1.setCenter(vbox);
+            */
 
 
     }

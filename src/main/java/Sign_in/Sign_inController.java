@@ -61,11 +61,20 @@ public class Sign_inController implements Initializable {
     @FXML
     void sign_in(ActionEvent event) {
    Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
-       User u=new User();
-       u.setname(usern);
-            if (logIn().equals("Success")) {
-                try {
 
+            if (logIn().equals("Success")) {
+                try  { Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Login Successfully!");
+                alert.setHeaderText("Login Successfully!");
+                File file = new File("src/main/Font/icon1.png");
+                Image image = new Image(file.toURI().toString());
+                stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(image);
+                //alert.initOwner(stage);
+                //alert.setGraphic(new ImageView(image));
+                //user.setImage(image);
+                Optional<ButtonType> result=alert.showAndWait();
+                if(alert.getResult().getText().equals("OK")){
                     FXMLScene scene =  FXMLScene.load("AdminDashboard.fxml");
                     Parent root = scene.root;
                     AdminDashboardController adminController = (AdminDashboardController) scene.controller;
@@ -74,7 +83,7 @@ public class Sign_inController implements Initializable {
                     stage.setScene(new Scene(root));
                     stage.setTitle("Dashboard");
                     stage.show();
-
+                }
 
                 } catch (Exception e) {
                     e.printStackTrace();
