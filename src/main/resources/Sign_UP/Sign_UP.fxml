@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="663.0" prefWidth="931.0" style="-fx-background-color: #00b4d8;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_UP.SignupController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="663.0" prefWidth="931.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_UP.SignupController">
    <children>
-      <AnchorPane layoutX="73.0" layoutY="48.0" prefHeight="566.0" prefWidth="799.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="73.0">
+      <AnchorPane layoutX="73.0" layoutY="48.0" prefHeight="566.0" prefWidth="799.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%); -fx-background-radius: 10;" AnchorPane.leftAnchor="73.0">
          <children>
             <Label alignment="CENTER" layoutX="278.0" layoutY="14.0" prefHeight="32.0" prefWidth="226.0" text="SIGN UP AS A" textFill="#15d16b">
                <font>
@@ -21,13 +21,13 @@
             <ComboBox fx:id="cbdistrict" layoutX="606.0" layoutY="254.0" prefHeight="26.0" prefWidth="143.0" promptText="District" />
             <ComboBox fx:id="cbdivision" layoutX="606.0" layoutY="213.0" onAction="#Select" prefHeight="26.0" prefWidth="143.0" promptText="Division" />
             <ComboBox fx:id="bloodgroup" layoutX="606.0" layoutY="298.0" prefHeight="26.0" prefWidth="143.0" promptText="Blood group" />
-            <Label alignment="CENTER" layoutX="196.0" layoutY="361.0" prefHeight="26.0" prefWidth="206.0" style="-fx-background-color: #00b4d8;" text="Interested Volunter Field:" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="196.0" layoutY="361.0" prefHeight="26.0" prefWidth="206.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);;" text="Interested Volunter Field:" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
             <ComboBox fx:id="cbgroup" layoutX="423.0" layoutY="361.0" prefHeight="26.0" prefWidth="175.0" promptText="Earthquake" />
-            <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="334.0" layoutY="407.0" mnemonicParsing="false" onAction="#Sign_up" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: black; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="#f0f2f1" AnchorPane.leftAnchor="334.0">
+            <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="334.0" layoutY="407.0" mnemonicParsing="false" onAction="#Sign_up" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: green; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="#f0f2f1" AnchorPane.leftAnchor="334.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -39,12 +39,12 @@
             <DatePicker fx:id="dob" layoutX="127.0" layoutY="254.0" prefHeight="26.0" prefWidth="138.0" promptText="07/02/1995" />
             <ComboBox fx:id="cbGender" layoutX="127.0" layoutY="297.0" prefHeight="26.0" prefWidth="138.0" promptText="Male" />
             <TextField fx:id="password" layoutX="127.0" layoutY="213.0" prefHeight="26.0" prefWidth="138.0" promptText="Password" />
-            <Label alignment="CENTER" layoutX="299.0" layoutY="453.0" prefHeight="26.0" prefWidth="206.0" text="Already have an account?" textFill="#616161">
+            <Label alignment="CENTER" layoutX="299.0" layoutY="453.0" prefHeight="26.0" prefWidth="206.0" text="Already have an account?" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Button layoutX="334.0" layoutY="479.0" mnemonicParsing="false" onAction="#Signin" prefHeight="27.0" prefWidth="131.0" style="-fx-background-color: green; -fx-cursor: hand; -fx-background-radius: 10,10,10,10;" text=" Sign in" textFill="#f4eaea80">
+            <Button layoutX="334.0" layoutY="479.0" mnemonicParsing="false" onAction="#Signin" prefHeight="27.0" prefWidth="131.0" style="-fx-background-color: blue; -fx-cursor: hand; -fx-background-radius: 10,10,10,10;" text=" Sign in" textFill="#f4eaea80">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

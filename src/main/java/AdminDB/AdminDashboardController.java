@@ -186,14 +186,10 @@ public class AdminDashboardController implements Initializable {
             try {
                 // FXMLLoader o = new FXMLLoader(Profile.ProfileController.class.getResource("Profile.fxml"));
                 p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
-                //Pane p =o.;
-                /*root=o.load();
-                ProfileController pc=o.getController();*/
                 pane1.setCenter(p);
                 stage.setTitle("Profile");
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-           /* scene = new Scene(root);
-            stage.setScene(scene);*/
+
                 stage.setTitle("Profile");
                 stage.show();
                 System.out.println("helloApplication");

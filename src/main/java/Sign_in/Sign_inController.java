@@ -174,7 +174,7 @@ public class Sign_inController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String items[]={"User","Volunteer Leader","Admin"};
         sign_in_box.getItems().addAll(items);
-        File file = new File("src/main/Font/user-fill.png");
+        File file = new File("src/main/Font/user.png");
         Image image = new Image(file.toURI().toString());
         user.setImage(image);
         file = new File("src/main/Font/lock-outline.png");

@@ -69,7 +69,7 @@ public class HomeController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         File file = new File("src/main/Font/logo.png");
         Image image = new Image(file.toURI().toString());
-        backfont.setImage(image);
+        //backfont.setImage(image);
         file = new File("src/main/Font/icon1.png");
         image = new Image(file.toURI().toString());
         logo.setImage(image);
