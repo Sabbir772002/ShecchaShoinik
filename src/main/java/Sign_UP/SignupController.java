@@ -65,7 +65,7 @@ public class SignupController implements Initializable {
     public SignupController() {
       //  ConnectionDb o=new ConnectionDb();
 
-        connection = (Connection) ConnectionDb.DB();
+        connection = (Connection) ConnectionDb.DBC();
     }
     @FXML
     void Signin(ActionEvent event) {

@@ -26,8 +26,8 @@ import java.util.ResourceBundle;
 public class Sign_inController implements Initializable {
     Connection con;
     public Sign_inController() {
-        con = ConnectionDb.DB();
-        System.out.println("thik ase vai koibar bolboo");
+        con = ConnectionDb.DBC();
+       // System.out.println("thik ase vai koibar bolboo");
     }
     @FXML
     private ComboBox<String> sign_in_box;
@@ -156,7 +156,7 @@ public class Sign_inController implements Initializable {
     void sign_up(ActionEvent event) {
         try {
             root = FXMLLoader.load(Sign_UP.SignupController.class.getResource("Sign_UP.fxml"));
-            // root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
+            // root = FXMLLoader.load(ProfileController.class.getResource("Profile1.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
