@@ -182,11 +182,11 @@ public class AdminDashboardController implements Initializable {
        /* try {
             System.out.println("ok");
 
-          //Pane p = FXMLScene.loadpane("Profile1.fxml");
-            FXMLLoader fxmlLoader = FXMLScene.loadpane("Profile1.fxml");
+          //Pane p = FXMLScene.loadpane("Profile.fxml");
+            FXMLLoader fxmlLoader = FXMLScene.loadpane("Profile.fxml");
             p=fxmlLoader.load();
             //Parent root = scene.root;
-            //p = FXMLLoader.load(getClass().getResource("Profile1.fxml"));
+            //p = FXMLLoader.load(getClass().getResource("Profile.fxml"));
             // p=(Pane)scene;
            // FXMLLoader fxmlLoader = (FXMLLoader) (this.p.getScene().getUserData());
             AdminDashboardController controller = (AdminDashboardController) fxmlLoader.getController();
@@ -205,9 +205,9 @@ public class AdminDashboardController implements Initializable {
         /*try {
             System.out.println("ok");
 
-            *//*FXMLScene scene = FXMLScene.load("Profile1.fxml");
+            *//*FXMLScene scene = FXMLScene.load("Profile.fxml");
             Parent root = scene.root;*//*
-            p = FXMLLoader.load(Dashboard.ProfileController.class.getResource("Profile1.fxml"));
+            p = FXMLLoader.load(Dashboard.ProfileController.class.getResource("Profile.fxml"));
            // p=(Pane)scene;
             pane1.setCenter(p);
            // AdminDashboardController adminController = (AdminDashboardController) scene.controller;
@@ -224,8 +224,8 @@ public class AdminDashboardController implements Initializable {
 
 
 
-            try {
-                // FXMLLoader o = new FXMLLoader(Profile.ProfileController.class.getResource("Profile1.fxml"));
+           /* try {
+                // FXMLLoader o = new FXMLLoader(Profile.ProfileController.class.getResource("Profile.fxml"));
                 p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
                 pane1.setCenter(p);
                 stage.setTitle("Profile");
@@ -236,7 +236,7 @@ public class AdminDashboardController implements Initializable {
                // System.out.println("helloApplication");
             } catch (Exception e) {
 
-            }
+            }*/
         }
 
 
@@ -291,19 +291,19 @@ public class AdminDashboardController implements Initializable {
             }
         }else {
                try{
-                  /* root = FXMLLoader.load(ProfileController.class.getResource("Profile1.fxml"));
+                  /* root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                    scene = new Scene(root);
                    stage.setScene(scene);
                    stage.setTitle("SIGN IN");
                    stage.show();*/
-                   FXMLScene scene =  AdminDB.FXMLScene.load("Profile1.fxml");
+                   Dashboard.FXMLScene scene =  Dashboard.FXMLScene.load("Profile.fxml");
                    Parent root = scene.root;
                    ProfileController adminController = (ProfileController) scene.controller;
                    //adminController.set(usern);
                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                    stage.setScene(new Scene(root));
-                   stage.setTitle("Dashboard");
+                   stage.setTitle("Profile");
                    stage.show();
 
                }catch (Exception e){
@@ -311,7 +311,7 @@ public class AdminDashboardController implements Initializable {
                }
                /* try {
                     //  FxmlLoader o = new FxmlLoader();
-                    p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile1.fxml"));
+                    p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
 
                     pane1.setCenter(p);
                     stage.setTitle("Profile");

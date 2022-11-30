@@ -153,7 +153,7 @@ public class SigninController implements Initializable {
     void sign_up(ActionEvent event) {
         try {
             root = FXMLLoader.load(Sign_UP.SignupController.class.getResource("Sign_UP.fxml"));
-            // root = FXMLLoader.load(ProfileController.class.getResource("Profile1.fxml"));
+            // root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
