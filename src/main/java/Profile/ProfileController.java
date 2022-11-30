@@ -13,8 +13,7 @@ import java.util.ResourceBundle;
 public class ProfileController implements Initializable {
     @FXML
     private ImageView back;
-    @FXML
-    private ImageView image10;
+
     @FXML
     private ImageView cirimage;
 
@@ -25,34 +24,23 @@ public class ProfileController implements Initializable {
     private ImageView image;
 
     @FXML
-    private ImageView image100;
+    private ImageView image1;
 
     @FXML
     private Circle image2;
-    public static String username="";
-    public String password="";
-
-
-    public static void setname(String user) {username = user;
-    }
-
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("username= " + username);
         File file = new File("src/main/Font/guy.png");
         Image image = new Image(file.toURI().toString());
         cirimage.setImage(image);
         file = new File("src/main/Font/-heart-icon-.png");
         image = new Image(file.toURI().toString());
         heart.setImage(image);
-        file = new File("src/main/Font/menu-vector-icon-.png");
+        file = new File("src/main/Font/-menu-vector-icon-.png");
         image = new Image(file.toURI().toString());
-        image100.setImage(image);
-        file = new File("src/main/Font/icon1.png");
-        image = new Image(file.toURI().toString());
-        image10.setImage(image);
+        image1.setImage(image);
         file = new File("src/main/Font/Angle_left_font_.png");
         image = new Image(file.toURI().toString());
         back.setImage(image);

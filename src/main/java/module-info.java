@@ -25,4 +25,7 @@ module com.example.sheccashoinik {
 
     opens AdminDB to javafx.fxml;
     exports AdminDB;
+
+    opens UserProfile to javafx.fxml;
+    exports UserProfile;
 }
