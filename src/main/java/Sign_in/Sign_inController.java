@@ -26,8 +26,8 @@ import java.util.ResourceBundle;
 public class Sign_inController implements Initializable {
     Connection con;
     public Sign_inController() {
-        con = ConnectionDb.DB();
-        System.out.println("thik ase vai koibar bolboo");
+        con = ConnectionDb.DBC();
+       // System.out.println("thik ase vai koibar bolboo");
     }
     @FXML
     private ComboBox<String> sign_in_box;
@@ -61,11 +61,20 @@ public class Sign_inController implements Initializable {
     @FXML
     void sign_in(ActionEvent event) {
    Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
-       User u=new User();
-       u.setname(usern);
-            if (logIn().equals("Success")) {
-                try {
 
+            if (logIn().equals("Success")) {
+                try  { Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Login Successfully!");
+                alert.setHeaderText("Login Successfully!");
+                File file = new File("src/main/Font/icon1.png");
+                Image image = new Image(file.toURI().toString());
+                stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(image);
+                //alert.initOwner(stage);
+                //alert.setGraphic(new ImageView(image));
+                //user.setImage(image);
+                Optional<ButtonType> result=alert.showAndWait();
+                if(alert.getResult().getText().equals("OK")){
                     FXMLScene scene =  FXMLScene.load("AdminDashboard.fxml");
                     Parent root = scene.root;
                     AdminDashboardController adminController = (AdminDashboardController) scene.controller;
@@ -74,7 +83,7 @@ public class Sign_inController implements Initializable {
                     stage.setScene(new Scene(root));
                     stage.setTitle("Dashboard");
                     stage.show();
-
+                }
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -147,7 +156,7 @@ public class Sign_inController implements Initializable {
     void sign_up(ActionEvent event) {
         try {
             root = FXMLLoader.load(Sign_UP.SignupController.class.getResource("Sign_UP.fxml"));
-            // root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
+            // root = FXMLLoader.load(ProfileController.class.getResource("Profile1.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -165,7 +174,7 @@ public class Sign_inController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String items[]={"User","Volunteer Leader","Admin"};
         sign_in_box.getItems().addAll(items);
-        File file = new File("src/main/Font/user-fill.png");
+        File file = new File("src/main/Font/user.png");
         Image image = new Image(file.toURI().toString());
         user.setImage(image);
         file = new File("src/main/Font/lock-outline.png");

@@ -8,35 +8,16 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.RadialGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="579.0" prefWidth="652.0" style="-fx-background-color: #00b4d8;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_in.Sign_inController">
+<AnchorPane prefHeight="579.0" prefWidth="652.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_in.Sign_inController">
    <children>
-      <AnchorPane layoutX="151.0" layoutY="129.0" prefHeight="338.0" prefWidth="349.0" style="-fx-background-color: white; -fx-background-radius: 20,20,20,20;">
+      <AnchorPane layoutX="151.0" layoutY="129.0" prefHeight="338.0" prefWidth="349.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);; -fx-background-radius: 20,20,20,20;">
          <children>
-            <Label layoutX="123.0" layoutY="14.0" prefHeight="22.0" prefWidth="102.0" text="You are">
+            <Label layoutX="123.0" layoutY="14.0" prefHeight="22.0" prefWidth="102.0" text="You are" textFill="#c7c7c7">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
-               <textFill>
-                  <RadialGradient centerX="0.6916299212871669" centerY="0.7272727209510226" radius="0.5">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.17746588587760925" green="0.6315789222717285" blue="0.1450292468070984" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="0.04615984484553337" green="0.08007277548313141" blue="0.3368421196937561" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </RadialGradient>
-               </textFill>
             </Label>
             <ComboBox fx:id="sign_in_box" layoutX="87.0" layoutY="62.0" prefWidth="150.0" promptText="Role" />
            
@@ -53,7 +34,7 @@
                </font></Button>
             <ImageView fx:id="user" fitHeight="26.0" fitWidth="32.0" layoutX="55.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Font/user-fill.png" />
+                  <Image url="@../../Font/user.png" />
                </image>
             </ImageView>
             <ImageView fx:id="pass" fitHeight="26.0" fitWidth="32.0" layoutX="55.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">

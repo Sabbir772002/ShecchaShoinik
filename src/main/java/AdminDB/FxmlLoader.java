@@ -8,7 +8,7 @@ public class FxmlLoader {
 
    public Pane getpane() {
         try {
-            p = new FXMLLoader().load(Profile.ProfileController.class.getResource("Profile.fxml"));
+            p = new FXMLLoader().load(Profile.ProfileController.class.getResource("Profile1.fxml"));
         } catch (Exception e) {
 
         }

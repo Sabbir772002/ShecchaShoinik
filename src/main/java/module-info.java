@@ -3,6 +3,9 @@ module com.example.sheccashoinik {
     requires javafx.fxml;
     requires java.sql;
 
+    opens Dashboard to javafx.fxml;
+    exports Dashboard;
+
     opens com.example.sheccashoinik to javafx.fxml;
     exports com.example.sheccashoinik;
 

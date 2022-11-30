@@ -11,7 +11,7 @@ import java.sql.DriverManager;
 
 public class ConnectionDb {
   //  Connection conn;
-    public static Connection DB()
+    public static Connection DBC()
     {
         try {
             Class.forName("com.mysql.jdbc.Driver");

@@ -3,6 +3,8 @@ package AdminDB;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+
 import java.io.IOException;
 
 public class FXMLScene {
@@ -20,6 +22,20 @@ public class FXMLScene {
         fxmlScene.controller = fxmlLoader.getController();
 
         return fxmlScene;
+
+    }
+    public static FXMLLoader loadpane(String fxmlpath) throws IOException {
+
+        FXMLScene fxmlScene = new FXMLScene();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(Profile.ProfileController.class.getResource(fxmlpath));
+        //fxmlLoader.setLocation(fxmlScene.getClass().getResource(fxmlpath));
+
+        //Pane p = fxmlLoader.load();
+        fxmlScene.root= fxmlLoader.load();
+        fxmlScene.controller = fxmlLoader.getController();
+
+        return fxmlLoader;
 
     }
 }
