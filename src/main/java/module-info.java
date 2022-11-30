@@ -28,4 +28,7 @@ module com.example.sheccashoinik {
 
     opens UserProfile to javafx.fxml;
     exports UserProfile;
+
+    opens Post to javafx.fxml;
+    exports Post;
 }

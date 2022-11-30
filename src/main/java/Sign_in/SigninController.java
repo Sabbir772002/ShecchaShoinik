@@ -3,9 +3,6 @@ package Sign_in;
 import AdminDB.AdminDashboardController;
 import AdminDB.FXMLScene;
 import DB.ConnectionDb;
-import Profile.ProfileController;
-import com.example.sheccashoinik.Application;
-import com.example.sheccashoinik.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,9 +20,9 @@ import java.sql.*;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class Sign_inController implements Initializable {
+public class SigninController implements Initializable {
     Connection con;
-    public Sign_inController() {
+    public SigninController() {
         con = ConnectionDb.DBC();
        // System.out.println("thik ase vai koibar bolboo");
     }

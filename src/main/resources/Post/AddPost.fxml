@@ -226,7 +226,7 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="address1" layoutX="213.0" layoutY="294.0" prefHeight="39.0" prefWidth="374.0" promptText="EarthQuake in Dhaka" />
+                  <TextArea fx:id="address1" layoutX="213.0" layoutY="294.0" prefHeight="39.0" prefWidth="367.0" promptText="EarthQuake in Dhaka" />
                   <Label layoutX="44.0" layoutY="341.0" prefHeight="31.0" prefWidth="135.0" text="Add image:" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="21.0" />

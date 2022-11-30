@@ -1,7 +1,7 @@
 package Sign_UP;
 
 import DB.ConnectionDb;
-import Sign_in.Sign_inController;
+import Sign_in.SigninController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +16,6 @@ import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -64,7 +63,6 @@ public class SignupController implements Initializable {
 
     public SignupController() {
       //  ConnectionDb o=new ConnectionDb();
-        //bbb;
 
         connection = (Connection) ConnectionDb.DBC();
     }
@@ -72,7 +70,7 @@ public class SignupController implements Initializable {
     void Signin(ActionEvent event) {
         try {
 
-            root = FXMLLoader.load(Sign_inController.class.getResource("Sign_in.fxml"));
+            root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -118,7 +116,7 @@ public class SignupController implements Initializable {
                 preparedStatement.close();
                 connection.close();
                 System.out.println("THIK ASE INPUT");
-                root = FXMLLoader.load(Sign_inController.class.getResource("Sign_in.fxml"));
+                root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);

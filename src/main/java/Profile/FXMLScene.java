@@ -1,11 +1,8 @@
-package AdminDB;
+package Profile;
 
 import javafx.fxml.FXMLLoader;
-import Post.*;
-import Dashboard.*;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+
 import java.io.IOException;
 
 public class FXMLScene {
@@ -29,7 +26,7 @@ public class FXMLScene {
 
         FXMLScene fxmlScene = new FXMLScene();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(Profile.ProfileController.class.getResource(fxmlpath));
+        FXMLLoader fxmlLoader = new FXMLLoader(ProfileController.class.getResource(fxmlpath));
         //fxmlLoader.setLocation(fxmlScene.getClass().getResource(fxmlpath));
 
         //Pane p = fxmlLoader.load();

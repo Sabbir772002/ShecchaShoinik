@@ -1,9 +1,9 @@
 package AdminDB;
 
 import Dashboard.ProfileController;
-import Sign_in.Sign_inController;
+import Post.AddPostController;
+import Sign_in.SigninController;
 import com.example.sheccashoinik.Application;
-import com.example.sheccashoinik.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,8 +23,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
-import static com.sun.javafx.scene.control.skin.Utils.getResource;
 
 public class AdminDashboardController implements Initializable {
 
@@ -81,6 +79,7 @@ public class AdminDashboardController implements Initializable {
     private ScrollPane spane;
 
 
+
     @FXML
     void Dashboard(ActionEvent event) {
       /* *//* Node node = (Node) event.getSource();
@@ -102,7 +101,7 @@ public class AdminDashboardController implements Initializable {
         //for cheking purposes only
                   /*  VBox vbox[]=new VBox[3];
                     for(int i =0;i<3;i++) {
-                        p = FXMLLoader.load(Sign_inController.class.getResource("Sign_in.fxml"));
+                        p = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
                         vbox[i]=new VBox();
                         vbox[i].getChildren().add(p);
                         *//*stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -141,10 +140,6 @@ public class AdminDashboardController implements Initializable {
 
     }
 
-    @FXML
-    void addpost(ActionEvent event) {
-
-    }
 
     @FXML
     void chat(ActionEvent event) {
@@ -166,7 +161,7 @@ public class AdminDashboardController implements Initializable {
             //user.setImage(image);
             Optional<ButtonType> result=alert.showAndWait();
             if(alert.getResult().getText().equals("OK")){
-                root = FXMLLoader.load(Sign_inController.class.getResource("Sign_in.fxml"));
+                root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
@@ -254,7 +249,7 @@ public class AdminDashboardController implements Initializable {
         if(choice.getValue().toString().equals("Logout")){
             try {
 
-                root = FXMLLoader.load(Sign_inController.class.getResource("Sign_in.fxml"));
+                root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
 
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
@@ -283,7 +278,7 @@ public class AdminDashboardController implements Initializable {
                 //user.setImage(image);
                 Optional<ButtonType> result=alert.showAndWait();
                 if(alert.getResult().getText().equals("OK")){
-                    root = FXMLLoader.load(Sign_inController.class.getResource("Sign_in.fxml"));
+                    root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     scene = new Scene(root);
                     stage.setScene(scene);
@@ -295,8 +290,26 @@ public class AdminDashboardController implements Initializable {
                 e.printStackTrace();
             }
         }else {
+               try{
+                  /* root = FXMLLoader.load(ProfileController.class.getResource("Profile1.fxml"));
+                   stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                   scene = new Scene(root);
+                   stage.setScene(scene);
+                   stage.setTitle("SIGN IN");
+                   stage.show();*/
+                   FXMLScene scene =  AdminDB.FXMLScene.load("Profile1.fxml");
+                   Parent root = scene.root;
+                   ProfileController adminController = (ProfileController) scene.controller;
+                   //adminController.set(usern);
+                   stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                   stage.setScene(new Scene(root));
+                   stage.setTitle("Dashboard");
+                   stage.show();
 
-                try {
+               }catch (Exception e){
+
+               }
+               /* try {
                     //  FxmlLoader o = new FxmlLoader();
                     p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile1.fxml"));
 
@@ -309,8 +322,34 @@ public class AdminDashboardController implements Initializable {
                     System.out.println("helloApplication");
                 } catch (Exception e) {
 
-                }
+                }*/
             }
+
+    }
+    @FXML
+    void addpost(ActionEvent event) {
+        System.out.println("hello");
+        try{
+            Post.FXMLScene scene =  Post.FXMLScene.load("AddPost.fxml");
+            Parent root = scene.root;
+            AddPostController admin= (AddPostController) scene.controller;
+            admin.set(username);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Post Diaster");
+            stage.show();
+
+          /*  root = FXMLLoader.load(AddPostController.class.getResource("AddPost.fxml"));
+
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("SIGN IN");
+            stage.show();*/
+
+        }catch (Exception e ){
+
+        }
 
     }
 
@@ -335,7 +374,7 @@ public class AdminDashboardController implements Initializable {
         file1 = new File("src/main/Font/icon1.png");
         Image image5 = new Image(file1.toURI().toString());
         imageview1.setImage(image5);
-username= Application.oname;
+        username= Application.oname;
 
      //   choice.setOnAction(this::ChoiceClick);
 
