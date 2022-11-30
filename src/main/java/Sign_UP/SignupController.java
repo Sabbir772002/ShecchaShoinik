@@ -64,6 +64,7 @@ public class SignupController implements Initializable {
 
     public SignupController() {
       //  ConnectionDb o=new ConnectionDb();
+        //bbb;
 
         connection = (Connection) ConnectionDb.DBC();
     }
