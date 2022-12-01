@@ -29,7 +29,7 @@ public class AdminDashboardController implements Initializable {
     private BorderPane pane1;
 
   /*  @FXML
-    private Button Bbank;
+    private Button Bbankkk;
 
     @FXML
     private Label Logo1;*/
