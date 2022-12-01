@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminDB.AdminDashboardController">
+<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminDB.AdminDashboardController">
    <left>
       <VBox layoutX="50.0" prefHeight="646.0" prefWidth="189.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
          <children>
@@ -187,7 +187,7 @@
          <children>
             <AnchorPane layoutX="12.0" layoutY="13.0" prefHeight="574.0" prefWidth="710.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-border-radius: 10; -fx-background-radius: 10;">
                <children>
-                  <TableView layoutX="-1.0" layoutY="42.0" prefHeight="530.0" prefWidth="722.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 10;">
+                  <TableView layoutX="-112.0" layoutY="36.0" prefHeight="530.0" prefWidth="722.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 10;">
                     <columns>
                       <TableColumn fx:id="Title" prefWidth="195.1999969482422" text="Title" />
                       <TableColumn minWidth="0.0" prefWidth="169.60003662109375" text="Diaster Type" />
