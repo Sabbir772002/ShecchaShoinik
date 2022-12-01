@@ -29,10 +29,6 @@ public class ProfileController implements Initializable {
     @FXML
     private BorderPane pane1;
 
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
   /*  @FXML
     private Button Bbank;
 
@@ -47,6 +43,17 @@ public class ProfileController implements Initializable {
     private ImageView imageview;
     @FXML
     private ImageView bimage;
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+    public String username="";
+    public String role="";
+
+
+    public void set(String username,String role) {
+        this.role = role;
+        this.username = username;
+    }
     @FXML
     void BbankClick(ActionEvent event) {
 
@@ -63,12 +70,6 @@ public class ProfileController implements Initializable {
      @FXML
      private ImageView imageview;
  */
-    public String username="";
-
-
-    public void set(String username) {
-        this.username = username;
-    }
 
     @FXML
     private ImageView imageview1;

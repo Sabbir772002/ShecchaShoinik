@@ -116,6 +116,19 @@ public class SignupController implements Initializable {
                 preparedStatement.close();
                 connection.close();
                 System.out.println("THIK ASE INPUT");
+               /* try{
+                    Dashboard.FXMLScene scene =  Dashboard.FXMLScene.load("Profile.fxml");
+                    Parent root = scene.root;
+                    SigninController admin= (SigninController) scene.controller;
+                    admin.set(username.getText().toString());
+                    stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(new Scene(root));
+                    stage.setTitle("Post Diaster");
+                    stage.show();
+                }catch (Exception e){
+                    System.out.println("vul hoilo profile button profile controller");
+                }*/
+
                 root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
@@ -190,10 +203,11 @@ public class SignupController implements Initializable {
         cb_sign_up.getItems().addAll(user);
         String []division={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
         cbdivision.getItems().addAll(division);
-        String []user1={"Male","Female","Others"};
-        cbGender.getItems().addAll(user1);
         String []user2={"EarthQuake","Blood","Fire","Cyclone","Cidor","Others"};
         cbgroup.getItems().addAll(user2);
+        String []user1={"Male","Female","Others"};
+        cbGender.getItems().addAll(user1);
+
         String []user3={"A+","A-","B+","B-","AB+","AB-","O+","O-"};
         bloodgroup.getItems().addAll(user3);
     }

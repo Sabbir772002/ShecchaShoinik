@@ -28,12 +28,12 @@
 
                      </viewport>
                   </ImageView>
-                  <Label alignment="CENTER" layoutX="-2.0" layoutY="143.0" prefHeight="28.0" prefWidth="198.0" style="-fx-cursor: had;" text="\@volunteer" textFill="#230505">
+                  <Label fx:id="rolee" alignment="CENTER" layoutX="-2.0" layoutY="143.0" prefHeight="28.0" prefWidth="198.0" style="-fx-cursor: had;" text="\@volunteer" textFill="#230505">
                      <font>
                         <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="-5.0" layoutY="117.0" prefHeight="52.0" prefWidth="204.0" style="-fx-cursor: had;" text="Nusrat" textFill="WHITE" AnchorPane.leftAnchor="-5.0">
+                  <Label fx:id="user" alignment="CENTER" layoutX="-5.0" layoutY="117.0" prefHeight="52.0" prefWidth="204.0" style="-fx-cursor: had;" text="Nusrat" textFill="WHITE" AnchorPane.leftAnchor="-5.0">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
@@ -183,7 +183,7 @@
    <center>
       <AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane layoutX="52.0" layoutY="30.0" prefHeight="531.0" prefWidth="672.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 10; -fx-opacity: 50; -fx-region-border: 50; -fx-padding: 50;">
+            <AnchorPane layoutX="52.0" layoutY="30.0" prefHeight="531.0" prefWidth="672.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 10; -fx-padding: 50;">
                <children>
                   <Label layoutX="32.0" layoutY="201.0" prefHeight="31.0" prefWidth="95.0" text="Phone:" textFill="WHITE">
                      <font>
@@ -210,27 +210,27 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="246.0" layoutY="409.0" prefHeight="29.0" prefWidth="78.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="B+">
+                  <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="246.0" layoutY="409.0" prefHeight="29.0" prefWidth="78.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="B+">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="246.0" layoutY="329.0" prefHeight="29.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="1963890981">
+                  <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="246.0" layoutY="329.0" prefHeight="29.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="1963890981">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="246.0" layoutY="291.0" prefHeight="27.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="Gazipur">
+                  <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="246.0" layoutY="291.0" prefHeight="27.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Gazipur">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="246.0" layoutY="244.0" prefHeight="33.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="Dhaka">
+                  <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="246.0" layoutY="244.0" prefHeight="33.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Dhaka">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="246.0" layoutY="201.0" prefHeight="32.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="01571144383">
+                  <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="246.0" layoutY="201.0" prefHeight="32.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="01571144383">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -240,7 +240,7 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="246.0" layoutY="370.0" prefHeight="19.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="EarthQuake">
+                  <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="246.0" layoutY="370.0" prefHeight="19.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="EarthQuake">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
