@@ -28,6 +28,9 @@ module com.example.sheccashoinik {
 
     opens Post to javafx.fxml;
     exports Post;
-    exports TeamProfile;
+
     opens TeamProfile to javafx.fxml;
+    exports TeamProfile;
+    opens ImageSlider to javafx.fxml;
+    exports ImageSlider;
 }
