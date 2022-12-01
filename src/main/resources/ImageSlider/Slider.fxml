@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ImageSlider.SlideController">
+   <children>
+      <ImageView fx:id="image" fitHeight="358.0" fitWidth="535.0" layoutX="32.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+         <effect>
+            <DropShadow spread="0.2">
+               <color>
+                  <Color red="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+      </ImageView>
+   </children>
+</AnchorPane>

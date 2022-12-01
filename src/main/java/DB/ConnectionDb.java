@@ -10,7 +10,7 @@ import java.sql.DriverManager;
 
 
 public class ConnectionDb {
-  //  Connection conn;
+    Connection con;
     public static Connection DBC()
     {
         try {
