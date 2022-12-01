@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserDashboard.ProfileController">
+<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserProfile.ProfileController">
    <left>
       <VBox layoutX="50.0" prefHeight="646.0" prefWidth="189.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
          <children>
@@ -38,7 +38,7 @@
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
-                  <VBox layoutX="13.0" layoutY="169.0" prefHeight="430.0" prefWidth="178.0">
+                  <VBox layoutX="13.0" layoutY="169.0" prefHeight="383.0" prefWidth="178.0">
                      <children>
                         <Button mnemonicParsing="false" onAction="#Dashboard" prefHeight="44.0" prefWidth="156.0" style="-fx-background-color: #985aaa;" text="Dashboard">
                            <font>
@@ -89,7 +89,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#H" prefHeight="38.0" prefWidth="156.0" style="-fx-background-color: #9d5aaa;" text="H">
+                        <Button mnemonicParsing="false" onAction="#H" prefHeight="38.0" prefWidth="155.0" style="-fx-background-color: #9d5aaa;" text="H">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -97,7 +97,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#G" prefHeight="37.0" prefWidth="157.0" style="-fx-background-color: #9d5aaa;" text="G">
+                        <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="155.0" style="-fx-background-color: #985aaa;" text="Disaster Guidelines">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -105,23 +105,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="158.0" style="-fx-background-color: #985aaa;" text="Disaster Guidelines">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#profile" prefHeight="38.0" prefWidth="159.0" style="-fx-background-color: #985aaa;" text="Profile">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="158.0" style="-fx-background-color: #985aaa;" text="Log out">
+                        <Button mnemonicParsing="false" onAction="#profile" prefHeight="38.0" prefWidth="155.0" style="-fx-background-color: #985aaa;" text="Profile">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -137,6 +121,11 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </VBox>
+                  <Button layoutX="25.0" layoutY="557.0" mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="155.0" style="-fx-background-color: #985aaa;" text="Log out">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
                </children>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />

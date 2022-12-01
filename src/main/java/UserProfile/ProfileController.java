@@ -1,4 +1,4 @@
-package UserDashboard;
+package UserProfile;
 import AdminDB.*;
 import DB.ConnectionDb;
 import Post.AddPostController;
@@ -100,7 +100,7 @@ public class ProfileController implements Initializable {
                 adminController.set(username, role1);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
-                stage.setTitle("UserDashboard");
+                stage.setTitle("UserProfile");
                 stage.show();
             }else{
                 AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard.fxml");
@@ -186,7 +186,7 @@ public class ProfileController implements Initializable {
     @FXML
     void profile(ActionEvent event) {
         try {
-            UserDashboard.FXMLScene scene = UserDashboard.FXMLScene.load("Profile.fxml");
+            UserProfile.FXMLScene scene = UserProfile.FXMLScene.load("Profile.fxml");
             Parent root = scene.root;
             ProfileController admin = (ProfileController) scene.controller;
             admin.set(username, role1);
@@ -234,9 +234,9 @@ public class ProfileController implements Initializable {
                    stage.setScene(scene);
                    stage.setTitle("SIGN IN");
                    stage.show();*/
-                UserDashboard.FXMLScene scene =  UserDashboard.FXMLScene.load("Profile.fxml");
+                UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
                 Parent root = scene.root;
-                UserDashboard.ProfileController adminController = (UserDashboard.ProfileController) scene.controller;
+                UserProfile.ProfileController adminController = (UserProfile.ProfileController) scene.controller;
                 adminController.set(username,role1);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));

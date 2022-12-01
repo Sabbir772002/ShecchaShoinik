@@ -7,9 +7,9 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="645.0" prefWidth="784.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserDashboard.ProfileController">
+<AnchorPane prefHeight="645.0" prefWidth="784.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserProfile.ProfileEditController">
    <children>
-      <ImageView fx:id="cirimage" fitHeight="147.0" fitWidth="149.0" layoutX="297.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="cirimage" fitHeight="147.0" fitWidth="149.0" layoutX="471.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="name" layoutX="242.0" layoutY="216.0" prefHeight="42.0" prefWidth="300.0" text="Peter Anderson" textFill="WHITE">
          <font>
             <Font name="Arial" size="36.0" />
@@ -20,13 +20,13 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Button fx:id="button" layoutX="348.0" layoutY="290.0" mnemonicParsing="false" onAction="#chatclick" prefHeight="20.0" prefWidth="46.0" style="-fx-background-color: #985AAA; -fx-background-radius: 10px;" text="CHAT" textFill="#ece4e4" />
+      <Button fx:id="edit" layoutX="348.0" layoutY="290.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="46.0" style="-fx-background-color: #985AAA; -fx-background-radius: 10px;" text="EDIT" textFill="#ece4e4" />
       <Label fx:id="mail" layoutX="293.0" layoutY="335.0" prefHeight="26.0" prefWidth="300.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#061161  0%, #780206  100%); -fx-label-padding: 2;" text="peter345@gmail.com" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="division" layoutX="294.0" layoutY="453.0" prefHeight="20.0" prefWidth="73.0" text="B+" textFill="WHITE" AnchorPane.leftAnchor="295.0">
+      <Label fx:id="bg" layoutX="294.0" layoutY="453.0" prefHeight="20.0" prefWidth="73.0" text="B+" textFill="WHITE" AnchorPane.leftAnchor="295.0">
          <font>
             <Font size="14.0" />
          </font>
@@ -67,7 +67,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="bg" layoutX="293.0" layoutY="425.0" prefHeight="20.0" prefWidth="198.0" text="Dhaka" textFill="WHITE" AnchorPane.leftAnchor="295.0">
+      <Label fx:id="division" layoutX="293.0" layoutY="425.0" prefHeight="20.0" prefWidth="198.0" text="Dhaka" textFill="WHITE" AnchorPane.leftAnchor="295.0">
          <font>
             <Font size="14.0" />
          </font>

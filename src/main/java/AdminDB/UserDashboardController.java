@@ -1,6 +1,6 @@
 package AdminDB;
 
-import UserDashboard.ProfileController;
+import UserProfile.ProfileController;
 import Post.AddPostController;
 import Sign_in.SigninController;
 import com.example.sheccashoinik.Application;
@@ -196,7 +196,7 @@ public class UserDashboardController implements Initializable {
     void profile(ActionEvent event) {
 
         try{
-            UserDashboard.FXMLScene scene =  UserDashboard.FXMLScene.load("Profile.fxml");
+            UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
             Parent root = scene.root;
             ProfileController admin= (ProfileController) scene.controller;
             admin.set(username,role);
@@ -260,7 +260,7 @@ public class UserDashboardController implements Initializable {
         }else {
                try{
 
-                   UserDashboard.FXMLScene scene =  UserDashboard.FXMLScene.load("Profile.fxml");
+                   UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
                    Parent root = scene.root;
                    ProfileController adminController = (ProfileController) scene.controller;
                    adminController.set(username,role);

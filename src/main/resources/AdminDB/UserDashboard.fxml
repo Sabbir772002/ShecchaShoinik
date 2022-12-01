@@ -42,7 +42,7 @@
                   </Label>
                   <VBox layoutX="18.0" layoutY="169.0" prefHeight="430.0" prefWidth="158.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#UserDashboard" prefHeight="44.0" prefWidth="156.0" style="-fx-background-color: #985aaa;" text="UserDashboard">
+                        <Button mnemonicParsing="false" onAction="#UserProfile" prefHeight="44.0" prefWidth="156.0" style="-fx-background-color: #985aaa;" text="UserProfile">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -212,6 +212,22 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
+                        <Button mnemonicParsing="false" onAction="#profile" prefHeight="38.0" prefWidth="155.0" style="-fx-background-color: #985aaa;" text="Profile">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="155.0" style="-fx-background-color: #985aaa;" text="Disaster Guidelines">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
                         <Button mnemonicParsing="false" onAction="#F" prefHeight="36.0" prefWidth="155.0" style="-fx-background-color: #9d5aaa;" text="F">
                            <font>
                               <Font name="System Bold" size="13.0" />
@@ -229,22 +245,6 @@
                            </VBox.margin>
                         </Button>
                         <Button mnemonicParsing="false" onAction="#G" prefHeight="37.0" prefWidth="157.0" style="-fx-background-color: #9d5aaa;" text="G">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="158.0" style="-fx-background-color: #985aaa;" text="Disaster Guidelines">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#profile" prefHeight="38.0" prefWidth="159.0" style="-fx-background-color: #985aaa;" text="Profile">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>

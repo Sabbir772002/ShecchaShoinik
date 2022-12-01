@@ -85,7 +85,7 @@ public class TeamProfileController implements Initializable {
     @FXML
     void Dashboard(ActionEvent event) {
         try{
-            UserDashboard.FXMLScene scene =  UserDashboard.FXMLScene.load("UserDashboard.fxml");
+            UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("UserDashboard.fxml");
             Parent root = scene.root;
             AdminDashboardController admin= (AdminDashboardController) scene.controller;
             admin.set(username,role);
@@ -385,9 +385,9 @@ public class TeamProfileController implements Initializable {
                    stage.setScene(scene);
                    stage.setTitle("SIGN IN");
                    stage.show();*/
-                UserDashboard.FXMLScene scene =  UserDashboard.FXMLScene.load("Profile.fxml");
+                UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
                 Parent root = scene.root;
-                UserDashboard.ProfileController adminController = (UserDashboard.ProfileController) scene.controller;
+                UserProfile.ProfileController adminController = (UserProfile.ProfileController) scene.controller;
                 //adminController.set(usern);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));

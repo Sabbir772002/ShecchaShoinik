@@ -1,6 +1,6 @@
 package Post;
 
-import UserDashboard.ProfileController;
+import UserProfile.ProfileController;
 import Sign_in.SigninController;
 import com.example.sheccashoinik.Application;
 import javafx.event.ActionEvent;
@@ -161,7 +161,7 @@ public class AddPostController implements Initializable {
                 adminController.set(username, role);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
-                stage.setTitle("UserDashboard");
+                stage.setTitle("UserProfile");
                 stage.show();
             }else if(role.equals("Admin")){
                 AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard.fxml");
@@ -256,7 +256,7 @@ public class AddPostController implements Initializable {
     void profile(ActionEvent event) {
 
         try{
-            UserDashboard.FXMLScene scene =  UserDashboard.FXMLScene.load("Profile.fxml");
+            UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
             Parent root = scene.root;
             ProfileController admin= (ProfileController) scene.controller;
             admin.set(username,role);
@@ -303,7 +303,7 @@ public class AddPostController implements Initializable {
                    stage.setScene(scene);
                    stage.setTitle("SIGN IN");
                    stage.show();*/
-                UserDashboard.FXMLScene scene =  UserDashboard.FXMLScene.load("Profile.fxml");
+                UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
                 Parent root = scene.root;
                 ProfileController adminController = (ProfileController) scene.controller;
                 adminController.set(username,role);
