@@ -1,4 +1,4 @@
-package AdminDB;
+package Profile;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class FXMLScene {
     public Parent root = null;
-    public static Object controller;
+    public Object controller = null;
 
     public static FXMLScene load(String fxmlpath) throws IOException {
 
@@ -17,7 +17,6 @@ public class FXMLScene {
         fxmlLoader.setLocation(fxmlScene.getClass().getResource(fxmlpath));
 
         fxmlScene.root = fxmlLoader.load();
-        controller = null;
         fxmlScene.controller = fxmlLoader.getController();
 
         return fxmlScene;
@@ -27,7 +26,7 @@ public class FXMLScene {
 
         FXMLScene fxmlScene = new FXMLScene();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(Profile.ProfileController.class.getResource(fxmlpath));
+        FXMLLoader fxmlLoader = new FXMLLoader(ProfileController.class.getResource(fxmlpath));
         //fxmlLoader.setLocation(fxmlScene.getClass().getResource(fxmlpath));
 
         //Pane p = fxmlLoader.load();

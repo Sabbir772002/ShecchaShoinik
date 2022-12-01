@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminDB.AdminDashboardController">
+<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminDB.UserDashboardController">
   <!-- <left>
       <VBox layoutX="50.0" prefHeight="602.0" prefWidth="237.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
          <children>
@@ -212,6 +212,22 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
+                        <Button mnemonicParsing="false" onAction="#profile" prefHeight="38.0" prefWidth="155.0" style="-fx-background-color: #985aaa;" text="Profile">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="155.0" style="-fx-background-color: #985aaa;" text="Disaster Guidelines">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
                         <Button mnemonicParsing="false" onAction="#F" prefHeight="36.0" prefWidth="155.0" style="-fx-background-color: #9d5aaa;" text="F">
                            <font>
                               <Font name="System Bold" size="13.0" />
@@ -229,22 +245,6 @@
                            </VBox.margin>
                         </Button>
                         <Button mnemonicParsing="false" onAction="#G" prefHeight="37.0" prefWidth="157.0" style="-fx-background-color: #9d5aaa;" text="G">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="158.0" style="-fx-background-color: #985aaa;" text="Disaster Guidelines">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#profile" prefHeight="38.0" prefWidth="159.0" style="-fx-background-color: #985aaa;" text="Profile">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>

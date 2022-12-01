@@ -1,4 +1,4 @@
-package AdminDB;
+package Sign_in;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class FXMLScene {
     public Parent root = null;
-    public static Object controller;
+    public Object controller = null;
 
     public static FXMLScene load(String fxmlpath) throws IOException {
 
@@ -17,7 +17,6 @@ public class FXMLScene {
         fxmlLoader.setLocation(fxmlScene.getClass().getResource(fxmlpath));
 
         fxmlScene.root = fxmlLoader.load();
-        controller = null;
         fxmlScene.controller = fxmlLoader.getController();
 
         return fxmlScene;

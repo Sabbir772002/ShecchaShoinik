@@ -37,7 +37,7 @@
       </Pane>
       <VBox layoutY="126.0" prefHeight="411.0" prefWidth="170.0" style="-fx-background-color: #A2D0E1;">
          <children>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="170.0" text="Dashboard" />
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="170.0" text="UserProfile" />
             <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="170.0" text="Button" />
             <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="170.0" text="Button" />
             <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="170.0" text="Button" />

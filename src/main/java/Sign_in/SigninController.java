@@ -2,10 +2,8 @@ package Sign_in;
 
 import AdminDB.AdminDashboardController;
 import AdminDB.FXMLScene;
+import AdminDB.UserDashboardController;
 import DB.ConnectionDb;
-import Profile.ProfileController;
-import com.example.sheccashoinik.Application;
-import com.example.sheccashoinik.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,9 +21,9 @@ import java.sql.*;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class Sign_inController implements Initializable {
+public class SigninController implements Initializable {
     Connection con;
-    public Sign_inController() {
+    public SigninController() {
         con = ConnectionDb.DBC();
        // System.out.println("thik ase vai koibar bolboo");
     }
@@ -54,6 +52,10 @@ public class Sign_inController implements Initializable {
     private Scene scene;
      Parent root;
     String usern="";
+    String role="";
+    public void set(String role){
+        this.usern=role;
+    }
     AdminDashboardController ad=new AdminDashboardController();
 
 
@@ -62,8 +64,10 @@ public class Sign_inController implements Initializable {
     void sign_in(ActionEvent event) {
    Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            if (logIn().equals("Success")) {
-                try  { Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            if (logIn().compareTo("Success")==0) {
+                try  {
+                    role=sign_in_box.getValue().toString();
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Login Successfully!");
                 alert.setHeaderText("Login Successfully!");
                 File file = new File("src/main/Font/icon1.png");
@@ -74,21 +78,21 @@ public class Sign_inController implements Initializable {
                 //alert.setGraphic(new ImageView(image));
                 //user.setImage(image);
                 Optional<ButtonType> result=alert.showAndWait();
-                if(alert.getResult().getText().equals("OK")){
-                    FXMLScene scene =  FXMLScene.load("AdminDashboard.fxml");
+                if(alert.getResult().getText().compareTo("OK")==0){
+                    FXMLScene scene =  FXMLScene.load("UserDashboard.fxml");
                     Parent root = scene.root;
-                    AdminDashboardController adminController = (AdminDashboardController) scene.controller;
-                    adminController.set(usern);
+                    UserDashboardController adminController = (UserDashboardController) scene.controller;
+                    adminController.set(usern,role);
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     stage.setScene(new Scene(root));
-                    stage.setTitle("Dashboard");
+                    stage.setTitle("UserProfile");
                     stage.show();
                 }
 
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }else if(logIn().equals("Error")){
+            }else if(logIn().compareTo("Error")==0){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Sign in Error!");
                 alert.setHeaderText("Please input correct info or Sign Up");
@@ -108,7 +112,8 @@ public class Sign_inController implements Initializable {
         String status = "Success";
         System.out.println( password.getText());
          usern = username.getText();
-        ad.set(usern);
+         //role=sign_in_box.getValue().toString();
+        //ad.set(usern);
         String passw = password.getText();
         if(usern.isEmpty() || passw.isEmpty() || sign_in_box.getSelectionModel().isEmpty()) {
            if(usern.isEmpty()) {
@@ -156,7 +161,7 @@ public class Sign_inController implements Initializable {
     void sign_up(ActionEvent event) {
         try {
             root = FXMLLoader.load(Sign_UP.SignupController.class.getResource("Sign_UP.fxml"));
-            // root = FXMLLoader.load(ProfileController.class.getResource("Profile1.fxml"));
+            // root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

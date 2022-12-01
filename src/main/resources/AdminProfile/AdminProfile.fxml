@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Post.AddPostController">
+<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TeamProfile.TeamProfileController">
     <left>
         <VBox layoutX="50.0" prefHeight="646.0" prefWidth="189.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
             <children>
@@ -28,12 +28,12 @@
 
                             </viewport>
                         </ImageView>
-                        <Label alignment="CENTER" layoutX="-2.0" layoutY="143.0" prefHeight="28.0" prefWidth="198.0" style="-fx-cursor: had;" text="\@volunteer" textFill="#230505">
+                        <Label fx:id="rolee" alignment="CENTER" layoutX="-2.0" layoutY="143.0" prefHeight="28.0" prefWidth="198.0" style="-fx-cursor: had;" text="\@volunteer" textFill="#230505">
                             <font>
                                 <Font name="Arial Bold" size="12.0" />
                             </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="-5.0" layoutY="117.0" prefHeight="52.0" prefWidth="204.0" style="-fx-cursor: had;" text="Nusrat" textFill="WHITE" AnchorPane.leftAnchor="-5.0">
+                        <Label fx:id="user" alignment="CENTER" layoutX="-5.0" layoutY="117.0" prefHeight="52.0" prefWidth="204.0" style="-fx-cursor: had;" text="Nusrat" textFill="WHITE" AnchorPane.leftAnchor="-5.0">
                             <font>
                                 <Font name="Arial Bold" size="18.0" />
                             </font>
