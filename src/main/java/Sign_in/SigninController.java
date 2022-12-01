@@ -2,6 +2,7 @@ package Sign_in;
 
 import AdminDB.AdminDashboardController;
 import AdminDB.FXMLScene;
+import AdminDB.UserDashboardController;
 import DB.ConnectionDb;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -63,7 +64,7 @@ public class SigninController implements Initializable {
     void sign_in(ActionEvent event) {
    Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            if (logIn().equals("Success")) {
+            if (logIn().compareTo("Success")==0) {
                 try  {
                     role=sign_in_box.getValue().toString();
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -77,21 +78,21 @@ public class SigninController implements Initializable {
                 //alert.setGraphic(new ImageView(image));
                 //user.setImage(image);
                 Optional<ButtonType> result=alert.showAndWait();
-                if(alert.getResult().getText().equals("OK")){
-                    FXMLScene scene =  FXMLScene.load("AdminDashboard.fxml");
+                if(alert.getResult().getText().compareTo("OK")==0){
+                    FXMLScene scene =  FXMLScene.load("UserDashboard.fxml");
                     Parent root = scene.root;
-                    AdminDashboardController adminController = (AdminDashboardController) scene.controller;
+                    UserDashboardController adminController = (UserDashboardController) scene.controller;
                     adminController.set(usern,role);
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     stage.setScene(new Scene(root));
-                    stage.setTitle("Dashboard");
+                    stage.setTitle("UserDashboard");
                     stage.show();
                 }
 
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }else if(logIn().equals("Error")){
+            }else if(logIn().compareTo("Error")==0){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Sign in Error!");
                 alert.setHeaderText("Please input correct info or Sign Up");

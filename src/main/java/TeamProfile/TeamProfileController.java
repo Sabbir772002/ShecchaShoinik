@@ -1,4 +1,4 @@
-package Dashboard;
+package TeamProfile;
 import AdminDB.*;
 import Post.AddPostController;
 import Sign_in.SigninController;
@@ -16,7 +16,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -86,7 +85,7 @@ public class TeamProfileController implements Initializable {
     @FXML
     void Dashboard(ActionEvent event) {
         try{
-            Dashboard.FXMLScene scene =  Dashboard.FXMLScene.load("AdminDashboard.fxml");
+            UserDashboard.FXMLScene scene =  UserDashboard.FXMLScene.load("UserDashboard.fxml");
             Parent root = scene.root;
             AdminDashboardController admin= (AdminDashboardController) scene.controller;
             admin.set(username,role);
@@ -197,9 +196,9 @@ public class TeamProfileController implements Initializable {
     @FXML
     void profile(ActionEvent event) {
         try{
-            Dashboard.FXMLScene scene =  Dashboard.FXMLScene.load("Profile.fxml");
+            TeamProfile.FXMLScene scene =  TeamProfile.FXMLScene.load("Profile.fxml");
             Parent root = scene.root;
-            ProfileController admin= (ProfileController) scene.controller;
+            TeamProfileController admin= (TeamProfileController) scene.controller;
             admin.set(username.toString(),role.toString());
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -322,10 +321,10 @@ public class TeamProfileController implements Initializable {
                    stage.setScene(scene);
                    stage.setTitle("SIGN IN");
                    stage.show();*/
-                Dashboard.FXMLScene scene =  Dashboard.FXMLScene.load("Profile.fxml");
+                TeamProfile.FXMLScene scene =  TeamProfile.FXMLScene.load("TeamProfile.fxml");
                 Parent root = scene.root;
-                Dashboard.ProfileController adminController = (Dashboard.ProfileController) scene.controller;
-                //adminController.set(usern);
+                TeamProfile.TeamProfileController adminController = (TeamProfile.TeamProfileController) scene.controller;
+                adminController.set(username,role);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.setTitle("Profile");
@@ -386,9 +385,9 @@ public class TeamProfileController implements Initializable {
                    stage.setScene(scene);
                    stage.setTitle("SIGN IN");
                    stage.show();*/
-                Dashboard.FXMLScene scene =  Dashboard.FXMLScene.load("Profile.fxml");
+                UserDashboard.FXMLScene scene =  UserDashboard.FXMLScene.load("Profile.fxml");
                 Parent root = scene.root;
-                Dashboard.ProfileController adminController = (Dashboard.ProfileController) scene.controller;
+                UserDashboard.ProfileController adminController = (UserDashboard.ProfileController) scene.controller;
                 //adminController.set(usern);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));

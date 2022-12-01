@@ -1,5 +1,6 @@
-package Dashboard;
-import AdminDB.*;
+package AdminDB;
+
+import UserDashboard.ProfileController;
 import Post.AddPostController;
 import Sign_in.SigninController;
 import com.example.sheccashoinik.Application;
@@ -16,7 +17,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -25,16 +25,10 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class ProfileController implements Initializable {
+public class UserDashboardController implements Initializable {
+
     @FXML
     private BorderPane pane1;
-
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-    public String username="";
-    public String role1="";
-
 
   /*  @FXML
     private Button Bbank;
@@ -44,8 +38,7 @@ public class ProfileController implements Initializable {
 
     @FXML
     private ChoiceBox<String> choice;
-    @FXML
-    private ImageView userimage;
+
     @FXML
     private ImageView imageview;
     @FXML
@@ -60,13 +53,26 @@ public class ProfileController implements Initializable {
     @FXML
     private Button bbutton;
 
-    /* @FXML
-     private ChoiceBox<?> choice;
+   /* @FXML
+    private ChoiceBox<?> choice;
 
-     @FXML
-     private ImageView imageview;
- */
+    @FXML
+    private ImageView imageview;
+*/
 
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+    public String username="";
+    public String role="";
+
+
+    public void set(String username,String role) {
+        user.setText(username);
+        rolee.setText("@"+role);
+        this.role = role;
+        this.username = username;
+    }
 
     @FXML
     private ImageView imageview1;
@@ -85,11 +91,13 @@ public class ProfileController implements Initializable {
 
     @FXML
     void Dashboard(ActionEvent event) {
+
+        //System.out.println("vaiya ki khobor "+username);
         try{
-            Dashboard.FXMLScene scene =  Dashboard.FXMLScene.load("AdminDashboard.fxml");
+            AdminDB.FXMLScene scene =  FXMLScene.load("UserDashboard.fxml");
             Parent root = scene.root;
-            AdminDashboardController admin= (AdminDashboardController) scene.controller;
-            admin.set(username,role1);
+            UserDashboardController admin= (UserDashboardController) scene.controller;
+            admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Post Diaster");
@@ -98,20 +106,10 @@ public class ProfileController implements Initializable {
             System.out.println("vul hoilo profile button profile controller");
         }
 
-        /* *//* Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        // Step 2
-        User u = (User) stage.getUserData();
-        // Step 3
-        String name = u.getname();*//*
-       // String email = u.getEmail();*/
-        System.out.println("vaiya ki khobor "+username);
-
     }
 
     @FXML
     void Diaster(ActionEvent event) throws IOException {
-        //fxm for filter post all diaster
 
 
 
@@ -173,7 +171,7 @@ public class ProfileController implements Initializable {
             Image image = new Image(file.toURI().toString());
             stage = (Stage) alert.getDialogPane().getScene().getWindow();
             stage.getIcons().add(image);
-            // alert.initOwner(stage);
+           // alert.initOwner(stage);
             //alert.setGraphic(new ImageView(image));
             //user.setImage(image);
             Optional<ButtonType> result=alert.showAndWait();
@@ -196,80 +194,25 @@ public class ProfileController implements Initializable {
 
     @FXML
     void profile(ActionEvent event) {
+
         try{
-        Dashboard.FXMLScene scene =  Dashboard.FXMLScene.load("Profile.fxml");
-        Parent root = scene.root;
-        ProfileController admin= (ProfileController) scene.controller;
-        admin.set(username,role1);
-        stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.setTitle("Profile");
-        stage.show();
+            UserDashboard.FXMLScene scene =  UserDashboard.FXMLScene.load("Profile.fxml");
+            Parent root = scene.root;
+            ProfileController admin= (ProfileController) scene.controller;
+            admin.set(username,role);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Profile");
+            stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo profile controller ");
+            System.out.println("vul hoilo profile button profile controller");
+        }
+
         }
 
 
 
-       /* try {
-            System.out.println("ok");
-
-          //Pane p = FXMLScene.loadpane("Profile.fxml");
-            FXMLLoader fxmlLoader = FXMLScene.loadpane("Profile.fxml");
-            p=fxmlLoader.load();
-            //Parent root = scene.root;
-            //p = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-            // p=(Pane)scene;
-           // FXMLLoader fxmlLoader = (FXMLLoader) (this.p.getScene().getUserData());
-            AdminDashboardController controller = (AdminDashboardController) fxmlLoader.getController();
-         //  AdminDashboardController adminController = (AdminDashboardController) scene.controller;
-            controller.set(username+" vai");
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.setScene(new Scene(root));
-            stage.setTitle("Profile");
-            pane1.setCenter(p);
-            stage.show();
-        }
-        catch (IOException e) {
-            System.out.println("error vai \n"+e);
-
-        }*/
-        /*try {
-            System.out.println("ok");
-
-            *//*FXMLScene scene = FXMLScene.load("Profile.fxml");
-            Parent root = scene.root;*//*
-            p = FXMLLoader.load(Dashboard.ProfileController.class.getResource("Profile.fxml"));
-           // p=(Pane)scene;
-            pane1.setCenter(p);
-           // AdminDashboardController adminController = (AdminDashboardController) scene.controller;
-           // adminController.set(username);
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.setScene(new Scene(root));
-            stage.setTitle("Profile");
-            stage.show();
-        }
-        catch (Exception e) {
-
-        }*/
-
-           /* try {
-                // FXMLLoader o = new FXMLLoader(Profile.ProfileController.class.getResource("Profile.fxml"));
-                p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
-                pane1.setCenter(p);
-                stage.setTitle("Profile");
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-                stage.setTitle("Profile");
-                stage.show();
-               // System.out.println("helloApplication");
-            } catch (Exception e) {
-
-            }*/
-    }
-
-
-/*    @FXML
+    @FXML
     void ChoiceClick(MouseEvent event) {
         if(choice.getValue().toString().equals("Logout")){
             try {
@@ -286,7 +229,7 @@ public class ProfileController implements Initializable {
                 e.printStackTrace();
             }
         }
-    }*/
+    }
     @FXML
     void Choiceclick(ActionEvent event) {
         if(choice.getValue().toString().equals("Logout")){
@@ -315,25 +258,20 @@ public class ProfileController implements Initializable {
                 e.printStackTrace();
             }
         }else {
-            try{
-                  /* root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
+               try{
+
+                   UserDashboard.FXMLScene scene =  UserDashboard.FXMLScene.load("Profile.fxml");
+                   Parent root = scene.root;
+                   ProfileController adminController = (ProfileController) scene.controller;
+                   adminController.set(username,role);
                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                   scene = new Scene(root);
-                   stage.setScene(scene);
-                   stage.setTitle("SIGN IN");
-                   stage.show();*/
-                Dashboard.FXMLScene scene =  Dashboard.FXMLScene.load("Profile.fxml");
-                Parent root = scene.root;
-                Dashboard.ProfileController adminController = (Dashboard.ProfileController) scene.controller;
-                adminController.set(username,role1);
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.setTitle("Profile");
-                stage.show();
+                   stage.setScene(new Scene(root));
+                   stage.setTitle("Profile");
+                   stage.show();
 
-            }catch (Exception e){
+               }catch (Exception e){
 
-            }
+               }
                /* try {
                     //  FxmlLoader o = new FxmlLoader();
                     p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
@@ -348,11 +286,7 @@ public class ProfileController implements Initializable {
                 } catch (Exception e) {
 
                 }*/
-        }
-
-    }
-    @FXML
-    void ChoiceClick(ActionEvent event){
+            }
 
     }
     @FXML
@@ -362,19 +296,12 @@ public class ProfileController implements Initializable {
             Post.FXMLScene scene =  Post.FXMLScene.load("AddPost.fxml");
             Parent root = scene.root;
             AddPostController admin= (AddPostController) scene.controller;
-            admin.set(username,role1);
+            admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Post Diaster");
             stage.show();
 
-          /*  root = FXMLLoader.load(AddPostController.class.getResource("AddPost.fxml"));
-
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("SIGN IN");
-            stage.show();*/
 
         }catch (Exception e ){
 
@@ -390,19 +317,14 @@ public class ProfileController implements Initializable {
     private Label rolee;
 
     @FXML
+    private ImageView search;
+
+    @FXML
     private Label user;
-
-
-    public void set(String username,String role) {
-        user.setText(username);
-        rolee.setText("@"+role);
-        this.username = username;
-        this.role1 = role;
-      //  System.out.println(username);
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        /*user.setText(username);
+        rolee.setText(role);*/
         String []choiceb={"Profile","Logout"};
         choice.getItems().addAll(choiceb);
         File file = new File("src/main/Font/user1.png");
@@ -411,15 +333,18 @@ public class ProfileController implements Initializable {
         File file1 = new File("src/main/Font/1297136.png");
         Image image1 = new Image(file1.toURI().toString());
         bimage.setImage(image1);
-        file1 = new File("src/main/Font/logotext.png");
+         file1 = new File("src/main/Font/logotext.png");
         Image image4 = new Image(file1.toURI().toString());
         logoimage.setImage(image4);
         file1 = new File("src/main/Font/icon1.png");
         Image image5 = new Image(file1.toURI().toString());
         imageview1.setImage(image5);
+        file1 = new File("src/main/Font/search.png");
+        Image image6 = new Image(file1.toURI().toString());
+        search.setImage(image6);
         username= Application.oname;
 
-        //   choice.setOnAction(this::ChoiceClick);
+     //   choice.setOnAction(this::ChoiceClick);
 
     }
 }

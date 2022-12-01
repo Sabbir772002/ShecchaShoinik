@@ -1,6 +1,7 @@
-package Post;
-
-import UserDashboard.ProfileController;
+package UserDashboard;
+import AdminDB.*;
+import DB.ConnectionDb;
+import Post.AddPostController;
 import Sign_in.SigninController;
 import com.example.sheccashoinik.Application;
 import javafx.event.ActionEvent;
@@ -15,63 +16,59 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import AdminDB.*;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.*;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class AddPostController implements Initializable {
+
+public class ProfileController implements Initializable {
+    @FXML
+    private BorderPane pane1;
+
     private Stage stage;
     private Scene scene;
     private Parent root;
     public String username="";
-    public String role="";
+    public String role1="";
 
 
-    public void set(String username,String role) {
-        user.setText(username);
-        rolee.setText("@"+role);
-        this.username = username;
-        this.role = role;
-        System.out.println(username);
+  /*  @FXML
+    private Button Bbank;
+
+    @FXML
+    private Label Logo1;*/
+
+    @FXML
+    private ChoiceBox<String> choice;
+    @FXML
+    private ImageView userimage;
+    @FXML
+    private ImageView imageview;
+    @FXML
+    private ImageView bimage;
+    @FXML
+    void BbankClick(ActionEvent event) {
+
     }
-    @FXML
-    private TextArea address;
-
-
-    @FXML
-    private TextArea address1;
-
     @FXML
     private Button b;
 
     @FXML
     private Button bbutton;
 
-    @FXML
-    private ImageView bimage;
+    /* @FXML
+     private ChoiceBox<?> choice;
 
-    @FXML
-    private ChoiceBox<String> choice;
+     @FXML
+     private ImageView imageview;
+ */
 
-    @FXML
-    private TextArea diastertitle;
-
-    @FXML
-    private ComboBox<String> division;
-
-    @FXML
-    private ComboBox<String> diaster;
-
-    @FXML
-    private ComboBox<String> district;
-
-    @FXML
-    private ImageView imageview;
 
     @FXML
     private ImageView imageview1;
@@ -80,117 +77,52 @@ public class AddPostController implements Initializable {
     private ImageView logoimage;
 
     @FXML
-    private BorderPane pane1;
-
-    @FXML
     void BbankClick(MouseEvent event) {
 
     }
     @FXML
-    void ChoiceClick(ActionEvent event) {
-
+    private ScrollPane spane;
+    Connection con;
+    public ProfileController() {
+        con = ConnectionDb.DBC();
+        // System.out.println("thik ase vai koibar bolboo");
     }
 
-    @FXML
-    void ChoiceClick(MouseEvent event) {
 
-    }
-    @FXML
-    void select(ActionEvent event) {
-        String divisionname;
-        try{
-            divisionname=division.getSelectionModel().getSelectedItem().toString();
-        }catch(Exception e ){
-            divisionname="";
-        }
-        if(divisionname.equals("Dhaka")){
-            district.getItems().removeAll(district.getItems());
-            String []ditrict={"Dhaka","Gazipur","Faridpur","Gopalganj","Jamalpur","Kishoreganj","Madaripur","Manikganj","Munshiganj","Narayanganj","Narshingdi","Rajbari","Shariatpur","Tangail"};
-            district.getItems().addAll(ditrict);
-        }else if(divisionname.equals("Rajshahi")){
-            district.getItems().removeAll(district.getItems());
-
-            String []ditrict={"Rajshahi","Sirajgonj","Bogra","Chapinawabganj","Joypurhat","Naogaon","Natore","Pabna"};
-            district.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Chattogram")){
-            district.getItems().removeAll(district.getItems());
-
-            String []ditrict={"Chattogram","Cox's Bazar", "Rangamati", "Bandarban", "Khagrachhari", "Feni", "Lakshmipur", "Comilla"," Noakhali", "Brahmanbaria" ,"Chandpur"};
-            district.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Barishal")){
-            district.getItems().removeAll(district.getItems());
-
-            String []ditrict={"Barishal", "Barguna", "Bhola", "Jhalokati", "Pirojpur","Patuakhali"};
-            district.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Sylhet")){
-            district.getItems().removeAll(district.getItems());
-
-            String []ditrict={"Sylhet","Habiganj","Moulvibazar","Sunamganj" };
-            district.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Mymensingh")){
-            district.getItems().removeAll(district.getItems());
-
-            String []ditrict={"Mymensingh","Jamalpur","Netrokona","Sherpur" };
-            district.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Khulna")){
-            district.getItems().removeAll(district.getItems());
-
-            String []ditrict={"Khulna","Bagherhat","Chuadanga","Jessore","Jinaidaha","Magura","Meherpur","Narail","Satkhira" };
-            district.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Rangpur")){
-            district.getItems().removeAll(district.getItems());
-
-            String []ditrict={"Rangpur","Kurigram","Gaibandha","Thakurgaon","Dinajpur","Nilphamari","Panchagarh","Lalmonirhat" };
-            district.getItems().addAll(ditrict);
-        }
-    }
 
     @FXML
     void Dashboard(ActionEvent event) {
         try {
-            if (role.equals("User")) {
+            if (role1.equals("User")) {
                 AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("UserDashboard.fxml");
                 Parent root = scene.root;
                 UserDashboardController adminController = (UserDashboardController) scene.controller;
-                adminController.set(username, role);
+                adminController.set(username, role1);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.setTitle("UserDashboard");
                 stage.show();
-            }else if(role.equals("Admin")){
+            }else{
                 AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard.fxml");
                 Parent root = scene.root;
                 AdminDashboardController adminController = (AdminDashboardController) scene.controller;
-                adminController.set(username, role);
+                adminController.set(username, role1);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.setTitle("AdminDashboard");
                 stage.show();
-            }else{
-                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard.fxml");
-                Parent root = scene.root;
-                TeamDashboardController adminController = (TeamDashboardController) scene.controller;
-                adminController.set(username, role);
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.setTitle("TeamDashboard");
-                stage.show();
             }
-            }catch(IOException e){
-            System.out.println("vul hoilo add post er dashboard ");
-            }
+        }catch(IOException e){
+            System.out.println("vul hoilo Profile controller dashboard ");
         }
 
 
+        System.out.println("vaiya ki khobor "+username);
+
+    }
 
     @FXML
-    void Diaster(ActionEvent event) {
+    void Diaster(ActionEvent event) throws IOException {
 
     }
 
@@ -214,10 +146,6 @@ public class AddPostController implements Initializable {
 
     }
 
-    @FXML
-    void addpost(ActionEvent event) {
-
-    }
 
     @FXML
     void chat(ActionEvent event) {
@@ -250,25 +178,28 @@ public class AddPostController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
+    Pane p;
+
 
     @FXML
     void profile(ActionEvent event) {
-
-        try{
-            UserDashboard.FXMLScene scene =  UserDashboard.FXMLScene.load("Profile.fxml");
+        try {
+            UserDashboard.FXMLScene scene = UserDashboard.FXMLScene.load("Profile.fxml");
             Parent root = scene.root;
-            ProfileController admin= (ProfileController) scene.controller;
-            admin.set(username,role);
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            ProfileController admin = (ProfileController) scene.controller;
+            admin.set(username, role1);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Profile");
             stage.show();
-        }catch (Exception e){
-            System.out.println("vul hoilo add post controller");
+        } catch (Exception e) {
+            System.out.println("vul hoilo profile controller ");
         }
 
-    } @FXML
+    }
+    @FXML
     void Choiceclick(ActionEvent event) {
         if(choice.getValue().toString().equals("Logout")){
             try {
@@ -305,8 +236,8 @@ public class AddPostController implements Initializable {
                    stage.show();*/
                 UserDashboard.FXMLScene scene =  UserDashboard.FXMLScene.load("Profile.fxml");
                 Parent root = scene.root;
-                ProfileController adminController = (ProfileController) scene.controller;
-                adminController.set(username,role);
+                UserDashboard.ProfileController adminController = (UserDashboard.ProfileController) scene.controller;
+                adminController.set(username,role1);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.setTitle("Profile");
@@ -333,24 +264,110 @@ public class AddPostController implements Initializable {
 
     }
     @FXML
+    void ChoiceClick(ActionEvent event){
+
+    }
+    @FXML
+    void addpost(ActionEvent event) {
+        System.out.println("hello");
+        try{
+            Post.FXMLScene scene =  Post.FXMLScene.load("AddPost.fxml");
+            Parent root = scene.root;
+            AddPostController admin= (AddPostController) scene.controller;
+            admin.set(username,role1);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Post Diaster");
+            stage.show();
+
+          /*  root = FXMLLoader.load(AddPostController.class.getResource("AddPost.fxml"));
+
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("SIGN IN");
+            stage.show();*/
+
+        }catch (Exception e ){
+
+        }
+
+    }
+
+    @FXML
+    void Homego(MouseEvent event) {
+
+    }
+    @FXML
     private Label rolee;
 
     @FXML
     private Label user;
 
 
-    public void set(String username) {
+    public void set(String username,String role) {
         user.setText(username);
         rolee.setText("@"+role);
         this.username = username;
-        System.out.println(username);
+        this.role1 = role;
+        output();
+      //  System.out.println(username);
+    }
+
+
+    @FXML
+    private Label BG;
+
+    @FXML
+    private Label District;
+
+    @FXML
+    private Label Division;
+
+    @FXML
+    private Label NID;
+
+    @FXML
+    private Label Name;
+
+    @FXML
+    private Label Phone;
+    @FXML
+    private Label field;
+    @FXML
+    private Label showuser;
+    public void output(){
+        try{
+            Statement stmt=con.createStatement();
+             String sql = "SELECT Name,Username,Phone,ID,Division,District,Volunteer,BG FROM userlist Where Username = \'"+user.getText()+"\'";
+            //String sql = "SELECT * FROM `userlist` Where Username = '"+1+"'";
+            //System.out.println("'"+user.getText()+"'");
+            //SELECT Name,ID FROM `userlist` WHERE Username= "Nuha";
+            //String s1="select * from teacher where Subject='PHYSICS'";
+            ResultSet rs=stmt.executeQuery(sql);
+            if(rs.next()) {
+                Name.setText(rs.getString(1));
+                showuser.setText("@"+rs.getString(2));
+                Phone.setText(rs.getString(3));
+                NID.setText(rs.getString(4));
+                District.setText(rs.getString(6));
+                Division.setText(rs.getString(5));
+                field.setText(rs.getString(7));
+                BG.setText(rs.getString(8));
+
+            }
+            rs.close();
+            stmt.close();
+            con.close();
+
+
+        } catch (SQLException ex) {
+            System.out.println("onk error");
+            System.err.println(ex.getMessage());
+        }
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String []division1={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
-        division.getItems().addAll(division1);
-        String []user={"EarthQuake","Blood","Fire","Cyclone","Cidor","Others"};
-        diaster.getItems().addAll(user);
         String []choiceb={"Profile","Logout"};
         choice.getItems().addAll(choiceb);
         File file = new File("src/main/Font/user1.png");
@@ -366,6 +383,37 @@ public class AddPostController implements Initializable {
         Image image5 = new Image(file1.toURI().toString());
         imageview1.setImage(image5);
         username= Application.oname;
+        //System.out.println(username);
+      //  output();
+       /* try{
+        Statement stmt=con.createStatement();
+       // String sql = "SELECT Name,Username,Phone,ID,Division,District,Volunteer,BG FROM userlist Where Username = \'"+username+"\'";
+       String sql = "SELECT * FROM `userlist` Where Username = "+username+"";
+            System.out.println("'"+username+"'");
+            //SELECT Name,ID FROM `userlist` WHERE Username= "Nuha";
+        //String s1="select * from teacher where Subject='PHYSICS'";
+            ResultSet rs=stmt.executeQuery(sql);
+            if(rs.next()) {
+                Name.setText(rs.getString(1));
+                showuser.setText(rs.getString(2));
+                Phone.setText(rs.getString(3));
+                NID.setText(rs.getString(4));
+                District.setText(rs.getString(6));
+                Division.setText(rs.getString(5));
+                field.setText(rs.getString(7));
+                BG.setText(rs.getString(8));
+
+            }
+            rs.close();
+            stmt.close();
+            con.close();
+
+
+        } catch (SQLException ex) {
+            System.out.println("onk error");
+            System.err.println(ex.getMessage());
+        }
+*/
 
     }
 }

@@ -3,8 +3,8 @@ module com.example.sheccashoinik {
     requires javafx.fxml;
     requires java.sql;
 
-    opens Dashboard to javafx.fxml;
-    exports Dashboard;
+    opens UserDashboard to javafx.fxml;
+    exports UserDashboard;
 
     opens com.example.sheccashoinik to javafx.fxml;
     exports com.example.sheccashoinik;
@@ -31,4 +31,6 @@ module com.example.sheccashoinik {
 
     opens Post to javafx.fxml;
     exports Post;
+    exports TeamProfile;
+    opens TeamProfile to javafx.fxml;
 }

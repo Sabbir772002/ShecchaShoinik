@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="645.0" prefWidth="784.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dashboard.ProfileEditController">
+<AnchorPane prefHeight="645.0" prefWidth="784.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserDashboard.ProfileEditController">
    <children>
       <ImageView fx:id="cirimage" fitHeight="147.0" fitWidth="149.0" layoutX="471.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="name" layoutX="242.0" layoutY="216.0" prefHeight="42.0" prefWidth="300.0" text="Peter Anderson" textFill="WHITE">

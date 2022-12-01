@@ -16,7 +16,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -299,9 +298,9 @@ public class ProfileController implements Initializable {
                    stage.setScene(scene);
                    stage.setTitle("SIGN IN");
                    stage.show();*/
-                Dashboard.FXMLScene scene =  Dashboard.FXMLScene.load("Profile.fxml");
+                UserDashboard.FXMLScene scene =  UserDashboard.FXMLScene.load("Profile.fxml");
                 Parent root = scene.root;
-                Dashboard.ProfileController adminController = (Dashboard.ProfileController) scene.controller;
+                UserDashboard.ProfileController adminController = (UserDashboard.ProfileController) scene.controller;
                 //adminController.set(usern);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
