@@ -1,11 +1,8 @@
-package AdminDB;
+package Sign_UP;
 
 import javafx.fxml.FXMLLoader;
-import Post.*;
-import Dashboard.*;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+
 import java.io.IOException;
 
 public class FXMLScene {

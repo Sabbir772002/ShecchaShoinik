@@ -3,9 +3,6 @@ package Sign_in;
 import AdminDB.AdminDashboardController;
 import AdminDB.FXMLScene;
 import DB.ConnectionDb;
-import Profile.ProfileController;
-import com.example.sheccashoinik.Application;
-import com.example.sheccashoinik.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,11 +20,11 @@ import java.sql.*;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class Sign_inController implements Initializable {
+public class SigninController implements Initializable {
     Connection con;
-    public Sign_inController() {
-        con = ConnectionDb.DB();
-        System.out.println("thik ase vai koibar bolboo");
+    public SigninController() {
+        con = ConnectionDb.DBC();
+       // System.out.println("thik ase vai koibar bolboo");
     }
     @FXML
     private ComboBox<String> sign_in_box;
@@ -40,11 +37,24 @@ public class Sign_inController implements Initializable {
 
     @FXML
     private TextField username;
+
+    @FXML
+    private Label passl;
+
+    @FXML
+    private Label userl;
+    @FXML
+    private Label selectl;
+
     private Stage stage;
 
     private Scene scene;
      Parent root;
     String usern="";
+    String role="";
+    public void set(String role){
+        this.usern=role;
+    }
     AdminDashboardController ad=new AdminDashboardController();
 
 
@@ -52,25 +62,36 @@ public class Sign_inController implements Initializable {
     @FXML
     void sign_in(ActionEvent event) {
    Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
-       User u=new User();
-       u.setname(usern);
-            if (logIn().equals("Success")) {
-                try {
 
+            if (logIn().equals("Success")) {
+                try  {
+                    role=sign_in_box.getValue().toString();
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Login Successfully!");
+                alert.setHeaderText("Login Successfully!");
+                File file = new File("src/main/Font/icon1.png");
+                Image image = new Image(file.toURI().toString());
+                stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(image);
+                //alert.initOwner(stage);
+                //alert.setGraphic(new ImageView(image));
+                //user.setImage(image);
+                Optional<ButtonType> result=alert.showAndWait();
+                if(alert.getResult().getText().equals("OK")){
                     FXMLScene scene =  FXMLScene.load("AdminDashboard.fxml");
                     Parent root = scene.root;
                     AdminDashboardController adminController = (AdminDashboardController) scene.controller;
-                    adminController.set(usern);
+                    adminController.set(usern,role);
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     stage.setScene(new Scene(root));
                     stage.setTitle("Dashboard");
                     stage.show();
-
+                }
 
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }else{
+            }else if(logIn().equals("Error")){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Sign in Error!");
                 alert.setHeaderText("Please input correct info or Sign Up");
@@ -90,11 +111,27 @@ public class Sign_inController implements Initializable {
         String status = "Success";
         System.out.println( password.getText());
          usern = username.getText();
-        ad.set(usern);
+         //role=sign_in_box.getValue().toString();
+        //ad.set(usern);
         String passw = password.getText();
-        if(usern.isEmpty() || passw.isEmpty()) {
+        if(usern.isEmpty() || passw.isEmpty() || sign_in_box.getSelectionModel().isEmpty()) {
+           if(usern.isEmpty()) {
+               userl.setVisible(true);
+           }else {
+               userl.setVisible(false);
+           }
+            if(passw.isEmpty()) {
+                passl.setVisible(true);
+            }else {
+                passl.setVisible(false);
+            }
+            if(sign_in_box.getSelectionModel().isEmpty()){
+                selectl.setVisible(true);
+            }else {
+                selectl.setVisible(false);
+            }
             //status = "Success";
-            status = "Error";
+            status = "Errorr";
         } else {
            // System.out.println("Inbox");
             String sql = "SELECT * FROM userlist Where username = ? and password = ?";
@@ -141,7 +178,7 @@ public class Sign_inController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String items[]={"User","Volunteer Leader","Admin"};
         sign_in_box.getItems().addAll(items);
-        File file = new File("src/main/Font/user-fill.png");
+        File file = new File("src/main/Font/user.png");
         Image image = new Image(file.toURI().toString());
         user.setImage(image);
         file = new File("src/main/Font/lock-outline.png");

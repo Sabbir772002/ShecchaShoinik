@@ -1,6 +1,7 @@
-package Profile;
+package Post;
 
-import Post.AddPostController;
+import AdminDB.FXMLScene;
+import Dashboard.ProfileController;
 import Sign_in.SigninController;
 import com.example.sheccashoinik.Application;
 import javafx.event.ActionEvent;
@@ -15,34 +16,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.shape.Circle;
+import AdminDB.*;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class ProfileController implements Initializable {
-    @FXML
-    private BorderPane pane1;
-
-  /*  @FXML
-    private Button Bbank;
-
-    @FXML
-    private Label Logo1;*/
-
-    @FXML
-    private ChoiceBox<String> choice;
-    @FXML
-    private ImageView userimage;
-    @FXML
-    private ImageView imageview;
-    @FXML
-    private ImageView bimage;
+public class AddPostController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -51,25 +33,45 @@ public class ProfileController implements Initializable {
 
 
     public void set(String username,String role) {
-        this.role = role;
+        user.setText(username);
+        rolee.setText("@"+role);
         this.username = username;
+        this.role = role;
+        System.out.println(username);
     }
     @FXML
-    void BbankClick(ActionEvent event) {
+    private TextArea address;
 
-    }
+
+    @FXML
+    private TextArea address1;
+
     @FXML
     private Button b;
 
     @FXML
     private Button bbutton;
 
-    /* @FXML
-     private ChoiceBox<?> choice;
+    @FXML
+    private ImageView bimage;
 
-     @FXML
-     private ImageView imageview;
- */
+    @FXML
+    private ChoiceBox<String> choice;
+
+    @FXML
+    private TextArea diastertitle;
+
+    @FXML
+    private ComboBox<String> division;
+
+    @FXML
+    private ComboBox<String> diaster;
+
+    @FXML
+    private ComboBox<String> district;
+
+    @FXML
+    private ImageView imageview;
 
     @FXML
     private ImageView imageview1;
@@ -78,51 +80,96 @@ public class ProfileController implements Initializable {
     private ImageView logoimage;
 
     @FXML
+    private BorderPane pane1;
+
+    @FXML
     void BbankClick(MouseEvent event) {
 
     }
     @FXML
-    private ScrollPane spane;
-
-
-
-    @FXML
-    void Dashboard(ActionEvent event) {
-        /* *//* Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        // Step 2
-        User u = (User) stage.getUserData();
-        // Step 3
-        String name = u.getname();*//*
-       // String email = u.getEmail();*/
-        System.out.println("vaiya ki khobor "+username);
+    void ChoiceClick(ActionEvent event) {
 
     }
 
     @FXML
-    void Diaster(ActionEvent event) throws IOException {
+    void ChoiceClick(MouseEvent event) {
 
+    }
+    @FXML
+    void select(ActionEvent event) {
+        String divisionname;
+        try{
+            divisionname=division.getSelectionModel().getSelectedItem().toString();
+        }catch(Exception e ){
+            divisionname="";
+        }
+        if(divisionname.equals("Dhaka")){
+            district.getItems().removeAll(district.getItems());
+            String []ditrict={"Dhaka","Gazipur","Faridpur","Gopalganj","Jamalpur","Kishoreganj","Madaripur","Manikganj","Munshiganj","Narayanganj","Narshingdi","Rajbari","Shariatpur","Tangail"};
+            district.getItems().addAll(ditrict);
+        }else if(divisionname.equals("Rajshahi")){
+            district.getItems().removeAll(district.getItems());
 
+            String []ditrict={"Rajshahi","Sirajgonj","Bogra","Chapinawabganj","Joypurhat","Naogaon","Natore","Pabna"};
+            district.getItems().addAll(ditrict);
+        }
+        else if(divisionname.equals("Chattogram")){
+            district.getItems().removeAll(district.getItems());
 
-        //for cheking purposes only
-                  /*  VBox vbox[]=new VBox[3];
-                    for(int i =0;i<3;i++) {
-                        p = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
-                        vbox[i]=new VBox();
-                        vbox[i].getChildren().add(p);
-                        *//*stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                        scene = new Scene(root);
-                        stage.setScene(scene);
-                        stage.setTitle("SIGN IN");
-                        stage.show();*//*
+            String []ditrict={"Chattogram","Cox's Bazar", "Rangamati", "Bandarban", "Khagrachhari", "Feni", "Lakshmipur", "Comilla"," Noakhali", "Brahmanbaria" ,"Chandpur"};
+            district.getItems().addAll(ditrict);
+        }
+        else if(divisionname.equals("Barishal")){
+            district.getItems().removeAll(district.getItems());
 
-                    }
-                    //AnchorPane apane = new AnchorPane();
-                    HBox a = new HBox();
-                    a.getChildren().add(vbox);
-                    pane1.setCenter(vbox);
-            */
+            String []ditrict={"Barishal", "Barguna", "Bhola", "Jhalokati", "Pirojpur","Patuakhali"};
+            district.getItems().addAll(ditrict);
+        }
+        else if(divisionname.equals("Sylhet")){
+            district.getItems().removeAll(district.getItems());
 
+            String []ditrict={"Sylhet","Habiganj","Moulvibazar","Sunamganj" };
+            district.getItems().addAll(ditrict);
+        }
+        else if(divisionname.equals("Mymensingh")){
+            district.getItems().removeAll(district.getItems());
+
+            String []ditrict={"Mymensingh","Jamalpur","Netrokona","Sherpur" };
+            district.getItems().addAll(ditrict);
+        }
+        else if(divisionname.equals("Khulna")){
+            district.getItems().removeAll(district.getItems());
+
+            String []ditrict={"Khulna","Bagherhat","Chuadanga","Jessore","Jinaidaha","Magura","Meherpur","Narail","Satkhira" };
+            district.getItems().addAll(ditrict);
+        }
+        else if(divisionname.equals("Rangpur")){
+            district.getItems().removeAll(district.getItems());
+
+            String []ditrict={"Rangpur","Kurigram","Gaibandha","Thakurgaon","Dinajpur","Nilphamari","Panchagarh","Lalmonirhat" };
+            district.getItems().addAll(ditrict);
+        }
+    }
+
+    @FXML
+    void Dashboard(ActionEvent event) {
+        try{
+           AdminDB.FXMLScene scene =  AdminDB.FXMLScene.load("AdminDashboard.fxml");
+            Parent root = scene.root;
+            AdminDashboardController adminController = (AdminDashboardController) scene.controller;
+            adminController.set(username,role);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Dashboard");
+            stage.show();
+        }catch(Exception e){
+
+        }
+
+    }
+
+    @FXML
+    void Diaster(ActionEvent event) {
 
     }
 
@@ -146,6 +193,10 @@ public class ProfileController implements Initializable {
 
     }
 
+    @FXML
+    void addpost(ActionEvent event) {
+
+    }
 
     @FXML
     void chat(ActionEvent event) {
@@ -178,93 +229,25 @@ public class ProfileController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
-    Pane p;
-
 
     @FXML
     void profile(ActionEvent event) {
-       /* try {
-            System.out.println("ok");
 
-          //Pane p = FXMLScene.loadpane("Profile.fxml");
-            FXMLLoader fxmlLoader = FXMLScene.loadpane("Profile.fxml");
-            p=fxmlLoader.load();
-            //Parent root = scene.root;
-            //p = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-            // p=(Pane)scene;
-           // FXMLLoader fxmlLoader = (FXMLLoader) (this.p.getScene().getUserData());
-            AdminDashboardController controller = (AdminDashboardController) fxmlLoader.getController();
-         //  AdminDashboardController adminController = (AdminDashboardController) scene.controller;
-            controller.set(username+" vai");
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.setScene(new Scene(root));
-            stage.setTitle("Profile");
-            pane1.setCenter(p);
-            stage.show();
-        }
-        catch (IOException e) {
-            System.out.println("error vai \n"+e);
-
-        }*/
-        /*try {
-            System.out.println("ok");
-
-            *//*FXMLScene scene = FXMLScene.load("Profile.fxml");
-            Parent root = scene.root;*//*
-            p = FXMLLoader.load(Dashboard.ProfileController.class.getResource("Profile.fxml"));
-           // p=(Pane)scene;
-            pane1.setCenter(p);
-           // AdminDashboardController adminController = (AdminDashboardController) scene.controller;
-           // adminController.set(username);
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.setScene(new Scene(root));
+        try{
+            Dashboard.FXMLScene scene =  Dashboard.FXMLScene.load("Profile.fxml");
+            Parent root = scene.root;
+            ProfileController admin= (ProfileController) scene.controller;
+            admin.set(username,role);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
             stage.setTitle("Profile");
             stage.show();
+        }catch (Exception e){
+            System.out.println("vul hoilo add post controller");
         }
-        catch (Exception e) {
 
-        }*/
-
-
-
-
-           /* try {
-                // FXMLLoader o = new FXMLLoader(Profile.ProfileController.class.getResource("Profile.fxml"));
-                p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
-                pane1.setCenter(p);
-                stage.setTitle("Profile");
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-                stage.setTitle("Profile");
-                stage.show();
-               // System.out.println("helloApplication");
-            } catch (Exception e) {
-
-            }*/
-    }
-
-
-    @FXML
-    void ChoiceClick(MouseEvent event) {
-        if(choice.getValue().toString().equals("Logout")){
-            try {
-
-                root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
-
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.setTitle("SIGN IN");
-                stage.show();
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-    @FXML
+    } @FXML
     void Choiceclick(ActionEvent event) {
         if(choice.getValue().toString().equals("Logout")){
             try {
@@ -301,8 +284,8 @@ public class ProfileController implements Initializable {
                    stage.show();*/
                 Dashboard.FXMLScene scene =  Dashboard.FXMLScene.load("Profile.fxml");
                 Parent root = scene.root;
-                Dashboard.ProfileController adminController = (Dashboard.ProfileController) scene.controller;
-                //adminController.set(usern);
+                ProfileController adminController = (ProfileController) scene.controller;
+                adminController.set(username,role);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.setTitle("Profile");
@@ -329,39 +312,24 @@ public class ProfileController implements Initializable {
 
     }
     @FXML
-    void addpost(ActionEvent event) {
-        System.out.println("hello");
-        try{
-            Post.FXMLScene scene =  Post.FXMLScene.load("AddPost.fxml");
-            Parent root = scene.root;
-            AddPostController admin= (AddPostController) scene.controller;
-            admin.set(username);
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Post Diaster");
-            stage.show();
-
-          /*  root = FXMLLoader.load(AddPostController.class.getResource("AddPost.fxml"));
-
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("SIGN IN");
-            stage.show();*/
-
-        }catch (Exception e ){
-
-        }
-
-    }
+    private Label rolee;
 
     @FXML
-    void Homego(MouseEvent event) {
+    private Label user;
 
+
+    public void set(String username) {
+        user.setText(username);
+        rolee.setText("@"+role);
+        this.username = username;
+        System.out.println(username);
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        String []division1={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
+        division.getItems().addAll(division1);
+        String []user={"EarthQuake","Blood","Fire","Cyclone","Cidor","Others"};
+        diaster.getItems().addAll(user);
         String []choiceb={"Profile","Logout"};
         choice.getItems().addAll(choiceb);
         File file = new File("src/main/Font/user1.png");
@@ -377,8 +345,6 @@ public class ProfileController implements Initializable {
         Image image5 = new Image(file1.toURI().toString());
         imageview1.setImage(image5);
         username= Application.oname;
-
-        //   choice.setOnAction(this::ChoiceClick);
 
     }
 }

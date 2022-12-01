@@ -1,6 +1,6 @@
 package com.example.sheccashoinik;
 
-import Sign_in.Sign_inController;
+import Sign_in.SigninController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +8,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -37,7 +36,7 @@ public class HomeController implements Initializable {
     @FXML
     void Signin(ActionEvent event) {
         try {
-            root = FXMLLoader.load(Sign_inController.class.getResource("Sign_in.fxml"));
+            root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -69,7 +68,7 @@ public class HomeController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         File file = new File("src/main/Font/logo.png");
         Image image = new Image(file.toURI().toString());
-        backfont.setImage(image);
+        //backfont.setImage(image);
         file = new File("src/main/Font/icon1.png");
         image = new Image(file.toURI().toString());
         logo.setImage(image);
