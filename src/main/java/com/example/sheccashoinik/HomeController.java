@@ -57,7 +57,7 @@ public class HomeController implements Initializable {
         public void run(){
             try {
                 while (true){
-                    image.setLayoutX(image.getFitWidth());
+                   // image.setLayoutX(image.getFitWidth());
 
                     if(i>=images.length)i=0;
                     if(i==0/*||i==8*/){image1.setVisible(true);image1.setImage(new Image(new File(images[i]).toURI().toString()));image.setVisible(false);}

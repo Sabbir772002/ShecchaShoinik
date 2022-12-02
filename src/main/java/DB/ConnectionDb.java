@@ -33,7 +33,7 @@ public class ConnectionDb {
         Connection con =DBC();
         ObservableList<diaster>list = FXCollections.observableArrayList();
         try {
-            PreparedStatement ps =  con.prepareStatement("select * from diasterlist");
+            PreparedStatement ps =  con.prepareStatement("SELECT * FROM `diasterlist` ORDER BY Id DESC;");
             ResultSet rs = ps.executeQuery();
 
             while(rs.next()){
