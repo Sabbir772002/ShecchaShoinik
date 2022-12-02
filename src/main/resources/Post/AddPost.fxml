@@ -160,7 +160,7 @@
                     <graphic>
                         <ImageView fx:id="bimage" fitHeight="24.0" fitWidth="33.0" onDragDetected="#BbankClick" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Font/1297136.png" />
+                                <Image url="@../../Font/1.png" />
                             </image>
                         </ImageView>
                     </graphic>

@@ -31,6 +31,5 @@ module com.example.sheccashoinik {
 
     opens TeamProfile to javafx.fxml;
     exports TeamProfile;
-    opens ImageSlider to javafx.fxml;
-    exports ImageSlider;
+
 }

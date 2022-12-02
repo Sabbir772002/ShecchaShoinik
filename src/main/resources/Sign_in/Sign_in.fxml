@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="579.0" prefWidth="652.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_in.SigninController">
+<AnchorPane prefHeight="631.0" prefWidth="878.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_in.SigninController">
    <children>
-      <AnchorPane layoutX="151.0" layoutY="129.0" prefHeight="338.0" prefWidth="349.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);; -fx-background-radius: 20,20,20,20;">
+      <AnchorPane layoutX="240.0" layoutY="146.0" prefHeight="338.0" prefWidth="349.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);; -fx-background-radius: 20,20,20,20;">
          <children>
             <Label layoutX="123.0" layoutY="14.0" prefHeight="22.0" prefWidth="102.0" text="You are" textFill="#c7c7c7">
                <font>

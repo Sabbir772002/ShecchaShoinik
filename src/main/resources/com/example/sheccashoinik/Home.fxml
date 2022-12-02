@@ -9,22 +9,22 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="788.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sheccashoinik.HomeController">
    <children>
-      <Button fx:id="Signinb" alignment="CENTER" layoutX="301.0" layoutY="217.0" mnemonicParsing="false" onAction="#Signin" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#061161  0%, #780206  100%); -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="Sign in" textFill="WHITE">
+      <Button fx:id="Signinb" alignment="CENTER" layoutX="616.0" layoutY="480.0" mnemonicParsing="false" onAction="#Signin" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#061161  0%, #780206  100%); -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="Sign in" textFill="WHITE">
          <font>
             <Font name="Book Antiqua Bold" size="22.0" />
          </font>
       </Button>
-      <Button fx:id="Signinb1" alignment="CENTER" layoutX="301.0" layoutY="298.0" mnemonicParsing="false" onAction="#SignUp" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#F11712  0%, #0099F7  100%); -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="Sign up" textFill="WHITE">
+      <Button fx:id="Signinb1" alignment="CENTER" layoutX="616.0" layoutY="545.0" mnemonicParsing="false" onAction="#SignUp" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#F11712  0%, #0099F7  100%); -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="Sign up" textFill="WHITE">
          <font>
             <Font name="Book Antiqua Bold" size="22.0" />
          </font>
       </Button>
-      <Label layoutX="267.0" layoutY="177.0" prefHeight="26.0" prefWidth="265.0" text="Already have an account..." textFill="WHITE">
+      <Label layoutX="508.0" layoutY="453.0" prefHeight="26.0" prefWidth="265.0" text="Already have an account..." textFill="WHITE">
          <font>
             <Font name="Book Antiqua Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="276.0" layoutY="265.0" prefHeight="23.0" prefWidth="201.0" text=" Don't have an account?...." textFill="WHITE">
+      <Label layoutX="507.0" layoutY="522.0" prefHeight="23.0" prefWidth="210.0" text=" Don't have an account?...." textFill="WHITE">
          <font>
             <Font name="Book Antiqua" size="18.0" />
          </font>
@@ -39,5 +39,6 @@
             <Image url="@../../../../Font/blacklogo.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="image" fitHeight="350.0" fitWidth="447.0" layoutX="171.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
