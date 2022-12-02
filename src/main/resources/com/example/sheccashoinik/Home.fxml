@@ -39,7 +39,58 @@
             <Image url="@../../../../Font/blacklogo.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="image" fitHeight="345.0" fitWidth="561.0" layoutX="114.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="image1" fitHeight="345.0" fitWidth="451.0" layoutX="175.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="image1" fitHeight="345.0" fitWidth="451.0" layoutX="175.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../../../Font/Hand.png" />
+         </image></ImageView>
+      <AnchorPane fx:id="pane1" layoutX="102.0" layoutY="91.0" prefHeight="345.0" prefWidth="604.0">
+         <children>
+            <ImageView fx:id="image" fitHeight="345.0" fitWidth="604.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pane2" layoutX="102.0" layoutY="91.0" prefHeight="345.0" prefWidth="604.0">
+         <children>
+            <ImageView fx:id="image2" fitHeight="345.0" fitWidth="604.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pane3" layoutX="102.0" layoutY="91.0" prefHeight="345.0" prefWidth="604.0">
+         <children>
+            <ImageView fx:id="image3" fitHeight="345.0" fitWidth="604.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane><AnchorPane fx:id="pane4" layoutX="102.0" layoutY="91.0" prefHeight="345.0" prefWidth="604.0">
+      <children>
+         <ImageView fx:id="image4" fitHeight="345.0" fitWidth="604.0" pickOnBounds="true" preserveRatio="true" />
+      </children>
+   </AnchorPane><AnchorPane fx:id="pane5" layoutX="102.0" layoutY="91.0" prefHeight="345.0" prefWidth="604.0">
+      <children>
+         <ImageView fx:id="image5" fitHeight="345.0" fitWidth="604.0" pickOnBounds="true" preserveRatio="true" />
+      </children>
+   </AnchorPane><AnchorPane fx:id="pane6" layoutX="102.0" layoutY="91.0" prefHeight="345.0" prefWidth="604.0">
+      <children>
+         <ImageView fx:id="image6" fitHeight="345.0" fitWidth="604.0" pickOnBounds="true" preserveRatio="true" />
+      </children>
+   </AnchorPane><AnchorPane fx:id="pane7" layoutX="102.0" layoutY="91.0" prefHeight="345.0" prefWidth="604.0">
+      <children>
+         <ImageView fx:id="image7" fitHeight="345.0" fitWidth="604.0" pickOnBounds="true" preserveRatio="true" />
+      </children>
+   </AnchorPane>
+      <Button layoutX="80.0" layoutY="212.0" mnemonicParsing="false" onAction="#fontjao" prefHeight="68.0" prefWidth="23.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);">
+         <graphic>
+            <ImageView fx:id="front" fitHeight="150.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Font/front.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="686.0" layoutY="200.0" mnemonicParsing="false" onAction="#backjao" prefHeight="68.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);">
+         <graphic>
+            <ImageView fx:id="back" fitHeight="150.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Font/back.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
