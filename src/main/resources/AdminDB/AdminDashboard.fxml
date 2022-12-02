@@ -318,10 +318,11 @@
                <children>
                   <TableView layoutX="3.0" layoutY="48.0" prefHeight="525.0" prefWidth="718.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 10;">
                     <columns>
-                      <TableColumn fx:id="Title" prefWidth="195.1999969482422" text="Title" />
-                      <TableColumn minWidth="0.0" prefWidth="169.60003662109375" text="Diaster Type" />
-                        <TableColumn minWidth="0.0" prefWidth="169.60003662109375" text="District" />
-                        <TableColumn minWidth="0.0" prefWidth="182.39996337890625" text="Address" />
+                      <TableColumn fx:id="col_title" prefWidth="195.1999969482422" text="Title" />
+                      <TableColumn fx:id="col_type" minWidth="0.0" prefWidth="169.60003662109375" text="Diaster Type" />
+                        <TableColumn fx:id="col_district" minWidth="0.0" prefWidth="169.60003662109375" text="District" />
+                        <TableColumn fx:id="col_address" minWidth="0.0" prefWidth="182.39996337890625" text="Address" />
+                        <TableColumn fx:id="col_id" minWidth="0.0" prefWidth="182.39996337890625" text="Id" />
                     </columns>
                   </TableView>
                   <TextField layoutX="531.0" layoutY="6.0" prefHeight="30.0" prefWidth="188.0" promptText="Search" style="-fx-background-radius: 5;" />

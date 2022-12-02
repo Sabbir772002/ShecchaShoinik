@@ -39,6 +39,7 @@
             <Image url="@../../../../Font/blacklogo.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="image" fitHeight="350.0" fitWidth="447.0" layoutX="171.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="image" fitHeight="345.0" fitWidth="561.0" layoutX="114.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="image1" fitHeight="345.0" fitWidth="451.0" layoutX="175.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

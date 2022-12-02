@@ -29,17 +29,27 @@ public class HomeController implements Initializable {
     private ImageView logo1;
     @FXML
     private ImageView image;
+    @FXML
+    private ImageView image1;
 
     String images[]={
             "src/main/Font/Hand.png",
-            "src/main/Font/Community.png",
-            "src/main/Font/group2.png",
+            "src/main/Font/1.jpg",
+            "src/main/Font/2.jpg",
+            "src/main/Font/2.jpg",
+            "src/main/Font/3.jpg",
+            "src/main/Font/4.jpg",
+            "src/main/Font/5.jpg",
+            "src/main/Font/6.jpg",
+            "src/main/Font/HelpCar.jpg",
+            //  "src/main/Font/1.png",
+            /*"src/main/Font/group2.png",
             "src/main/Font/group1.png",
             "src/main/Font/1.png",
             "src/main/Font/2.png",
             "src/main/Font/HelpCar.jpg",
             "src/main/Font/donate.png",
-            "src/main/Font/blood.png"};
+            "src/main/Font/blood.png"*/};
 
 
     class SliderThread extends Thread{
@@ -47,10 +57,12 @@ public class HomeController implements Initializable {
         public void run(){
             try {
                 while (true){
+                    image.setLayoutX(image.getFitWidth());
 
                     if(i>=images.length)i=0;
-                    image.setImage(new Image(new File(images[i]).toURI().toString()));
-                    sleep(1000); //1 sec
+                    if(i==0/*||i==8*/){image1.setVisible(true);image1.setImage(new Image(new File(images[i]).toURI().toString()));image.setVisible(false);}
+                        else {image.setVisible(true);image.setImage(new Image(new File(images[i]).toURI().toString()));image1.setVisible(false);}
+                    sleep(500); //1 sec
                     i++;
                 }
             }

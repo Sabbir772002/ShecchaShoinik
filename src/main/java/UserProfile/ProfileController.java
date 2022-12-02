@@ -102,7 +102,7 @@ public class ProfileController implements Initializable {
                 stage.setScene(new Scene(root));
                 stage.setTitle("UserProfile");
                 stage.show();
-            }else{
+            }else if (role1.equals("Admin")) {
                 AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard.fxml");
                 Parent root = scene.root;
                 AdminDashboardController adminController = (AdminDashboardController) scene.controller;
@@ -110,6 +110,15 @@ public class ProfileController implements Initializable {
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.setTitle("AdminDashboard");
+                stage.show();
+            }else{
+            AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard.fxml");
+                Parent root = scene.root;
+                TeamDashboardController adminController = (TeamDashboardController) scene.controller;
+                adminController.set(username, role1);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("TeamDashboard");
                 stage.show();
             }
         }catch(IOException e){

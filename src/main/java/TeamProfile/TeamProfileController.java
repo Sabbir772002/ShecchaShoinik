@@ -100,7 +100,7 @@ public class TeamProfileController implements Initializable {
         /* *//* Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
         // Step 2
-        User u = (User) stage.getUserData();
+        diasterlist u = (diasterlist) stage.getUserData();
         // Step 3
         String name = u.getname();*//*
        // String email = u.getEmail();*/

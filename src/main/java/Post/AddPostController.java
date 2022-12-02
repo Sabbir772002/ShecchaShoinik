@@ -17,10 +17,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import AdminDB.*;
 import javafx.stage.Stage;
+import DB.ConnectionDb;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -30,6 +33,10 @@ public class AddPostController implements Initializable {
     private Parent root;
     public String username="";
     public String role="";
+    Connection con;
+    public AddPostController(){
+        con=ConnectionDb.DBC();
+    }
 
 
     public void set(String username,String role) {
@@ -183,7 +190,7 @@ public class AddPostController implements Initializable {
                 stage.show();
             }
             }catch(IOException e){
-            System.out.println("vul hoilo add post er dashboard ");
+            System.out.println("vul hoilo add post er dashboard "+e.getMessage());
             }
         }
 
@@ -344,6 +351,45 @@ public class AddPostController implements Initializable {
         rolee.setText("@"+role);
         this.username = username;
         System.out.println(username);
+    }
+    @FXML
+    void Submit(ActionEvent event) {
+        System.out.println("i am at add post");
+
+        try {
+            con=ConnectionDb.DBC();
+            String st = "INSERT INTO diasterlist (Title,Type, Address, Division, District,AddInfo) VALUES (?,?,?,?,?,?)";
+            PreparedStatement preparedStatement = (PreparedStatement) con.prepareStatement(st);
+            preparedStatement.setString(1, diastertitle.getText());
+            preparedStatement.setString(2, diaster.getValue().toString());
+            preparedStatement.setString(3, address.getText());
+            preparedStatement.setString(4, division.getValue().toString());
+            preparedStatement.setString(5, district.getValue().toString());
+            preparedStatement.setString(6, address1.getText().toString());
+            /*preparedStatement.setString(7, "1963890981");
+            preparedStatement.setString(8, cbGender.getValue().toString());
+            preparedStatement.setString(9, cbgroup.getValue().toString());
+            preparedStatement.setString(10, bloodgroup.getValue().toString());
+            preparedStatement.setString(11, phone.getText());
+            preparedStatement.setString(12, mail.getText());*/
+            preparedStatement.execute();
+            preparedStatement.close();
+            con.close();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("AddPostConfirmation!");
+            alert.setHeaderText("Your Post Added!\nNow this will be show on Timeline");
+            // alert.setContentText("");
+            File file = new File("src/main/Font/icon1.png");
+            Image image = new Image(file.toURI().toString());
+            stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(image);
+            Optional<ButtonType> result=alert.showAndWait();
+            System.out.println("THIK ASE INPUT");
+        } catch (Exception e) {
+            System.out.println("some error at add post/n"+e.getMessage());
+
+        }
+
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
