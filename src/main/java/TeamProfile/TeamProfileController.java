@@ -1,5 +1,6 @@
 package TeamProfile;
 import AdminDB.*;
+import DB.ConnectionDb;
 import Post.AddPostController;
 import Sign_in.SigninController;
 import com.example.sheccashoinik.Application;
@@ -21,6 +22,10 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -49,6 +54,19 @@ public class TeamProfileController implements Initializable {
     private ImageView imageview;
     @FXML
     private ImageView bimage;
+
+
+    @FXML
+    private Label district;
+
+    @FXML
+    private Label division;
+
+    @FXML
+    private Label field;
+
+    @FXML
+    private Label License;
     @FXML
     void BbankClick(ActionEvent event) {
 
@@ -451,12 +469,43 @@ public class TeamProfileController implements Initializable {
     @FXML
     private Label user;
 
+    public void output(){
+        try{
+            Connection con= ConnectionDb.DBC();
+            Statement stmt=con.createStatement();
+            String sql = "SELECT Name,Username,Phone,ID,Division,District,Volunteer,BG FROM userlist Where Username = \'"+user.getText()+"\'";
+            //String sql = "SELECT * FROM `userlist` Where Username = '"+1+"'";
+            //System.out.println("'"+user.getText()+"'");
+            //SELECT Name,ID FROM `userlist` WHERE Username= "Nuha";
+            //String s1="select * from teacher where Subject='PHYSICS'";
+            ResultSet rs=stmt.executeQuery(sql);
+            if(rs.next()) {
+               /* Name.setText(rs.getString(1));
+                showuser.setText("@"+rs.getString(2));
+                Phone.setText(rs.getString(3));
+                NID.setText(rs.getString(4));
+                District.setText(rs.getString(6));
+                Division.setText(rs.getString(5));
+                field.setText(rs.getString(7));
+                BG.setText(rs.getString(8));
+*/
+            }
+            rs.close();
+            stmt.close();
+            con.close();
 
+
+        } catch (SQLException ex) {
+            System.out.println("onk error");
+            System.err.println(ex.getMessage());
+        }
+    }
     public void set(String username,String role) {
         user.setText(username);
         rolee.setText("@"+role);
         this.username = username;
         this.role = role;
+        output();
         //  System.out.println(username);
     }
 

@@ -149,7 +149,7 @@
    <left>
       <VBox layoutX="50.0" prefHeight="646.0" prefWidth="189.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane prefHeight="600.0" prefWidth="214.0" style="-fx-cursor: hand; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);">
+            <AnchorPane prefHeight="600.0" prefWidth="214.0" style="-fx-cursor: hand;">
                <children>
                   <ImageView fx:id="imageview1" fitHeight="105.0" fitWidth="117.0" layoutX="-4.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true" x="50.0" y="20.0">
                      <image>
@@ -171,7 +171,7 @@
                   </Label>
                   <VBox layoutX="13.0" layoutY="169.0" prefHeight="430.0" prefWidth="178.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#Dashboard" prefHeight="34.0" prefWidth="156.0" style="-fx-background-color: #985aaa;" text="Dashboard">
+                        <Button mnemonicParsing="false" onAction="#Dashboard" prefHeight="44.0" prefWidth="156.0" style="-fx-background-color: #985aaa;" text="Dashboard">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -204,7 +204,7 @@
                               <Blend />
                            </effect>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#Vnear" prefHeight="38.0" prefWidth="156.0" style="-fx-background-color: #985aaa;" text="Volunteer Team">
+                        <Button mnemonicParsing="false" onAction="#Vnear" prefHeight="38.0" prefWidth="156.0" style="-fx-background-color: #985aaa;" text="Volunteer Near">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -212,7 +212,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#F" prefHeight="36.0" prefWidth="155.0" style="-fx-background-color: #9d5aaa;" text="TeamApprove">
+                        <Button mnemonicParsing="false" onAction="#profile" prefHeight="38.0" prefWidth="155.0" style="-fx-background-color: #985aaa;" text="Profile">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -220,7 +220,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#H" prefHeight="38.0" prefWidth="156.0" style="-fx-background-color: #9d5aaa;" text="Progress">
+                        <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="155.0" style="-fx-background-color: #985aaa;" text="Disaster Guidelines">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -228,7 +228,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#G" prefHeight="37.0" prefWidth="157.0" style="-fx-background-color: #9d5aaa;" text="Add Event">
+                        <Button mnemonicParsing="false" onAction="#F" prefHeight="36.0" prefWidth="155.0" style="-fx-background-color: #9d5aaa;" text="F">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -236,7 +236,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="158.0" style="-fx-background-color: #985aaa;" text="Disaster Guidelines">
+                        <Button mnemonicParsing="false" onAction="#H" prefHeight="38.0" prefWidth="156.0" style="-fx-background-color: #9d5aaa;" text="H">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -244,7 +244,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#profile" prefHeight="38.0" prefWidth="159.0" style="-fx-background-color: #985aaa;" text="Profile">
+                        <Button mnemonicParsing="false" onAction="#G" prefHeight="37.0" prefWidth="157.0" style="-fx-background-color: #9d5aaa;" text="G">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -316,13 +316,13 @@
          <children>
             <AnchorPane layoutX="27.0" layoutY="13.0" prefHeight="574.0" prefWidth="703.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-border-radius: 10; -fx-background-radius: 10;">
                <children>
-                  <TableView layoutX="3.0" layoutY="48.0" prefHeight="525.0" prefWidth="718.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 10;">
+                  <TableView fx:id="table" layoutX="3.0" layoutY="48.0" prefHeight="525.0" prefWidth="718.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 10;">
                     <columns>
-                      <TableColumn fx:id="col_title" prefWidth="195.1999969482422" text="Title" />
-                      <TableColumn fx:id="col_type" minWidth="0.0" prefWidth="169.60003662109375" text="Diaster Type" />
+                      <TableColumn fx:id="col_title" prefWidth="238.39999771118164" text="Title" />
+                      <TableColumn fx:id="col_type" minWidth="0.0" prefWidth="127.199951171875" text="Diaster Type" />
                         <TableColumn fx:id="col_district" minWidth="0.0" prefWidth="169.60003662109375" text="District" />
                         <TableColumn fx:id="col_address" minWidth="0.0" prefWidth="182.39996337890625" text="Address" />
-                        <TableColumn fx:id="col_id" minWidth="0.0" prefWidth="182.39996337890625" text="Id" />
+                        <TableColumn fx:id="col_id" minWidth="0.0" prefWidth="182.39996337890625" text="ID" visible="false" />
                     </columns>
                   </TableView>
                   <TextField layoutX="531.0" layoutY="6.0" prefHeight="30.0" prefWidth="188.0" promptText="Search" style="-fx-background-radius: 5;" />

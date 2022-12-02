@@ -1,5 +1,6 @@
 package AdminDB;
 
+import AdminProfile.AdminProfileController;
 import DB.ConnectionDb;
 import UserProfile.ProfileController;
 import Post.AddPostController;
@@ -136,7 +137,7 @@ public class AdminDashboardController implements Initializable {
 
         //System.out.println("vaiya ki khobor "+username);
         try{
-            AdminDB.FXMLScene scene =  AdminDB.FXMLScene.load("AdminDashboard.fxml");
+            AdminDB.FXMLScene scene =  AdminDB.FXMLScene.load("AdminDashboard1.fxml");
             Parent root = scene.root;
             AdminDashboardController admin= (AdminDashboardController) scene.controller;
             admin.set(username,role);
@@ -238,9 +239,9 @@ public class AdminDashboardController implements Initializable {
     void profile(ActionEvent event) {
 
         try{
-            UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
+            UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("AdminProfile.fxml");
             Parent root = scene.root;
-            ProfileController admin= (ProfileController) scene.controller;
+            AdminProfileController admin= (AdminProfileController)scene.controller;
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));

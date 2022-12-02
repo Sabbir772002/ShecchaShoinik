@@ -3,6 +3,7 @@ package AdminDB;
 import DB.ConnectionDb;
 import Post.AddPostController;
 import Sign_in.SigninController;
+import TeamProfile.TeamProfileController;
 import UserProfile.ProfileController;
 import com.example.sheccashoinik.Application;
 import com.example.sheccashoinik.diaster;
@@ -136,13 +137,13 @@ public class TeamDashboardController implements Initializable {
         loadtable();
         //System.out.println("vaiya ki khobor "+username);
         try{
-            FXMLScene scene =  FXMLScene.load("TeamDashboard.fxml");
+            FXMLScene scene =  FXMLScene.load("TeamDashboard1.fxml");
             Parent root = scene.root;
             TeamDashboardController admin= (TeamDashboardController) scene.controller;
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Post Diaster");
+            stage.setTitle("TeamDashboard");
             stage.show();
         }catch (Exception e){
             System.out.println("vul hoilo team dashborad controller dashboard");
@@ -238,16 +239,16 @@ public class TeamDashboardController implements Initializable {
     void profile(ActionEvent event) {
 
         try{
-            UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
+            UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("TeamProfile.fxml");
             Parent root = scene.root;
-            ProfileController admin= (ProfileController) scene.controller;
+            TeamProfileController admin= (TeamProfileController) scene.controller;
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Profile");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo profile button profile controller");
+            System.out.println("vul hoilo teamdashboard button profile controller");
         }
 
         }
