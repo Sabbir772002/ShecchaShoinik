@@ -103,9 +103,9 @@ public class TeamProfileController implements Initializable {
     @FXML
     void Dashboard(ActionEvent event) {
         try{
-            UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("UserDashboard.fxml");
+            AdminDB.FXMLScene scene =  AdminDB.FXMLScene.load("TeamDashboard.fxml");
             Parent root = scene.root;
-            AdminDashboardController admin= (AdminDashboardController) scene.controller;
+            TeamDashboardController admin= (TeamDashboardController) scene.controller;
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -214,7 +214,7 @@ public class TeamProfileController implements Initializable {
     @FXML
     void profile(ActionEvent event) {
         try{
-            TeamProfile.FXMLScene scene =  TeamProfile.FXMLScene.load("Profile.fxml");
+            TeamProfile.FXMLScene scene =  TeamProfile.FXMLScene.load("TeamProfile.fxml");
             Parent root = scene.root;
             TeamProfileController admin= (TeamProfileController) scene.controller;
             admin.set(username.toString(),role.toString());
@@ -223,7 +223,7 @@ public class TeamProfileController implements Initializable {
             stage.setTitle("Profile");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo profile button profile controller");
+            System.out.println("vul hoilo profile button teamprofile controller");
         }
 
 
@@ -403,9 +403,9 @@ public class TeamProfileController implements Initializable {
                    stage.setScene(scene);
                    stage.setTitle("SIGN IN");
                    stage.show();*/
-                UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
+                TeamProfile.FXMLScene scene =  TeamProfile.FXMLScene.load("TeamProfile.fxml");
                 Parent root = scene.root;
-                UserProfile.ProfileController adminController = (UserProfile.ProfileController) scene.controller;
+                TeamProfileController adminController = (TeamProfileController) scene.controller;
                 //adminController.set(usern);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
@@ -454,6 +454,7 @@ public class TeamProfileController implements Initializable {
             stage.show();*/
 
         }catch (Exception e ){
+            System.out.println("ato plbm kn re\n post o hoi na team theke");
 
         }
 

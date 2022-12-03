@@ -349,6 +349,7 @@ public class TeamDashboardController implements Initializable {
 
 
         }catch (Exception e ){
+            System.out.println("ato plbm kn tor, thik h. team theke post hoite plbm ki");
 
         }
 

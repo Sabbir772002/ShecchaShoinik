@@ -40,7 +40,7 @@
                         </Label>
                         <VBox layoutX="13.0" layoutY="169.0" prefHeight="430.0" prefWidth="178.0">
                             <children>
-                                <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" prefHeight="22.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../style.css" text="Dashboard">
+                                <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" prefHeight="22.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Dashboard">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -54,7 +54,7 @@
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#addpost" prefHeight="34.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../style.css" text="Add Post">
+                                <Button mnemonicParsing="false" onAction="#addpost" prefHeight="34.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Add Post">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -62,7 +62,7 @@
                                         <Insets top="5.0" />
                                     </VBox.margin>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#chat" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../style.css" text="Community Chat">
+                                <Button mnemonicParsing="false" onAction="#chat" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Community Chat">
                                     <font>
                                         <Font name="Arial Bold" size="13.0" />
                                     </font>
@@ -73,7 +73,7 @@
                                         <Blend />
                                     </effect>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#Vnear" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../style.css" text="Volunteer Near">
+                                <Button mnemonicParsing="false" onAction="#Vnear" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Volunteer Near">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -81,7 +81,7 @@
                                         <Insets top="5.0" />
                                     </VBox.margin>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#profile" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../style.css" text="Profile">
+                                <Button mnemonicParsing="false" onAction="#profile" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Profile">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -89,7 +89,7 @@
                                         <Insets top="5.0" />
                                     </VBox.margin>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../style.css" text="Disaster Guidelines">
+                                <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Disaster Guidelines">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -97,7 +97,7 @@
                                         <Insets top="5.0" />
                                     </VBox.margin>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#F" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../style.css" text="F">
+                                <Button mnemonicParsing="false" onAction="#F" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="F">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -105,7 +105,7 @@
                                         <Insets top="5.0" />
                                     </VBox.margin>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#H" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../style.css" text="H">
+                                <Button mnemonicParsing="false" onAction="#H" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="H">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -113,7 +113,7 @@
                                         <Insets top="5.0" />
                                     </VBox.margin>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#G" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../style.css" text="G">
+                                <Button mnemonicParsing="false" onAction="#G" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="G">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -121,7 +121,7 @@
                                         <Insets top="5.0" />
                                     </VBox.margin>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../style.css" text="Log out">
+                                <Button mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Log out">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
