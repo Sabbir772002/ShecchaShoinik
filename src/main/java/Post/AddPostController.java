@@ -179,6 +179,7 @@ public class AddPostController implements Initializable {
                 stage.setScene(new Scene(root));
                 stage.setTitle("UserProfile");
                 stage.show();
+
                /* AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard1.fxml");
                 Parent root = scene.root;
                 AdminDashboardController adminController = (AdminDashboardController) scene.controller;
