@@ -20,6 +20,7 @@ public class Application extends javafx.application.Application {
         Image image = new Image(file.toURI().toString());
         stage.getIcons().add(image);
         stage.show();
+
     }
 
     public static void main(String[] args) {

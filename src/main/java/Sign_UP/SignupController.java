@@ -84,7 +84,7 @@ public class SignupController implements Initializable {
     }
     @FXML
     void Sign_up(ActionEvent event) {
-        System.out.println("vai aita ki hoilo");
+        System.out.println("bhai aita ki hoilo");
         if(name.getText().isEmpty() || username.getText().isEmpty() || password.getText().isEmpty()||dob.getValue()==null|| cbdivision.getSelectionModel().isEmpty() ||cbdistrict.getSelectionModel().isEmpty() || cbgroup.getSelectionModel().isEmpty() || cbGender.getSelectionModel().isEmpty() || bloodgroup.getSelectionModel().isEmpty() || phone.getText().isEmpty() || mail.getText().isEmpty()){
 
             Alert alert = new Alert(Alert.AlertType.ERROR);

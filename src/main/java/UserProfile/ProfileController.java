@@ -1,5 +1,6 @@
-package Profile;
-
+package UserProfile;
+import AdminDB.*;
+import DB.ConnectionDb;
 import Post.AddPostController;
 import Sign_in.SigninController;
 import com.example.sheccashoinik.Application;
@@ -21,12 +22,21 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.*;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
 
 public class ProfileController implements Initializable {
     @FXML
     private BorderPane pane1;
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+    public String username="";
+    public String role1="";
+
 
   /*  @FXML
     private Button Bbank;
@@ -42,17 +52,6 @@ public class ProfileController implements Initializable {
     private ImageView imageview;
     @FXML
     private ImageView bimage;
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-    public String username="";
-    public String role="";
-
-
-    public void set(String username,String role) {
-        this.role = role;
-        this.username = username;
-    }
     @FXML
     void BbankClick(ActionEvent event) {
 
@@ -70,6 +69,7 @@ public class ProfileController implements Initializable {
      private ImageView imageview;
  */
 
+
     @FXML
     private ImageView imageview1;
 
@@ -79,52 +79,75 @@ public class ProfileController implements Initializable {
     @FXML
     void BbankClick(MouseEvent event) {
 
-    } @FXML
-    void editProfile(ActionEvent event) {
-
     }
     @FXML
     private ScrollPane spane;
+    Connection con;
+    public ProfileController() {
+        con = ConnectionDb.DBC();
+        // System.out.println("thik ase vai koibar bolboo");
+    }
 
 
 
     @FXML
     void Dashboard(ActionEvent event) {
-        /* *//* Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        // Step 2
-        diasterlist u = (diasterlist) stage.getUserData();
-        // Step 3
-        String name = u.getname();*//*
-       // String email = u.getEmail();*/
+        try {
+            if (role1.equals("User")) {
+                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("UserDashboard.fxml");
+                Parent root = scene.root;
+                UserDashboardController adminController = (UserDashboardController) scene.controller;
+                adminController.set(username, role1);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("UserProfile");
+                stage.show();
+            }else if (role1.equals("Admin")) {
+                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("UserDashboard.fxml");
+                Parent root = scene.root;
+                UserDashboardController adminController = (UserDashboardController) scene.controller;
+                adminController.set(username, role1);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("UserProfile");
+                stage.show();
+               /* AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard1.fxml");
+                Parent root = scene.root;
+                AdminDashboardController adminController = (AdminDashboardController) scene.controller;
+                adminController.set(username, role1);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("AdminDashboard");
+                stage.show();*/
+            }else{
+                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("UserDashboard.fxml");
+                Parent root = scene.root;
+                UserDashboardController adminController = (UserDashboardController) scene.controller;
+                adminController.set(username, role1);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("UserProfile");
+                stage.show();
+           /* AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard1.fxml");
+                Parent root = scene.root;
+                TeamDashboardController adminController = (TeamDashboardController) scene.controller;
+                adminController.set(username, role1);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("TeamDashboard");
+                stage.show();*/
+            }
+        }catch(IOException e){
+            System.out.println("vul hoilo Profile controller dashboard "+e.getMessage());
+        }
+
+
         System.out.println("vaiya ki khobor "+username);
 
     }
 
     @FXML
     void Diaster(ActionEvent event) throws IOException {
-
-
-
-        //for cheking purposes only
-                  /*  VBox vbox[]=new VBox[3];
-                    for(int i =0;i<3;i++) {
-                        p = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
-                        vbox[i]=new VBox();
-                        vbox[i].getChildren().add(p);
-                        *//*stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                        scene = new Scene(root);
-                        stage.setScene(scene);
-                        stage.setTitle("SIGN IN");
-                        stage.show();*//*
-
-                    }
-                    //AnchorPane apane = new AnchorPane();
-                    HBox a = new HBox();
-                    a.getChildren().add(vbox);
-                    pane1.setCenter(vbox);
-            */
-
 
     }
 
@@ -187,84 +210,19 @@ public class ProfileController implements Initializable {
 
     @FXML
     void profile(ActionEvent event) {
-       /* try {
-            System.out.println("ok");
-
-          //Pane p = FXMLScene.loadpane("Profile.fxml");
-            FXMLLoader fxmlLoader = FXMLScene.loadpane("Profile.fxml");
-            p=fxmlLoader.load();
-            //Parent root = scene.root;
-            //p = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-            // p=(Pane)scene;
-           // FXMLLoader fxmlLoader = (FXMLLoader) (this.p.getScene().getUserData());
-            AdminDashboardController controller = (AdminDashboardController) fxmlLoader.getController();
-         //  AdminDashboardController adminController = (AdminDashboardController) scene.controller;
-            controller.set(username+" vai");
+        try {
+            UserProfile.FXMLScene scene = UserProfile.FXMLScene.load("Profile.fxml");
+            Parent root = scene.root;
+            ProfileController admin = (ProfileController) scene.controller;
+            admin.set(username, role1);
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.setScene(new Scene(root));
-            stage.setTitle("Profile");
-            pane1.setCenter(p);
-            stage.show();
-        }
-        catch (IOException e) {
-            System.out.println("error vai \n"+e);
-
-        }*/
-        /*try {
-            System.out.println("ok");
-
-            *//*FXMLScene scene = FXMLScene.load("Profile.fxml");
-            Parent root = scene.root;*//*
-            p = FXMLLoader.load(Dashboard.ProfileController.class.getResource("Profile.fxml"));
-           // p=(Pane)scene;
-            pane1.setCenter(p);
-           // AdminDashboardController adminController = (AdminDashboardController) scene.controller;
-           // adminController.set(username);
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.setScene(new Scene(root));
+            stage.setScene(new Scene(root));
             stage.setTitle("Profile");
             stage.show();
+        } catch (Exception e) {
+            System.out.println("vul hoilo profile controller ");
         }
-        catch (Exception e) {
 
-        }*/
-
-
-
-
-           /* try {
-                // FXMLLoader o = new FXMLLoader(Profile.ProfileController.class.getResource("Profile.fxml"));
-                p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
-                pane1.setCenter(p);
-                stage.setTitle("Profile");
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-                stage.setTitle("Profile");
-                stage.show();
-               // System.out.println("helloApplication");
-            } catch (Exception e) {
-
-            }*/
-    }
-
-
-    @FXML
-    void ChoiceClick(MouseEvent event) {
-        if(choice.getValue().toString().equals("Logout")){
-            try {
-
-                root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
-
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.setTitle("SIGN IN");
-                stage.show();
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
     }
     @FXML
     void Choiceclick(ActionEvent event) {
@@ -304,7 +262,7 @@ public class ProfileController implements Initializable {
                 UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
                 Parent root = scene.root;
                 UserProfile.ProfileController adminController = (UserProfile.ProfileController) scene.controller;
-                //adminController.set(usern);
+                adminController.set(username,role1);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.setTitle("Profile");
@@ -331,13 +289,17 @@ public class ProfileController implements Initializable {
 
     }
     @FXML
+    void ChoiceClick(ActionEvent event){
+
+    }
+    @FXML
     void addpost(ActionEvent event) {
         System.out.println("hello");
         try{
             Post.FXMLScene scene =  Post.FXMLScene.load("AddPost.fxml");
             Parent root = scene.root;
             AddPostController admin= (AddPostController) scene.controller;
-            admin.set(username);
+            admin.set(username,role1);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Post Diaster");
@@ -356,16 +318,79 @@ public class ProfileController implements Initializable {
         }
 
     }
-    @FXML
-    void Editprofile(ActionEvent event){
-
-    }
 
     @FXML
     void Homego(MouseEvent event) {
 
     }
+    @FXML
+    private Label rolee;
 
+    @FXML
+    private Label user;
+
+
+    public void set(String username,String role) {
+        user.setText(username);
+        rolee.setText("@"+role);
+        this.username = username;
+        this.role1 = role;
+        output();
+      //  System.out.println(username);
+    }
+
+
+    @FXML
+    private Label BG;
+
+    @FXML
+    private Label District;
+
+    @FXML
+    private Label Division;
+
+    @FXML
+    private Label NID;
+
+    @FXML
+    private Label Name;
+
+    @FXML
+    private Label Phone;
+    @FXML
+    private Label field;
+    @FXML
+    private Label showuser;
+    public void output(){
+        try{
+            Statement stmt=con.createStatement();
+             String sql = "SELECT Name,Username,Phone,ID,Division,District,Volunteer,BG FROM userlist Where Username = \'"+user.getText()+"\'";
+            //String sql = "SELECT * FROM `userlist` Where Username = '"+1+"'";
+            //System.out.println("'"+user.getText()+"'");
+            //SELECT Name,ID FROM `userlist` WHERE Username= "Nuha";
+            //String s1="select * from teacher where Subject='PHYSICS'";
+            ResultSet rs=stmt.executeQuery(sql);
+            if(rs.next()) {
+                Name.setText(rs.getString(1));
+                showuser.setText("@"+rs.getString(2));
+                Phone.setText(rs.getString(3));
+                NID.setText(rs.getString(4));
+                District.setText(rs.getString(6));
+                Division.setText(rs.getString(5));
+                field.setText(rs.getString(7));
+                BG.setText(rs.getString(8));
+
+            }
+            rs.close();
+            stmt.close();
+            con.close();
+
+
+        } catch (SQLException ex) {
+            System.out.println("onk error");
+            System.err.println(ex.getMessage());
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String []choiceb={"Profile","Logout"};
@@ -383,8 +408,37 @@ public class ProfileController implements Initializable {
         Image image5 = new Image(file1.toURI().toString());
         imageview1.setImage(image5);
         username= Application.oname;
+        //System.out.println(username);
+      //  output();
+       /* try{
+        Statement stmt=con.createStatement();
+       // String sql = "SELECT Name,Username,Phone,ID,Division,District,Volunteer,BG FROM userlist Where Username = \'"+username+"\'";
+       String sql = "SELECT * FROM `userlist` Where Username = "+username+"";
+            System.out.println("'"+username+"'");
+            //SELECT Name,ID FROM `userlist` WHERE Username= "Nuha";
+        //String s1="select * from teacher where Subject='PHYSICS'";
+            ResultSet rs=stmt.executeQuery(sql);
+            if(rs.next()) {
+                Name.setText(rs.getString(1));
+                showuser.setText(rs.getString(2));
+                Phone.setText(rs.getString(3));
+                NID.setText(rs.getString(4));
+                District.setText(rs.getString(6));
+                Division.setText(rs.getString(5));
+                field.setText(rs.getString(7));
+                BG.setText(rs.getString(8));
 
-        //   choice.setOnAction(this::ChoiceClick);
+            }
+            rs.close();
+            stmt.close();
+            con.close();
+
+
+        } catch (SQLException ex) {
+            System.out.println("onk error");
+            System.err.println(ex.getMessage());
+        }
+*/
 
     }
 }

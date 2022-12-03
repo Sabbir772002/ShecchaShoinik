@@ -1,6 +1,5 @@
 package AdminDB;
 
-import AdminProfile.AdminProfileController;
 import DB.ConnectionDb;
 import UserProfile.ProfileController;
 import Post.AddPostController;
@@ -21,15 +20,17 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class AdminDashboardController implements Initializable {
+public class UserDashboardController implements Initializable {
 
     @FXML
     private BorderPane pane1;
@@ -117,36 +118,35 @@ public class AdminDashboardController implements Initializable {
     }
     int indexM = -1;
 
-    void loadtable(){
-        col_title.setCellValueFactory(new PropertyValueFactory<diaster,String>("Title"));
-        col_type.setCellValueFactory(new PropertyValueFactory<diaster,String>("Type"));
-        col_district.setCellValueFactory(new PropertyValueFactory<diaster,String>("District"));
-        col_address.setCellValueFactory(new PropertyValueFactory<diaster,String>("Address"));
-        col_id.setCellValueFactory(new PropertyValueFactory<diaster,Integer>("Id"));
+void loadtable(){
+    col_title.setCellValueFactory(new PropertyValueFactory<diaster,String>("Title"));
+    col_type.setCellValueFactory(new PropertyValueFactory<diaster,String>("Type"));
+    col_district.setCellValueFactory(new PropertyValueFactory<diaster,String>("District"));
+    col_address.setCellValueFactory(new PropertyValueFactory<diaster,String>("Address"));
+    col_id.setCellValueFactory(new PropertyValueFactory<diaster,Integer>("Id"));
 
-        //table.setItems(list);
-        listF = ConnectionDb.getdiasterlist();
-        table.setItems(listF);
+    //table.setItems(list);
+    listF = ConnectionDb.getdiasterlist();
+    table.setItems(listF);
 
 
-    }
-
+}
     @FXML
     void Dashboard(ActionEvent event) {
-        loadtable();
+    loadtable();
 
         //System.out.println("vaiya ki khobor "+username);
         try{
-            AdminDB.FXMLScene scene =  AdminDB.FXMLScene.load("AdminDashboard1.fxml");
+            AdminDB.FXMLScene scene =  FXMLScene.load("UserDashboard.fxml");
             Parent root = scene.root;
-            AdminDashboardController admin= (AdminDashboardController) scene.controller;
+            UserDashboardController admin= (UserDashboardController) scene.controller;
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Admin Dashboard");
+            stage.setTitle("User Dashboard");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo AdminDashboardController");
+            System.out.println("vul hoilo Dashboard button userdashboard controller");
         }
 
     }
@@ -241,7 +241,7 @@ public class AdminDashboardController implements Initializable {
         try{
             UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
             Parent root = scene.root;
-            AdminProfileController admin= (AdminProfileController)scene.controller;
+            ProfileController admin= (ProfileController) scene.controller;
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -250,64 +250,7 @@ public class AdminDashboardController implements Initializable {
         }catch (Exception e){
             System.out.println("vul hoilo profile button profile controller");
         }
-       /* try {
-            System.out.println("ok");
 
-          //Pane p = FXMLScene.loadpane("Profile.fxml");
-            FXMLLoader fxmlLoader = FXMLScene.loadpane("Profile.fxml");
-            p=fxmlLoader.load();
-            //Parent root = scene.root;
-            //p = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-            // p=(Pane)scene;
-           // FXMLLoader fxmlLoader = (FXMLLoader) (this.p.getScene().getUserData());
-            AdminDashboardController controller = (AdminDashboardController) fxmlLoader.getController();
-         //  AdminDashboardController adminController = (AdminDashboardController) scene.controller;
-            controller.set(username+" vai");
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.setScene(new Scene(root));
-            stage.setTitle("Profile");
-            pane1.setCenter(p);
-            stage.show();
-        }
-        catch (IOException e) {
-            System.out.println("error vai \n"+e);
-
-        }*/
-        /*try {
-            System.out.println("ok");
-
-            *//*FXMLScene scene = FXMLScene.load("Profile.fxml");
-            Parent root = scene.root;*//*
-            p = FXMLLoader.load(Dashboard.ProfileController.class.getResource("Profile.fxml"));
-           // p=(Pane)scene;
-            pane1.setCenter(p);
-           // AdminDashboardController adminController = (AdminDashboardController) scene.controller;
-           // adminController.set(username);
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.setScene(new Scene(root));
-            stage.setTitle("Profile");
-            stage.show();
-        }
-        catch (Exception e) {
-
-        }*/
-
-
-
-
-           /* try {
-                // FXMLLoader o = new FXMLLoader(Profile.ProfileController.class.getResource("Profile.fxml"));
-                p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
-                pane1.setCenter(p);
-                stage.setTitle("Profile");
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-                stage.setTitle("Profile");
-                stage.show();
-               // System.out.println("helloApplication");
-            } catch (Exception e) {
-
-            }*/
         }
 
 
@@ -359,12 +302,7 @@ public class AdminDashboardController implements Initializable {
             }
         }else {
                try{
-                  /* root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
-                   stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                   scene = new Scene(root);
-                   stage.setScene(scene);
-                   stage.setTitle("SIGN IN");
-                   stage.show();*/
+
                    UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
                    Parent root = scene.root;
                    ProfileController adminController = (ProfileController) scene.controller;
@@ -407,13 +345,6 @@ public class AdminDashboardController implements Initializable {
             stage.setTitle("Post Diaster");
             stage.show();
 
-          /*  root = FXMLLoader.load(AddPostController.class.getResource("AddPost.fxml"));
-
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("SIGN IN");
-            stage.show();*/
 
         }catch (Exception e ){
 
@@ -455,7 +386,8 @@ public class AdminDashboardController implements Initializable {
         Image image6 = new Image(file1.toURI().toString());
         search.setImage(image6);
         username= Application.oname;
-       loadtable();
+        loadtable();
+
      //   choice.setOnAction(this::ChoiceClick);
 
     }

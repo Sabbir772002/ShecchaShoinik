@@ -17,7 +17,7 @@
                   <Font name="Arial" size="36.0" />
                </font>
             </Label>
-            <Label fx:id="role" alignment="CENTER" contentDisplay="CENTER" layoutX="280.0" layoutY="258.0" prefHeight="26.0" prefWidth="183.0" text="Volunteer" textAlignment="CENTER" textFill="#ffffff82">
+            <Label fx:id="role1" alignment="CENTER" contentDisplay="CENTER" layoutX="280.0" layoutY="258.0" prefHeight="26.0" prefWidth="183.0" text="Volunteer" textAlignment="CENTER" textFill="#ffffff82">
                <font>
                   <Font size="16.0" />
                </font>
