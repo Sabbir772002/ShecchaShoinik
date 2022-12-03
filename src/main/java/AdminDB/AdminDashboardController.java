@@ -239,7 +239,7 @@ public class AdminDashboardController implements Initializable {
     void profile(ActionEvent event) {
 
         try{
-            UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("AdminProfile.fxml");
+            UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
             Parent root = scene.root;
             AdminProfileController admin= (AdminProfileController)scene.controller;
             admin.set(username,role);

@@ -1,76 +1,259 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.gluonhq.charm.glisten.control.TextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="645.0" prefWidth="784.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserProfile.ProfileEditController">
-   <children>
-      <ImageView fx:id="cirimage" fitHeight="147.0" fitWidth="149.0" layoutX="471.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="name" layoutX="242.0" layoutY="216.0" prefHeight="42.0" prefWidth="300.0" text="Peter Anderson" textFill="WHITE">
-         <font>
-            <Font name="Arial" size="36.0" />
-         </font>
-      </Label>
-      <Label fx:id="role" alignment="CENTER" contentDisplay="CENTER" layoutX="280.0" layoutY="258.0" prefHeight="26.0" prefWidth="183.0" text="Volunteer" textAlignment="CENTER" textFill="#ffffff82">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Button fx:id="edit" layoutX="348.0" layoutY="290.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="46.0" style="-fx-background-color: #985AAA; -fx-background-radius: 10px;" text="EDIT" textFill="#ece4e4" />
-      <Label fx:id="mail" layoutX="293.0" layoutY="335.0" prefHeight="26.0" prefWidth="300.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#061161  0%, #780206  100%); -fx-label-padding: 2;" text="peter345@gmail.com" textFill="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="bg" layoutX="294.0" layoutY="453.0" prefHeight="20.0" prefWidth="73.0" text="B+" textFill="WHITE" AnchorPane.leftAnchor="295.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="district" layoutX="295.0" layoutY="399.0" prefHeight="20.0" prefWidth="198.0" text="Dhaka" textFill="WHITE" AnchorPane.leftAnchor="295.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="221.0" layoutY="453.0" prefHeight="20.0" prefWidth="62.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#061161  0%, #780206  100%);" text="BG:" textFill="WHITE" AnchorPane.leftAnchor="214.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Circle fx:id="pic" fill="#ededed0a" layoutX="372.0" layoutY="130.0" radius="86.0" stroke="#dc0594" strokeType="INSIDE" />
-      <Label layoutX="214.0" layoutY="335.0" prefHeight="26.0" prefWidth="62.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#061161  0%, #780206  100%);" text="Email:" textFill="WHITE" AnchorPane.leftAnchor="214.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="214.0" layoutY="369.0" prefHeight="20.0" prefWidth="62.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#061161  0%, #780206  100%);" text="Phone:" textFill="WHITE" AnchorPane.leftAnchor="214.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="217.0" layoutY="399.0" prefHeight="20.0" prefWidth="62.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#061161  0%, #780206  100%);" text="District:" textFill="WHITE" AnchorPane.leftAnchor="214.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="217.0" layoutY="425.0" prefHeight="20.0" prefWidth="62.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#061161  0%, #780206  100%);" text="Division:" textFill="WHITE" AnchorPane.leftAnchor="214.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="phone" layoutX="293.0" layoutY="369.0" prefHeight="20.0" prefWidth="183.0" text="01571144383" textFill="WHITE" AnchorPane.leftAnchor="295.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="division" layoutX="293.0" layoutY="425.0" prefHeight="20.0" prefWidth="198.0" text="Dhaka" textFill="WHITE" AnchorPane.leftAnchor="295.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-   </children>
-</AnchorPane>
+<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserProfile.ProfileEditController">
+   <left>
+      <VBox layoutX="50.0" prefHeight="617.0" prefWidth="199.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="621.0" prefWidth="199.0" style="-fx-cursor: hand;">
+               <children>
+                  <ImageView fx:id="imageview1" fitHeight="105.0" fitWidth="117.0" layoutX="-4.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true" x="50.0" y="20.0">
+                     <image>
+                        <Image url="@../../Font/icon1.png" />
+                     </image>
+                     <viewport>
+
+                     </viewport>
+                  </ImageView>
+                  <Label fx:id="rolee" alignment="CENTER" layoutX="-2.0" layoutY="143.0" prefHeight="28.0" prefWidth="198.0" style="-fx-cursor: had;" text="\@volunteer" textFill="#230505">
+                     <font>
+                        <Font name="Arial Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="user" alignment="CENTER" layoutX="-5.0" layoutY="117.0" prefHeight="52.0" prefWidth="204.0" style="-fx-cursor: had;" text="Nusrat" textFill="WHITE" AnchorPane.leftAnchor="-5.0">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <VBox layoutX="13.0" layoutY="169.0" prefHeight="430.0" prefWidth="178.0">
+                     <children>
+                        <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" prefHeight="22.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../style.css" text="Dashboard">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#addpost" prefHeight="34.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../style.css" text="Add Post">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#chat" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../style.css" text="Community Chat">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <effect>
+                              <Blend />
+                           </effect>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#Vnear" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../style.css" text="Volunteer Near">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#profile" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../style.css" text="Profile">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../style.css" text="Disaster Guidelines">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#F" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../style.css" text="F">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#H" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../style.css" text="H">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#G" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../style.css" text="G">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../style.css" text="Log out">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="10.0" top="5.0" />
+                     </padding>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </VBox>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </AnchorPane>
+         </children></VBox>
+   </left>
+   <top>
+      <AnchorPane prefHeight="38.0" prefWidth="1006.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER_RIGHT">
+         <children>
+            <ImageView fx:id="logoimage" fitHeight="16.0" fitWidth="78.0" layoutX="45.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Font/logotext.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="bbutton" alignment="BASELINE_LEFT" layoutX="182.0" layoutY="1.0" mnemonicParsing="false" onAction="#BbankClick" prefHeight="30.0" prefWidth="159.0" style="-fx-background-color: black;" text="BLOOD BANK" textFill="#f7f7f7">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <graphic>
+                  <ImageView fx:id="bimage" fitHeight="24.0" fitWidth="33.0" onDragDetected="#BbankClick" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Font/1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="b" alignment="BASELINE_LEFT" layoutX="918.0" layoutY="2.0" mnemonicParsing="false" onAction="#Choiceclick" prefHeight="34.0" prefWidth="93.0" style="-fx-background-color: white;" textFill="#f7f7f7">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <graphic>
+                  <ChoiceBox fx:id="choice" onDragDetected="#ChoiceClick" prefHeight="26.0" prefWidth="78.0" style="-fx-background-color: F3F3F3;" />
+               </graphic>
+            </Button>
+            <ImageView fx:id="imageview" fitHeight="19.0" fitWidth="23.0" layoutX="940.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Font/user1.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="567.0" prefWidth="775.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="38.0" layoutY="6.0" prefHeight="590.0" prefWidth="699.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 10; -fx-padding: 50;">
+               <children>
+                  <Label layoutX="31.0" layoutY="224.0" prefHeight="31.0" prefWidth="93.0" text="Phone:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="32.0" layoutY="294.0" prefHeight="33.0" prefWidth="90.0" text="District:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="30.0" layoutY="257.0" prefHeight="41.0" prefWidth="94.0" text="Division:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="32.0" layoutY="329.0" prefHeight="31.0" prefWidth="162.0" text="NID:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="32.0" layoutY="408.0" prefHeight="31.0" prefWidth="176.0" text="Blood Group:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="32.0" layoutY="368.0" prefHeight="31.0" prefWidth="162.0" text="Mail:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <Circle fill="WHITE" layoutX="353.0" layoutY="68.0" radius="54.0" stroke="BLACK" strokeType="INSIDE" />
+                  <ImageView fitHeight="83.0" fitWidth="82.0" layoutX="312.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="Name" alignment="CENTER" layoutX="231.0" layoutY="122.0" prefHeight="31.0" prefWidth="244.0" text="Nusrat Hossain" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="showuser" alignment="CENTER" layoutX="233.0" layoutY="145.0" prefHeight="26.0" prefWidth="238.0" text="\@nuha" textFill="#050505">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="phone" floatText="01787769809" layoutX="245.0" layoutY="218.0" prefHeight="34.0" prefWidth="282.0" />
+                  <TextField fx:id="division" floatText="Dhaka" layoutX="244.0" layoutY="253.0" prefHeight="33.0" prefWidth="284.0" />
+                  <TextField fx:id="district" floatText="Dhaka" layoutX="245.0" layoutY="285.0" prefHeight="38.0" prefWidth="283.0" />
+                  <TextField fx:id="nid" floatText="1963890981" layoutX="245.0" layoutY="320.0" prefHeight="35.0" prefWidth="282.0" />
+                  <TextField fx:id="mail" floatText="Sabbir772@gmail.com" layoutX="246.0" layoutY="360.0" prefHeight="35.0" prefWidth="281.0" />
+                  <ComboBox fx:id="bg" layoutX="243.0" layoutY="411.0" prefHeight="26.0" prefWidth="144.0" />
+                  <Label layoutX="32.0" layoutY="188.0" prefHeight="31.0" prefWidth="92.0" text="Name:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="name" floatText="Nusrat Hossain" layoutX="244.0" layoutY="182.0" prefHeight="44.0" prefWidth="282.0" />
+                  <Button fx:id="bt11" layoutX="325.0" layoutY="448.0" mnemonicParsing="false" onAction="#Dashboard" prefHeight="15.0" prefWidth="140.0" styleClass="bt" stylesheets="@../../style.css" text="Save">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
+   </center>
+</BorderPane>

@@ -79,6 +79,9 @@ public class ProfileController implements Initializable {
     @FXML
     void BbankClick(MouseEvent event) {
 
+    } @FXML
+    void editProfile(ActionEvent event) {
+
     }
     @FXML
     private ScrollPane spane;
@@ -351,6 +354,10 @@ public class ProfileController implements Initializable {
         }catch (Exception e ){
 
         }
+
+    }
+    @FXML
+    void Editprofile(ActionEvent event){
 
     }
 

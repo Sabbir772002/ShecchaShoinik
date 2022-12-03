@@ -55,6 +55,8 @@ public class TeamDashboardController implements Initializable {
     }
     @FXML
     private Button b;
+    @FXML
+    private Button bt1;
 
     @FXML
     private Button bbutton;
@@ -137,7 +139,7 @@ public class TeamDashboardController implements Initializable {
         loadtable();
         //System.out.println("vaiya ki khobor "+username);
         try{
-            FXMLScene scene =  FXMLScene.load("TeamDashboard1.fxml");
+            FXMLScene scene =  FXMLScene.load("TeamDashboard.fxml");
             Parent root = scene.root;
             TeamDashboardController admin= (TeamDashboardController) scene.controller;
             admin.set(username,role);
@@ -239,7 +241,7 @@ public class TeamDashboardController implements Initializable {
     void profile(ActionEvent event) {
 
         try{
-            UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("TeamProfile.fxml");
+            TeamProfile.FXMLScene scene =  TeamProfile.FXMLScene.load("TeamProfile.fxml");
             Parent root = scene.root;
             TeamProfileController admin= (TeamProfileController) scene.controller;
             admin.set(username,role);
@@ -386,6 +388,7 @@ public class TeamDashboardController implements Initializable {
         Image image6 = new Image(file1.toURI().toString());
         search.setImage(image6);
         username= Application.oname;
+       // bt1.setStyle("-fx-border-color: white; -fx-background-color:  linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);");
         loadtable();
 
      //   choice.setOnAction(this::ChoiceClick);

@@ -66,7 +66,7 @@ public class AddPostController implements Initializable {
     private ChoiceBox<String> choice;
 
     @FXML
-    private TextArea diastertitle;
+    private TextField diastertitle;
 
     @FXML
     private ComboBox<String> division;
@@ -171,9 +171,9 @@ public class AddPostController implements Initializable {
                 stage.setTitle("UserProfile");
                 stage.show();
             }else if(role.equals("Admin")){
-                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("UserDashboard.fxml");
+                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard.fxml");
                 Parent root = scene.root;
-                UserDashboardController adminController = (UserDashboardController) scene.controller;
+                AdminDashboardController adminController = (AdminDashboardController) scene.controller;
                 adminController.set(username, role);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
@@ -188,13 +188,13 @@ public class AddPostController implements Initializable {
                 stage.setTitle("AdminDashboard");
                 stage.show();*/
             }else{
-                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("UserDashboard.fxml");
+                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard.fxml");
                 Parent root = scene.root;
-                UserDashboardController adminController = (UserDashboardController) scene.controller;
+                TeamDashboardController adminController = (TeamDashboardController) scene.controller;
                 adminController.set(username, role);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
-                stage.setTitle("UserProfile");
+                stage.setTitle("TeamDashboard");
                 stage.show();
                 /*AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard1.fxml");
                 Parent root = scene.root;
@@ -273,6 +273,11 @@ public class AddPostController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    @FXML
+    void chatclick(ActionEvent e){
+
+
     }
 
     @FXML

@@ -128,73 +128,73 @@ public class HomeController implements Initializable {
     @FXML
     void backjao(ActionEvent event) {
        // if(i==0)i=6;
-        if(i==0){
-            translate(1,pane7,800);i=6;
-            pane1.setVisible(false);
+      /*  if(i==0){
+            translate(1,pane1,800);
+           *//* pane1.setVisible(false);
             pane2.setVisible(false);
             pane3.setVisible(false);
             pane4.setVisible(false);
             pane5.setVisible(false);
             pane6.setVisible(false);
-            pane7.setVisible(true);
+            pane7.setVisible(true);*//*
             System.out.println("back problem");
 
         }
-        else if(i==1){
-            pane1.setVisible(false);
+        else*/ if(i==1){
+           /* pane1.setVisible(false);
             pane2.setVisible(false);
             pane3.setVisible(false);
             pane4.setVisible(false);
             pane5.setVisible(false);
             pane6.setVisible(false);
-            pane7.setVisible(false);
-            translate(1,pane1,800);i=0;
+            pane7.setVisible(false);*/
+            translate(1,pane1,800);i--;
         }else if(i==2){
-            pane1.setVisible(false);
+           /* pane1.setVisible(false);
             pane2.setVisible(true);
             pane3.setVisible(false);
             pane4.setVisible(false);
             pane5.setVisible(false);
             pane6.setVisible(false);
-            pane7.setVisible(false);
-            translate(1,pane2,800);i=1;
+            pane7.setVisible(false);*/
+            translate(1,pane2,800);i--;
         }else if(i==3){
-            pane1.setVisible(false);
+           /* pane1.setVisible(false);
             pane2.setVisible(false);
             pane3.setVisible(true);
             pane4.setVisible(false);
             pane5.setVisible(false);
             pane6.setVisible(false);
-            pane7.setVisible(false);
-            translate(1,pane3,800);i=2;
+            pane7.setVisible(false);*/
+            translate(1,pane3,800);i--;
         }else if(i==4){
-            pane1.setVisible(false);
+           /* pane1.setVisible(false);
             pane2.setVisible(false);
             pane3.setVisible(false);
             pane4.setVisible(true);
             pane5.setVisible(false);
-            pane6.setVisible(false);
+            pane6.setVisible(false);*/
             //pane7.setVisible(false);
-            translate(1,pane4,800);i=3;
+            translate(1,pane4,800);i--;
         }else if(i==5){
-            pane1.setVisible(false);
+            /*pane1.setVisible(false);
             pane2.setVisible(false);
             pane3.setVisible(false);
             pane4.setVisible(false);
             pane5.setVisible(true);
-            pane6.setVisible(false);
+            pane6.setVisible(false);*/
            // pane7.setVisible(false);
-            translate(1,pane5,800);i=4;
+            translate(1,pane5,800);i--;
         }else if(i==6){
-            pane1.setVisible(false);
+           /* pane1.setVisible(false);
             pane2.setVisible(false);
             pane3.setVisible(false);
             pane4.setVisible(false);
             pane5.setVisible(false);
-            pane6.setVisible(true);
+            pane6.setVisible(true);*/
            // pane7.setVisible(false);
             //System.out.println("back problem");
-            translate(1,pane6,800);i=5;
+            translate(1,pane6,800);i--;
         }
 
     }
@@ -203,17 +203,17 @@ public class HomeController implements Initializable {
     void fontjao(ActionEvent event) {
 
     //if(i==images.length-1)i=0;
-    if(i==0){translate(1,pane1,-800);i=1;}
+    if(i==0){translate(1,pane1,-800);i++;}
     else if(i==1){
-        translate(1,pane2,-800);i=2;
+        translate(1,pane2,-800);i++;
     }else if(i==2){
-        translate(1,pane3,-800);i=3;
+        translate(1,pane3,-800);i++;
     }else if(i==3){
-        translate(1,pane4,-800);i=4;
+        translate(1,pane4,-800);i++;
     }else if(i==4){
-        translate(1,pane5,-800);i=5;
+        translate(1,pane5,-800);i++;
     }else if(i==5){
-        translate(1,pane6,-800);i=0;
+        translate(1,pane6,-800);
     }/*else if(i==6){
         System.out.println("back problem nai");
         translate(1,pane7,-800);i=0;
@@ -341,7 +341,7 @@ public class HomeController implements Initializable {
         //image7.setImage(new Image(new File(images[6]).toURI().toString()));
         front.setImage(new Image(new File("src/main/Font/front.png").toURI().toString()));
         back.setImage(new Image(new File("src/main/Font/back.png").toURI().toString()));
-        translate(1,pane1,800);
+      //  translate(1,pane1,800);
        /* translate(1,pane2,800);
         translate(1,pane3,800);  translate(1,pane4,800);
         translate(1,pane5,800);  translate(1,pane6,800);
