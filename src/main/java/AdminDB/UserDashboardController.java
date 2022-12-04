@@ -1,5 +1,6 @@
 package AdminDB;
 
+import BloodBank.BloodBankController;
 import DB.ConnectionDb;
 import UserProfile.ProfileController;
 import Post.AddPostController;
@@ -50,6 +51,18 @@ public class UserDashboardController implements Initializable {
     private ImageView bimage;
     @FXML
     void BbankClick(ActionEvent event) {
+        try{
+            AdminDB.FXMLScene scene =  AdminDB.FXMLScene.load("BloodBank.fxml");
+            Parent root = scene.root;
+            BloodBankController admin= (BloodBankController) scene.controller;
+            admin.set(username,role);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Blood Bank");
+            stage.show();
+        }catch(Exception e){
+            System.out.println("vul hoilo Blood Bank button userdashboard controller");
+        }
 
     }
     @FXML

@@ -31,5 +31,9 @@ module com.example.sheccashoinik {
 
     opens TeamProfile to javafx.fxml;
     exports TeamProfile;
+    opens Chat to javafx.fxml;
+    exports Chat;
+    exports Others;
+    opens Others to javafx.fxml;
 
 }

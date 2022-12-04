@@ -8,3 +8,13 @@
 
 
 }
+.tt{
+-fx-border-color: white;
+-fx-background-color: white;
+-fx-background-radius: 10px;
+-fx-border-radius: 10px;
+ -fx-text-fill: #000000;
+ -fx-cursor: hand;
+
+
+}

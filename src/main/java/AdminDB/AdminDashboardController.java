@@ -134,10 +134,8 @@ public class AdminDashboardController implements Initializable {
     @FXML
     void Dashboard(ActionEvent event) {
         loadtable();
-
-        //System.out.println("vaiya ki khobor "+username);
         try{
-            AdminDB.FXMLScene scene =  AdminDB.FXMLScene.load("AdminDashboard1.fxml");
+            AdminDB.FXMLScene scene =  AdminDB.FXMLScene.load("AdminDashboard.fxml");
             Parent root = scene.root;
             AdminDashboardController admin= (AdminDashboardController) scene.controller;
             admin.set(username,role);
@@ -146,7 +144,7 @@ public class AdminDashboardController implements Initializable {
             stage.setTitle("Admin Dashboard");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo AdminDashboardController");
+            System.out.println("vul hoilo AdminDashboardController"+e.getMessage());
         }
 
     }
@@ -239,7 +237,7 @@ public class AdminDashboardController implements Initializable {
     void profile(ActionEvent event) {
 
         try{
-            UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
+            FXMLScene scene =  FXMLScene.load("AdminProfile.fxml");
             Parent root = scene.root;
             AdminProfileController admin= (AdminProfileController)scene.controller;
             admin.set(username,role);
@@ -248,7 +246,7 @@ public class AdminDashboardController implements Initializable {
             stage.setTitle("Profile");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo profile button profile controller");
+            System.out.println("vul hoilo Admin Dashbaord profile button profile controller");
         }
        /* try {
             System.out.println("ok");
