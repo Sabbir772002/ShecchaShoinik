@@ -79,6 +79,9 @@ public class ProfileController implements Initializable {
     @FXML
     void BbankClick(MouseEvent event) {
 
+    } @FXML
+    void editProfile(ActionEvent event) {
+
     }
     @FXML
     private ScrollPane spane;
@@ -90,7 +93,7 @@ public class ProfileController implements Initializable {
         /* *//* Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
         // Step 2
-        User u = (User) stage.getUserData();
+        diasterlist u = (diasterlist) stage.getUserData();
         // Step 3
         String name = u.getname();*//*
        // String email = u.getEmail();*/
@@ -353,6 +356,10 @@ public class ProfileController implements Initializable {
         }
 
     }
+    @FXML
+    void Editprofile(ActionEvent event){
+
+    }
 
     @FXML
     void Homego(MouseEvent event) {
@@ -366,7 +373,7 @@ public class ProfileController implements Initializable {
         File file = new File("src/main/Font/user1.png");
         Image image = new Image(file.toURI().toString());
         imageview.setImage(image);
-        File file1 = new File("src/main/Font/1297136.png");
+        File file1 = new File("src/main/Font/1.png");
         Image image1 = new Image(file1.toURI().toString());
         bimage.setImage(image1);
         file1 = new File("src/main/Font/logotext.png");

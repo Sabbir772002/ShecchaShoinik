@@ -102,18 +102,43 @@ public class ProfileController implements Initializable {
                 stage.setScene(new Scene(root));
                 stage.setTitle("UserProfile");
                 stage.show();
-            }else{
-                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard.fxml");
+            }else if (role1.equals("Admin")) {
+                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("UserDashboard.fxml");
+                Parent root = scene.root;
+                UserDashboardController adminController = (UserDashboardController) scene.controller;
+                adminController.set(username, role1);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("UserProfile");
+                stage.show();
+               /* AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard1.fxml");
                 Parent root = scene.root;
                 AdminDashboardController adminController = (AdminDashboardController) scene.controller;
                 adminController.set(username, role1);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.setTitle("AdminDashboard");
+                stage.show();*/
+            }else{
+                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("UserDashboard.fxml");
+                Parent root = scene.root;
+                UserDashboardController adminController = (UserDashboardController) scene.controller;
+                adminController.set(username, role1);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("UserProfile");
                 stage.show();
+           /* AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard1.fxml");
+                Parent root = scene.root;
+                TeamDashboardController adminController = (TeamDashboardController) scene.controller;
+                adminController.set(username, role1);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("TeamDashboard");
+                stage.show();*/
             }
         }catch(IOException e){
-            System.out.println("vul hoilo Profile controller dashboard ");
+            System.out.println("vul hoilo Profile controller dashboard "+e.getMessage());
         }
 
 
@@ -373,7 +398,7 @@ public class ProfileController implements Initializable {
         File file = new File("src/main/Font/user1.png");
         Image image = new Image(file.toURI().toString());
         imageview.setImage(image);
-        File file1 = new File("src/main/Font/1297136.png");
+        File file1 = new File("src/main/Font/1.png");
         Image image1 = new Image(file1.toURI().toString());
         bimage.setImage(image1);
         file1 = new File("src/main/Font/logotext.png");

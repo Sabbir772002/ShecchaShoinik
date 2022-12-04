@@ -16,9 +16,9 @@
 
 <BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserProfile.ProfileController">
    <left>
-      <VBox layoutX="50.0" prefHeight="646.0" prefWidth="189.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+      <VBox layoutX="50.0" prefHeight="617.0" prefWidth="199.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane prefHeight="600.0" prefWidth="214.0" style="-fx-cursor: hand;">
+            <AnchorPane prefHeight="621.0" prefWidth="199.0" style="-fx-cursor: hand;">
                <children>
                   <ImageView fx:id="imageview1" fitHeight="105.0" fitWidth="117.0" layoutX="-4.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true" x="50.0" y="20.0">
                      <image>
@@ -38,9 +38,9 @@
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
-                  <VBox layoutX="13.0" layoutY="169.0" prefHeight="383.0" prefWidth="178.0">
+                  <VBox layoutX="13.0" layoutY="169.0" prefHeight="430.0" prefWidth="178.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#Dashboard" prefHeight="44.0" prefWidth="156.0" style="-fx-background-color: #985aaa;" text="Dashboard">
+                        <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" prefHeight="22.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../style.css" text="Dashboard">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -54,7 +54,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#addpost" prefHeight="34.0" prefWidth="155.0" style="-fx-background-color: #985aaa;" text="Add Post">
+                        <Button mnemonicParsing="false" onAction="#addpost" prefHeight="34.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../style.css" text="Add Post">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -62,7 +62,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#chat" prefHeight="38.0" prefWidth="156.0" style="-fx-background-color: #9d5aaa;" text="Community Chat">
+                        <Button mnemonicParsing="false" onAction="#chat" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../style.css" text="Community Chat">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
@@ -73,7 +73,7 @@
                               <Blend />
                            </effect>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#Vnear" prefHeight="38.0" prefWidth="156.0" style="-fx-background-color: #985aaa;" text="Volunteer Near">
+                        <Button mnemonicParsing="false" onAction="#Vnear" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../style.css" text="Volunteer Near">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -81,7 +81,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#F" prefHeight="36.0" prefWidth="155.0" style="-fx-background-color: #9d5aaa;" text="F">
+                        <Button mnemonicParsing="false" onAction="#profile" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../style.css" text="Profile">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -89,7 +89,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#H" prefHeight="38.0" prefWidth="155.0" style="-fx-background-color: #9d5aaa;" text="H">
+                        <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../style.css" text="Disaster Guidelines">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -97,7 +97,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="155.0" style="-fx-background-color: #985aaa;" text="Disaster Guidelines">
+                        <Button mnemonicParsing="false" onAction="#F" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../style.css" text="F">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -105,7 +105,23 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#profile" prefHeight="38.0" prefWidth="155.0" style="-fx-background-color: #985aaa;" text="Profile">
+                        <Button mnemonicParsing="false" onAction="#H" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../style.css" text="H">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#G" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../style.css" text="G">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../style.css" text="Log out">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -121,11 +137,6 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </VBox>
-                  <Button layoutX="25.0" layoutY="557.0" mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="155.0" style="-fx-background-color: #985aaa;" text="Log out">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Button>
                </children>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
@@ -141,14 +152,14 @@
                   <Image url="@../../Font/logotext.png" />
                </image>
             </ImageView>
-            <Button fx:id="bbutton" alignment="BASELINE_LEFT" layoutX="182.0" layoutY="-2.0" mnemonicParsing="false" onAction="#BbankClick" prefHeight="40.0" prefWidth="159.0" style="-fx-background-color: black;" text="BLOOD BANK" textFill="#f7f7f7">
+            <Button fx:id="bbutton" alignment="BASELINE_LEFT" layoutX="182.0" layoutY="1.0" mnemonicParsing="false" onAction="#BbankClick" prefHeight="30.0" prefWidth="159.0" style="-fx-background-color: black;" text="BLOOD BANK" textFill="#f7f7f7">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
                <graphic>
                   <ImageView fx:id="bimage" fitHeight="24.0" fitWidth="33.0" onDragDetected="#BbankClick" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../Font/1297136.png" />
+                        <Image url="@../../Font/1.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -172,7 +183,7 @@
    <center>
       <AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane layoutX="52.0" layoutY="30.0" prefHeight="531.0" prefWidth="672.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 10; -fx-padding: 50;">
+            <AnchorPane layoutX="52.0" layoutY="11.0" prefHeight="578.0" prefWidth="672.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 10; -fx-padding: 50;">
                <children>
                   <Label layoutX="32.0" layoutY="201.0" prefHeight="31.0" prefWidth="95.0" text="Phone:" textFill="WHITE">
                      <font>
@@ -246,6 +257,9 @@
                         <Font name="System Bold" size="11.0" />
                      </font>
                   </Label>
+<!--
+                  <Button fx:id="editprofilebt" layoutX="331.0" layoutY="451.0" mnemonicParsing="false" onAction="#Editprofile" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: pink;" styleClass="bt" stylesheets="@../../style.css" text="Edit Profile" />
+-->
                </children>
             </AnchorPane>
          </children></AnchorPane>

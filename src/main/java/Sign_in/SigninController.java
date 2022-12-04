@@ -2,6 +2,7 @@ package Sign_in;
 
 import AdminDB.AdminDashboardController;
 import AdminDB.FXMLScene;
+import AdminDB.TeamDashboardController;
 import AdminDB.UserDashboardController;
 import DB.ConnectionDb;
 import javafx.event.ActionEvent;
@@ -79,14 +80,34 @@ public class SigninController implements Initializable {
                 //user.setImage(image);
                 Optional<ButtonType> result=alert.showAndWait();
                 if(alert.getResult().getText().compareTo("OK")==0){
-                    FXMLScene scene =  FXMLScene.load("UserDashboard.fxml");
-                    Parent root = scene.root;
-                    UserDashboardController adminController = (UserDashboardController) scene.controller;
-                    adminController.set(usern,role);
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.setScene(new Scene(root));
-                    stage.setTitle("UserProfile");
-                    stage.show();
+                    if(role.equals("User")) {
+                        FXMLScene scene = FXMLScene.load("UserDashboard.fxml");
+                        Parent root = scene.root;
+                        UserDashboardController adminController = (UserDashboardController) scene.controller;
+                        adminController.set(usern, role);
+                        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        stage.setScene(new Scene(root));
+                        stage.setTitle("UserProfile");
+                        stage.show();
+                    }else if(role.equals("Admin")){
+                        FXMLScene scene = FXMLScene.load("AdminDashboard.fxml");
+                        Parent root = scene.root;
+                        AdminDashboardController adminController = (AdminDashboardController) scene.controller;
+                        adminController.set(usern, role);
+                        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        stage.setScene(new Scene(root));
+                        stage.setTitle("Admin Dashboard");
+                        stage.show();
+                    }else{
+                        FXMLScene scene = FXMLScene.load("TeamDashboard.fxml");
+                        Parent root = scene.root;
+                        TeamDashboardController adminController = (TeamDashboardController) scene.controller;
+                        adminController.set(usern, role);
+                        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        stage.setScene(new Scene(root));
+                        stage.setTitle("Team Leander Dashboard");
+                        stage.show();
+                    }
                 }
 
                 } catch (Exception e) {

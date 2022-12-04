@@ -84,7 +84,7 @@ public class SignupController implements Initializable {
     }
     @FXML
     void Sign_up(ActionEvent event) {
-        System.out.println("vai aita ki hoilo");
+        System.out.println("bhai aita ki hoilo");
         if(name.getText().isEmpty() || username.getText().isEmpty() || password.getText().isEmpty()||dob.getValue()==null|| cbdivision.getSelectionModel().isEmpty() ||cbdistrict.getSelectionModel().isEmpty() || cbgroup.getSelectionModel().isEmpty() || cbGender.getSelectionModel().isEmpty() || bloodgroup.getSelectionModel().isEmpty() || phone.getText().isEmpty() || mail.getText().isEmpty()){
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -199,7 +199,7 @@ public class SignupController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String []user={"User","Volunteer Team"};
+        String []user={"diasterlist","Volunteer Team"};
         cb_sign_up.getItems().addAll(user);
         String []division={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
         cbdivision.getItems().addAll(division);

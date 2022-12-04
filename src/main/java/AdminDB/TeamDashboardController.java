@@ -1,9 +1,14 @@
 package AdminDB;
 
+import DB.ConnectionDb;
 import Post.AddPostController;
 import Sign_in.SigninController;
+import TeamProfile.TeamProfileController;
 import UserProfile.ProfileController;
 import com.example.sheccashoinik.Application;
+import com.example.sheccashoinik.diaster;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +17,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -49,6 +55,8 @@ public class TeamDashboardController implements Initializable {
     }
     @FXML
     private Button b;
+    @FXML
+    private Button bt1;
 
     @FXML
     private Button bbutton;
@@ -87,11 +95,48 @@ public class TeamDashboardController implements Initializable {
     @FXML
     private ScrollPane spane;
 
+    @FXML
+    private TableView<diaster> table;
+    @FXML
+    private TableColumn<diaster, String> col_address;
 
+    @FXML
+    private TableColumn<diaster, String> col_district;
+
+    @FXML
+    private TableColumn<diaster, String> col_title;
+
+    @FXML
+    private TableColumn<diaster, String> col_type;
+
+    @FXML
+    private TableColumn<diaster, Integer> col_id;
+
+    ObservableList<diaster> listF;
+    ObservableList<diaster> getdiasterList(){
+        ObservableList<diaster> diasterlist1 = FXCollections.observableArrayList();
+
+
+        return diasterlist1;
+    }
+    int indexM = -1;
+
+    void loadtable(){
+        col_title.setCellValueFactory(new PropertyValueFactory<diaster,String>("Title"));
+        col_type.setCellValueFactory(new PropertyValueFactory<diaster,String>("Type"));
+        col_district.setCellValueFactory(new PropertyValueFactory<diaster,String>("District"));
+        col_address.setCellValueFactory(new PropertyValueFactory<diaster,String>("Address"));
+        col_id.setCellValueFactory(new PropertyValueFactory<diaster,Integer>("Id"));
+
+        //table.setItems(list);
+        listF = ConnectionDb.getdiasterlist();
+        table.setItems(listF);
+
+    }
 
     @FXML
     void Dashboard(ActionEvent event) {
-
+        loadtable();
         //System.out.println("vaiya ki khobor "+username);
         try{
             FXMLScene scene =  FXMLScene.load("TeamDashboard.fxml");
@@ -100,7 +145,7 @@ public class TeamDashboardController implements Initializable {
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Post Diaster");
+            stage.setTitle("TeamDashboard");
             stage.show();
         }catch (Exception e){
             System.out.println("vul hoilo team dashborad controller dashboard");
@@ -196,16 +241,16 @@ public class TeamDashboardController implements Initializable {
     void profile(ActionEvent event) {
 
         try{
-            UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
+            TeamProfile.FXMLScene scene =  TeamProfile.FXMLScene.load("TeamProfile.fxml");
             Parent root = scene.root;
-            ProfileController admin= (ProfileController) scene.controller;
+            TeamProfileController admin= (TeamProfileController) scene.controller;
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Profile");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo profile button profile controller");
+            System.out.println("vul hoilo teamdashboard button profile controller");
         }
 
         }
@@ -330,7 +375,7 @@ public class TeamDashboardController implements Initializable {
         File file = new File("src/main/Font/user1.png");
         Image image = new Image(file.toURI().toString());
         imageview.setImage(image);
-        File file1 = new File("src/main/Font/1297136.png");
+        File file1 = new File("src/main/Font/1.png");
         Image image1 = new Image(file1.toURI().toString());
         bimage.setImage(image1);
          file1 = new File("src/main/Font/logotext.png");
@@ -343,6 +388,8 @@ public class TeamDashboardController implements Initializable {
         Image image6 = new Image(file1.toURI().toString());
         search.setImage(image6);
         username= Application.oname;
+       // bt1.setStyle("-fx-border-color: white; -fx-background-color:  linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);");
+        loadtable();
 
      //   choice.setOnAction(this::ChoiceClick);
 
