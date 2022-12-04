@@ -47,11 +47,11 @@ public class AddPostController implements Initializable {
         System.out.println(username);
     }
     @FXML
-    private TextArea address;
+    private TextField address;
 
 
     @FXML
-    private TextArea address1;
+    private TextField address1;
 
     @FXML
     private Button b;

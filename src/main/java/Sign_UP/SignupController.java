@@ -199,7 +199,7 @@ public class SignupController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String []user={"diasterlist","Volunteer Team"};
+        String []user={"User","Volunteer Team"};
         cb_sign_up.getItems().addAll(user);
         String []division={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
         cbdivision.getItems().addAll(division);

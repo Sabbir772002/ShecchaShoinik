@@ -145,10 +145,9 @@ void loadtable(){
             stage.setScene(new Scene(root));
             stage.setTitle("User Dashboard");
             stage.show();
-        }catch (Exception e){
+        }catch(Exception e){
             System.out.println("vul hoilo Dashboard button userdashboard controller");
         }
-
     }
 
     @FXML
