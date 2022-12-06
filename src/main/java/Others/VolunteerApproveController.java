@@ -29,7 +29,6 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.security.spec.RSAOtherPrimeInfo;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -197,7 +196,7 @@ public class VolunteerApproveController implements Initializable {
         try{
             Others.FXMLScene scene =  Others.FXMLScene.load("VolunteerApprove.fxml");
             Parent root = scene.root;
-            VolunteernearController admin= (VolunteernearController) scene.controller;
+            VolunteerNearController admin= (VolunteerNearController) scene.controller;
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));

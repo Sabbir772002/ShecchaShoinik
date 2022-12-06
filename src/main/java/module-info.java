@@ -35,7 +35,6 @@ module com.example.sheccashoinik {
     opens Chat to javafx.fxml;
     exports Chat;
 
-    exports Others;
     opens Others to javafx.fxml;
-
+    exports Others;
 }

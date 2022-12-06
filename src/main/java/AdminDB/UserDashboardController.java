@@ -2,7 +2,7 @@ package AdminDB;
 
 import BloodBank.BloodBankController;
 import DB.ConnectionDb;
-import Others.VolunteernearController;
+import Others.VolunteerNearController;
 import UserProfile.ProfileController;
 import Post.AddPostController;
 import Sign_in.SigninController;
@@ -205,9 +205,9 @@ void loadtable(){
     @FXML
     void Vnear(ActionEvent event) {
         try{
-            Others.FXMLScene scene =  Others.FXMLScene.load("Volunteernear.fxml");
+            FXMLScene scene =  FXMLScene.load("VolunteerNear.fxml");
             Parent root = scene.root;
-            VolunteernearController admin= (VolunteernearController) scene.controller;
+            VolunteerNearController admin= (VolunteerNearController) scene.controller;
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));

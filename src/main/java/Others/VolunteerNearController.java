@@ -27,14 +27,14 @@ import java.sql.PreparedStatement;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class VolunteernearController implements Initializable {
+public class VolunteerNearController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
     public String username="";
     public String role="";
     Connection con;
-    public VolunteernearController(){
+    public VolunteerNearController(){
         con=ConnectionDb.DBC();
     }
 
