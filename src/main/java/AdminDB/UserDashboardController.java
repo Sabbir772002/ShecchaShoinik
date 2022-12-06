@@ -205,7 +205,7 @@ void loadtable(){
     @FXML
     void Vnear(ActionEvent event) {
         try{
-            FXMLScene scene =  FXMLScene.load("VolunteerNear.fxml");
+            FXMLScene scene =  FXMLScene.load("Others/VolunteerNear.fxml");
             Parent root = scene.root;
             VolunteerNearController admin= (VolunteerNearController) scene.controller;
             admin.set(username,role);
