@@ -1,7 +1,8 @@
 package AdminDB;
 
-import BloodBank.BloodBankController1;
+import BloodBank.BloodBankController;
 import DB.ConnectionDb;
+import Others.VolunteernearController;
 import UserProfile.ProfileController;
 import Post.AddPostController;
 import Sign_in.SigninController;
@@ -54,7 +55,7 @@ public class UserDashboardController implements Initializable {
         try{
             AdminDB.FXMLScene scene =  AdminDB.FXMLScene.load("BloodBank.fxml");
             Parent root = scene.root;
-            BloodBankController1 admin= (BloodBankController1) scene.controller;
+            BloodBankController admin= (BloodBankController) scene.controller;
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -98,10 +99,6 @@ public class UserDashboardController implements Initializable {
     @FXML
     private ImageView logoimage;
 
-    @FXML
-    void BbankClick(MouseEvent event) {
-
-    }
     @FXML
     private ScrollPane spane;
 
@@ -207,8 +204,22 @@ void loadtable(){
 
     @FXML
     void Vnear(ActionEvent event) {
+        try{
+            Others.FXMLScene scene =  Others.FXMLScene.load("Volunteernear.fxml");
+            Parent root = scene.root;
+            VolunteernearController admin= (VolunteernearController) scene.controller;
+            admin.set(username,role);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Volunteer Near Me");
+            stage.show();
+        }catch (Exception e){
+            System.out.println("vul hoilo Volunteernear button Userdashboard controller"+e.getMessage());
+        }
 
     }
+
+
 
 
     @FXML

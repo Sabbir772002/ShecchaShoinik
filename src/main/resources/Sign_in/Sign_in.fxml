@@ -23,12 +23,12 @@
            
             <TextField fx:id="username" layoutX="87.0" layoutY="106.0" promptText="Username" />
             <PasswordField fx:id="password" layoutX="87.0" layoutY="142.0" promptText="Password" />
-            <Button layoutX="123.0" layoutY="188.0" mnemonicParsing="false" onAction="#sign_in" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: green; -fx-cursor: hand; -fx-background-radius: 10,10,10,10;" text="SIGN IN" textFill="WHITE">
+            <Button alignment="CENTER_RIGHT" layoutX="110.0" layoutY="188.0" mnemonicParsing="false" onAction="#sign_in" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: green; -fx-cursor: hand; -fx-background-radius: 10,10,10,10;" text="SIGN IN" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font></Button>
             <Label layoutX="98.0" layoutY="219.0" prefHeight="18.0" prefWidth="133.0" text="Don't have an account?" />
-            <Button defaultButton="true" layoutX="123.0" layoutY="241.0" mnemonicParsing="false" onAction="#sign_up" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: blue; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="WHITE">
+            <Button alignment="CENTER_RIGHT" defaultButton="true" layoutX="110.0" layoutY="237.0" mnemonicParsing="false" onAction="#sign_up" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: blue; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font></Button>
@@ -57,6 +57,16 @@
                   <Font size="9.0" />
                </font>
             </Label>
+            <ImageView fx:id="loginimage" fitHeight="26.0" fitWidth="31.0" layoutX="120.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Font/sg.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="loginimage1" fitHeight="26.0" fitWidth="31.0" layoutX="120.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Font/signup.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

@@ -1,6 +1,7 @@
 package AdminDB;
 
 import AdminProfile.AdminProfileController;
+import BloodBank.BloodBankController;
 import DB.ConnectionDb;
 import UserProfile.ProfileController;
 import Post.AddPostController;
@@ -47,10 +48,7 @@ public class AdminDashboardController implements Initializable {
     private ImageView imageview;
     @FXML
     private ImageView bimage;
-    @FXML
-    void BbankClick(ActionEvent event) {
 
-    }
     @FXML
     private Button b;
 
@@ -85,8 +83,19 @@ public class AdminDashboardController implements Initializable {
     private ImageView logoimage;
 
     @FXML
-    void BbankClick(MouseEvent event) {
-
+    void BbankClick(ActionEvent event) {
+        try{
+            BloodBank.FXMLScene scene =  BloodBank.FXMLScene.load("BloodBank.fxml");
+            Parent root = scene.root;
+            BloodBankController admin= (BloodBankController) scene.controller;
+            admin.set(username,role);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Blood Bank ");
+            stage.show();
+        }catch (Exception e){
+            System.out.println("vul hoilo AdminDashboardController "+e.getMessage());
+        }
     }
     @FXML
     private ScrollPane spane;

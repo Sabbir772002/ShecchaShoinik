@@ -1,6 +1,8 @@
 package AdminDB;
 
 import DB.ConnectionDb;
+import Others.VolunteerApproveController;
+import Others.VolunteernearController;
 import Post.AddPostController;
 import Sign_in.SigninController;
 import TeamProfile.TeamProfileController;
@@ -187,6 +189,18 @@ public class TeamDashboardController implements Initializable {
 
     @FXML
     void G(ActionEvent event) {
+        try{
+            Others.FXMLScene scene =  Others.FXMLScene.load("VolunteerApprove.fxml");
+            Parent root = scene.root;
+            VolunteerApproveController admin= (VolunteerApproveController) scene.controller;
+            admin.set(username,role);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Volunteer Approve");
+            stage.show();
+        }catch (Exception e){
+            System.out.println("vul hoilo team dashbaord button G controller "+e.getMessage());
+        }
 
     }
 

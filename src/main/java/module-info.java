@@ -11,6 +11,7 @@ module com.example.sheccashoinik {
 
     opens BloodBank to javafx.fxml;
     exports BloodBank;
+
     opens Profile to javafx.fxml;
     exports Profile;
 
@@ -33,6 +34,7 @@ module com.example.sheccashoinik {
     exports TeamProfile;
     opens Chat to javafx.fxml;
     exports Chat;
+
     exports Others;
     opens Others to javafx.fxml;
 
