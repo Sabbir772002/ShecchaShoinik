@@ -205,7 +205,7 @@ void loadtable(){
     @FXML
     void Vnear(ActionEvent event) {
         try{
-            FXMLScene scene =  FXMLScene.load("Others/VolunteerNear.fxml");
+           Others.FXMLScene scene = Others.FXMLScene.load("VolunteerNear.fxml");
             Parent root = scene.root;
             VolunteerNearController admin= (VolunteerNearController) scene.controller;
             admin.set(username,role);
@@ -214,7 +214,7 @@ void loadtable(){
             stage.setTitle("Volunteer Near Me");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo Volunteernear button Userdashboard controller"+e.getMessage());
+            System.out.println("vul hoilo Volunteernear button User dashboard controller"+e.getMessage());
         }
 
     }
@@ -249,7 +249,6 @@ void loadtable(){
                 stage.setTitle("SIGN IN");
                 stage.show();
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
