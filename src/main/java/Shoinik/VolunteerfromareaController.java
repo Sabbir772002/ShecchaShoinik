@@ -1,8 +1,9 @@
-package Others;
+package Shoinik;
 
 import AdminDB.AdminDashboardController;
 import AdminDB.TeamDashboardController;
 import AdminDB.UserDashboardController;
+import Others.TaskCompletedController;
 import Post.AddPostController;
 import Sign_in.SigninController;
 import UserProfile.ProfileController;
@@ -25,7 +26,7 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class VolunteerApproveController implements Initializable {
+public class VolunteerfromareaController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -135,7 +136,7 @@ public class VolunteerApproveController implements Initializable {
                 adminController.set(username, role);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
-                stage.setTitle("UserProfile");
+                stage.setTitle("User Home");
                 stage.show();
             }else if(role.equals("Admin")){
                 AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard.fxml");
@@ -144,7 +145,7 @@ public class VolunteerApproveController implements Initializable {
                 adminController.set(username, role);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
-                stage.setTitle("UserProfile");
+                stage.setTitle("Admin Home");
                 stage.show();
 
             }else {
@@ -154,7 +155,7 @@ public class VolunteerApproveController implements Initializable {
                 adminController.set(username, role);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
-                stage.setTitle("TeamDashboard");
+                stage.setTitle("Team Home");
                 stage.show();
             }
         }catch(IOException e){
@@ -169,40 +170,29 @@ public class VolunteerApproveController implements Initializable {
     }
 
     @FXML
-    void task(ActionEvent event) {
-        try {
-            Others.FXMLScene scene = Others.FXMLScene.load("TaskCompleted.fxml");
-            Parent root = scene.root;
-            TaskCompletedController admin = (TaskCompletedController) scene.controller;
-            admin.set(username, role);
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Task Completed");
-            stage.show();
-        } catch (Exception e) {
-            System.out.println("vul hoilo team dashbaord button G controller " + e.getMessage());
-        }
-    }
-        @FXML
     void Hresponse(ActionEvent event) {
-            try{
-                Others.FXMLScene scene =  Others.FXMLScene.load("VolunteerApprove.fxml");
-                Parent root = scene.root;
-                System.out.println("tao run hoi na");
-                VolunteerApproveController admin= (VolunteerApproveController) scene.controller;
-                admin.set(username,role);
-                stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.setTitle("Volunteer Near Me");
-                stage.show();
-            }catch (Exception e){
-                System.out.println("vul hoilo Vapprove button Team controller "+e.getMessage());
-            }
 
     }
 
     @FXML
-    void VRequest(ActionEvent event) {
+    void G(ActionEvent event) {
+
+    }
+
+    @FXML
+    void task(ActionEvent event) {
+        try{
+            Others.FXMLScene scene =  Others.FXMLScene.load("TaskCompleted.fxml");
+            Parent root = scene.root;
+            TaskCompletedController admin= (TaskCompletedController) scene.controller;
+            admin.set(username,role);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Task Completed");
+            stage.show();
+        }catch (Exception e){
+            System.out.println("vul hoilo team dashbaord button G controller "+e.getMessage());
+        }
 
     }
 
@@ -294,20 +284,8 @@ public class VolunteerApproveController implements Initializable {
         Image image6 = new Image(file1.toURI().toString());
         //search.setImage(image6);
     }
-    @FXML
-    public void vnear(ActionEvent event) {
-        try{
-            Shoinik.FXMLScene scene =  Shoinik.FXMLScene.load("Volunteerfromarea.fxml");
-            Parent root = scene.root;
-            Shoinik.VolunteerfromareaController admin= (Shoinik.VolunteerfromareaController) scene.controller;
-            admin.set(username,role);
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("VolunteerfromareaController");
-            stage.show();
-        }catch(IOException e){
-            System.out.println("vul hoilo F button userdashboard controller "+e.getMessage());
-        }
+
+    public void VolunteerNear(ActionEvent actionEvent) {
 
     }
 

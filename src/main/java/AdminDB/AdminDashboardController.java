@@ -85,7 +85,7 @@ public class AdminDashboardController implements Initializable {
     @FXML
     void BbankClick(ActionEvent event) {
         try{
-            BloodBank.FXMLScene scene =  BloodBank.FXMLScene.load("BloodBank.fxml");
+            BloodBank.FXMLScene scene =  BloodBank.FXMLScene.load("BloodBank1.fxml");
             Parent root = scene.root;
             BloodBankController admin= (BloodBankController) scene.controller;
             admin.set(username,role);
@@ -202,6 +202,18 @@ public class AdminDashboardController implements Initializable {
 
     @FXML
     void Vnear(ActionEvent event) {
+        try{
+            Shoinik.FXMLScene scene =  Shoinik.FXMLScene.load("Volunteerfromarea.fxml");
+            Parent root = scene.root;
+            Shoinik.VolunteerfromareaController admin= (Shoinik.VolunteerfromareaController) scene.controller;
+            admin.set(username,role);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("VolunteerfromareaController");
+            stage.show();
+        }catch(IOException e){
+            System.out.println("vul hoilo F button userdashboard controller "+e.getMessage());
+        }
 
     }
 

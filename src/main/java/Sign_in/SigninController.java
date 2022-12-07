@@ -99,13 +99,13 @@ public class SigninController implements Initializable {
                         stage.setTitle("Admin Dashboard");
                         stage.show();
                     }else{
-                        FXMLScene scene = FXMLScene.load("TeamDashboard.fxml");
+                        AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard.fxml");
                         Parent root = scene.root;
                         TeamDashboardController adminController = (TeamDashboardController) scene.controller;
                         adminController.set(usern, role);
                         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.setScene(new Scene(root));
-                        stage.setTitle("Team Leander Dashboard");
+                        stage.setTitle("Team Home");
                         stage.show();
                     }
                 }

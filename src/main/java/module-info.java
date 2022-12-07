@@ -38,6 +38,9 @@ module com.example.sheccashoinik {
 
     opens  Others to javafx.fxml;
     exports Others;
+
     opens ExtraFeature to javafx.fxml;
     exports ExtraFeature;
+    opens Shoinik to javafx.fxml;
+    exports Shoinik;
 }

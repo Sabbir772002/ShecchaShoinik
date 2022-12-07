@@ -54,7 +54,7 @@ public class VolunteerareaController implements Initializable {
     @FXML
     void BbankClick(ActionEvent event) {
         try{
-            AdminDB.FXMLScene scene =  AdminDB.FXMLScene.load("BloodBank.fxml");
+            AdminDB.FXMLScene scene =  AdminDB.FXMLScene.load("BloodBank1.fxml");
             Parent root = scene.root;
             BloodBankController admin= (BloodBankController) scene.controller;
             admin.set(username,role);
