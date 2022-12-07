@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="663.0" prefWidth="931.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_UP.SignupController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="663.0" prefWidth="931.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_UP.SignupController">
    <children>
       <AnchorPane layoutX="73.0" layoutY="48.0" prefHeight="566.0" prefWidth="799.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%); -fx-background-radius: 10;" AnchorPane.leftAnchor="73.0">
          <children>
@@ -27,7 +27,7 @@
                </font>
             </Label>
             <ComboBox fx:id="cbgroup" layoutX="423.0" layoutY="361.0" prefHeight="26.0" prefWidth="175.0" promptText="Earthquake" />
-            <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="336.0" layoutY="413.0" mnemonicParsing="false" onAction="#Sign_up" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: green; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="#f0f2f1" AnchorPane.leftAnchor="336.0">
+            <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="336.0" layoutY="413.0" mnemonicParsing="false" onAction="#Sign_up" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: #c1aba6; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="#f0f2f1" AnchorPane.leftAnchor="336.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -44,7 +44,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="336.0" layoutY="479.0" mnemonicParsing="false" onAction="#Signin" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: blue; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN IN" textFill="#f0f2f1">
+            <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="336.0" layoutY="479.0" mnemonicParsing="false" onAction="#Signin" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: #6e0d25; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN IN" textFill="#f0f2f1">
                <font>
                   <Font size="18.0" />
                </font>
