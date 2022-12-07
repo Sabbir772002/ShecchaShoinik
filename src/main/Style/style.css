@@ -4,6 +4,37 @@
 -fx-background-radius: 10px;
 -fx-border-radius: 10px;
  -fx-text-fill: #000000;
+ -fx-cursor: hand;
+
+
+}
+.btlogin{
+/*-fx-border-color: black;*/
+-fx-background-color:linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);
+/*-fx-background-radius: 10px;*/
+-fx-border-radius: 10px;
+-fx-text-fill: #000000;
+-fx-cursor: hand;
+
+
+}
+.btguide{
+/*-fx-border-color: black;*/
+-fx-background-color:   linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);
+/*-fx-background-radius: 10px;*/
+/*-fx-border-radius: 10px;*/
+-fx-text-fill: #000000;
+-fx-cursor: hand;
+
+
+}
+.tt{
+-fx-border-color: white;
+-fx-background-color: white;
+-fx-background-radius: 10px;
+-fx-border-radius: 10px;
+ -fx-text-fill: #000000;
+ -fx-cursor: hand;
 
 
 }

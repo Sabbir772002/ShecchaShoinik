@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.Blend?>
@@ -14,10 +13,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Others.VolunteernearController">
+<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Others.TaskCompletedController">
     <left>
         <VBox layoutX="50.0" prefHeight="617.0" prefWidth="199.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);" BorderPane.alignment="CENTER">
             <children>
@@ -184,117 +182,21 @@
         </AnchorPane>
     </top>
     <center>
-        <AnchorPane prefHeight="606.0" prefWidth="775.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER">
-            <children>
-                <AnchorPane layoutX="8.0" layoutY="4.0" prefHeight="621.0" prefWidth="762.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 10; -fx-padding: 50;">
-                    <children>
-                        <Label layoutX="409.0" layoutY="202.0" prefHeight="31.0" prefWidth="81.0" text="District:" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="21.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="408.0" layoutY="240.0" prefHeight="31.0" prefWidth="85.0" text="Division:" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="21.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="406.0" layoutY="321.0" prefHeight="31.0" prefWidth="83.0" text="Status:" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="21.0" />
-                            </font>
-                        </Label>
-                        <Label fx:id="District" alignment="CENTER" contentDisplay="RIGHT" layoutX="497.0" layoutY="241.0" prefHeight="30.0" prefWidth="158.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="C.Nobabgonj">
-                            <font>
-                                <Font name="System Bold" size="18.0" />
-                            </font>
-                        </Label>
-                        <Label fx:id="Division" alignment="CENTER" contentDisplay="RIGHT" layoutX="496.0" layoutY="203.0" prefHeight="30.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Chattogram">
-                            <font>
-                                <Font name="System Bold" size="18.0" />
-                            </font>
-                        </Label>
-                        <Label fx:id="Phone" alignment="CENTER" contentDisplay="RIGHT" layoutX="468.0" layoutY="396.0" prefHeight="26.0" prefWidth="155.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="01571144383">
-                            <font>
-                                <Font name="System Bold" size="18.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="408.0" layoutY="280.0" prefHeight="31.0" prefWidth="85.0" text="Field:" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="21.0" />
-                            </font>
-                        </Label>
-                        <Label fx:id="field" alignment="CENTER" contentDisplay="RIGHT" layoutX="496.0" layoutY="282.0" prefHeight="27.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="EarthQuake">
-                            <font>
-                                <Font name="System Bold" size="18.0" />
-                            </font>
-                        </Label>
-                        <Circle fill="WHITE" layoutX="535.0" layoutY="60.0" radius="46.0" stroke="BLACK" strokeType="INSIDE" />
-                        <ImageView fitHeight="76.0" fitWidth="88.0" layoutX="491.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="Name" alignment="CENTER" layoutX="447.0" layoutY="109.0" prefHeight="31.0" prefWidth="186.0" text="Team Durbar" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="21.0" />
-                            </font>
-                        </Label>
-                        <Label fx:id="showuser" alignment="CENTER" layoutX="476.0" layoutY="127.0" prefHeight="26.0" prefWidth="127.0" text="\@durbar" textFill="#050505">
-                            <font>
-                                <Font name="System Bold" size="11.0" />
-                            </font>
-                        </Label>
-                  <Label layoutX="505.0" layoutY="153.0" prefHeight="31.0" prefWidth="70.0" text="About" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="21.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="field1" alignment="CENTER" contentDisplay="RIGHT" layoutX="496.0" layoutY="323.0" prefHeight="27.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="True">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="490.0" layoutY="486.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="128.0" style="-fx-background-radius: 10;" text="Request for Help">
-                     <font>
-                        <Font name="System Bold" size="11.0" />
-                     </font>
-                  </Button>
-                  <Label layoutX="499.0" layoutY="364.0" prefHeight="31.0" prefWidth="82.0" text="Contact" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="21.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="Phone1" alignment="CENTER" contentDisplay="RIGHT" layoutX="428.0" layoutY="434.0" prefHeight="27.0" prefWidth="234.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="durbar@mail.com">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Separator layoutX="360.0" layoutY="122.0" orientation="VERTICAL" prefHeight="346.0" prefWidth="11.0" />
-                  <AnchorPane layoutY="107.0" prefHeight="407.0" prefWidth="352.0">
-                     <children>
-                        <TableView layoutX="1.0" layoutY="-7.0" prefHeight="420.0" prefWidth="359.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);">
-                          <columns>
-                            <TableColumn prefWidth="170.3999662399292" text="Name" />
-                            <TableColumn minWidth="0.0" prefWidth="182.3999786376953" text="Location" />
-                          </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-                  <TextField layoutX="84.0" layoutY="60.0" prefHeight="27.0" prefWidth="199.0" promptText="Search" style="-fx-background-color: white; -fx-background-radius: 10;" />
-                  <Button layoutX="212.0" layoutY="62.0" minWidth="47.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="70.0" style="-fx-background-color: white; -fx-background-radius: 10;" textFill="WHITE" />
-                  <ImageView fitHeight="38.0" fitWidth="31.0" layoutX="69.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Font/group.png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="Phone11" alignment="CENTER" contentDisplay="RIGHT" layoutX="60.0" layoutY="22.0" prefHeight="27.0" prefWidth="246.0" style="-fx-background-radius: 5;" text="Volunteer Near You" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <ImageView fitHeight="28.0" fitWidth="31.0" layoutX="232.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Font/search.png" />
-                     </image>
-                  </ImageView>
-                    </children>
-                </AnchorPane>
-            </children></AnchorPane>
+        <AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER">
+         <children>
+            <TableView layoutX="5.0" layoutY="47.0" prefHeight="563.0" prefWidth="770.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);">
+              <columns>
+                <TableColumn prefWidth="218.39995098114014" text="Title" />
+                <TableColumn minWidth="0.0" prefWidth="192.80003356933594" text="Location" />
+                  <TableColumn prefWidth="183.20001220703125" text="District" />
+                  <TableColumn prefWidth="183.20001220703125" text="Time" />
+              </columns>
+            </TableView>
+            <Label alignment="CENTER" layoutX="7.0" layoutY="8.0" prefHeight="30.0" prefWidth="766.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);" styleClass="bt" stylesheets="@../../Style/style.css" text="All Task Completed By Our  Team" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
     </center>
 </BorderPane>

@@ -1,11 +1,11 @@
-package AdminDB;
+package Others;
 
-import AdminProfile.AdminProfileController;
-import BloodBank.BloodBankController;
+import AdminDB.TeamDashboardController;
 import DB.ConnectionDb;
-import UserProfile.ProfileController;
 import Post.AddPostController;
 import Sign_in.SigninController;
+import TeamProfile.TeamProfileController;
+import UserProfile.ProfileController;
 import com.example.sheccashoinik.Application;
 import com.example.sheccashoinik.diaster;
 import javafx.collections.FXCollections;
@@ -22,21 +22,23 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class AdminDashboardController implements Initializable {
+public class VolunteerApproveController implements Initializable {
 
     @FXML
     private BorderPane pane1;
 
   /*  @FXML
-    private Button Bbankkk;
+    private Button Bbank;
 
     @FXML
     private Label Logo1;*/
@@ -48,9 +50,14 @@ public class AdminDashboardController implements Initializable {
     private ImageView imageview;
     @FXML
     private ImageView bimage;
+    @FXML
+    void BbankClick(ActionEvent event) {
 
+    }
     @FXML
     private Button b;
+    @FXML
+    private Button bt1;
 
     @FXML
     private Button bbutton;
@@ -83,19 +90,8 @@ public class AdminDashboardController implements Initializable {
     private ImageView logoimage;
 
     @FXML
-    void BbankClick(ActionEvent event) {
-        try{
-            BloodBank.FXMLScene scene =  BloodBank.FXMLScene.load("BloodBank.fxml");
-            Parent root = scene.root;
-            BloodBankController admin= (BloodBankController) scene.controller;
-            admin.set(username,role);
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Blood Bank ");
-            stage.show();
-        }catch (Exception e){
-            System.out.println("vul hoilo AdminDashboardController "+e.getMessage());
-        }
+    void BbankClick(MouseEvent event) {
+
     }
     @FXML
     private ScrollPane spane;
@@ -137,23 +133,23 @@ public class AdminDashboardController implements Initializable {
         listF = ConnectionDb.getdiasterlist();
         table.setItems(listF);
 
-
     }
 
     @FXML
     void Dashboard(ActionEvent event) {
         loadtable();
+        //System.out.println("vaiya ki khobor "+username);
         try{
-            AdminDB.FXMLScene scene =  AdminDB.FXMLScene.load("AdminDashboard.fxml");
+            FXMLScene scene =  FXMLScene.load("TeamDashboard.fxml");
             Parent root = scene.root;
-            AdminDashboardController admin= (AdminDashboardController) scene.controller;
+            TeamDashboardController admin= (TeamDashboardController) scene.controller;
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Admin Dashboard");
+            stage.setTitle("TeamDashboard");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo AdminDashboardController"+e.getMessage());
+            System.out.println("vul hoilo team dashborad controller dashboard");
         }
 
     }
@@ -186,28 +182,45 @@ public class AdminDashboardController implements Initializable {
     }
 
     @FXML
-    void F(ActionEvent event) {
+    void VolunteerNear(ActionEvent event) {
 
     }
 
     @FXML
-    void G(ActionEvent event) {
+    void TaskCompleted(ActionEvent event) {
 
     }
 
     @FXML
-    void H(ActionEvent event) {
+    void VolunteerRequest(ActionEvent event) {
+        try{
+            Others.FXMLScene scene =  Others.FXMLScene.load("VolunteerApprove.fxml");
+            Parent root = scene.root;
+            VolunteerNearController admin= (VolunteerNearController) scene.controller;
+            admin.set(username,role);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Profile");
+            stage.show();
+        }catch (Exception e){
+            System.out.println("vul hoilo profile button profile controller");
+        }
 
     }
 
+
+
     @FXML
-    void Vnear(ActionEvent event) {
+    void HelpResponse(ActionEvent event) {
 
     }
 
 
     @FXML
     void chat(ActionEvent event) {
+
+    }@FXML
+    void H(ActionEvent event) {
 
     }
 
@@ -221,7 +234,7 @@ public class AdminDashboardController implements Initializable {
             Image image = new Image(file.toURI().toString());
             stage = (Stage) alert.getDialogPane().getScene().getWindow();
             stage.getIcons().add(image);
-           // alert.initOwner(stage);
+            // alert.initOwner(stage);
             //alert.setGraphic(new ImageView(image));
             //user.setImage(image);
             Optional<ButtonType> result=alert.showAndWait();
@@ -246,76 +259,19 @@ public class AdminDashboardController implements Initializable {
     void profile(ActionEvent event) {
 
         try{
-            FXMLScene scene =  FXMLScene.load("AdminProfile.fxml");
+            TeamProfile.FXMLScene scene =  TeamProfile.FXMLScene.load("TeamProfile.fxml");
             Parent root = scene.root;
-            AdminProfileController admin= (AdminProfileController)scene.controller;
+            TeamProfileController admin= (TeamProfileController) scene.controller;
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Profile");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo Admin Dashbaord profile button profile controller");
+            System.out.println("vul hoilo teamdashboard button profile controller");
         }
-       /* try {
-            System.out.println("ok");
 
-          //Pane p = FXMLScene.loadpane("Profile.fxml");
-            FXMLLoader fxmlLoader = FXMLScene.loadpane("Profile.fxml");
-            p=fxmlLoader.load();
-            //Parent root = scene.root;
-            //p = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-            // p=(Pane)scene;
-           // FXMLLoader fxmlLoader = (FXMLLoader) (this.p.getScene().getUserData());
-            AdminDashboardController controller = (AdminDashboardController) fxmlLoader.getController();
-         //  AdminDashboardController adminController = (AdminDashboardController) scene.controller;
-            controller.set(username+" vai");
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.setScene(new Scene(root));
-            stage.setTitle("Profile");
-            pane1.setCenter(p);
-            stage.show();
-        }
-        catch (IOException e) {
-            System.out.println("error vai \n"+e);
-
-        }*/
-        /*try {
-            System.out.println("ok");
-
-            *//*FXMLScene scene = FXMLScene.load("Profile.fxml");
-            Parent root = scene.root;*//*
-            p = FXMLLoader.load(Dashboard.ProfileController.class.getResource("Profile.fxml"));
-           // p=(Pane)scene;
-            pane1.setCenter(p);
-           // AdminDashboardController adminController = (AdminDashboardController) scene.controller;
-           // adminController.set(username);
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.setScene(new Scene(root));
-            stage.setTitle("Profile");
-            stage.show();
-        }
-        catch (Exception e) {
-
-        }*/
-
-
-
-
-           /* try {
-                // FXMLLoader o = new FXMLLoader(Profile.ProfileController.class.getResource("Profile.fxml"));
-                p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
-                pane1.setCenter(p);
-                stage.setTitle("Profile");
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-                stage.setTitle("Profile");
-                stage.show();
-               // System.out.println("helloApplication");
-            } catch (Exception e) {
-
-            }*/
-        }
+    }
 
 
 
@@ -365,25 +321,20 @@ public class AdminDashboardController implements Initializable {
                 e.printStackTrace();
             }
         }else {
-               try{
-                  /* root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
-                   stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                   scene = new Scene(root);
-                   stage.setScene(scene);
-                   stage.setTitle("SIGN IN");
-                   stage.show();*/
-                   UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
-                   Parent root = scene.root;
-                   ProfileController adminController = (ProfileController) scene.controller;
-                   adminController.set(username,role);
-                   stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                   stage.setScene(new Scene(root));
-                   stage.setTitle("Profile");
-                   stage.show();
+            try{
 
-               }catch (Exception e){
+                UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
+                Parent root = scene.root;
+                ProfileController adminController = (ProfileController) scene.controller;
+                adminController.set(username,role);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Profile");
+                stage.show();
 
-               }
+            }catch (Exception e){
+
+            }
                /* try {
                     //  FxmlLoader o = new FxmlLoader();
                     p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
@@ -398,7 +349,7 @@ public class AdminDashboardController implements Initializable {
                 } catch (Exception e) {
 
                 }*/
-            }
+        }
 
     }
     @FXML
@@ -414,15 +365,9 @@ public class AdminDashboardController implements Initializable {
             stage.setTitle("Post Diaster");
             stage.show();
 
-          /*  root = FXMLLoader.load(AddPostController.class.getResource("AddPost.fxml"));
-
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("SIGN IN");
-            stage.show();*/
 
         }catch (Exception e ){
+            System.out.println("ato plbm kn tor, thik h. team theke post hoite plbm ki");
 
         }
 
@@ -452,7 +397,7 @@ public class AdminDashboardController implements Initializable {
         File file1 = new File("src/main/Font/1.png");
         Image image1 = new Image(file1.toURI().toString());
         bimage.setImage(image1);
-         file1 = new File("src/main/Font/logotext.png");
+        file1 = new File("src/main/Font/logotext.png");
         Image image4 = new Image(file1.toURI().toString());
         logoimage.setImage(image4);
         file1 = new File("src/main/Font/icon1.png");
@@ -462,8 +407,10 @@ public class AdminDashboardController implements Initializable {
         Image image6 = new Image(file1.toURI().toString());
         search.setImage(image6);
         username= Application.oname;
-       loadtable();
-     //   choice.setOnAction(this::ChoiceClick);
+        // bt1.setStyle("-fx-border-color: white; -fx-background-color:  linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);");
+        loadtable();
+
+        //   choice.setOnAction(this::ChoiceClick);
 
     }
 }

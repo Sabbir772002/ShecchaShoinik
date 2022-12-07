@@ -9,22 +9,27 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="788.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sheccashoinik.HomeController">
    <children>
-      <Button fx:id="Signinb" alignment="CENTER" layoutX="609.0" layoutY="232.0" mnemonicParsing="false" onAction="#Signin" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="Sign in" textFill="WHITE">
+      <Button fx:id="Signinb2" alignment="CENTER" layoutX="28.0" layoutY="539.0" mnemonicParsing="false" onAction="#GuideLines" prefHeight="42.0" prefWidth="378.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-cursor: hand;" styleClass="btguide" stylesheets="@../../../../Style/style.css" text="Click To See Disaster Guidelines" textFill="#610404">
          <font>
             <Font name="Book Antiqua Bold" size="22.0" />
          </font>
       </Button>
-      <Button fx:id="Signinb1" alignment="CENTER" layoutX="609.0" layoutY="298.0" mnemonicParsing="false" onAction="#SignUp" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%); -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="Sign up" textFill="WHITE">
+      <Button fx:id="Signinb" alignment="CENTER_RIGHT" layoutX="611.0" layoutY="541.0" mnemonicParsing="false" onAction="#Signin" prefHeight="42.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-cursor: hand;" styleClass="btlogin" stylesheets="@../../../../Style/style.css" text="Sign in" textFill="#1e0808">
          <font>
             <Font name="Book Antiqua Bold" size="22.0" />
          </font>
       </Button>
-      <Label layoutX="579.0" layoutY="194.0" prefHeight="26.0" prefWidth="227.0" text="Already have an account?" textFill="WHITE">
+      <Button fx:id="Signinb1" alignment="CENTER" layoutX="623.0" layoutY="489.0" mnemonicParsing="false" onAction="#SignUp" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%); -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="Sign up" textFill="WHITE" visible="false">
+         <font>
+            <Font name="Book Antiqua Bold" size="22.0" />
+         </font>
+      </Button>
+      <Label layoutX="560.0" layoutY="453.0" prefHeight="26.0" prefWidth="227.0" text="Already have an account?" textFill="WHITE" visible="false">
          <font>
             <Font name="Book Antiqua Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="579.0" layoutY="274.0" prefHeight="23.0" prefWidth="210.0" text=" Don't have an account?" textFill="WHITE">
+      <Label layoutX="568.0" layoutY="436.0" prefHeight="23.0" prefWidth="210.0" text=" Don't have an account?" textFill="WHITE" visible="false">
          <font>
             <Font name="Book Antiqua Bold" size="18.0" />
          </font>
@@ -69,28 +74,34 @@
       <children>
          <ImageView fx:id="image6" fitHeight="345.0" fitWidth="475.0" pickOnBounds="true" preserveRatio="true" />
       </children>
-   </AnchorPane><AnchorPane fx:id="pane7" layoutX="27.0" layoutY="91.0" prefHeight="346.0" prefWidth="369.0">
+   </AnchorPane>
+      <AnchorPane fx:id="pane7" layoutX="27.0" layoutY="91.0" prefHeight="346.0" prefWidth="369.0">
       <children>
          <ImageView fx:id="image7" fitHeight="345.0" fitWidth="494.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="-19.0" layoutY="149.0" mnemonicParsing="false" onAction="#fontjao" prefHeight="68.0" prefWidth="23.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);">
+         <!-- <Button layoutX="-19.0" layoutY="149.0" mnemonicParsing="false" onAction="#fontjao" prefHeight="68.0" prefWidth="23.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);">
                <graphic>
-                  <ImageView fx:id="front" fitHeight="150.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Font/front.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="454.0" layoutY="149.0" mnemonicParsing="false" onAction="#backjao" prefHeight="68.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);">
+                        <ImageView fx:id="front" fitHeight="150.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Font/front.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>-->
+         <!--  <Button layoutX="454.0" layoutY="149.0" mnemonicParsing="false" onAction="#backjao" prefHeight="68.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);">
                <graphic>
-                  <ImageView fx:id="back" fitHeight="150.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Font/back.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
+                        <ImageView fx:id="back" fitHeight="150.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Font/back.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>-->
       </children>
    </AnchorPane>
+      <ImageView fx:id="loginimage" fitHeight="31.0" fitWidth="50.0" layoutX="623.0" layoutY="547.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Font/login.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
