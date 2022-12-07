@@ -28,7 +28,6 @@
                                 <Image url="@../../Font/icon1.png" />
                             </image>
                             <viewport>
-
                             </viewport>
                         </ImageView>
                         <Label fx:id="rolee" alignment="CENTER" layoutX="-2.0" layoutY="143.0" prefHeight="28.0" prefWidth="198.0" style="-fx-cursor: had;" text="\@volunteer" textFill="#230505">

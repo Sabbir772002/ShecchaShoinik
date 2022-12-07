@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class FXMLScene {
     public Parent root = null;
-    public Object controller = null;
+    public static Object controller;
 
     public static FXMLScene load(String fxmlpath) throws IOException {
 
@@ -17,6 +17,7 @@ public class FXMLScene {
         fxmlLoader.setLocation(fxmlScene.getClass().getResource(fxmlpath));
 
         fxmlScene.root = fxmlLoader.load();
+        controller = null;
         fxmlScene.controller = fxmlLoader.getController();
 
         return fxmlScene;
