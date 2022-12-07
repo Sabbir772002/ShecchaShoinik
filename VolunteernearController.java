@@ -1,7 +1,5 @@
-package Post;
+package Others;
 
-import AdminDB.FXMLScene;
-import Others.HelpResponseController;
 import UserProfile.ProfileController;
 import Sign_in.SigninController;
 import com.example.sheccashoinik.Application;
@@ -29,14 +27,14 @@ import java.sql.PreparedStatement;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class AddPostController implements Initializable {
+public class VolunteernearController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
     public String username="";
     public String role="";
     Connection con;
-    public AddPostController(){
+    public VolunteernearController(){
         con=ConnectionDb.DBC();
     }
 
@@ -208,10 +206,10 @@ public class AddPostController implements Initializable {
                 stage.setTitle("TeamDashboard");
                 stage.show();*/
             }
-            }catch(IOException e){
+        }catch(IOException e){
             System.out.println("vul hoilo add post er dashboard "+e.getMessage());
-            }
         }
+    }
 
 
 
@@ -222,20 +220,6 @@ public class AddPostController implements Initializable {
 
     @FXML
     void F(ActionEvent event) {
-
-        //System.out.println("vaiya ki khobor "+username);
-        try{
-            Others.FXMLScene scene =  Others.FXMLScene.load("HelpResponse.fxml");
-            Parent root = scene.root;
-            HelpResponseController admin= (HelpResponseController) scene.controller;
-            admin.set(username,role);
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Help Response");
-            stage.show();
-        }catch(Exception e){
-            System.out.println("vul hoilo F button userdashboard controller");
-        }
 
     }
 

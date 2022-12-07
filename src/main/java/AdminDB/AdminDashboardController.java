@@ -1,6 +1,7 @@
 package AdminDB;
 
 import AdminProfile.AdminProfileController;
+import BloodBank.BloodBankController;
 import DB.ConnectionDb;
 import UserProfile.ProfileController;
 import Post.AddPostController;
@@ -35,7 +36,7 @@ public class AdminDashboardController implements Initializable {
     private BorderPane pane1;
 
   /*  @FXML
-    private Button Bbank;
+    private Button Bbankkk;
 
     @FXML
     private Label Logo1;*/
@@ -47,10 +48,7 @@ public class AdminDashboardController implements Initializable {
     private ImageView imageview;
     @FXML
     private ImageView bimage;
-    @FXML
-    void BbankClick(ActionEvent event) {
 
-    }
     @FXML
     private Button b;
 
@@ -85,8 +83,19 @@ public class AdminDashboardController implements Initializable {
     private ImageView logoimage;
 
     @FXML
-    void BbankClick(MouseEvent event) {
-
+    void BbankClick(ActionEvent event) {
+        try{
+            BloodBank.FXMLScene scene =  BloodBank.FXMLScene.load("BloodBank1.fxml");
+            Parent root = scene.root;
+            BloodBankController admin= (BloodBankController) scene.controller;
+            admin.set(username,role);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Blood Bank ");
+            stage.show();
+        }catch (Exception e){
+            System.out.println("vul hoilo AdminDashboardController "+e.getMessage());
+        }
     }
     @FXML
     private ScrollPane spane;
@@ -134,10 +143,8 @@ public class AdminDashboardController implements Initializable {
     @FXML
     void Dashboard(ActionEvent event) {
         loadtable();
-
-        //System.out.println("vaiya ki khobor "+username);
         try{
-            AdminDB.FXMLScene scene =  AdminDB.FXMLScene.load("AdminDashboard1.fxml");
+            AdminDB.FXMLScene scene =  AdminDB.FXMLScene.load("AdminDashboard.fxml");
             Parent root = scene.root;
             AdminDashboardController admin= (AdminDashboardController) scene.controller;
             admin.set(username,role);
@@ -146,7 +153,7 @@ public class AdminDashboardController implements Initializable {
             stage.setTitle("Admin Dashboard");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo AdminDashboardController");
+            System.out.println("vul hoilo AdminDashboardController"+e.getMessage());
         }
 
     }
@@ -195,6 +202,18 @@ public class AdminDashboardController implements Initializable {
 
     @FXML
     void Vnear(ActionEvent event) {
+        try{
+            Shoinik.FXMLScene scene =  Shoinik.FXMLScene.load("Volunteerfromarea.fxml");
+            Parent root = scene.root;
+            Shoinik.VolunteerfromareaController admin= (Shoinik.VolunteerfromareaController) scene.controller;
+            admin.set(username,role);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("VolunteerfromareaController");
+            stage.show();
+        }catch(IOException e){
+            System.out.println("vul hoilo F button userdashboard controller "+e.getMessage());
+        }
 
     }
 
@@ -239,7 +258,7 @@ public class AdminDashboardController implements Initializable {
     void profile(ActionEvent event) {
 
         try{
-            UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
+            FXMLScene scene =  FXMLScene.load("AdminProfile.fxml");
             Parent root = scene.root;
             AdminProfileController admin= (AdminProfileController)scene.controller;
             admin.set(username,role);
@@ -248,7 +267,7 @@ public class AdminDashboardController implements Initializable {
             stage.setTitle("Profile");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo profile button profile controller");
+            System.out.println("vul hoilo Admin Dashbaord profile button profile controller");
         }
        /* try {
             System.out.println("ok");

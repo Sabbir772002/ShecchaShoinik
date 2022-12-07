@@ -1,40 +1,40 @@
-package AdminDB;
+package Chat;
 
-import DB.ConnectionDb;
-import Others.HelpResponseController;
-import Others.TaskCompletedController;
-import Others.VolunteerApproveController;
-import Post.AddPostController;
-import Sign_in.SigninController;
-import TeamProfile.TeamProfileController;
-import UserProfile.ProfileController;
-import com.example.sheccashoinik.Application;
-import com.example.sheccashoinik.diaster;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
+import BloodBank.BloodBankController;
+import AdminDB.UserDashboardController;
+        import DB.ConnectionDb;
+        import ExtraFeature.VolunteerareaController;
+        import Others.VolunteerNearController;
+        import UserProfile.ProfileController;
+        import Post.AddPostController;
+        import Sign_in.SigninController;
+        import com.example.sheccashoinik.Application;
+        import com.example.sheccashoinik.diaster;
+        import javafx.collections.FXCollections;
+        import javafx.collections.ObservableList;
+        import javafx.event.ActionEvent;
+        import javafx.fxml.FXML;
+        import javafx.fxml.FXMLLoader;
+        import javafx.fxml.Initializable;
+        import javafx.scene.Node;
+        import javafx.scene.Parent;
+        import javafx.scene.Scene;
+        import javafx.scene.control.*;
+        import javafx.scene.control.cell.PropertyValueFactory;
+        import javafx.scene.image.Image;
+        import javafx.scene.image.ImageView;
+        import javafx.scene.input.MouseEvent;
+        import javafx.scene.layout.BorderPane;
+        import javafx.scene.layout.Pane;
+        import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.util.Optional;
-import java.util.ResourceBundle;
+        import java.io.File;
+        import java.io.IOException;
+        import java.net.URL;
+        import java.util.Optional;
+        import java.util.ResourceBundle;
 
-public class TeamDashboardController implements Initializable {
+public class CommunityChatHandelar implements Initializable {
 
     @FXML
     private BorderPane pane1;
@@ -54,12 +54,22 @@ public class TeamDashboardController implements Initializable {
     private ImageView bimage;
     @FXML
     void BbankClick(ActionEvent event) {
+        try{
+            AdminDB.FXMLScene scene =  AdminDB.FXMLScene.load("BloodBank1.fxml");
+            Parent root = scene.root;
+            BloodBankController admin= (BloodBankController) scene.controller;
+            admin.set(username,role);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Blood Bank");
+            stage.show();
+        }catch(Exception e){
+            System.out.println("vul hoilo Blood Bank button userdashboard controller");
+        }
 
     }
     @FXML
     private Button b;
-    @FXML
-    private Button bt1;
 
     @FXML
     private Button bbutton;
@@ -91,10 +101,6 @@ public class TeamDashboardController implements Initializable {
     @FXML
     private ImageView logoimage;
 
-    @FXML
-    void BbankClick(MouseEvent event) {
-
-    }
     @FXML
     private ScrollPane spane;
 
@@ -135,25 +141,25 @@ public class TeamDashboardController implements Initializable {
         listF = ConnectionDb.getdiasterlist();
         table.setItems(listF);
 
-    }
 
+    }
     @FXML
     void Dashboard(ActionEvent event) {
         loadtable();
+
         //System.out.println("vaiya ki khobor "+username);
         try{
-            FXMLScene scene =  FXMLScene.load("TeamDashboard.fxml");
+            AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("UserDashboard.fxml");
             Parent root = scene.root;
-            TeamDashboardController admin= (TeamDashboardController) scene.controller;
+            UserDashboardController admin= (UserDashboardController) scene.controller;
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("TeamDashboard");
+            stage.setTitle("User Dashboard");
             stage.show();
-        }catch (Exception e){
-            System.out.println("vul hoilo team dashborad controller dashboard");
+        }catch(Exception e){
+            System.out.println("vul hoilo Dashboard button userdashboard controller");
         }
-
     }
 
     @FXML
@@ -184,78 +190,61 @@ public class TeamDashboardController implements Initializable {
     }
 
     @FXML
-    void hresponse(ActionEvent event) {
-        try{
-            Others.FXMLScene scene =  Others.FXMLScene.load("HelpResponse.fxml");
-            Parent root = scene.root;
-            HelpResponseController admin= (HelpResponseController) scene.controller;
-            admin.set(username,role);
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Help Response");
-            stage.show();
-        }catch (Exception e){
-            System.out.println("vul hoilo team dashbaord button Helpresponse controller "+e.getMessage());
-        }
+    void F(ActionEvent event) {
 
+    }
+   @FXML
+    void send(ActionEvent event) {
 
     }
 
     @FXML
-    void task(ActionEvent event) {
-        try{
-            Others.FXMLScene scene =  Others.FXMLScene.load("TaskCompleted.fxml");
-            Parent root = scene.root;
-            TaskCompletedController admin= (TaskCompletedController) scene.controller;
-            admin.set(username,role);
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Task Completed");
-            stage.show();
-        }catch (Exception e){
-            System.out.println("vul hoilo team dashbaord button G controller "+e.getMessage());
-        }
+    void G(ActionEvent event) {
 
     }
 
     @FXML
-    void vapprove(ActionEvent event) {
+    void H(ActionEvent event) {
+
+    }
+
+    @FXML
+    void VolunteerNear(ActionEvent event) {
         try{
-            FXMLScene scene =  FXMLScene.load("VolunteerApprove.fxml");
+            ExtraFeature.FXMLScene scene =  ExtraFeature.FXMLScene.load("blank.fxml");
             Parent root = scene.root;
             System.out.println("tao run hoi na");
-            VolunteerApproveController admin= (VolunteerApproveController) scene.controller;
+            VolunteerareaController admin= (VolunteerareaController) scene.controller;
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Volunteer Near Me");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo Vapprove button Team controller "+e.getMessage());
+            System.out.println("vul hoilo Volunteernear button Userdashboard controller "+e.getMessage());
         }
 
     }
 
-    @FXML
-    void Vnear(ActionEvent event) {
-        try{
-            Shoinik.FXMLScene scene =  Shoinik.FXMLScene.load("Volunteerfromarea.fxml");
-            Parent root = scene.root;
-            Shoinik.VolunteerfromareaController admin= (Shoinik.VolunteerfromareaController) scene.controller;
-             admin.set(username,role);
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("VolunteerfromareaController");
-            stage.show();
-        }catch(IOException e){
-            System.out.println("vul hoilo F button userdashboard controller "+e.getMessage());
-        }
 
-    }
 
 
     @FXML
     void chat(ActionEvent event) {
+        try{
+            Chat.FXMLScene scene =Chat.FXMLScene.load("CommunityChat.fxml");
+            Parent root = scene.root;
+            System.out.println("tao run hoi na");
+            CommunityChatHandelar admin= (CommunityChatHandelar) scene.controller;
+            admin.set(username,role);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Volunteer Near Me");
+            stage.show();
+        }catch (Exception e){
+            System.out.println("vul hoilo Volunteernear button Userdashboard controller "+e.getMessage());
+        }
+
 
     }
 
@@ -269,7 +258,7 @@ public class TeamDashboardController implements Initializable {
             Image image = new Image(file.toURI().toString());
             stage = (Stage) alert.getDialogPane().getScene().getWindow();
             stage.getIcons().add(image);
-           // alert.initOwner(stage);
+            // alert.initOwner(stage);
             //alert.setGraphic(new ImageView(image));
             //user.setImage(image);
             Optional<ButtonType> result=alert.showAndWait();
@@ -294,19 +283,19 @@ public class TeamDashboardController implements Initializable {
     void profile(ActionEvent event) {
 
         try{
-            TeamProfile.FXMLScene scene =  TeamProfile.FXMLScene.load("TeamProfile.fxml");
+            UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
             Parent root = scene.root;
-            TeamProfileController admin= (TeamProfileController) scene.controller;
+            ProfileController admin= (ProfileController) scene.controller;
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Profile");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo teamdashboard button profile controller");
+            System.out.println("vul hoilo profile button profile controller");
         }
 
-        }
+    }
 
 
 
@@ -356,20 +345,20 @@ public class TeamDashboardController implements Initializable {
                 e.printStackTrace();
             }
         }else {
-               try{
+            try{
 
-                   UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
-                   Parent root = scene.root;
-                   ProfileController adminController = (ProfileController) scene.controller;
-                   adminController.set(username,role);
-                   stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                   stage.setScene(new Scene(root));
-                   stage.setTitle("Profile");
-                   stage.show();
+                UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
+                Parent root = scene.root;
+                ProfileController adminController = (ProfileController) scene.controller;
+                adminController.set(username,role);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Profile");
+                stage.show();
 
-               }catch (Exception e){
+            }catch (Exception e){
 
-               }
+            }
                /* try {
                     //  FxmlLoader o = new FxmlLoader();
                     p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
@@ -384,7 +373,7 @@ public class TeamDashboardController implements Initializable {
                 } catch (Exception e) {
 
                 }*/
-            }
+        }
 
     }
     @FXML
@@ -402,7 +391,6 @@ public class TeamDashboardController implements Initializable {
 
 
         }catch (Exception e ){
-            System.out.println("ato plbm kn tor, thik h. team theke post hoite plbm ki");
 
         }
 
@@ -432,7 +420,7 @@ public class TeamDashboardController implements Initializable {
         File file1 = new File("src/main/Font/1.png");
         Image image1 = new Image(file1.toURI().toString());
         bimage.setImage(image1);
-         file1 = new File("src/main/Font/logotext.png");
+        file1 = new File("src/main/Font/logotext.png");
         Image image4 = new Image(file1.toURI().toString());
         logoimage.setImage(image4);
         file1 = new File("src/main/Font/icon1.png");
@@ -442,13 +430,9 @@ public class TeamDashboardController implements Initializable {
         Image image6 = new Image(file1.toURI().toString());
         search.setImage(image6);
         username= Application.oname;
-       // bt1.setStyle("-fx-border-color: white; -fx-background-color:  linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);");
         loadtable();
 
-     //   choice.setOnAction(this::ChoiceClick);
+        //   choice.setOnAction(this::ChoiceClick);
 
-    }
-    @FXML
-    public void vnear(ActionEvent actionEvent) {
     }
 }
