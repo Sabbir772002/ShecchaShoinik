@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -8,6 +7,7 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Others.VolunteernearController">
+<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Others.VolunteerNearController">
     <left>
         <VBox layoutX="50.0" prefHeight="617.0" prefWidth="199.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);" BorderPane.alignment="CENTER">
             <children>
@@ -28,7 +28,6 @@
                                 <Image url="@../../Font/icon1.png" />
                             </image>
                             <viewport>
-
                             </viewport>
                         </ImageView>
                         <Label fx:id="rolee" alignment="CENTER" layoutX="-2.0" layoutY="143.0" prefHeight="28.0" prefWidth="198.0" style="-fx-cursor: had;" text="\@volunteer" textFill="#230505">
@@ -43,7 +42,7 @@
                         </Label>
                         <VBox layoutX="13.0" layoutY="169.0" prefHeight="430.0" prefWidth="178.0">
                             <children>
-                                <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" prefHeight="22.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Dashboard">
+                                <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Home">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -92,14 +91,6 @@
                                         <Insets top="5.0" />
                                     </VBox.margin>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Disaster Guidelines">
-                                    <font>
-                                        <Font name="System Bold" size="13.0" />
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets top="5.0" />
-                                    </VBox.margin>
-                                </Button>
                                 <Button mnemonicParsing="false" onAction="#F" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="F">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
@@ -124,7 +115,15 @@
                                         <Insets top="5.0" />
                                     </VBox.margin>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Log out">
+                                <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Disaster Guidelines">
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="5.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#logout" prefHeight="34.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Log out">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -270,7 +269,7 @@
                      <children>
                         <TableView layoutX="1.0" layoutY="-7.0" prefHeight="420.0" prefWidth="359.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);">
                           <columns>
-                            <TableColumn prefWidth="170.3999662399292" text="Name" />
+                            <TableColumn prefWidth="170.3999662399292" style="fx-border-colour: red;" text="Name" />
                             <TableColumn minWidth="0.0" prefWidth="182.3999786376953" text="Location" />
                           </columns>
                         </TableView>

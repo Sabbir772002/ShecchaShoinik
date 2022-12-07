@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TeamProfile.TeamProfileController">
+<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BloodBank.BloodBankController">
    <left>
       <VBox layoutX="50.0" prefHeight="617.0" prefWidth="199.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);" BorderPane.alignment="CENTER">
          <children>
@@ -156,7 +156,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
                <graphic>
-                  <ImageView fx:id="bimage" fitHeight="24.0" fitWidth="33.0" onDragDetected="#BbankClick" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="bimage" fitHeight="24.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../Font/1.png" />
                      </image>
@@ -168,7 +168,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
                <graphic>
-                  <ChoiceBox fx:id="choice" onDragDetected="#ChoiceClick" prefHeight="26.0" prefWidth="78.0" style="-fx-background-color: F3F3F3;" />
+                  <ChoiceBox fx:id="choice" prefHeight="26.0" prefWidth="78.0" style="-fx-background-color: F3F3F3;" />
                </graphic>
             </Button>
             <ImageView fx:id="imageview" fitHeight="19.0" fitWidth="23.0" layoutX="940.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">

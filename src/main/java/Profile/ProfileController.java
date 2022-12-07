@@ -106,7 +106,7 @@ public class ProfileController implements Initializable {
 
 
 
-        //for cheking purposes only
+        //for checking purposes only
                   /*  VBox vbox[]=new VBox[3];
                     for(int i =0;i<3;i++) {
                         p = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
@@ -182,7 +182,7 @@ public class ProfileController implements Initializable {
         }
 
     }
-    Pane p;
+
 
 
     @FXML
@@ -353,9 +353,12 @@ public class ProfileController implements Initializable {
 
         }catch (Exception e ){
 
+
         }
 
+
     }
+
     @FXML
     void Editprofile(ActionEvent event){
 

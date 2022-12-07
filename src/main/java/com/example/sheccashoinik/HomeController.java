@@ -67,6 +67,10 @@ public class HomeController implements Initializable {
     private AnchorPane pane7;
     private  int i =0,f=1;
 
+    @FXML
+    void GuideLines(ActionEvent event) {
+
+    }
     String images[]={
             //"src/main/Font/Hand.png",
             "src/main/Font/1.jpg",
@@ -448,12 +452,13 @@ public class HomeController implements Initializable {
         }
 
     }
-
+    @FXML
+    private ImageView loginimage;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
        SliderThread sliderThread = new SliderThread();
         sliderThread.start();
-
+        loginimage.setImage(new Image(new File("src/main/Font/login.png").toURI().toString()));
         File file = new File("src/main/Font/logo.png");
         Image image0 = new Image(file.toURI().toString());
         //backfont.setImage(image);
