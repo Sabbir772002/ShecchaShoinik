@@ -234,7 +234,7 @@ public class VolunteerNearController implements Initializable {
     }
 
     @FXML
-    void Vnear(ActionEvent event) {
+    void VolunteerNear(ActionEvent event) {
 
     }
 
