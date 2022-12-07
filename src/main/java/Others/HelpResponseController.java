@@ -171,17 +171,17 @@ public class HelpResponseController implements Initializable {
     }
 
     @FXML
-    void F(ActionEvent event) {
+    void hresponse(ActionEvent event) {
 
     }
 
     @FXML
-    void G(ActionEvent event) {
+    void task(ActionEvent event) {
 
     }
 
     @FXML
-    void H(ActionEvent event) {
+    void vapprove(ActionEvent event) {
 
     }
 

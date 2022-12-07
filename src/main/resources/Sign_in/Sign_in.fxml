@@ -59,7 +59,7 @@
             </Label>
             <ImageView fx:id="loginimage" fitHeight="26.0" fitWidth="31.0" layoutX="120.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Font/sg.png" />
+                  <Image url="@../../Font/login.png" />
                </image>
             </ImageView>
             <ImageView fx:id="loginimage1" fitHeight="26.0" fitWidth="31.0" layoutX="120.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">

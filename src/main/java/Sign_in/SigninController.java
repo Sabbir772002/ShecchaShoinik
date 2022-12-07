@@ -194,8 +194,10 @@ public class SigninController implements Initializable {
         }
     }
 
-
-
+       @FXML
+       private ImageView loginimage;
+       @FXML
+       private ImageView loginimage1;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String items[]={"User","Volunteer Leader","Admin"};
@@ -206,5 +208,7 @@ public class SigninController implements Initializable {
         file = new File("src/main/Font/lock-outline.png");
         image = new Image(file.toURI().toString());
         pass.setImage(image);
+        loginimage.setImage(new Image(new File("src/main/Font/login.png").toURI().toString()));
+        loginimage1.setImage(new Image(new File("src/main/Font/signup.png").toURI().toString()));
     }
 }

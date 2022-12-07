@@ -458,7 +458,7 @@ public class HomeController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
        SliderThread sliderThread = new SliderThread();
         sliderThread.start();
-        loginimage.setImage(new Image(new File("src/main/Font/login.png").toURI().toString()));
+        loginimage.setImage(new Image(new File("src/main/Font/login0.png").toURI().toString()));
         File file = new File("src/main/Font/logo.png");
         Image image0 = new Image(file.toURI().toString());
         //backfont.setImage(image);

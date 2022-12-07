@@ -51,23 +51,7 @@ public class UserDashboardController implements Initializable {
     private ImageView imageview;
     @FXML
     private ImageView bimage;
-    @FXML
-    void chat(ActionEvent event) {
-        try{
-            BloodBank.FXMLScene scene =  BloodBank.FXMLScene.load("BloodBank1.fxml");
-            Parent root = scene.root;
-            System.out.println("chole na kn chat");
-            BloodBank.BloodBankController admin= (BloodBank.BloodBankController) scene.controller;
-            admin.set(username,role);
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Blood Bank");
-            stage.show();
-        }catch(Exception e){
-            System.out.println("vul hoilo BloodBank button userdashboard controller "+e.getMessage());
-        }
 
-    }
     @FXML
     private Button b;
 
@@ -222,17 +206,16 @@ void loadtable(){
     @FXML
     void VolunteerNear(ActionEvent event) {
         try{
-            FXMLScene scene =  FXMLScene.load("blank.fxml");
+            Shoinik.FXMLScene scene =  Shoinik.FXMLScene.load("Volunteerfromarea.fxml");
             Parent root = scene.root;
-            System.out.println("tao run hoi na");
-            VolunteerareaController admin= (VolunteerareaController) scene.controller;
-           // admin.set(username,role);
+            Shoinik.VolunteerfromareaController admin= (Shoinik.VolunteerfromareaController) scene.controller;
+            admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Volunteer Near Me");
             stage.show();
-        }catch (Exception e){
-            System.out.println("vul hoilo Volunteernear button Userdashboard controller "+e.getMessage());
+        }catch(IOException e){
+            System.out.println("vul hoilo F button userdashboard controller "+e.getMessage());
         }
 
     }
@@ -241,7 +224,7 @@ void loadtable(){
 
 
     @FXML
-    void chat1(ActionEvent event) {
+    void chat(ActionEvent event) {
         try{
             Chat.FXMLScene scene =Chat.FXMLScene.load("CommunityChat.fxml");
             Parent root = scene.root;
