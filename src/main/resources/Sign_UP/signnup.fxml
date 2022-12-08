@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="510.0" prefWidth="777.0" style="-fx-background-color: linear-gradient(to right, #5c258d, #4389a2);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Post.Signnup">
+   <children>
+      <AnchorPane layoutX="328.0" prefHeight="532.0" prefWidth="449.0" style="-fx-background-color: linear-gradient(to right, #360033, #0b8793);">
+         <children>
+            <Text fill="WHITE" layoutX="58.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose your role" wrappingWidth="224.5367431640625">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+            <ComboBox layoutX="214.0" layoutY="49.0" prefWidth="150.0" promptText="USER" />
+            <TextField alignment="TOP_LEFT" layoutX="58.0" layoutY="100.0" prefHeight="26.0" prefWidth="268.0" promptText="Name" />
+            <TextField layoutX="58.0" layoutY="139.0" prefHeight="26.0" prefWidth="268.0" />
+            <TextField layoutX="58.0" layoutY="175.0" />
+            <TextField layoutX="58.0" layoutY="212.0" />
+            <DatePicker layoutX="58.0" layoutY="248.0" />
+            <ComboBox layoutX="58.0" layoutY="283.0" prefWidth="150.0" />
+            <ComboBox layoutX="58.0" layoutY="325.0" prefWidth="150.0" />
+            <ComboBox layoutX="243.0" layoutY="325.0" prefWidth="150.0" />
+            <ComboBox layoutX="58.0" layoutY="364.0" prefWidth="150.0" />
+            <Text fill="WHITE" layoutX="58.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Interested volunteering field">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+            <ComboBox layoutX="258.0" layoutY="404.0" prefWidth="150.0" />
+            <Button layoutX="166.0" layoutY="461.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" text="SIGN UP" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
+      <ImageView fitHeight="65.0" fitWidth="104.0" layoutX="30.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Downloads/istockphoto-931069122-612x612-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="125.0" fitWidth="326.0" layoutX="-20.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Downloads/63916313c0ae4-transformed.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="51.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account registred?">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <Button layoutX="130.0" layoutY="307.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to right, #141e30, #243b55);" text="SIGN IN" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
