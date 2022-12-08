@@ -22,7 +22,7 @@
             <ComboBox fx:id="sign_in_box" layoutX="87.0" layoutY="62.0" prefWidth="150.0" promptText="Role" />
            
             <TextField fx:id="username" layoutX="87.0" layoutY="106.0" promptText="Username" />
-            <PasswordField fx:id="password" layoutX="87.0" layoutY="142.0" onKeyPressed="#enter" promptText="Password" />
+            <PasswordField fx:id="password" layoutX="87.0" layoutY="142.0" promptText="Password" />
             <Button alignment="CENTER_RIGHT" layoutX="110.0" layoutY="188.0" mnemonicParsing="false" onAction="#sign_in" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: green; -fx-cursor: hand; -fx-background-radius: 10,10,10,10;" text="SIGN IN" textFill="WHITE">
                <font>
                   <Font size="14.0" />
