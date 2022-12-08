@@ -27,14 +27,14 @@ import java.sql.PreparedStatement;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class VolunteerNearController implements Initializable {
+public class VolunteernearController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
     public String username="";
     public String role="";
     Connection con;
-    public VolunteerNearController(){
+    public VolunteernearController(){
         con=ConnectionDb.DBC();
     }
 
@@ -234,7 +234,7 @@ public class VolunteerNearController implements Initializable {
     }
 
     @FXML
-    void VolunteerNear(ActionEvent event) {
+    void Vnear(ActionEvent event) {
 
     }
 

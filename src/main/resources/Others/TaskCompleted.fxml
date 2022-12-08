@@ -41,7 +41,7 @@
                         </Label>
                         <VBox layoutX="13.0" layoutY="169.0" prefHeight="430.0" prefWidth="178.0">
                             <children>
-                                <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" prefHeight="22.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Dashboard">
+                                <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" prefHeight="22.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Home">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -74,7 +74,31 @@
                                         <Blend />
                                     </effect>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#Vnear" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Volunteer Near">
+                                <Button mnemonicParsing="false" onAction="#vnear" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Volunteer Near">
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="5.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#hresponse" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Help Response">
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="5.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#task" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Task Completed">
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="5.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#vapprove" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Volunteer Approve">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -91,30 +115,6 @@
                                     </VBox.margin>
                                 </Button>
                                 <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Disaster Guidelines">
-                                    <font>
-                                        <Font name="System Bold" size="13.0" />
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets top="5.0" />
-                                    </VBox.margin>
-                                </Button>
-                                <Button mnemonicParsing="false" onAction="#F" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="F">
-                                    <font>
-                                        <Font name="System Bold" size="13.0" />
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets top="5.0" />
-                                    </VBox.margin>
-                                </Button>
-                                <Button mnemonicParsing="false" onAction="#H" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="H">
-                                    <font>
-                                        <Font name="System Bold" size="13.0" />
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets top="5.0" />
-                                    </VBox.margin>
-                                </Button>
-                                <Button mnemonicParsing="false" onAction="#G" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="G">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -181,10 +181,11 @@
             </children>
         </AnchorPane>
     </top>
+
     <center>
         <AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER">
          <children>
-            <TableView layoutX="5.0" layoutY="47.0" prefHeight="563.0" prefWidth="770.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);">
+            <TableView layoutX="5.0" layoutY="47.0" prefHeight="547.0" prefWidth="770.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);">
               <columns>
                 <TableColumn prefWidth="218.39995098114014" text="Title" />
                 <TableColumn minWidth="0.0" prefWidth="192.80003356933594" text="Location" />

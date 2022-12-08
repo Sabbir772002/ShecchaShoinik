@@ -1,5 +1,6 @@
 package UserProfile;
 import AdminDB.*;
+import Chat.ChatPrivateController;
 import DB.ConnectionDb;
 import Post.AddPostController;
 import Sign_in.SigninController;
@@ -36,7 +37,28 @@ public class ProfileController implements Initializable {
     private Parent root;
     public String username="";
     public String role1="";
+    @FXML
+    private Button pfield;
+@FXML
+void paction(ActionEvent event){
+    try {
+        if (pfield.getText().equals("Chat")) {
+            Chat.FXMLScene scene = Chat.FXMLScene.load("ChatPrivate.fxml");
+            Parent root = scene.root;
+            ChatPrivateController adminController = (ChatPrivateController) scene.controller;
+            adminController.set(username, role1);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Chat");
+            stage.show();
+        } else {
 
+        }
+    }catch(Exception e){
+        System.out.println("paction profile controller "+e.getMessage());
+    }
+
+}
 
   /*  @FXML
     private Button Bbank;
@@ -336,7 +358,7 @@ public class ProfileController implements Initializable {
         this.username = username;
         this.role1 = role;
         output();
-      //  System.out.println(username);
+      // System.out.println("on set "+username);
     }
 
 
@@ -360,7 +382,8 @@ public class ProfileController implements Initializable {
     @FXML
     private Label field;
     @FXML
-    private Label showuser;
+    public Label showuser;
+    public String uname;
     public void output(){
         try{
             Statement stmt=con.createStatement();
@@ -372,7 +395,7 @@ public class ProfileController implements Initializable {
             ResultSet rs=stmt.executeQuery(sql);
             if(rs.next()) {
                 Name.setText(rs.getString(1));
-                showuser.setText("@"+rs.getString(2));
+                showuser.setText(rs.getString(2));
                 Phone.setText(rs.getString(3));
                 NID.setText(rs.getString(4));
                 District.setText(rs.getString(6));
@@ -380,12 +403,21 @@ public class ProfileController implements Initializable {
                 field.setText(rs.getString(7));
                 BG.setText(rs.getString(8));
 
+
             }
             rs.close();
             stmt.close();
             con.close();
+            uname=showuser.getText().toString();
+           /* System.out.println(uname);
+            System.out.println(username);*/
+            //System.out.println(user.getText().toString());
+            if(user.getText().toString().equals(uname)) {
+               // pfield.setText("Edit"); //pore add korbo
+            }else{
 
-
+            }
+            showuser.setText("@"+showuser.getText().toString());
         } catch (SQLException ex) {
             System.out.println("onk error");
             System.err.println(ex.getMessage());
@@ -407,7 +439,9 @@ public class ProfileController implements Initializable {
         file1 = new File("src/main/Font/icon1.png");
         Image image5 = new Image(file1.toURI().toString());
         imageview1.setImage(image5);
-        username= Application.oname;
+     /*   username= Application.oname;*/
+
+
         //System.out.println(username);
       //  output();
        /* try{

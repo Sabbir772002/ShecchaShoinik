@@ -1,7 +1,9 @@
 package AdminDB;
 
 import BloodBank.BloodBankController;
+import Chat.CommunityChatHandelar;
 import DB.ConnectionDb;
+import ExtraFeature.VolunteerareaController;
 import Others.VolunteerNearController;
 import UserProfile.ProfileController;
 import Post.AddPostController;
@@ -21,11 +23,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -50,22 +53,7 @@ public class UserDashboardController implements Initializable {
     private ImageView imageview;
     @FXML
     private ImageView bimage;
-    @FXML
-    void BbankClick(ActionEvent event) {
-        try{
-            AdminDB.FXMLScene scene =  AdminDB.FXMLScene.load("BloodBank.fxml");
-            Parent root = scene.root;
-            BloodBankController admin= (BloodBankController) scene.controller;
-            admin.set(username,role);
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Blood Bank");
-            stage.show();
-        }catch(Exception e){
-            System.out.println("vul hoilo Blood Bank button userdashboard controller");
-        }
 
-    }
     @FXML
     private Button b;
 
@@ -186,9 +174,24 @@ void loadtable(){
 
 
     }
+    @FXML
+    void F(ActionEvent event) {}
 
     @FXML
-    void F(ActionEvent event) {
+    void vnear(ActionEvent event) {
+
+        try{
+            Shoinik.FXMLScene scene =  Shoinik.FXMLScene.load("Volunteerfromarea.fxml");
+            Parent root = scene.root;
+            Shoinik.VolunteerfromareaController admin= (Shoinik.VolunteerfromareaController) scene.controller;
+           admin.set(username,role);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("VolunteerfromareaController");
+            stage.show();
+        }catch(IOException e){
+            System.out.println("vul hoilo F button userdashboard controller "+e.getMessage());
+        }
 
     }
 
@@ -203,18 +206,18 @@ void loadtable(){
     }
 
     @FXML
-    void Vnear(ActionEvent event) {
+    void VolunteerNear(ActionEvent event) {
         try{
-           Others.FXMLScene scene = Others.FXMLScene.load("VolunteerNear.fxml");
+            Shoinik.FXMLScene scene =  Shoinik.FXMLScene.load("Volunteerfromarea.fxml");
             Parent root = scene.root;
-            VolunteerNearController admin= (VolunteerNearController) scene.controller;
+            Shoinik.VolunteerfromareaController admin= (Shoinik.VolunteerfromareaController) scene.controller;
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Volunteer Near Me");
             stage.show();
-        }catch (Exception e){
-            System.out.println("vul hoilo Volunteernear button User dashboard controller"+e.getMessage());
+        }catch(IOException e){
+            System.out.println("vul hoilo F button userdashboard controller "+e.getMessage());
         }
 
     }
@@ -224,6 +227,20 @@ void loadtable(){
 
     @FXML
     void chat(ActionEvent event) {
+        try{
+            Chat.FXMLScene scene =Chat.FXMLScene.load("CommunityChat.fxml");
+            Parent root = scene.root;
+            System.out.println("chat cole na");
+            Chat.CommunityChatHandelar admin= (Chat.CommunityChatHandelar) scene.controller;
+            admin.set(username,role);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Chat");
+            stage.show();
+        }catch (Exception e){
+            System.out.println("vul hoilo chat button Userdashboard controller "+e.getMessage());
+        }
+
 
     }
 
@@ -249,6 +266,7 @@ void loadtable(){
                 stage.setTitle("SIGN IN");
                 stage.show();
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -256,7 +274,10 @@ void loadtable(){
     }
     Pane p;
 
+@FXML
+void BbankClick(ActionEvent event){
 
+}
     @FXML
     void profile(ActionEvent event) {
 
@@ -270,7 +291,7 @@ void loadtable(){
             stage.setTitle("Profile");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo profile button profile controller");
+            System.out.println("vul hoilo profile button Userdashboard controller "+e.getMessage());
         }
 
         }
@@ -407,10 +428,18 @@ void loadtable(){
         file1 = new File("src/main/Font/search.png");
         Image image6 = new Image(file1.toURI().toString());
         search.setImage(image6);
-        username= Application.oname;
+
         loadtable();
 
      //   choice.setOnAction(this::ChoiceClick);
 
+    }
+    @FXML
+    void tableclick(MouseEvent event) {
+        System.out.println("click korse ");
+    }
+    @FXML
+    void tableclick(DragEvent event) {
+        System.out.println("click korse ");
     }
 }

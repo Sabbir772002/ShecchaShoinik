@@ -304,7 +304,7 @@ public class ProfileController implements Initializable {
                 UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
                 Parent root = scene.root;
                 UserProfile.ProfileController adminController = (UserProfile.ProfileController) scene.controller;
-                //adminController.set(usern);
+                 adminController.set(username,role);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.setTitle("Profile");

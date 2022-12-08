@@ -6,6 +6,7 @@ import AdminDB.TeamDashboardController;
 import AdminDB.UserDashboardController;
 import DB.ConnectionDb;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,6 +16,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.File;
 import java.net.URL;
@@ -99,13 +103,13 @@ public class SigninController implements Initializable {
                         stage.setTitle("Admin Dashboard");
                         stage.show();
                     }else{
-                        FXMLScene scene = FXMLScene.load("TeamDashboard.fxml");
+                        AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard.fxml");
                         Parent root = scene.root;
                         TeamDashboardController adminController = (TeamDashboardController) scene.controller;
                         adminController.set(usern, role);
                         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.setScene(new Scene(root));
-                        stage.setTitle("Team Leander Dashboard");
+                        stage.setTitle("Team Home");
                         stage.show();
                     }
                 }
@@ -194,8 +198,10 @@ public class SigninController implements Initializable {
         }
     }
 
-
-
+       @FXML
+       private ImageView loginimage;
+       @FXML
+       private ImageView loginimage1;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String items[]={"User","Volunteer Leader","Admin"};
@@ -206,5 +212,19 @@ public class SigninController implements Initializable {
         file = new File("src/main/Font/lock-outline.png");
         image = new Image(file.toURI().toString());
         pass.setImage(image);
+        loginimage.setImage(new Image(new File("src/main/Font/login.png").toURI().toString()));
+        loginimage1.setImage(new Image(new File("src/main/Font/signup.png").toURI().toString()));
+    }
+    @FXML
+    private AnchorPane enter;
+
+
+    @FXML
+    public void enter1(KeyEvent e)
+    {
+        if(e.getCode().toString().equals("ENTER")|| e.getCode() == KeyCode.ENTER)
+        {
+            System.out.println("kaj hoise");
+        }
     }
 }
