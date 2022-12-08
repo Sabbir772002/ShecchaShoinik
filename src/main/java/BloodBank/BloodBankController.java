@@ -53,7 +53,7 @@ public class BloodBankController implements Initializable {
     @FXML
     void BbankClick(ActionEvent event) {
         try{
-            BloodBank.FXMLScene scene =  BloodBank.FXMLScene.load("BloodBank1.fxml");
+            BloodBank.FXMLScene scene =  BloodBank.FXMLScene.load("BloodBank.fxml");
             Parent root = scene.root;
             BloodBankController admin= (BloodBankController) scene.controller;
             admin.set(username,role);

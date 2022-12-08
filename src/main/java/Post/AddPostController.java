@@ -225,7 +225,7 @@ public class AddPostController implements Initializable {
 
         //System.out.println("vaiya ki khobor "+username);
         try{
-            Others.FXMLScene scene =  Others.FXMLScene.load("HelpResponse.fxml");
+            Others.FXMLScene scene =  Others.FXMLScene.load("Post.fxml");
             Parent root = scene.root;
             HelpResponseController admin= (HelpResponseController) scene.controller;
             admin.set(username,role);

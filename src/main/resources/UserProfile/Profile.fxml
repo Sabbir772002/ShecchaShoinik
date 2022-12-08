@@ -257,6 +257,7 @@
                         <Font name="System Bold" size="11.0" />
                      </font>
                   </Label>
+                  <Button fx:id="pfield" layoutX="319.0" layoutY="171.0" mnemonicParsing="false" onAction="#paction" prefHeight="12.0" prefWidth="66.0" style="-fx-background-color: green;" styleClass="bt" stylesheets="@../../Style/style.css" text="Chat" />
 <!--
                   <Button fx:id="editprofilebt" layoutX="331.0" layoutY="451.0" mnemonicParsing="false" onAction="#Editprofile" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: pink;" styleClass="bt" stylesheets="@../../style.css" text="Edit Profile" />
 -->

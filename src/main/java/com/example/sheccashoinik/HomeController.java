@@ -20,6 +20,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
+    SliderThread sliderThread = new SliderThread();
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -431,10 +432,13 @@ public class HomeController implements Initializable {
             stage.setScene(scene);
             stage.setTitle("SIGN IN");
             stage.show();
+            //sliderThread.stop();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+        //sliderThread.stop();
+
     }
 
     @FXML
@@ -456,7 +460,6 @@ public class HomeController implements Initializable {
     private ImageView loginimage;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-       SliderThread sliderThread = new SliderThread();
         sliderThread.start();
         loginimage.setImage(new Image(new File("src/main/Font/login0.png").toURI().toString()));
         File file = new File("src/main/Font/logo.png");

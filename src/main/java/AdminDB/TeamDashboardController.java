@@ -186,7 +186,7 @@ public class TeamDashboardController implements Initializable {
     @FXML
     void hresponse(ActionEvent event) {
         try{
-            Others.FXMLScene scene =  Others.FXMLScene.load("HelpResponse.fxml");
+            Others.FXMLScene scene =  Others.FXMLScene.load("Post.fxml");
             Parent root = scene.root;
             HelpResponseController admin= (HelpResponseController) scene.controller;
             admin.set(username,role);

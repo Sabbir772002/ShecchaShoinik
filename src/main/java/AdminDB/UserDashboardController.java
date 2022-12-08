@@ -23,7 +23,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -289,7 +291,7 @@ void BbankClick(ActionEvent event){
             stage.setTitle("Profile");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo profile button profile controller");
+            System.out.println("vul hoilo profile button Userdashboard controller "+e.getMessage());
         }
 
         }
@@ -431,5 +433,13 @@ void BbankClick(ActionEvent event){
 
      //   choice.setOnAction(this::ChoiceClick);
 
+    }
+    @FXML
+    void tableclick(MouseEvent event) {
+        System.out.println("click korse ");
+    }
+    @FXML
+    void tableclick(DragEvent event) {
+        System.out.println("click korse ");
     }
 }

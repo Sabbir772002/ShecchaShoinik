@@ -6,6 +6,7 @@ import AdminDB.TeamDashboardController;
 import AdminDB.UserDashboardController;
 import DB.ConnectionDb;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,6 +16,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.File;
 import java.net.URL;
@@ -210,5 +214,17 @@ public class SigninController implements Initializable {
         pass.setImage(image);
         loginimage.setImage(new Image(new File("src/main/Font/login.png").toURI().toString()));
         loginimage1.setImage(new Image(new File("src/main/Font/signup.png").toURI().toString()));
+    }
+    @FXML
+    private AnchorPane enter;
+
+
+    @FXML
+    public void enter1(KeyEvent e)
+    {
+        if(e.getCode().toString().equals("ENTER")|| e.getCode() == KeyCode.ENTER)
+        {
+            System.out.println("kaj hoise");
+        }
     }
 }
