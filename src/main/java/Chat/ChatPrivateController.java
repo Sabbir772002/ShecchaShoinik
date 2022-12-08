@@ -8,6 +8,9 @@ import Others.TaskCompletedController;
 import Post.AddPostController;
 import Sign_in.SigninController;
 import UserProfile.ProfileController;
+import com.example.sheccashoinik.diaster;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +19,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -31,6 +35,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.jar.Attributes;
 
 import static java.lang.Thread.sleep;
 
@@ -41,10 +46,13 @@ public class ChatPrivateController implements Initializable {
     private Parent root;
     public String username="";
     public String user2="";
+    public String name2="";
     public String role="";
 
     @FXML
     public TextField writebox;
+    @FXML
+    public Label Name2;
     @FXML
     public TextArea msgbox;
     public void set(String username,String role) {
@@ -58,7 +66,19 @@ public class ChatPrivateController implements Initializable {
         }else{
             user2="Sabbir";
         }
+        //loadtable();
     }
+    public void set(String username,String role,String name2, String user2) {
+        user.setText(username);
+        rolee.setText("@"+role);
+        this.role = role;
+        this.username = username;
+        this.user2 = user2;
+        this.name2 = name2;
+        Name2.setText(name2);
+
+    }
+
     @FXML
     private Button b;
 
@@ -86,8 +106,66 @@ public class ChatPrivateController implements Initializable {
     @FXML
     private Label rolee;
 
+
     @FXML
     private Label user;
+    @FXML
+    private ChoiceBox<String> choice1;
+
+    @FXML
+    private TableColumn<userlist, String> colname;
+
+    @FXML
+    private TableColumn<userlist, String> coluser;
+
+    @FXML
+    void tableclick(MouseEvent event) {
+        String Name2=usertable.getSelectionModel().getSelectedItem().getName().toString();
+        String user2=usertable.getSelectionModel().getSelectedItem().getUsername().toString();
+        try{
+                  /* root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
+                   stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                   scene = new Scene(root);
+                   stage.setScene(scene);
+                   stage.setTitle("SIGN IN");
+                   stage.show();*/
+            Chat.FXMLScene scene =  Chat.FXMLScene.load("ChatPrivate.fxml");
+            Parent root = scene.root;
+            Chat.ChatPrivateController adminController = (Chat.ChatPrivateController) scene.controller;
+            adminController.set(username,role,Name2,user2);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Chat");
+            stage.show();
+
+        }catch (Exception e){
+
+        }
+
+    }
+    @FXML
+    private TableView<userlist> usertable;
+
+    ObservableList<userlist> listF;
+    ObservableList<userlist> getdiasterList(){
+        ObservableList<userlist> userlist1 = FXCollections.observableArrayList();
+
+
+        return userlist1;
+    }
+    int indexM = -1;
+
+    void loadtable(){
+        colname.setCellValueFactory(new PropertyValueFactory<userlist,String>("Name"));
+        coluser.setCellValueFactory(new PropertyValueFactory<userlist,String>("Username"));
+
+
+        //table.setItems(list);
+        listF = ConnectionDb.getuserlist();
+        usertable.setItems(listF);
+
+
+    }
 
     @FXML
     void BbankxClick(ActionEvent event) {
@@ -295,6 +373,8 @@ public class ChatPrivateController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadtable();
+        refresh();
         String []choice1={"Profile","Logout"};
         choice.getItems().addAll(choice1);
         File file = new File("src/main/Font/user1.png");
@@ -313,6 +393,8 @@ public class ChatPrivateController implements Initializable {
         Image image6 = new Image(file1.toURI().toString());
         //search.setImage(image6);
         msgbox.appendText(" ");
+        rolee.setText(role);
+        user.setText(username);
         //Thread t=new chatthread();
         //t.start();
        // refresh();
@@ -340,7 +422,10 @@ public class ChatPrivateController implements Initializable {
     }
 
     public ChatPrivateController(){
+
         con = ConnectionDb.DBC();
+       // loadtable();
+
         // refresh();
 
     }

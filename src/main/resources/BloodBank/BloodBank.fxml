@@ -4,7 +4,10 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -252,7 +255,73 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="504.0" layoutY="32.0" prefHeight="541.0" prefWidth="246.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css" />
+            <AnchorPane fx:id="donatepane" layoutX="504.0" layoutY="32.0" prefHeight="541.0" prefWidth="246.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css">
+               <children>
+                  <Label alignment="CENTER" layoutX="30.0" layoutY="39.0" prefHeight="36.0" prefWidth="186.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css" text="Choice Your Suitable Area">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="14.0" layoutY="179.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="District:">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ComboBox layoutX="108.0" layoutY="184.0" prefHeight="26.0" prefWidth="127.0" promptText="District" />
+                  <ComboBox layoutX="107.0" layoutY="230.0" prefHeight="26.0" prefWidth="130.0" promptText="Division" />
+                  <Label alignment="CENTER" layoutX="14.0" layoutY="225.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Division:">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="14.0" layoutY="127.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Hospital:">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="108.0" layoutY="132.0" prefHeight="26.0" prefWidth="128.0" />
+                  <DatePicker layoutX="107.0" layoutY="271.0" prefHeight="26.0" prefWidth="131.0" />
+                  <Label alignment="CENTER" layoutX="14.0" layoutY="269.0" prefHeight="33.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Date:">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="88.0" layoutY="345.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="70.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Donate" />
+                  <AnchorPane fx:id="Requestpane" layoutY="1.0" prefHeight="542.0" prefWidth="246.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css" visible="false">
+                     <children>
+                        <Label alignment="CENTER" layoutX="30.0" layoutY="39.0" prefHeight="36.0" prefWidth="186.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css" text="Request for Blood">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="179.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="District:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <ComboBox layoutX="108.0" layoutY="184.0" prefHeight="26.0" prefWidth="127.0" promptText="District" />
+                        <ComboBox layoutX="107.0" layoutY="230.0" prefHeight="26.0" prefWidth="130.0" promptText="Division" />
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="225.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Division:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="127.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Hospital:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutX="108.0" layoutY="132.0" prefHeight="26.0" prefWidth="128.0" />
+                        <DatePicker layoutX="107.0" layoutY="271.0" prefHeight="26.0" prefWidth="131.0" />
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="269.0" prefHeight="33.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Date:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="88.0" layoutY="345.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="70.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Request" />
+                     </children>
+                  </AnchorPane>
+               </children></AnchorPane>
             <AnchorPane layoutX="248.0" layoutY="31.0" prefHeight="544.0" prefWidth="238.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css">
                <children>
                   <Label alignment="CENTER" layoutX="23.0" layoutY="14.0" prefHeight="36.0" prefWidth="192.0" style="-fx-text-fill: black; -fx-background-color: brown;" styleClass="bt" stylesheets="@../../Style/style.css" text="Sheccashoinik Blood Bank">
@@ -262,24 +331,18 @@
                   </Label>
                   <Button layoutX="14.0" layoutY="222.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="78.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Donate" />
                   <Button layoutX="125.0" layoutY="222.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="78.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Request" />
-                  <Button layoutX="14.0" layoutY="320.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="78.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Campaign" />
+                  <Button layoutX="65.0" layoutY="322.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="78.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Claim" />
                   <Label alignment="CENTER" layoutX="45.0" layoutY="76.0" prefHeight="36.0" prefWidth="148.0" style="-fx-text-fill: white;" styleClass="bt" stylesheets="@../../Style/style.css" text="Availability of Blood">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="100.0" layoutY="129.0" prefHeight="46.0" prefWidth="86.0" style="-fx-text-fill: white; -fx-background-color: green;" styleClass="bt" stylesheets="@../../Style/style.css" text="500 BAG">
+                  <Label alignment="CENTER" layoutX="75.0" layoutY="128.0" prefHeight="46.0" prefWidth="86.0" style="-fx-text-fill: white; -fx-background-color: green;" styleClass="bt" stylesheets="@../../Style/style.css" text="500 BAG">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Button layoutX="125.0" layoutY="320.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="78.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Donator" />
                   <Button layoutX="33.0" layoutY="478.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="171.0" style="-fx-background-color: white; -fx-text-fill: #c40a0a;" stylesheets="@../../Style/style.css" text="Know About Donate Blood" />
-                  <ImageView fitHeight="26.0" fitWidth="55.0" layoutX="45.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Font/3.jpg" />
-                     </image>
-                  </ImageView>
                </children>
             </AnchorPane>
          </children></AnchorPane>
