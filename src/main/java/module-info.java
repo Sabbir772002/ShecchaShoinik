@@ -41,6 +41,10 @@ module com.example.sheccashoinik {
 
     opens ExtraFeature to javafx.fxml;
     exports ExtraFeature;
+
     opens Shoinik to javafx.fxml;
     exports Shoinik;
+
+    opens Event to javafx.fxml;
+    exports Event;
 }
