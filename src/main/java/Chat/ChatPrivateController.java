@@ -61,11 +61,11 @@ public class ChatPrivateController implements Initializable {
         this.role = role;
         this.username = username;
         refresh();
-        if(username.equals("Sabbir")){
-            user2="Nuha";
-        }else{
-            user2="Sabbir";
-        }
+//        if(username.equals("Sabbir")){
+//            user2="Nuha";
+//        }else{
+//            user2="Sabbir";
+//        }
         //loadtable();
     }
     public void set(String username,String role,String name2, String user2) {
@@ -76,6 +76,9 @@ public class ChatPrivateController implements Initializable {
         this.user2 = user2;
         this.name2 = name2;
         Name2.setText(name2);
+        refresh();
+        /*Thread chatwriter = new PrivateThread(msgbox,username,user2);
+        chatwriter.start();*/
 
     }
 
@@ -120,15 +123,12 @@ public class ChatPrivateController implements Initializable {
 
     @FXML
     void tableclick(MouseEvent event) {
-        String Name2=usertable.getSelectionModel().getSelectedItem().getName().toString();
-        String user2=usertable.getSelectionModel().getSelectedItem().getUsername().toString();
+       /* String Name2=usertable.getSelectionModel().getSelectedItem().getName().toString();
+        String user2=usertable.getSelectionModel().getSelectedItem().getUsername().toString();*/
         try{
-                  /* root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
-                   stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                   scene = new Scene(root);
-                   stage.setScene(scene);
-                   stage.setTitle("SIGN IN");
-                   stage.show();*/
+
+            String Name2=usertable.getSelectionModel().getSelectedItem().getName().toString();
+            String user2=usertable.getSelectionModel().getSelectedItem().getUsername().toString();
             Chat.FXMLScene scene =  Chat.FXMLScene.load("ChatPrivate.fxml");
             Parent root = scene.root;
             Chat.ChatPrivateController adminController = (Chat.ChatPrivateController) scene.controller;
@@ -139,7 +139,7 @@ public class ChatPrivateController implements Initializable {
             stage.show();
 
         }catch (Exception e){
-
+            System.out.println("error on tabble click "+e.getMessage());
         }
 
     }
@@ -158,12 +158,10 @@ public class ChatPrivateController implements Initializable {
     void loadtable(){
         colname.setCellValueFactory(new PropertyValueFactory<userlist,String>("Name"));
         coluser.setCellValueFactory(new PropertyValueFactory<userlist,String>("Username"));
-
-
         //table.setItems(list);
         listF = ConnectionDb.getuserlist();
         usertable.setItems(listF);
-
+        refresh();
 
     }
 
@@ -374,7 +372,7 @@ public class ChatPrivateController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadtable();
-        refresh();
+        //refresh();
         String []choice1={"Profile","Logout"};
         choice.getItems().addAll(choice1);
         File file = new File("src/main/Font/user1.png");

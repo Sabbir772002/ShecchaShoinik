@@ -2,7 +2,7 @@ module com.example.sheccashoinik {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
-
+    
     opens UserProfile to javafx.fxml;
     exports UserProfile;
 

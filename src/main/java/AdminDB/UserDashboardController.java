@@ -230,7 +230,7 @@ void loadtable(){
         try{
             Chat.FXMLScene scene =Chat.FXMLScene.load("CommunityChat.fxml");
             Parent root = scene.root;
-            System.out.println("chat cole na");
+            //System.out.println("chat cole na");
             Chat.CommunityChatHandelar admin= (Chat.CommunityChatHandelar) scene.controller;
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();

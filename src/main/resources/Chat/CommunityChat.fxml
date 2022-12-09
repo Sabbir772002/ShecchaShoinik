@@ -6,6 +6,8 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
@@ -188,10 +190,10 @@
          <children>
             <ScrollPane layoutX="40.0" layoutY="97.0" prefHeight="387.0" prefWidth="438.0" style="-fx-background-radius: 5;" styleClass="tt" stylesheets="@../../Style/style.css">
                <content>
-                  <TextArea fx:id="msgbox" prefHeight="398.0" prefWidth="438.0" styleClass="tt" editable="false" stylesheets="@../../Style/style.css" />
+                  <TextArea fx:id="showArea" editable="false" prefHeight="398.0" prefWidth="438.0" styleClass="tt" stylesheets="@../../Style/style.css" />
                </content>
             </ScrollPane>
-            <TextField fx:id="writebox" layoutX="38.0" layoutY="501.0" prefHeight="27.0" prefWidth="369.0" promptText="Write your message here...." styleClass="tt" stylesheets="@../../Style/style.css" />
+            <TextField fx:id="inputField" layoutX="38.0" layoutY="501.0" prefHeight="27.0" prefWidth="369.0" promptText="Write your message here...." styleClass="tt" stylesheets="@../../Style/style.css" />
             <Button layoutX="420.0" layoutY="501.0" mnemonicParsing="false" onAction="#send" prefHeight="27.0" prefWidth="63.0" style="-fx-background-color: green;" styleClass="tt" stylesheets="@../../Style/style.css" text="Send" />
             <Label fx:id="user2" alignment="CENTER" layoutX="40.0" layoutY="71.0" prefHeight="20.0" prefWidth="154.0" style="-fx-background-color: grey;" styleClass="tt" stylesheets="@../../Style/style.css" text="Live Community Chat" textFill="WHITE">
                <font>
@@ -215,15 +217,16 @@
                   <Image url="@../../Font/account-circle-fill%20(1).png" />
                </image>
             </ImageView>
-            <ScrollPane layoutX="557.0" layoutY="97.0" prefHeight="434.0" prefWidth="200.0" style="-fx-background-radius: 5;" styleClass="tt" stylesheets="@../../Style/style.css">
-               <content>
-                  <VBox prefHeight="425.0" prefWidth="198.0">
-                     <children>
-                        <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="186.0" style="-fx-padding: 10; -fx-background-color: pink;" styleClass="tt" text="Sabbir Hossain" />
-                     </children>
-                  </VBox>
-               </content>
-            </ScrollPane>
+            <VBox layoutX="557.0" layoutY="102.0" prefHeight="425.0" prefWidth="198.0" styleClass="bt" stylesheets="@../../Style/style.css">
+               <children>
+                  <TableView fx:id="usertable" onMouseClicked="#tableclick" prefHeight="426.0" prefWidth="154.0" styleClass="bt" stylesheets="@../../Style/style.css">
+                     <columns>
+                        <TableColumn fx:id="colname" prefWidth="199.99993896484375" style="-fx-background-radius: 10;" text="Name" />
+                        <TableColumn fx:id="coluser" minWidth="0.0" prefWidth="0.0" text="C2" visible="false" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
          </children></AnchorPane>
     </center>
 </BorderPane>
