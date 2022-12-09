@@ -203,7 +203,7 @@ public class SignupController implements Initializable {
         cb_sign_up.getItems().addAll(user);
         String []division={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
         cbdivision.getItems().addAll(division);
-        String []user2={"EarthQuake","Blood","Fire","Cyclone","Cidor","Others"};
+        String []user2={"EarthQuake","Storm Surge","Wildfire","Cyclone","Flood","Drought","Tsunami","Typhoon","LandSlide","Epidemic","Structural Collapse","Transport Disasters","Mining Accidents","Explosions and Fires","Others"};
         cbgroup.getItems().addAll(user2);
         String []user1={"Male","Female","Others"};
         cbGender.getItems().addAll(user1);

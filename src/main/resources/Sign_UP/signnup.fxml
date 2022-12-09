@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="510.0" prefWidth="777.0" style="-fx-background-color: linear-gradient(to right, #5c258d, #4389a2);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Post.Signnup">
    <children>
-      <AnchorPane layoutX="328.0" prefHeight="532.0" prefWidth="449.0" style="-fx-background-color: linear-gradient(to right, #360033, #0b8793);">
+      <AnchorPane layoutX="304.0" prefHeight="532.0" prefWidth="474.0" style="-fx-background-color: linear-gradient(to right, #360033, #0b8793);">
          <children>
             <Text fill="WHITE" layoutX="58.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose your role" wrappingWidth="224.5367431640625">
                <font>
@@ -35,7 +35,7 @@
                </font>
             </Text>
             <ComboBox layoutX="258.0" layoutY="404.0" prefWidth="150.0" />
-            <Button layoutX="166.0" layoutY="461.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" text="SIGN UP" textFill="WHITE">
+            <Button layoutX="197.0" layoutY="461.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" text="SIGN UP" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -51,12 +51,12 @@
             <Image url="@../../../../../../Downloads/63916313c0ae4-transformed.png" />
          </image>
       </ImageView>
-      <Text fill="WHITE" layoutX="51.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account registred?">
+      <Text fill="WHITE" layoutX="41.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account registred?">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <Button layoutX="130.0" layoutY="307.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to right, #141e30, #243b55);" text="SIGN IN" textFill="WHITE">
+      <Button layoutX="120.0" layoutY="309.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to right, #141e30, #243b55);" text="SIGN IN" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

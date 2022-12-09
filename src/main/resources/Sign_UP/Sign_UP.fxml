@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="663.0" prefWidth="931.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_UP.SignupController">
    <children>
-      <AnchorPane layoutX="73.0" layoutY="48.0" prefHeight="566.0" prefWidth="799.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%); -fx-background-radius: 10;" AnchorPane.leftAnchor="73.0">
+      <AnchorPane layoutX="74.0" layoutY="48.0" prefHeight="566.0" prefWidth="799.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%); -fx-background-radius: 10;" AnchorPane.leftAnchor="74.0">
          <children>
             <Label alignment="CENTER" layoutX="278.0" layoutY="14.0" prefHeight="32.0" prefWidth="226.0" text="SIGN UP AS A" textFill="#15d16b">
                <font>
