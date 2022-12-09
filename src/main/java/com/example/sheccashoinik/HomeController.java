@@ -294,7 +294,7 @@ public class HomeController implements Initializable {
             System.out.println(" frontjao1 "+i+" pane3");
         translate(0.5,pane3,-902);i++;
     }else if(i==4){
-            System.out.println(" fontjao1 "+i+" pane2");
+            System.out.println(" frontjao1 "+i+" pane2");
             f=0;
         translate(0.5,pane2,-906);i++;
     }/*else if(i==6){

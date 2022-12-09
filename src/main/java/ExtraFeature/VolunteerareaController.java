@@ -63,7 +63,7 @@ public class VolunteerareaController implements Initializable {
             stage.setTitle("Blood Bank");
             stage.show();
         }catch(Exception e){
-            System.out.println("vul hoilo Blood Bank button userdashboard controller");
+            System.out.println("bhul hoilo Blood Bank button user dashboard controller");
         }
 
     }
@@ -146,7 +146,7 @@ public class VolunteerareaController implements Initializable {
     void Dashboard(ActionEvent event) {
         loadtable();
 
-        //System.out.println("vaiya ki khobor "+username);
+        //System.out.println("bhaiya ki khobor "+username);
         try{
             AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("UserDashboard.fxml");
             Parent root = scene.root;
@@ -157,7 +157,7 @@ public class VolunteerareaController implements Initializable {
             stage.setTitle("User Dashboard");
             stage.show();
         }catch(Exception e){
-            System.out.println("vul hoilo Dashboard button userdashboard controller");
+            System.out.println("bhul holo Dashboard button user dashboard controller");
         }
     }
 
@@ -190,10 +190,10 @@ public class VolunteerareaController implements Initializable {
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Volunteer Near Me");
+            stage.setTitle("Volunteers Near Me");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo Volunteernear button Userdashboard controller"+e.getMessage());
+            System.out.println("bhul holo Volunteernear button User dashboard controller"+e.getMessage());
         }
 
     }
@@ -250,7 +250,7 @@ public class VolunteerareaController implements Initializable {
             stage.setTitle("Profile");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo profile button profile controller");
+            System.out.println("bhul hoilo profile button profile controller");
         }
 
     }
@@ -336,7 +336,7 @@ public class VolunteerareaController implements Initializable {
     }
     @FXML
     void addpost(ActionEvent event) {
-        System.out.println("hello");
+        System.out.println("Hello");
         try{
             Post.FXMLScene scene =  Post.FXMLScene.load("AddPost.fxml");
             Parent root = scene.root;
@@ -344,7 +344,7 @@ public class VolunteerareaController implements Initializable {
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Post Diaster");
+            stage.setTitle("Post Disaster");
             stage.show();
 
 

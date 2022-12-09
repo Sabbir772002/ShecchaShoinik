@@ -158,7 +158,7 @@ public class TaskCompletedController implements Initializable {
                 stage.show();
             }
         }catch(IOException e){
-            System.out.println("vul hoilo add post er dashboard "+e.getMessage());
+            System.out.println("bhul hoilo add post er dashboard "+e.getMessage());
         }
 
     }
@@ -192,7 +192,7 @@ public class TaskCompletedController implements Initializable {
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Post Diaster");
+            stage.setTitle("Post Disaster");
             stage.show();
 
 
@@ -247,7 +247,7 @@ public class TaskCompletedController implements Initializable {
             stage.setTitle("Profile");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo add post controller");
+            System.out.println("bhul hoilo add post controller");
         }
     }
 
@@ -283,7 +283,7 @@ public class TaskCompletedController implements Initializable {
             stage.setTitle("VolunteerfromareaController");
             stage.show();
         }catch(IOException e){
-            System.out.println("vul hoilo F button userdashboard controller "+e.getMessage());
+            System.out.println("bhul holo F button user dashboard controller "+e.getMessage());
         }
 
     }
