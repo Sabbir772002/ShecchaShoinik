@@ -108,11 +108,11 @@ public class UserDashboardController implements Initializable {
     private TableColumn<diaster, Integer> col_id;
 
     ObservableList<diaster> listF;
-    ObservableList<diaster> getdiasterList(){
-        ObservableList<diaster> diasterlist1 = FXCollections.observableArrayList();
+    ObservableList<diaster> getdisasterList(){
+        ObservableList<diaster> disasterlist1 = FXCollections.observableArrayList();
 
 
-        return diasterlist1;
+        return disasterlist1;
     }
     int indexM = -1;
 
@@ -133,7 +133,7 @@ void loadtable(){
     void Dashboard(ActionEvent event) {
     loadtable();
 
-        //System.out.println("vaiya ki khobor "+username);
+        //System.out.println("Bhaiya ki khobor "+username);
         try{
             AdminDB.FXMLScene scene =  FXMLScene.load("UserDashboard.fxml");
             Parent root = scene.root;
@@ -144,7 +144,7 @@ void loadtable(){
             stage.setTitle("User Dashboard");
             stage.show();
         }catch(Exception e){
-            System.out.println("vul hoilo Dashboard button userdashboard controller");
+            System.out.println("bhul hoilo Dashboard button userdashboard controller");
         }
     }
 
@@ -153,7 +153,7 @@ void loadtable(){
 
 
 
-        //for cheking purposes only
+        //for checking purposes only
                   /*  VBox vbox[]=new VBox[3];
                     for(int i =0;i<3;i++) {
                         p = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
@@ -190,7 +190,7 @@ void loadtable(){
             stage.setTitle("VolunteerfromareaController");
             stage.show();
         }catch(IOException e){
-            System.out.println("vul hoilo F button userdashboard controller "+e.getMessage());
+            System.out.println("bhul hoilo F button userdashboard controller "+e.getMessage());
         }
 
     }
@@ -217,7 +217,7 @@ void loadtable(){
             stage.setTitle("Volunteer Near Me");
             stage.show();
         }catch(IOException e){
-            System.out.println("vul hoilo F button userdashboard controller "+e.getMessage());
+            System.out.println("bhul hoilo F button userdashboard controller "+e.getMessage());
         }
 
     }
@@ -230,7 +230,7 @@ void loadtable(){
         try{
             Chat.FXMLScene scene =Chat.FXMLScene.load("CommunityChat.fxml");
             Parent root = scene.root;
-            System.out.println("chat cole na");
+            System.out.println("chat chole na");
             Chat.CommunityChatHandelar admin= (Chat.CommunityChatHandelar) scene.controller;
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
@@ -238,7 +238,7 @@ void loadtable(){
             stage.setTitle("Chat");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo chat button Userdashboard controller "+e.getMessage());
+            System.out.println("bhul hoilo chat button Userdashboard controller "+e.getMessage());
         }
 
 
@@ -291,7 +291,7 @@ void BbankClick(ActionEvent event){
             stage.setTitle("Profile");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo profile button Userdashboard controller "+e.getMessage());
+            System.out.println("bhul hoilo profile button Userdashboard controller "+e.getMessage());
         }
 
         }
@@ -385,7 +385,7 @@ void BbankClick(ActionEvent event){
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Post Diaster");
+            stage.setTitle("Post Disaster");
             stage.show();
 
 
@@ -436,10 +436,10 @@ void BbankClick(ActionEvent event){
     }
     @FXML
     void tableclick(MouseEvent event) {
-        System.out.println("click korse ");
+        System.out.println("click koreche ");
     }
     @FXML
     void tableclick(DragEvent event) {
-        System.out.println("click korse ");
+        System.out.println("click koreche ");
     }
 }

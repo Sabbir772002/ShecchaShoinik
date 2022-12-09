@@ -116,11 +116,11 @@ public class TeamDashboardController implements Initializable {
     private TableColumn<diaster, Integer> col_id;
 
     ObservableList<diaster> listF;
-    ObservableList<diaster> getdiasterList(){
-        ObservableList<diaster> diasterlist1 = FXCollections.observableArrayList();
+    ObservableList<diaster> getdisasterList(){
+        ObservableList<diaster> disasterlist1 = FXCollections.observableArrayList();
 
 
-        return diasterlist1;
+        return disasterlist1;
     }
     int indexM = -1;
 
@@ -140,7 +140,7 @@ public class TeamDashboardController implements Initializable {
     @FXML
     void Dashboard(ActionEvent event) {
         loadtable();
-        //System.out.println("vaiya ki khobor "+username);
+        //System.out.println("bhaiya ki khobor? "+username);
         try{
             FXMLScene scene =  FXMLScene.load("TeamDashboard.fxml");
             Parent root = scene.root;
@@ -151,7 +151,7 @@ public class TeamDashboardController implements Initializable {
             stage.setTitle("TeamDashboard");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo team dashborad controller dashboard");
+            System.out.println("bhul hoilo team dashboard controller dashboard");
         }
 
     }
@@ -161,7 +161,7 @@ public class TeamDashboardController implements Initializable {
 
 
 
-        //for cheking purposes only
+        //for checking purposes only
                   /*  VBox vbox[]=new VBox[3];
                     for(int i =0;i<3;i++) {
                         p = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
@@ -195,7 +195,7 @@ public class TeamDashboardController implements Initializable {
             stage.setTitle("Help Response");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo team dashbaord button Helpresponse controller "+e.getMessage());
+            System.out.println("Bhul hoilo team dashboard button Help response controller "+e.getMessage());
         }
 
 
@@ -213,7 +213,7 @@ public class TeamDashboardController implements Initializable {
             stage.setTitle("Task Completed");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo team dashbaord button G controller "+e.getMessage());
+            System.out.println("bhul hoilo team dashboard button G controller "+e.getMessage());
         }
 
     }
@@ -231,7 +231,7 @@ public class TeamDashboardController implements Initializable {
             stage.setTitle("Volunteer Near Me");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo Vapprove button Team controller "+e.getMessage());
+            System.out.println("Bhul hoilo V approve button Team controller "+e.getMessage());
         }
 
     }
@@ -248,7 +248,7 @@ public class TeamDashboardController implements Initializable {
             stage.setTitle("VolunteerfromareaController");
             stage.show();
         }catch(IOException e){
-            System.out.println("vul hoilo F button userdashboard controller "+e.getMessage());
+            System.out.println("Bhul hoilo F button userdashboard controller "+e.getMessage());
         }
 
     }
@@ -303,7 +303,7 @@ public class TeamDashboardController implements Initializable {
             stage.setTitle("Profile");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo teamdashboard button profile controller");
+            System.out.println("bhul hoilo teamdashboard button profile controller");
         }
 
         }
@@ -397,12 +397,12 @@ public class TeamDashboardController implements Initializable {
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Post Diaster");
+            stage.setTitle("Post Disaster");
             stage.show();
 
 
         }catch (Exception e ){
-            System.out.println("ato plbm kn tor, thik h. team theke post hoite plbm ki");
+            System.out.println("ato problem ken tor, thik h. team theke post hoite problem ki");
 
         }
 
