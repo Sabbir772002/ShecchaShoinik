@@ -63,7 +63,7 @@ public class VolunteerareaController implements Initializable {
             stage.setTitle("Blood Bank");
             stage.show();
         }catch(Exception e){
-            System.out.println("vul hoilo Blood Bank button userdashboard controller");
+            System.out.println("Bhool hoilo Blood Bank button userdashboard controller");
         }
 
     }
@@ -89,7 +89,7 @@ public class VolunteerareaController implements Initializable {
 
     public void set(String username,String role) {
         user.setText(username);
-        rolee.setText("@"+role);
+        Role.setText("@"+role);
         this.role = role;
         this.username = username;
     }
@@ -121,7 +121,7 @@ public class VolunteerareaController implements Initializable {
     private TableColumn<diaster, Integer> col_id;
 
     ObservableList<diaster> listF;
-    ObservableList<diaster> getdiasterList(){
+    ObservableList<diaster> getdisasterList(){
         ObservableList<diaster> diasterlist1 = FXCollections.observableArrayList();
 
 
@@ -146,7 +146,7 @@ public class VolunteerareaController implements Initializable {
     void Dashboard(ActionEvent event) {
         loadtable();
 
-        //System.out.println("vaiya ki khobor "+username);
+        //System.out.println("bhaiya ki khobor "+username);
         try{
             AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("UserDashboard.fxml");
             Parent root = scene.root;
@@ -157,7 +157,7 @@ public class VolunteerareaController implements Initializable {
             stage.setTitle("User Dashboard");
             stage.show();
         }catch(Exception e){
-            System.out.println("vul hoilo Dashboard button userdashboard controller");
+            System.out.println("bhul hoilo Dashboard button userdashboard controller");
         }
     }
 
@@ -193,7 +193,7 @@ public class VolunteerareaController implements Initializable {
             stage.setTitle("Volunteer Near Me");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo Volunteernear button Userdashboard controller"+e.getMessage());
+            System.out.println("bhul hoilo Volunteernear button Userdashboard controller"+e.getMessage());
         }
 
     }
@@ -250,7 +250,7 @@ public class VolunteerareaController implements Initializable {
             stage.setTitle("Profile");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo profile button profile controller");
+            System.out.println("bhul hoilo profile button profile controller");
         }
 
     }
@@ -344,7 +344,7 @@ public class VolunteerareaController implements Initializable {
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Post Diaster");
+            stage.setTitle("Post Disaster");
             stage.show();
 
 
@@ -359,7 +359,7 @@ public class VolunteerareaController implements Initializable {
 
     }
     @FXML
-    private Label rolee;
+    private Label Role;
 
     @FXML
     private ImageView search;
@@ -369,7 +369,7 @@ public class VolunteerareaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         /*user.setText(username);
-        rolee.setText(role);*/
+        Role.setText(role);*/
         String []choiceb={"Profile","Logout"};
         choice.getItems().addAll(choiceb);
         File file = new File("src/main/Font/user1.png");
