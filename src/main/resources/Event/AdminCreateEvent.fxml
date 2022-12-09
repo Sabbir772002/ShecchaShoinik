@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="537.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Event.AdminCreateEvent">
    <children>
-      <VBox prefHeight="538.0" prefWidth="782.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="-14.0" layoutY="6.0" prefHeight="538.0" prefWidth="782.0" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="-14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="6.0">
          <children>
             <AnchorPane prefHeight="55.0" prefWidth="782.0">
                <children>
@@ -28,7 +28,7 @@
                   <TextField layoutX="32.0" layoutY="13.0" prefHeight="30.0" prefWidth="480.0" promptText="Search event" />
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="383.0" prefWidth="771.0">
+            <AnchorPane prefHeight="378.0" prefWidth="750.0">
                <children>
                   <Pane layoutX="19.0" layoutY="26.0" prefHeight="335.0" prefWidth="237.0">
                      <children>
@@ -40,14 +40,14 @@
                         <Label layoutX="12.0" layoutY="198.0" prefHeight="30.0" prefWidth="219.0" text="Date:" />
                         <Button layoutX="23.0" layoutY="266.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="75.0" text="JOIN" />
                         <Button layoutX="139.0" layoutY="267.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="75.0" text="DETAILS" />
-                        <ImageView fitHeight="117.0" fitWidth="237.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="110.0" fitWidth="228.0" layoutX="5.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../../../../Pictures/Social%20Work%20Campaign.png" />
                            </image>
                         </ImageView>
                      </children>
                   </Pane>
-                  <Pane layoutX="506.0" layoutY="22.0" prefHeight="335.0" prefWidth="254.0">
+                  <Pane layoutX="527.0" layoutY="14.0" prefHeight="335.0" prefWidth="254.0">
                      <children>
                         <Button layoutX="71.0" layoutY="104.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="127.0" text="Add your event">
                            <font>
@@ -56,9 +56,9 @@
                         </Button>
                      </children>
                   </Pane>
-                  <Pane layoutX="257.0" layoutY="22.0" prefHeight="343.0" prefWidth="254.0">
+                  <Pane layoutX="257.0" layoutY="22.0" prefHeight="347.0" prefWidth="254.0">
                      <children>
-                        <ImageView fitHeight="118.0" fitWidth="244.0" layoutX="7.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="110.0" fitWidth="237.0" layoutX="11.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../../../../Pictures/Social%20Work%20Campaign.png" />
                            </image>
