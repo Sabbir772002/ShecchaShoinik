@@ -159,19 +159,19 @@
 
                      </viewport>
                   </ImageView>
-                  <Label fx:id="rolee" alignment="CENTER" layoutX="-2.0" layoutY="143.0" prefHeight="28.0" prefWidth="198.0" style="-fx-cursor: had;" text="\@volunteer" textFill="#230505">
+                  <Label fx:id="rolee" alignment="CENTER" layoutX="-2.0" layoutY="143.0" prefHeight="28.0" prefWidth="198.0" style="-fx-cursor: had;" text="\@Admin" textFill="#230505">
                      <font>
                         <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="user" alignment="CENTER" layoutX="-5.0" layoutY="117.0" prefHeight="52.0" prefWidth="204.0" style="-fx-cursor: had;" text="Nusrat" textFill="WHITE" AnchorPane.leftAnchor="-5.0">
+                  <Label fx:id="user" alignment="CENTER" layoutX="-5.0" layoutY="117.0" prefHeight="52.0" prefWidth="204.0" style="-fx-cursor: had;" text="Rajshahi" textFill="WHITE" AnchorPane.leftAnchor="-5.0">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
                   <VBox layoutX="13.0" layoutY="169.0" prefHeight="430.0" prefWidth="178.0">
                      <children>
-                        <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" prefHeight="22.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Dashboard">
+                        <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" prefHeight="22.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Home">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -185,7 +185,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#addpost" prefHeight="34.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Add Post">
+                        <Button mnemonicParsing="false" onAction="#addpost" prefHeight="34.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Add Disaster">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -228,7 +228,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#F" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Create Event">
+                        <Button mnemonicParsing="false" onAction="#TeamApprove" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Team Approve">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -236,7 +236,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#H" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="H">
+                        <Button mnemonicParsing="false" onAction="#Cevent" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Create Event">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -244,7 +244,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#G" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="G">
+                        <Button mnemonicParsing="false" onAction="#Control" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Control">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -325,7 +325,7 @@
                         <TableColumn fx:id="col_id" minWidth="0.0" prefWidth="182.39996337890625" text="ID" visible="false" />
                     </columns>
                   </TableView>
-                  <TextField layoutX="531.0" layoutY="6.0" prefHeight="30.0" prefWidth="188.0" promptText="Search" style="-fx-background-radius: 5;" />
+                  <TextField fx:id="textfield" layoutX="531.0" layoutY="6.0" onKeyPressed="#search" prefHeight="30.0" prefWidth="188.0" promptText="Search" style="-fx-background-radius: 5;" />
                   <Button layoutX="667.0" layoutY="7.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="51.0" style="-fx-background-color: white;">
                      <graphic>
                         <ImageView fx:id="search" fitHeight="20.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">

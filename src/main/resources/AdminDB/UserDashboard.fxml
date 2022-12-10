@@ -325,13 +325,15 @@
                         <TableColumn fx:id="col_id" minWidth="0.0" prefWidth="182.39996337890625" text="ID" visible="false" />
                     </columns>
                   </TableView>
-                  <TextField layoutX="529.0" layoutY="6.0" prefHeight="30.0" prefWidth="186.0" promptText="Search" style="-fx-background-radius: 5;" />
-                  <Button layoutX="653.0" layoutY="7.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="60.0" style="-fx-background-color: white;" />
-                  <ImageView fx:id="search" fitHeight="34.0" fitWidth="20.0" layoutX="683.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Font/search.png" />
-                     </image>
-                  </ImageView>
+                  <TextField fx:id="textfield" layoutX="529.0" layoutY="6.0" onAction="#BbankClick" onKeyPressed="#search" prefHeight="30.0" prefWidth="186.0" promptText="Search" style="-fx-background-radius: 5;" />
+                  <Button layoutX="653.0" layoutY="7.0" mnemonicParsing="false" onAction="#search" prefHeight="28.0" prefWidth="60.0" style="-fx-background-color: white;">
+                     <graphic>
+                        <ImageView fx:id="search" fitHeight="34.0" fitWidth="20.0" onMouseClicked="#search" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Font/search.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                </children>
             </AnchorPane>
          </children>

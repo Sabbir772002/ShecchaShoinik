@@ -465,7 +465,15 @@ public class ChatPrivateController implements Initializable {
             preparedStatement.setString(8, username+"Sabbir");*/
             ResultSet resultSet = preparedStatement.executeQuery();
             while(resultSet.next()) {
-                msgbox.appendText(resultSet.getString(3));
+                String s = resultSet.getString(3);
+                // String s=writebox.getText().toString();
+                char []c=s.toCharArray();
+                for(int i=0;i<c.length;i++){
+                    c[i]=(char)(c[i]-10);
+
+                }
+                s=new String(c);
+                msgbox.appendText(s/*resultSet.getString(3)*/);
                 msgbox.appendText("\n");
             }
             //sleep(1000);
@@ -497,7 +505,14 @@ public class ChatPrivateController implements Initializable {
             preparedStatement.setString(8, username+"Sabbir");*/
             ResultSet resultSet = preparedStatement.executeQuery();
             while(resultSet.next()) {
-                msgbox.appendText(resultSet.getString(3));
+                String s = resultSet.getString(3);
+               // String s=writebox.getText().toString();
+                char []c=s.toCharArray();
+                for(int i=0;i<c.length;i++){
+                    c[i]=(char)(c[i]-10);
+                }
+                s=new String(c);
+                msgbox.appendText(s/*resultSet.getString(3)*/);
                 msgbox.appendText("\n");
             }
             //sleep(1000);
@@ -517,6 +532,12 @@ public class ChatPrivateController implements Initializable {
        // msgbox.clear();
        // refresh();
         try {
+            String s=username+": "+writebox.getText().toString();
+            char []c=s.toCharArray();
+            for(int i=0;i<c.length;i++){
+                c[i]=(char)(c[i]+10);
+            }
+            s=new String(c);
             con=ConnectionDb.DBC();
         String st = "INSERT INTO privatechat (Sender, Reciver, Msg) VALUES (?,?,?)";
         PreparedStatement preparedStatement = (PreparedStatement) con.prepareStatement(st);
@@ -527,11 +548,11 @@ public class ChatPrivateController implements Initializable {
             preparedStatement.setString(1,  username+user2);
             preparedStatement.setString(2, user2+username);
         }
-        preparedStatement.setString(3, username+" : "+writebox.getText());
+        preparedStatement.setString(3, s);
         preparedStatement.execute();
         preparedStatement.close();
         con.close();
-        msgbox.appendText(username+" : "+writebox.getText());
+        msgbox.appendText(username+" :"+writebox.getText());
         msgbox.appendText("\n");
         writebox.setText("");
 

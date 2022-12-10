@@ -325,7 +325,7 @@
                         <TableColumn fx:id="col_id" minWidth="0.0" prefWidth="182.39996337890625" text="ID" visible="false" />
                     </columns>
                   </TableView>
-                  <TextField layoutX="531.0" layoutY="6.0" prefHeight="30.0" prefWidth="188.0" promptText="Search" style="-fx-background-radius: 5;" />
+                  <TextField fx:id="textfield" layoutX="531.0" layoutY="6.0" onKeyPressed="#search" prefHeight="30.0" prefWidth="188.0" promptText="Search" style="-fx-background-radius: 5;" />
                   <Button layoutX="667.0" layoutY="7.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="51.0" style="-fx-background-color: white;">
                      <graphic>
                         <ImageView fx:id="search" fitHeight="20.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
