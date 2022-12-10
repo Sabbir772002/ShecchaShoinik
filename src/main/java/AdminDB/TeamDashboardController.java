@@ -306,7 +306,7 @@ public class TeamDashboardController implements Initializable {
     @FXML
     void hresponse(ActionEvent event) {
         try{
-            Others.FXMLScene scene =  Others.FXMLScene.load("Post.fxml");
+            Others.FXMLScene scene =  Others.FXMLScene.load("HelpResponse.fxml");
             Parent root = scene.root;
             HelpResponseController admin= (HelpResponseController) scene.controller;
             admin.set(username,role);
@@ -570,5 +570,17 @@ public class TeamDashboardController implements Initializable {
     }
     @FXML
     public void vnear(ActionEvent actionEvent) {
+        try{
+            Shoinik.FXMLScene scene =  Shoinik.FXMLScene.load("Volunteerfromarea.fxml");
+            Parent root = scene.root;
+            Shoinik.VolunteerfromareaController admin= (Shoinik.VolunteerfromareaController) scene.controller;
+            admin.set(username,role);
+            stage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("VolunteerfromareaController");
+            stage.show();
+        }catch(IOException e){
+            System.out.println("Bhul hoilo F button userdashboard controller "+e.getMessage());
+        }
     }
 }

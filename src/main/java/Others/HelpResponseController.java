@@ -6,6 +6,7 @@ import AdminDB.TeamDashboardController;
 import AdminDB.UserDashboardController;
 import ExtraFeature.VolunteerareaController;
 import Post.AddPostController;
+import Shoinik.VolunteerfromareaController;
 import Sign_in.SigninController;
 import UserProfile.ProfileController;
 import javafx.event.ActionEvent;
@@ -160,7 +161,7 @@ public class HelpResponseController implements Initializable {
                 stage.show();
             }
         }catch(IOException e){
-            System.out.println("vul hoilo add post er dashboard "+e.getMessage());
+            System.out.println("vul hoilo helpresponse dashboard "+e.getMessage());
         }
 
     }
@@ -276,17 +277,17 @@ public class HelpResponseController implements Initializable {
     @FXML
     public void vnear(ActionEvent event) {
         try{
-            AdminDB.FXMLScene scene =  FXMLScene.load("blank.fxml");
+           Shoinik.FXMLScene scene =  Shoinik.FXMLScene.load("Volunteerfromarea.fxml");
             Parent root = scene.root;
-            System.out.println("tao run hoi na");
-            VolunteerareaController admin= (VolunteerareaController) scene.controller;
-            // admin.set(username,role);
+            //System.out.println("tao run hoi na");
+            Shoinik.VolunteerfromareaController admin= (Shoinik.VolunteerfromareaController) scene.controller;
+            admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Volunteer Near Me");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo Volunteernear button Userdashboard controller "+e.getMessage());
+            System.out.println("vul hoilo Volunteernear button hresponse controller "+e.getMessage());
         }
     }
 
