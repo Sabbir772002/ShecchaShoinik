@@ -185,7 +185,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#addpost" prefHeight="34.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Add Post">
+                        <Button mnemonicParsing="false" onAction="#addpost" prefHeight="34.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Add Disaster">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -220,31 +220,31 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
+                        <Button mnemonicParsing="false" onAction="#hrequest" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Help Request">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#Event" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Event">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="G">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
                         <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Disaster Guidelines">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#F" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="F">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#H" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="H">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#G" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="G">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>

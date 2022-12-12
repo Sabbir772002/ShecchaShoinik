@@ -287,38 +287,20 @@ void loadtable(){
 
     }
     @FXML
-    void F(ActionEvent event) {}
+    void G(ActionEvent event) {}
+
+    @FXML
+    void Event(ActionEvent event) {
+
+    }
+
+    @FXML
+    void hrequest(ActionEvent event) {
+
+    }
 
     @FXML
     void vnear(ActionEvent event) {
-
-        try{
-            Shoinik.FXMLScene scene =  Shoinik.FXMLScene.load("Volunteerfromarea.fxml");
-            Parent root = scene.root;
-            Shoinik.VolunteerfromareaController admin= (Shoinik.VolunteerfromareaController) scene.controller;
-           admin.set(username,role);
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("VolunteerfromareaController");
-            stage.show();
-        }catch(IOException e){
-            System.out.println("vul hoilo F button userdashboard controller "+e.getMessage());
-        }
-
-    }
-
-    @FXML
-    void G(ActionEvent event) {
-
-    }
-
-    @FXML
-    void H(ActionEvent event) {
-
-    }
-
-    @FXML
-    void VolunteerNear(ActionEvent event) {
         try{
             Shoinik.FXMLScene scene =  Shoinik.FXMLScene.load("Volunteerfromarea.fxml");
             Parent root = scene.root;
