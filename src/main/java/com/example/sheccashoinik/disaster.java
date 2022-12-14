@@ -1,7 +1,7 @@
 package com.example.sheccashoinik;
 
 
-public class diaster {
+public class disaster {
     public String Title,Type, Address, Division, District,AddInfo;
     int Id;
 
@@ -61,7 +61,7 @@ public class diaster {
         Type = type;
     }
 
-    public diaster(String Title, String Type, String Address, String Division, String District, int Id, String AddInfo) {
+    public disaster(String Title, String Type, String Address, String Division, String District, int Id, String AddInfo) {
         this.Title = Title;
         this.Type = Type;
         this.Address = Address;

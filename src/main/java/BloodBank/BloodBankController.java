@@ -62,7 +62,7 @@ public class BloodBankController implements Initializable {
             stage.setTitle("Blood Bank");
             stage.show();
         }catch(Exception e){
-            System.out.println("vul hoilo Dashboard button BloodBank controller");
+            System.out.println("bhul holo Dashboard button BloodBank controller");
         }
 
     }
@@ -149,7 +149,7 @@ public class BloodBankController implements Initializable {
     void Dashboard(ActionEvent event) {
         loadtable();
 
-        //System.out.println("vaiya ki khobor "+username);
+        //System.out.println("Bhaiya ki khobor "+username);
         try{
             AdminDB.FXMLScene scene =  AdminDB.FXMLScene.load("UserDashboard.fxml");
             Parent root = scene.root;
@@ -160,7 +160,7 @@ public class BloodBankController implements Initializable {
             stage.setTitle("User Dashboard");
             stage.show();
         }catch(Exception e){
-            System.out.println("vul hoilo Dashboard button bloodbank controller");
+            System.out.println("Bhul hoilo Dashboard button bloodbank controller");
         }
     }
 
@@ -169,7 +169,7 @@ public class BloodBankController implements Initializable {
 
 
 
-        //for cheking purposes only
+        //for checking purposes only
                   /*  VBox vbox[]=new VBox[3];
                     for(int i =0;i<3;i++) {
                         p = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
@@ -261,7 +261,7 @@ public class BloodBankController implements Initializable {
             stage.setTitle("Profile");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo profile button profile controller");
+            System.out.println("Bhul hoilo profile button profile controller");
         }
 
     }
@@ -355,7 +355,7 @@ public class BloodBankController implements Initializable {
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Post Diaster");
+            stage.setTitle("Post Disaster");
             stage.show();
 
 

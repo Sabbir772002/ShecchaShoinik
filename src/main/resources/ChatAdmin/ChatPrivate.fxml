@@ -5,6 +5,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
@@ -12,11 +16,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.text.TextFlow?>
 
-<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Others.HelpResponseController">
+<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chat.ChatPrivateController">
     <left>
         <VBox layoutX="50.0" prefHeight="617.0" prefWidth="199.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);" BorderPane.alignment="CENTER">
             <children>
@@ -56,7 +59,7 @@
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#addpost" prefHeight="34.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Add Post">
+                                <Button mnemonicParsing="false" onAction="#addpost" prefHeight="34.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Add DIsaster">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -83,31 +86,25 @@
                                         <Insets top="5.0" />
                                     </VBox.margin>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#hresponse" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Help Response">
-                                    <font>
-                                        <Font name="System Bold" size="13.0" />
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets top="5.0" />
-                                    </VBox.margin>
-                                </Button>
-                                <Button mnemonicParsing="false" onAction="#task" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Task Completed">
-                                    <font>
-                                        <Font name="System Bold" size="13.0" />
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets top="5.0" />
-                                    </VBox.margin>
-                                </Button>
-                                <Button mnemonicParsing="false" onAction="#vapprove" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Volunteer Approve">
-                                    <font>
-                                        <Font name="System Bold" size="13.0" />
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets top="5.0" />
-                                    </VBox.margin>
-                                </Button>
                                 <Button mnemonicParsing="false" onAction="#profile" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Profile">
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="5.0" />
+                                    </VBox.margin>
+                                </Button>
+                        <Button mnemonicParsing="false" onAction="#hrequest" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Help Request">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#Event" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Event">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                                <Button mnemonicParsing="false" onAction="#G" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="G">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -184,82 +181,47 @@
     </top>
     <center>
         <AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER">
-         <children>
-            <AnchorPane layoutX="25.0" layoutY="38.0" prefHeight="534.0" prefWidth="726.0" style="-fx-background-color: red;">
+            <children>
+                <ScrollPane layoutX="40.0" layoutY="97.0" prefHeight="387.0" prefWidth="438.0" style="-fx-background-radius: 5;" styleClass="tt" stylesheets="@../../Style/style.css">
+                    <content>
+                        <TextArea fx:id="msgbox" editable="false" prefHeight="398.0" prefWidth="438.0" styleClass="bt" stylesheets="@../../Style/style.css" />
+                    </content>
+                </ScrollPane>
+                <TextField fx:id="writebox" layoutX="38.0" layoutY="501.0" prefHeight="27.0" prefWidth="318.0" promptText="Write your message here...." styleClass="tt" stylesheets="@../../Style/style.css" />
+                <Button layoutX="361.0" layoutY="501.0" mnemonicParsing="false" onAction="#send" prefHeight="27.0" prefWidth="58.0" style="-fx-background-color: green;" styleClass="tt" stylesheets="@../../Style/style.css" text="Send" />
+                <Label fx:id="Name2" alignment="CENTER" layoutX="40.0" layoutY="71.0" prefHeight="20.0" prefWidth="154.0" style="-fx-background-color: grey;" styleClass="tt" stylesheets="@../../Style/style.css" text="Nusrat Hossain" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Circle fill="#d11ba7" layoutX="114.0" layoutY="44.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
+                <ImageView fitHeight="48.0" fitWidth="50.0" layoutX="90.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../Font/account-circle-fill.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="user21" alignment="CENTER" layoutX="580.0" layoutY="71.0" prefHeight="20.0" prefWidth="154.0" style="-fx-background-color: grey;" styleClass="tt" stylesheets="@../../Style/style.css" text="Available for Chat" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Circle fill="#d11ba7" layoutX="657.0" layoutY="44.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
+                <ImageView fitHeight="48.0" fitWidth="50.0" layoutX="633.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../Font/group.png" />
+                    </image>
+                </ImageView>
+            <Button layoutX="423.0" layoutY="501.0" mnemonicParsing="false" onAction="#refresh" prefHeight="27.0" prefWidth="58.0" style="-fx-background-color: green;" styleClass="tt" stylesheets="@../../Style/style.css" text="Refresh" />
+                  <VBox layoutX="558.0" layoutY="97.0" prefHeight="425.0" prefWidth="198.0" styleClass="bt" stylesheets="@../../Style/style.css">
                <children>
-                  <AnchorPane layoutX="-1.0" prefHeight="534.0" prefWidth="734.0" style="-fx-background-color: grey;">
-                     <children>
-                        <ImageView fitHeight="49.0" fitWidth="48.0" layoutX="24.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../../Downloads/demofile/src/236-2360291_transparent-group-of-people-waving-goodbye-clipart-volunteer.png" />
-                           </image>
-                        </ImageView>
-                        <Text fx:id="Poster" layoutX="66.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Ajwad akil">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </Text>
-                        <ImageView fx:id="image" fitHeight="300.0" fitWidth="338.0" layoutX="382.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
-                        <Text fx:id="title" layoutX="66.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Disaster hazard at uiu" wrappingWidth="429.2371063232422">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Text>
-                        <Button layoutX="150.0" layoutY="413.0" mnemonicParsing="false" onAction="#viewmap" prefHeight="36.0" prefWidth="89.0" text="View in Map" />
-                        <Label layoutX="62.0" layoutY="105.0" prefHeight="31.0" prefWidth="99.0" text="Addres:">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="62.0" layoutY="134.0" prefHeight="34.0" prefWidth="99.0" text="DIstrict:">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="62.0" layoutY="170.0" prefHeight="31.0" prefWidth="87.0" text="Division:">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="63.0" layoutY="204.0" prefHeight="31.0" prefWidth="98.0" text="Type:">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" layoutX="100.0" layoutY="235.0" prefHeight="31.0" prefWidth="186.0" text="Additional Info:">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="address" layoutX="165.0" layoutY="105.0" prefHeight="24.0" prefWidth="170.0" text="Label">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="district" layoutX="165.0" layoutY="139.0" prefHeight="24.0" prefWidth="170.0" text="Label">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="type" layoutX="165.0" layoutY="208.0" prefHeight="24.0" prefWidth="170.0" text="Label">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="division" layoutX="165.0" layoutY="170.0" prefHeight="24.0" prefWidth="170.0" text="Label">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                        <TextFlow layoutX="61.0" layoutY="270.0" prefHeight="110.0" prefWidth="267.0">
-                           <children>
-                              <TextField fx:id="addinfo" alignment="TOP_LEFT" editable="false" prefHeight="109.0" prefWidth="270.0" promptText="Hello there i am using this app more than 20 years, its a great invention for us" />
-                           </children>
-                        </TextFlow>
-                     </children>
-                  </AnchorPane>
+                  <TableView fx:id="usertable" onMouseClicked="#tableclick" prefHeight="426.0" prefWidth="154.0" styleClass="bt" stylesheets="@../../Style/style.css">
+                    <columns>
+                      <TableColumn fx:id="colname" prefWidth="199.99993896484375" style="-fx-background-radius: 10;" text="Name" />
+                      <TableColumn fx:id="coluser" minWidth="0.0" prefWidth="0.0" text="C2" visible="false" />
+                    </columns>
+                  </TableView>
                </children>
-            </AnchorPane>
-         </children></AnchorPane>
+                  </VBox>
+            </children></AnchorPane>
     </center>
 </BorderPane>

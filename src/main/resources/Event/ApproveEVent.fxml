@@ -399,7 +399,7 @@
                                         <Font size="21.0" />
                                     </font>
                                 </Label>
-                                <Button layoutX="532.0" layoutY="404.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: green;" text="Join" />
+                                <Button layoutX="532.0" layoutY="404.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: green;" text="Approve" />
                                 <Label layoutX="399.0" layoutY="353.0" prefHeight="31.0" prefWidth="101.0" text="Location:">
                                     <font>
                                         <Font size="21.0" />

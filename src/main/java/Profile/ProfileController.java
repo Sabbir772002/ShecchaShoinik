@@ -29,7 +29,7 @@ public class ProfileController implements Initializable {
     private BorderPane pane1;
 
   /*  @FXML
-    private Button Bbank;
+    private Button bank;
 
     @FXML
     private Label Logo1;*/
