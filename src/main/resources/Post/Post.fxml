@@ -12,8 +12,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Others.HelpResponseController">
+<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Others.HelpResponseController">
     <left>
         <VBox layoutX="50.0" prefHeight="617.0" prefWidth="199.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);" BorderPane.alignment="CENTER">
             <children>
@@ -180,6 +181,67 @@
         </AnchorPane>
     </top>
     <center>
-        <AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER" />
+        <AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="59.0" layoutY="58.0" prefHeight="504.0" prefWidth="657.0" style="-fx-background-color: white;">
+               <children>
+                  <Text layoutX="56.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Disaster Post Details">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <AnchorPane layoutX="14.0" layoutY="90.0" prefHeight="400.0" prefWidth="629.0" style="-fx-background-color: grey;">
+                     <children>
+                        <ImageView fitHeight="49.0" fitWidth="48.0" layoutX="24.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../Downloads/demofile/src/236-2360291_transparent-group-of-people-waving-goodbye-clipart-volunteer.png" />
+                           </image>
+                        </ImageView>
+                        <Text layoutX="85.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nusrat Hossain">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <ImageView fitHeight="193.0" fitWidth="282.0" layoutX="317.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Font/1.jpg" />
+                           </image>
+                        </ImageView>
+                        <Text layoutX="93.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FIRE AT UIU ">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="93.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address Location ">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="93.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Division">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="93.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="District">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="93.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Disaster type">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="89.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Additional Information">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Button layoutX="89.0" layoutY="325.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="89.0" text="View in Map" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
     </center>
 </BorderPane>

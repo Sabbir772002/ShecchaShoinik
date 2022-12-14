@@ -158,7 +158,7 @@ public class VolunteerApproveController implements Initializable {
                 stage.show();
             }
         }catch(IOException e){
-            System.out.println("vul hoilo add post er dashboard "+e.getMessage());
+            System.out.println("bhul hoilo add post er dashboard "+e.getMessage());
         }
 
     }
@@ -180,7 +180,7 @@ public class VolunteerApproveController implements Initializable {
             stage.setTitle("Task Completed");
             stage.show();
         } catch (Exception e) {
-            System.out.println("vul hoilo team dashbaord button G controller " + e.getMessage());
+            System.out.println("bhul hoilo team dashbaord button G controller " + e.getMessage());
         }
     }
         @FXML
@@ -193,10 +193,10 @@ public class VolunteerApproveController implements Initializable {
                 admin.set(username,role);
                 stage = (Stage)((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
-                stage.setTitle("Volunteer Near Me");
+                stage.setTitle("Volunteers Near Me");
                 stage.show();
             }catch (Exception e){
-                System.out.println("vul hoilo Vapprove button Team controller "+e.getMessage());
+                System.out.println("bhul hoilo Vapprove button Team controller "+e.getMessage());
             }
 
     }
@@ -215,7 +215,7 @@ public class VolunteerApproveController implements Initializable {
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Post Diaster");
+            stage.setTitle("Post Disaster");
             stage.show();
 
 
@@ -270,7 +270,7 @@ public class VolunteerApproveController implements Initializable {
             stage.setTitle("Profile");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo add post controller");
+            System.out.println("bhul holo add post controller");
         }
     }
 
@@ -306,7 +306,7 @@ public class VolunteerApproveController implements Initializable {
             stage.setTitle("VolunteerfromareaController");
             stage.show();
         }catch(IOException e){
-            System.out.println("vul hoilo F button userdashboard controller "+e.getMessage());
+            System.out.println("bhul holo F button user dashboard controller "+e.getMessage());
         }
 
     }

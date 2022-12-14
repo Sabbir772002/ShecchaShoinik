@@ -207,7 +207,7 @@ public class VolunteerNearController implements Initializable {
                 stage.show();*/
             }
         }catch(IOException e){
-            System.out.println("vul hoilo add post er dashboard "+e.getMessage());
+            System.out.println("bhul holo add post er dashboard "+e.getMessage());
         }
     }
 
@@ -294,7 +294,7 @@ public class VolunteerNearController implements Initializable {
             stage.setTitle("Profile");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo add post controller");
+            System.out.println("bhul holo add post controller");
         }
 
     } @FXML
@@ -406,7 +406,7 @@ public class VolunteerNearController implements Initializable {
             stage = (Stage) alert.getDialogPane().getScene().getWindow();
             stage.getIcons().add(image);
             Optional<ButtonType> result=alert.showAndWait();
-            System.out.println("THIK ASE INPUT");
+            System.out.println("THIK ASEY INPUT");
         } catch (Exception e) {
             System.out.println("some error at add post/n"+e.getMessage());
 
