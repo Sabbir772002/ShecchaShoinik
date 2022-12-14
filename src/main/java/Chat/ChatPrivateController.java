@@ -180,6 +180,13 @@ public class ChatPrivateController implements Initializable {
     void G(MouseEvent event) {
 
     }
+    @FXML
+    void hrequest(MouseEvent event) {
+
+    } @FXML
+    void Event(MouseEvent event) {
+
+    }
 @FXML
     void H(MouseEvent event) {
 

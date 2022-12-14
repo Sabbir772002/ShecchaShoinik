@@ -1,3 +1,4 @@
+/*
 package com.example.sheccashoinik;
 
 import javafx.event.ActionEvent;
@@ -17,3 +18,4 @@ public class MapController {
     }
 
 }
+*/

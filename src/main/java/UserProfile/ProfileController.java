@@ -181,6 +181,10 @@ void paction(ActionEvent event){
     void Diaster(ActionEvent event) throws IOException {
 
     }
+    @FXML
+    void hrequest(ActionEvent event) throws IOException {
+
+    }
 
     @FXML
     void F(ActionEvent event) {

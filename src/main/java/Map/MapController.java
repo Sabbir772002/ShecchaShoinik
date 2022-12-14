@@ -1,3 +1,4 @@
+/*
 package Map;
 
 import javafx.event.ActionEvent;
@@ -17,3 +18,4 @@ public class MapController {
     }
 
 }
+*/

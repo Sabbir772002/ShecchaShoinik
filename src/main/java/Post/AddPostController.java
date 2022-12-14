@@ -111,13 +111,13 @@ public class AddPostController implements Initializable {
 
         //final Button openButton = new Button("Choose Background Image");
              fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Select Image","*.jpg","*.png"));
-             fileChooser.setInitialDirectory(new File("C:\\Users\\USER\\Pictures"));
+            // fileChooser.setInitialDirectory(new File("C:\\Users\\USER\\Pictures"));
             File file = fileChooser.showOpenDialog(stage);
             if (file != null) {
                 imagef = file.getAbsolutePath();
                 String s[]=imagef.split("\\\\");
                 //System.out.println(imagef);
-               // System.out.println(s[s.length - 1]);
+                System.out.println(s[s.length - 1]);
                 imageup.setText(s[s.length - 1]);
                // File f= new File("src/main/file.image");
 
