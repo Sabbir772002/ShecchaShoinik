@@ -8,6 +8,9 @@ import Others.TaskCompletedController;
 import Post.AddPostController;
 import Sign_in.SigninController;
 import UserProfile.ProfileController;
+import com.example.sheccashoinik.diaster;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +19,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -31,6 +35,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.jar.Attributes;
 
 import static java.lang.Thread.sleep;
 
@@ -41,10 +46,13 @@ public class ChatPrivateController implements Initializable {
     private Parent root;
     public String username="";
     public String user2="";
+    public String name2="";
     public String role="";
 
     @FXML
     public TextField writebox;
+    @FXML
+    public Label Name2;
     @FXML
     public TextArea msgbox;
     public void set(String username,String role) {
@@ -53,12 +61,27 @@ public class ChatPrivateController implements Initializable {
         this.role = role;
         this.username = username;
         refresh();
-        if(username.equals("Sabbir")){
-            user2="Nuha";
-        }else{
-            user2="Sabbir";
-        }
+//        if(username.equals("Sabbir")){
+//            user2="Nuha";
+//        }else{
+//            user2="Sabbir";
+//        }
+        //loadtable();
     }
+    public void set(String username,String role,String name2, String user2) {
+        user.setText(username);
+        rolee.setText("@"+role);
+        this.role = role;
+        this.username = username;
+        this.user2 = user2;
+        this.name2 = name2;
+        Name2.setText(name2);
+        refresh();
+        /*Thread chatwriter = new PrivateThread(msgbox,username,user2);
+        chatwriter.start();*/
+
+    }
+
     @FXML
     private Button b;
 
@@ -86,8 +109,61 @@ public class ChatPrivateController implements Initializable {
     @FXML
     private Label rolee;
 
+
     @FXML
     private Label user;
+    @FXML
+    private ChoiceBox<String> choice1;
+
+    @FXML
+    private TableColumn<userlist, String> colname;
+
+    @FXML
+    private TableColumn<userlist, String> coluser;
+
+    @FXML
+    void tableclick(MouseEvent event) {
+       /* String Name2=usertable.getSelectionModel().getSelectedItem().getName().toString();
+        String user2=usertable.getSelectionModel().getSelectedItem().getUsername().toString();*/
+        try{
+
+            String Name2=usertable.getSelectionModel().getSelectedItem().getName().toString();
+            String user2=usertable.getSelectionModel().getSelectedItem().getUsername().toString();
+            Chat.FXMLScene scene =  Chat.FXMLScene.load("ChatPrivate.fxml");
+            Parent root = scene.root;
+            Chat.ChatPrivateController adminController = (Chat.ChatPrivateController) scene.controller;
+            adminController.set(username,role,Name2,user2);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Chat");
+            stage.show();
+
+        }catch (Exception e){
+            System.out.println("error on tabble click "+e.getMessage());
+        }
+
+    }
+    @FXML
+    private TableView<userlist> usertable;
+
+    ObservableList<userlist> listF;
+    ObservableList<userlist> getdiasterList(){
+        ObservableList<userlist> userlist1 = FXCollections.observableArrayList();
+
+
+        return userlist1;
+    }
+    int indexM = -1;
+
+    void loadtable(){
+        colname.setCellValueFactory(new PropertyValueFactory<userlist,String>("Name"));
+        coluser.setCellValueFactory(new PropertyValueFactory<userlist,String>("Username"));
+        //table.setItems(list);
+        listF = ConnectionDb.getuserlist();
+        usertable.setItems(listF);
+        refresh();
+
+    }
 
     @FXML
     void BbankxClick(ActionEvent event) {
@@ -102,6 +178,13 @@ public class ChatPrivateController implements Initializable {
 
     }  @FXML
     void G(MouseEvent event) {
+
+    }
+    @FXML
+    void hrequest(MouseEvent event) {
+
+    } @FXML
+    void Event(MouseEvent event) {
 
     }
 @FXML
@@ -295,6 +378,8 @@ public class ChatPrivateController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadtable();
+        //refresh();
         String []choice1={"Profile","Logout"};
         choice.getItems().addAll(choice1);
         File file = new File("src/main/Font/user1.png");
@@ -313,6 +398,8 @@ public class ChatPrivateController implements Initializable {
         Image image6 = new Image(file1.toURI().toString());
         //search.setImage(image6);
         msgbox.appendText(" ");
+        rolee.setText(role);
+        user.setText(username);
         //Thread t=new chatthread();
         //t.start();
        // refresh();
@@ -340,7 +427,10 @@ public class ChatPrivateController implements Initializable {
     }
 
     public ChatPrivateController(){
+
         con = ConnectionDb.DBC();
+       // loadtable();
+
         // refresh();
 
     }
@@ -382,7 +472,15 @@ public class ChatPrivateController implements Initializable {
             preparedStatement.setString(8, username+"Sabbir");*/
             ResultSet resultSet = preparedStatement.executeQuery();
             while(resultSet.next()) {
-                msgbox.appendText(resultSet.getString(3));
+                String s = resultSet.getString(3);
+                // String s=writebox.getText().toString();
+                char []c=s.toCharArray();
+                for(int i=0;i<c.length;i++){
+                    c[i]=(char)(c[i]-10);
+
+                }
+                s=new String(c);
+                msgbox.appendText(s/*resultSet.getString(3)*/);
                 msgbox.appendText("\n");
             }
             //sleep(1000);
@@ -414,7 +512,14 @@ public class ChatPrivateController implements Initializable {
             preparedStatement.setString(8, username+"Sabbir");*/
             ResultSet resultSet = preparedStatement.executeQuery();
             while(resultSet.next()) {
-                msgbox.appendText(resultSet.getString(3));
+                String s = resultSet.getString(3);
+               // String s=writebox.getText().toString();
+                char []c=s.toCharArray();
+                for(int i=0;i<c.length;i++){
+                    c[i]=(char)(c[i]-10);
+                }
+                s=new String(c);
+                msgbox.appendText(s/*resultSet.getString(3)*/);
                 msgbox.appendText("\n");
             }
             //sleep(1000);
@@ -434,6 +539,12 @@ public class ChatPrivateController implements Initializable {
        // msgbox.clear();
        // refresh();
         try {
+            String s=username+": "+writebox.getText().toString();
+            char []c=s.toCharArray();
+            for(int i=0;i<c.length;i++){
+                c[i]=(char)(c[i]+10);
+            }
+            s=new String(c);
             con=ConnectionDb.DBC();
         String st = "INSERT INTO privatechat (Sender, Reciver, Msg) VALUES (?,?,?)";
         PreparedStatement preparedStatement = (PreparedStatement) con.prepareStatement(st);
@@ -444,11 +555,11 @@ public class ChatPrivateController implements Initializable {
             preparedStatement.setString(1,  username+user2);
             preparedStatement.setString(2, user2+username);
         }
-        preparedStatement.setString(3, username+" : "+writebox.getText());
+        preparedStatement.setString(3, s);
         preparedStatement.execute();
         preparedStatement.close();
         con.close();
-        msgbox.appendText(username+" : "+writebox.getText());
+        msgbox.appendText(username+" :"+writebox.getText());
         msgbox.appendText("\n");
         writebox.setText("");
 

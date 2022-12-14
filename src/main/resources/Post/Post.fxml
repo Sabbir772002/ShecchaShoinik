@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,6 +13,8 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
 <BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Others.HelpResponseController">
     <left>
@@ -180,6 +183,83 @@
         </AnchorPane>
     </top>
     <center>
-        <AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER" />
+        <AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="25.0" layoutY="38.0" prefHeight="534.0" prefWidth="726.0" style="-fx-background-color: red;">
+               <children>
+                  <AnchorPane layoutX="-1.0" prefHeight="534.0" prefWidth="734.0" style="-fx-background-color: grey;">
+                     <children>
+                        <ImageView fitHeight="49.0" fitWidth="48.0" layoutX="24.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../Downloads/demofile/src/236-2360291_transparent-group-of-people-waving-goodbye-clipart-volunteer.png" />
+                           </image>
+                        </ImageView>
+                        <Text fx:id="Poster" layoutX="66.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Ajwad akil">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Text>
+                        <ImageView fx:id="image" fitHeight="300.0" fitWidth="338.0" layoutX="382.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
+                        <Text fx:id="title" layoutX="66.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Disaster hazard at uiu" wrappingWidth="429.2371063232422">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Text>
+                        <Button layoutX="150.0" layoutY="413.0" mnemonicParsing="false" onAction="#viewmap" prefHeight="36.0" prefWidth="89.0" text="View in Map" />
+                        <Label layoutX="62.0" layoutY="105.0" prefHeight="31.0" prefWidth="99.0" text="Addres:">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="62.0" layoutY="134.0" prefHeight="34.0" prefWidth="99.0" text="DIstrict:">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="62.0" layoutY="170.0" prefHeight="31.0" prefWidth="87.0" text="Division:">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="63.0" layoutY="204.0" prefHeight="31.0" prefWidth="98.0" text="Type:">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="100.0" layoutY="235.0" prefHeight="31.0" prefWidth="186.0" text="Additional Info:">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="address" layoutX="165.0" layoutY="105.0" prefHeight="24.0" prefWidth="170.0" text="Label">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="district" layoutX="165.0" layoutY="139.0" prefHeight="24.0" prefWidth="170.0" text="Label">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="type" layoutX="165.0" layoutY="208.0" prefHeight="24.0" prefWidth="170.0" text="Label">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="division" layoutX="165.0" layoutY="170.0" prefHeight="24.0" prefWidth="170.0" text="Label">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <TextFlow layoutX="61.0" layoutY="270.0" prefHeight="110.0" prefWidth="267.0">
+                           <children>
+                              <TextField fx:id="addinfo" alignment="TOP_LEFT" editable="false" prefHeight="109.0" prefWidth="270.0" promptText="Hello there i am using this app more than 20 years, its a great invention for us" />
+                           </children>
+                        </TextFlow>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
     </center>
 </BorderPane>

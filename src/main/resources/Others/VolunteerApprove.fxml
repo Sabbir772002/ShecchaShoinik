@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Others.VolunteerApproveController">
@@ -40,7 +39,7 @@
                         </Label>
                         <VBox layoutX="13.0" layoutY="169.0" prefHeight="430.0" prefWidth="178.0">
                             <children>
-                                <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" prefHeight="22.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Dashboard">
+                                <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" prefHeight="22.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Home">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -181,76 +180,6 @@
         </AnchorPane>
     </top>
     <center>
-        <AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER">
-            <children>
-                <AnchorPane layoutX="52.0" layoutY="30.0" prefHeight="531.0" prefWidth="672.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 10; -fx-opacity: 50; -fx-region-border: 50; -fx-padding: 50;">
-                    <children>
-                        <Label layoutX="34.0" layoutY="262.0" prefHeight="31.0" prefWidth="98.0" text="Phone:" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="21.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="32.0" layoutY="337.0" prefHeight="31.0" prefWidth="106.0" text="District:" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="21.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="32.0" layoutY="295.0" prefHeight="34.0" prefWidth="94.0" text="Division:" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="21.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="32.0" layoutY="374.0" prefHeight="31.0" prefWidth="162.0" text="License No:" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="21.0" />
-                            </font>
-                        </Label>
-                        <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="246.0" layoutY="375.0" prefHeight="21.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="1963890981">
-                            <font>
-                                <Font name="System Bold" size="18.0" />
-                            </font>
-                        </Label>
-                        <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="246.0" layoutY="339.0" prefHeight="26.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="Gazipur">
-                            <font>
-                                <Font name="System Bold" size="18.0" />
-                            </font>
-                        </Label>
-                        <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="246.0" layoutY="298.0" prefHeight="31.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="Dhaka">
-                            <font>
-                                <Font name="System Bold" size="18.0" />
-                            </font>
-                        </Label>
-                        <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="246.0" layoutY="254.0" prefHeight="32.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="01571144383">
-                            <font>
-                                <Font name="System Bold" size="18.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="32.0" layoutY="409.0" prefHeight="31.0" prefWidth="162.0" text="Volunteer Field:" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="21.0" />
-                            </font>
-                        </Label>
-                        <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="246.0" layoutY="409.0" prefHeight="26.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="EarthQuake">
-                            <font>
-                                <Font name="System Bold" size="18.0" />
-                            </font>
-                        </Label>
-                        <Circle fill="WHITE" layoutX="345.0" layoutY="68.0" radius="54.0" stroke="BLACK" strokeType="INSIDE" />
-                        <ImageView fitHeight="83.0" fitWidth="82.0" layoutX="311.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label alignment="CENTER" layoutX="223.0" layoutY="122.0" prefHeight="31.0" prefWidth="244.0" text="Team Durbar" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="21.0" />
-                            </font>
-                        </Label>
-                        <Label alignment="CENTER" layoutX="225.0" layoutY="142.0" prefHeight="26.0" prefWidth="238.0" text="\@durbarbd" textFill="#050505">
-                            <font>
-                                <Font name="System Bold" size="11.0" />
-                            </font>
-                        </Label>
-                        <Button layoutX="352.0" layoutY="181.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="119.0" style="-fx-background-color: green; -fx-background-radius: 10;" text="Join Team" />
-                        <Button layoutX="237.0" layoutY="181.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: green; -fx-background-radius: 10;" text="Request for help" />
-                    </children>
-                </AnchorPane>
-            </children></AnchorPane>
+        <AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER" />
     </center>
 </BorderPane>

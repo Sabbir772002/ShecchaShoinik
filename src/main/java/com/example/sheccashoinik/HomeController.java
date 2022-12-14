@@ -213,7 +213,7 @@ public class HomeController implements Initializable {
            // pane7.setVisible(false);
             translate(0.5,pane5,900);i--;
         }else if(i==5){
-            System.out.println(" backjao "+i+" pane6");
+            System.out.println(" back jao "+i+" pane6");
 
            /* pane1.setVisible(false);
             pane2.setVisible(false);
@@ -230,19 +230,19 @@ public class HomeController implements Initializable {
     void backjao1(/*ActionEvent event*/) {
 
         if(i==1){
-            System.out.println(" backjao1 "+i+" pane6");
+            System.out.println(" back jao1 "+i+" pane6");
 
             translate(0.5,pane6,900);i--;
         }else if(i==2){
-            System.out.println(" backjao1 "+i+" pane5");
+            System.out.println(" back jao1 "+i+" pane5");
             translate(0.5,pane6,900);i--;
 
         }else if(i==3){
-            System.out.println(" backjao1 "+i+" pane4");
+            System.out.println(" back jao1 "+i+" pane4");
 
             translate(0.5,pane4,900);i--;
         }else if(i==4){
-            System.out.println(" backjao1 "+i+" pane3");
+            System.out.println(" back jao1 "+i+" pane3");
 
             translate(0.5,pane3,900);//i--;
         }/*else if(i==5){
@@ -259,19 +259,19 @@ public class HomeController implements Initializable {
     //if(i==images.length-1)i=0;
    /* if(i==0){translate(1,pane1,-800);i++;}
     else*/ if(i==0){
-            System.out.println(" fontjao "+i+" pane2");
+            System.out.println(" frontjao "+i+" pane2");
             translate(0.5,pane2,-900);i++;
     }else if(i==1){
-            System.out.println(" fontjao "+i+" pane3");
+            System.out.println(" frontjao "+i+" pane3");
             translate(0.5,pane3,-903);i++;
     }else if(i==2){
-            System.out.println(" fontjao "+i+" pane4");
+            System.out.println(" frontjao "+i+" pane4");
             translate(0.5,pane4,-903);i++;
     }else if(i==3){
-            System.out.println(" fontjao "+i+" pane5");
+            System.out.println(" frontjao "+i+" pane5");
             translate(0.5,pane5,-902);i++;
     }else if(i==4){
-            System.out.println(" fontjao "+i+" pane6");
+            System.out.println(" frontjao "+i+" pane6");
         translate(0.5,pane6,-906);i++;
         f=0;
     }
@@ -282,19 +282,19 @@ public class HomeController implements Initializable {
     //if(i==images.length-1)i=0;
    /* if(i==0){translate(1,pane1,-800);i++;}
     else*/ if(i==0){
-            System.out.println(" fontjao1 "+i+" pane6");
+            System.out.println(" frontjao1 "+i+" pane6");
         translate(0.5,pane6,-900);i++;
     }else if(i==1){
-            System.out.println(" fontjao1 "+i+" pane5");
+            System.out.println(" frontjao1 "+i+" pane5");
         translate(0.5,pane5,-903);i++;
     }else if(i==2){
-            System.out.println(" fontjao1 "+i+" pane4");
+            System.out.println(" frontjao1 "+i+" pane4");
         translate(0.5,pane4,-903);i++;
     }else if(i==3){
-            System.out.println(" fontjao1 "+i+" pane3");
+            System.out.println(" frontjao1 "+i+" pane3");
         translate(0.5,pane3,-902);i++;
     }else if(i==4){
-            System.out.println(" fontjao1 "+i+" pane2");
+            System.out.println(" frontjao1 "+i+" pane2");
             f=0;
         translate(0.5,pane2,-906);i++;
     }/*else if(i==6){

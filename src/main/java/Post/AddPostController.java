@@ -18,10 +18,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import AdminDB.*;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import DB.ConnectionDb;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -90,6 +92,10 @@ public class AddPostController implements Initializable {
 
     @FXML
     private BorderPane pane1;
+    String imagef="src/main/Font/1.jpg";
+    Image image1;
+    @FXML
+    private Button imageup;
 
     @FXML
     void BbankClick(MouseEvent event) {
@@ -97,6 +103,37 @@ public class AddPostController implements Initializable {
     }
     @FXML
     void ChoiceClick(ActionEvent event) {
+
+    }
+    @FXML
+    void upimage(ActionEvent event) {
+         FileChooser fileChooser = new FileChooser();
+
+        //final Button openButton = new Button("Choose Background Image");
+             fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Select Image","*.jpg","*.png"));
+            // fileChooser.setInitialDirectory(new File("C:\\Users\\USER\\Pictures"));
+            File file = fileChooser.showOpenDialog(stage);
+            if (file != null) {
+                imagef = file.getAbsolutePath();
+                String s[]=imagef.split("\\\\");
+                //System.out.println(imagef);
+                System.out.println(s[s.length - 1]);
+                imageup.setText(s[s.length - 1]);
+               // File f= new File("src/main/file.image");
+
+                // openFile(file);
+                // where my problem is
+               image1 = new Image(file.toURI().toString());
+
+                // what I tried to do
+                // Image image1 = new Image(file);
+                //ImageView ip = new ImageView(image1);
+                /*BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false);*/
+/*
+                BackgroundImage backgroundImage = new BackgroundImage(image1, BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
+*/
+            }
+
 
     }
 
@@ -393,10 +430,12 @@ public class AddPostController implements Initializable {
     @FXML
     void Submit(ActionEvent event) {
         System.out.println("i am at add post");
+        File file1 = new File(imagef);
 
         try {
+            FileInputStream fis=new FileInputStream(file1);
             con=ConnectionDb.DBC();
-            String st = "INSERT INTO diasterlist (Title,Type, Address, Division, District,AddInfo) VALUES (?,?,?,?,?,?)";
+            String st = "INSERT INTO diasterlist (Title,Type, Address, Division, District,AddInfo,Image) VALUES (?,?,?,?,?,?,?)";
             PreparedStatement preparedStatement = (PreparedStatement) con.prepareStatement(st);
             preparedStatement.setString(1, diastertitle.getText());
             preparedStatement.setString(2, diaster.getValue().toString());
@@ -404,6 +443,7 @@ public class AddPostController implements Initializable {
             preparedStatement.setString(4, division.getValue().toString());
             preparedStatement.setString(5, district.getValue().toString());
             preparedStatement.setString(6, address1.getText().toString());
+            preparedStatement.setBinaryStream(7,fis,(int)file1.length());
             /*preparedStatement.setString(7, "1963890981");
             preparedStatement.setString(8, cbGender.getValue().toString());
             preparedStatement.setString(9, cbgroup.getValue().toString());
@@ -433,7 +473,7 @@ public class AddPostController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String []division1={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
         division.getItems().addAll(division1);
-        String []user={"EarthQuake","Blood","Fire","Cyclone","Cidor","Others"};
+        String []user={"EarthQuake","Storm Surge","Wildfire","Cyclone","Flood","Drought","Tsunami","Typhoon","LandSlide","Epidemic","Structural Collapse","Transport Disasters","Mining Accidents","Explosions and Fires","Others"};
         diaster.getItems().addAll(user);
         String []choiceb={"Profile","Logout"};
         choice.getItems().addAll(choiceb);

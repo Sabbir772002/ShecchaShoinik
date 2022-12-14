@@ -229,7 +229,7 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Button layoutX="213.0" layoutY="344.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="137.0" text="Upload image" />
+                  <Button fx:id="imageup" layoutX="213.0" layoutY="344.0" mnemonicParsing="false" onAction="#upimage" prefHeight="26.0" prefWidth="137.0" text="Upload image" />
                   <Button layoutX="238.0" layoutY="392.0" mnemonicParsing="false" onAction="#Submit" prefHeight="30.0" prefWidth="188.0" style="-fx-background-color: pink; -fx-background-radius: 10;" styleClass="bt" stylesheets="@../../Style/style.css" text="Submit Post">
                      <font>
                         <Font size="14.0" />

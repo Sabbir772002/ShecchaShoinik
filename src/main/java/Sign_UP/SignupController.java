@@ -16,6 +16,8 @@ import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -63,7 +65,6 @@ public class SignupController implements Initializable {
 
     public SignupController() {
       //  ConnectionDb o=new ConnectionDb();
-
         connection = (Connection) ConnectionDb.DBC();
     }
     @FXML
@@ -97,25 +98,44 @@ public class SignupController implements Initializable {
             stage.getIcons().add(image);
             Optional<ButtonType> result=alert.showAndWait();
         }else {
+           // Connection con;
+           // con=DB.ConnectionDb.DBC();
+            String sql = "SELECT * FROM userlist Where username = ?";
             try {
-                String st = "INSERT INTO userlist (Name,Username,Password,Division,District,DOB,ID,Gender,Volunteer,BG,Phone,Mail) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-                preparedStatement = (PreparedStatement) connection.prepareStatement(st);
-                preparedStatement.setString(1, name.getText());
-                preparedStatement.setString(2, username.getText());
-                preparedStatement.setString(3, password.getText());
-                preparedStatement.setString(4, cbdivision.getValue().toString());
-                preparedStatement.setString(5, cbdistrict.getValue().toString());
-                preparedStatement.setString(6, dob.getValue().toString());
-                preparedStatement.setString(7, "1963890981");
-                preparedStatement.setString(8, cbGender.getValue().toString());
-                preparedStatement.setString(9, cbgroup.getValue().toString());
-                preparedStatement.setString(10, bloodgroup.getValue().toString());
-                preparedStatement.setString(11, phone.getText());
-                preparedStatement.setString(12, mail.getText());
-                preparedStatement.execute();
-                preparedStatement.close();
-                connection.close();
-                System.out.println("THIK ASE INPUT");
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setString(1, username.getText().toString());
+                ResultSet resultSet = preparedStatement.executeQuery();
+                if (resultSet.next()) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Sign up Error!");
+                    alert.setHeaderText("Username already taken!\nPlease use another one.");
+                    // alert.setContentText("");
+                    File file = new File("src/main/Font/icon1.png");
+                    Image image = new Image(file.toURI().toString());
+                    stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(image);
+                    Optional<ButtonType> result=alert.showAndWait();
+
+                } else {
+                    try {
+                        String st = "INSERT INTO userlist (Name,Username,Password,Division,District,DOB,ID,Gender,Volunteer,BG,Phone,Mail) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                        preparedStatement = (PreparedStatement) connection.prepareStatement(st);
+                        preparedStatement.setString(1, name.getText());
+                        preparedStatement.setString(2, username.getText());
+                        preparedStatement.setString(3, password.getText());
+                        preparedStatement.setString(4, cbdivision.getValue().toString());
+                        preparedStatement.setString(5, cbdistrict.getValue().toString());
+                        preparedStatement.setString(6, dob.getValue().toString());
+                        preparedStatement.setString(7, "1963890981");
+                        preparedStatement.setString(8, cbGender.getValue().toString());
+                        preparedStatement.setString(9, cbgroup.getValue().toString());
+                        preparedStatement.setString(10, bloodgroup.getValue().toString());
+                        preparedStatement.setString(11, phone.getText());
+                        preparedStatement.setString(12, mail.getText());
+                        preparedStatement.execute();
+                        preparedStatement.close();
+                        connection.close();
+                        System.out.println("THIK ASE INPUT");
                /* try{
                     Dashboard.FXMLScene scene =  Dashboard.FXMLScene.load("Profile.fxml");
                     Parent root = scene.root;
@@ -129,16 +149,23 @@ public class SignupController implements Initializable {
                     System.out.println("vul hoilo profile button profile controller");
                 }*/
 
-                root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.setTitle("SIGN IN");
-                stage.show();
+                        root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
+                        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.setTitle("SIGN IN");
+                        stage.show();
 
-            } catch (Exception e) {
-                e.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            } catch (SQLException ex) {
+                System.err.println(ex.getMessage());
+
             }
+
         }
 
     }
@@ -203,7 +230,7 @@ public class SignupController implements Initializable {
         cb_sign_up.getItems().addAll(user);
         String []division={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
         cbdivision.getItems().addAll(division);
-        String []user2={"EarthQuake","Blood","Fire","Cyclone","Cidor","Others"};
+        String []user2={"EarthQuake","Storm Surge","Wildfire","Cyclone","Flood","Drought","Tsunami","Typhoon","LandSlide","Epidemic","Structural Collapse","Transport Disasters","Mining Accidents","Explosions and Fires","Others"};
         cbgroup.getItems().addAll(user2);
         String []user1={"Male","Female","Others"};
         cbGender.getItems().addAll(user1);

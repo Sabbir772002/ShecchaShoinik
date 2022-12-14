@@ -93,10 +93,10 @@ public class AdminProfileController implements Initializable {
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Post Diaster");
+            stage.setTitle("Post Disaster");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo profile button profile controller");
+            System.out.println("mistake in profile button profile controller");
         }
 
         /* *//* Node node = (Node) event.getSource();
@@ -106,7 +106,7 @@ public class AdminProfileController implements Initializable {
         // Step 3
         String name = u.getname();*//*
        // String email = u.getEmail();*/
-        System.out.println("vaiya ki khobor "+username);
+        System.out.println("Bhaiya ki khobor "+username);
 
     }
 
@@ -207,7 +207,7 @@ public class AdminProfileController implements Initializable {
             stage.setTitle("Profile");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo profile button profile controller");
+            System.out.println("Mistake in profile button profile Controller");
         }
 
 
@@ -426,7 +426,7 @@ public class AdminProfileController implements Initializable {
             admin.set(username);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Post Diaster");
+            stage.setTitle("Post Disaster");
             stage.show();
 
           /*  root = FXMLLoader.load(AddPostController.class.getResource("AddPost.fxml"));
