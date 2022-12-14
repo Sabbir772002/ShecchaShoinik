@@ -10,7 +10,7 @@ import Sign_in.SigninController;
 import TeamProfile.TeamProfileController;
 import UserProfile.ProfileController;
 import com.example.sheccashoinik.Application;
-import com.example.sheccashoinik.diaster;
+import com.example.sheccashoinik.disaster;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -107,28 +107,28 @@ public class TeamDashboardController implements Initializable {
     private ScrollPane spane;
 
     @FXML
-    private TableView<diaster> table;
+    private TableView<disaster> table;
     @FXML
-    private TableColumn<diaster, String> col_address;
+    private TableColumn<disaster, String> col_address;
 
     @FXML
-    private TableColumn<diaster, String> col_district;
+    private TableColumn<disaster, String> col_district;
 
     @FXML
-    private TableColumn<diaster, String> col_title;
+    private TableColumn<disaster, String> col_title;
 
     @FXML
-    private TableColumn<diaster, String> col_type;
+    private TableColumn<disaster, String> col_type;
 
     @FXML
-    private TableColumn<diaster, Integer> col_id;
+    private TableColumn<disaster, Integer> col_id;
     @FXML
     private TextField textfield;
-    ObservableList<diaster> listF;
+    ObservableList<disaster> listF;
     //int i=0;
     @FXML
     void search(KeyEvent e) {
-        ObservableList<diaster> list=FXCollections.observableArrayList();
+        ObservableList<disaster> list=FXCollections.observableArrayList();
         //i++;
         if(e.getCode() != KeyCode.ENTER){return;}
         if(e.getCode() == KeyCode.ENTER){
@@ -179,7 +179,7 @@ public class TeamDashboardController implements Initializable {
                         System.out.println("thik ase2");
                     }
                    if(i) {
-                       list.add(new diaster(s[0], s[1], s[2], s[3], s[4], Integer.parseInt(s[5]), s[6]));
+                       list.add(new disaster(s[0], s[1], s[2], s[3], s[4], Integer.parseInt(s[5]), s[6]));
                    }
 
                 }
@@ -224,11 +224,11 @@ public class TeamDashboardController implements Initializable {
     }*/
 
     void loadtable1(){
-        col_title.setCellValueFactory(new PropertyValueFactory<diaster,String>("Title"));
-        col_type.setCellValueFactory(new PropertyValueFactory<diaster,String>("Type"));
-        col_district.setCellValueFactory(new PropertyValueFactory<diaster,String>("District"));
-        col_address.setCellValueFactory(new PropertyValueFactory<diaster,String>("Address"));
-        col_id.setCellValueFactory(new PropertyValueFactory<diaster,Integer>("Id"));
+        col_title.setCellValueFactory(new PropertyValueFactory<disaster,String>("Title"));
+        col_type.setCellValueFactory(new PropertyValueFactory<disaster,String>("Type"));
+        col_district.setCellValueFactory(new PropertyValueFactory<disaster,String>("District"));
+        col_address.setCellValueFactory(new PropertyValueFactory<disaster,String>("Address"));
+        col_id.setCellValueFactory(new PropertyValueFactory<disaster,Integer>("Id"));
 
         //table.setItems(list);
         //listF=list;
@@ -236,8 +236,8 @@ public class TeamDashboardController implements Initializable {
 
     }
 
-    ObservableList<diaster> getdisasterList(){
-        ObservableList<diaster> disasterlist1 = FXCollections.observableArrayList();
+    ObservableList<disaster> getdisasterList(){
+        ObservableList<disaster> disasterlist1 = FXCollections.observableArrayList();
 
 
         return disasterlist1;
@@ -245,11 +245,11 @@ public class TeamDashboardController implements Initializable {
     int indexM = -1;
 
     void loadtable(){
-        col_title.setCellValueFactory(new PropertyValueFactory<diaster,String>("Title"));
-        col_type.setCellValueFactory(new PropertyValueFactory<diaster,String>("Type"));
-        col_district.setCellValueFactory(new PropertyValueFactory<diaster,String>("District"));
-        col_address.setCellValueFactory(new PropertyValueFactory<diaster,String>("Address"));
-        col_id.setCellValueFactory(new PropertyValueFactory<diaster,Integer>("Id"));
+        col_title.setCellValueFactory(new PropertyValueFactory<disaster,String>("Title"));
+        col_type.setCellValueFactory(new PropertyValueFactory<disaster,String>("Type"));
+        col_district.setCellValueFactory(new PropertyValueFactory<disaster,String>("District"));
+        col_address.setCellValueFactory(new PropertyValueFactory<disaster,String>("Address"));
+        col_id.setCellValueFactory(new PropertyValueFactory<disaster,Integer>("Id"));
 
         //table.setItems(list);
         listF = ConnectionDb.getdiasterlist();

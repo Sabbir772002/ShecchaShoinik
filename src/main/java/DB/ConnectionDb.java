@@ -6,7 +6,7 @@
 package DB;
 
 import Chat.userlist;
-import com.example.sheccashoinik.diaster;
+import com.example.sheccashoinik.disaster;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.sql.Connection;
@@ -30,16 +30,16 @@ public class ConnectionDb {
         }
 
     }
-    public static ObservableList<diaster> getdiasterlist(){
+    public static ObservableList<disaster> getdiasterlist(){
         Connection con =DBC();
-        ObservableList<diaster>list = FXCollections.observableArrayList();
+        ObservableList<disaster>list = FXCollections.observableArrayList();
         try {
             PreparedStatement ps =  con.prepareStatement("SELECT * FROM `diasterlist` ORDER BY Id DESC;");
             ResultSet rs = ps.executeQuery();
 
             while(rs.next()){
                 //String Title,Type, Address, Division, District, Id,AddInfo
-                list.add(new diaster((rs.getString(1)), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7)));
+                list.add(new disaster((rs.getString(1)), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7)));
             }
         } catch (Exception e) {
             System.out.println("error at bd backlist");
