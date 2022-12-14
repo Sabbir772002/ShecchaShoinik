@@ -8,7 +8,7 @@ import Others.TaskCompletedController;
 import Post.AddPostController;
 import Sign_in.SigninController;
 import UserProfile.ProfileController;
-import com.example.sheccashoinik.diaster;
+import com.example.sheccashoinik.disaster;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

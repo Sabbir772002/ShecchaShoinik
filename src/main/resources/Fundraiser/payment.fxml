@@ -5,19 +5,15 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Event.AdminCreateEvent">
+<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fundraiser.paymentcontroller">
     <!-- <left>
         <VBox layoutX="50.0" prefHeight="602.0" prefWidth="237.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
            <children>
@@ -172,7 +168,7 @@
                         </Label>
                         <VBox layoutX="13.0" layoutY="169.0" prefHeight="430.0" prefWidth="178.0">
                             <children>
-                                <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" prefHeight="22.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Home">
+                                <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" prefHeight="22.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Dashboard">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -205,31 +201,7 @@
                                         <Blend />
                                     </effect>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#vnear" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Volunteer Near">
-                                    <font>
-                                        <Font name="System Bold" size="13.0" />
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets top="5.0" />
-                                    </VBox.margin>
-                                </Button>
-                                <Button mnemonicParsing="false" onAction="#hresponse" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Help Response">
-                                    <font>
-                                        <Font name="System Bold" size="13.0" />
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets top="5.0" />
-                                    </VBox.margin>
-                                </Button>
-                                <Button mnemonicParsing="false" onAction="#task" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Task Completed">
-                                    <font>
-                                        <Font name="System Bold" size="13.0" />
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets top="5.0" />
-                                    </VBox.margin>
-                                </Button>
-                                <Button mnemonicParsing="false" onAction="#vapprove" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Volunteer Approve">
+                                <Button mnemonicParsing="false" onAction="#Vnear" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Volunteer Near">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -245,7 +217,31 @@
                                         <Insets top="5.0" />
                                     </VBox.margin>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#Event" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Event">
+                                <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Disaster Guidelines">
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="5.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#F" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="F">
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="5.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#H" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="H">
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="5.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#G" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="G">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -313,107 +309,10 @@
         </AnchorPane>
     </top>
     <center>
-        <AnchorPane prefHeight="537.0" prefWidth="782.0">
+        <AnchorPane prefHeight="601.0" prefWidth="586.0" style="-fx-cursor: had; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER">
             <children>
-                <VBox layoutX="-14.0" layoutY="6.0" prefHeight="538.0" prefWidth="782.0" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="-14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="6.0">
-                    <children>
-                        <AnchorPane prefHeight="55.0" prefWidth="782.0">
-                            <children>
-                                <Label layoutX="25.0" layoutY="7.0" prefHeight="42.0" prefWidth="147.0" text=" Event">
-                                    <font>
-                                        <Font name="Arial Bold" size="44.0" />
-                                    </font>
-                                </Label>
-                            </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="57.0" prefWidth="782.0">
-                            <children>
-                                <TextField layoutX="32.0" layoutY="13.0" prefHeight="30.0" prefWidth="309.0" promptText="Search event" />
-                                <Label alignment="CENTER" layoutX="382.0" layoutY="13.0" prefHeight="30.0" prefWidth="388.0" text="Seminar on guidelines to winter">
-                                    <font>
-                                        <Font name="System Bold" size="20.0" />
-                                    </font>
-                                </Label>
-                            </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="378.0" prefWidth="750.0">
-                            <children>
-                                <TableView fx:id="time" layoutX="35.0" layoutY="-1.0" prefHeight="479.0" prefWidth="306.0">
-                                    <columns>
-                                        <TableColumn fx:id="title" prefWidth="200.00001907348633" text="Event Name" />
-                                        <TableColumn minWidth="0.0" prefWidth="102.40000915527344" text="Date" />
-                                    </columns>
-                                </TableView>
-                                <Pane layoutX="349.0" prefHeight="142.0" prefWidth="434.0">
-                                    <children>
-                                        <ImageView fitHeight="119.0" fitWidth="487.0" layoutX="89.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../../../../../../Pictures/Social%20Work%20Campaign.png" />
-                                            </image>
-                                        </ImageView>
-                                    </children>
-                                </Pane>
-                                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                                <Label alignment="CENTER" layoutX="372.0" layoutY="150.0" prefHeight="30.0" prefWidth="388.0" text="Details">
-                                    <font>
-                                        <Font name="System Bold" size="20.0" />
-                                    </font>
-                                </Label>
-                                <Label layoutX="399.0" layoutY="189.0" prefHeight="31.0" prefWidth="101.0" text="Time:">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font>
-                                </Label>
-                                <Label alignment="CENTER" layoutX="544.0" layoutY="189.0" prefHeight="31.0" prefWidth="218.0" text="03:40">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font>
-                                </Label>
-                                <Label layoutX="399.0" layoutY="229.0" prefHeight="31.0" prefWidth="101.0" text="District:">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font>
-                                </Label>
-                                <Label alignment="CENTER" layoutX="546.0" layoutY="229.0" prefHeight="31.0" prefWidth="214.0" text="Dhaka">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font>
-                                </Label>
-                                <Label layoutX="399.0" layoutY="271.0" prefHeight="31.0" prefWidth="101.0" text="Division:">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font>
-                                </Label>
-                                <Label alignment="CENTER" layoutX="546.0" layoutY="271.0" prefHeight="31.0" prefWidth="214.0" text="Dhaka">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font>
-                                </Label>
-                                <Label layoutX="399.0" layoutY="311.0" prefHeight="31.0" prefWidth="101.0" text="Address:">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font>
-                                </Label>
-                                <Label alignment="CENTER" layoutX="546.0" layoutY="311.0" prefHeight="31.0" prefWidth="214.0" text="Dhaka">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font>
-                                </Label>
-                                <Button layoutX="532.0" layoutY="404.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: green;" text="Join" />
-                                <Label layoutX="399.0" layoutY="353.0" prefHeight="31.0" prefWidth="101.0" text="Location:">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font>
-                                </Label>
-                                <Label alignment="CENTER" layoutX="542.0" layoutY="353.0" prefHeight="31.0" prefWidth="229.0" text="UIU Playground ">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font>
-                                </Label>
-                            </children>
-                        </AnchorPane>
-                    </children>
-                </VBox>
+                <AnchorPane layoutX="27.0" layoutY="13.0" prefHeight="574.0" prefWidth="703.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-border-radius: 10; -fx-background-radius: 10;" />
             </children>
-        </AnchorPane>   </center>
+        </AnchorPane>
+    </center>
 </BorderPane>

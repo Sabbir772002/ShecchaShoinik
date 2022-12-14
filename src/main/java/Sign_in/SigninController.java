@@ -137,6 +137,7 @@ public class SigninController implements Initializable {
         String status = "Success";
         System.out.println( password.getText());
          usern = username.getText();
+
          //role=sign_in_box.getValue().toString();
         //ad.set(usern);
         String passw = password.getText();
