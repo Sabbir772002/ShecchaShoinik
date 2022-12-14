@@ -253,6 +253,7 @@ void loadtable(){
             //AdminDashboardController adminController = (AdminDashboardController) scene.controller;
             Back adminController = (Back) scene.controller;
             adminController.set(username, role);
+
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("UserProfile");
