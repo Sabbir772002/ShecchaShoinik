@@ -5,6 +5,7 @@
  */
 package DB;
 
+import Chat.userlist;
 import com.example.sheccashoinik.diaster;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -42,6 +43,28 @@ public class ConnectionDb {
             }
         } catch (Exception e) {
             System.out.println("error at bd backlist");
+        }finally{
+
+            try {
+               con.close();
+            } catch (Exception e) {
+            }
+        }
+        return list;
+    }
+    public static ObservableList<userlist> getuserlist(){
+        Connection con =DBC();
+        ObservableList<userlist>list = FXCollections.observableArrayList();
+        try {
+            PreparedStatement ps =  con.prepareStatement("SELECT Name,Username FROM `userlist`");
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                //String Title,Type, Address, Division, District, Id,AddInfo
+                list.add(new userlist(rs.getString(1), rs.getString(2))); //rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7)));
+            }
+        } catch (Exception e) {
+            System.out.println("error at db userlist");
         }finally{
 
             try {

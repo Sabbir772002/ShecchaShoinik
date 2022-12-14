@@ -1,5 +1,6 @@
 package AdminDB;
 
+import Chat.userlist;
 import DB.ConnectionDb;
 import Others.HelpResponseController;
 import Others.TaskCompletedController;
@@ -23,6 +24,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -31,8 +34,13 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
+import static com.sun.javafx.util.Utils.split;
 
 public class TeamDashboardController implements Initializable {
 
@@ -114,8 +122,120 @@ public class TeamDashboardController implements Initializable {
 
     @FXML
     private TableColumn<diaster, Integer> col_id;
-
+    @FXML
+    private TextField textfield;
     ObservableList<diaster> listF;
+    //int i=0;
+    @FXML
+    void search(KeyEvent e) {
+        ObservableList<diaster> list=FXCollections.observableArrayList();
+        //i++;
+        if(e.getCode() != KeyCode.ENTER){return;}
+        if(e.getCode() == KeyCode.ENTER){
+            Connection con =ConnectionDb.DBC();
+            //ObservableList<diaster>list = FXCollections.observableArrayList();
+            try {
+                /*PreparedStatement ps =  con.prepareStatement(
+                        "SELECT * FROM `diasterlist` WHERE" +
+                                      " Division='"+textfield.getText().toString()
+                                    +"' OR District='"+textfield.getText().toString()
+                                    +"' OR `Title`='"+textfield.getText().toString()
+                                    +"' OR `Type`='"+textfield.getText().toString()
+                                    +"' OR `Address`='"+textfield.getText().toString()
+                                    +"' OR `AddInfo`='"+textfield.getText().toString()
+                                    +"' OR `Id`='"+textfield.getText().toString()
+                                    +"' ORDER BY Id DESC;");*/
+                PreparedStatement ps = con.prepareStatement("SELECT * FROM `diasterlist` ORDER BY Id DESC;");
+                ResultSet rs = ps.executeQuery();
+               // +"' OR `Title`='"+textfield.getText().toString()
+               /* ps.setString(1,textfield.getText().toString());
+                ps.setString(2,textfield.getText().toString());*/
+               // ps.setString(1,textfield.getText().toString());
+                while(rs.next()){
+                    String s[]={rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),(rs.getInt(6))+"",rs.getString(7)};
+                   String s1=s[0]+" "+s[1]+" "+s[2]+" "+s[3]+" "+s[4]+" "+s[5]+" "+s[6];
+                      String s5[]= s1.split(" ");
+
+                    String s2=textfield.getText().toString()+"";
+                    System.out.println(s2);
+                    boolean i=false;
+                    for(int j=0;j<s5.length;j++){
+                      // System.out.println(textfield.getText().toString());
+                       // System.out.println(s2);
+/*
+                        if(s[j]==textfield.getText().toString()){
+*/                            if(s5[j].equalsIgnoreCase(s2)){
+                           // System.out.println((s[j])+"=="+textfield.getText().toString());
+                            i=true;
+                        }
+                    }
+                    s2+=" ";
+                    if(s2.equals("")){
+                        i=true;
+                        System.out.println("thik ase");
+                    }
+                    if(s2.equals(" ")){
+                        i=true;
+                        System.out.println("thik ase2");
+                    }
+                   if(i) {
+                       list.add(new diaster(s[0], s[1], s[2], s[3], s[4], Integer.parseInt(s[5]), s[6]));
+                   }
+
+                }
+               // rs.getString(1)), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7))
+            } catch (Exception ie) {
+                System.out.println("error at disaster backlist");
+            }finally{
+
+                try {
+                    con.close();
+                } catch (Exception  ee) {
+                }
+            }
+            listF=list;
+            loadtable1();
+        }else{
+            //i=0;
+            System.out.println("onk bar cole code");
+            loadtable();
+        }
+
+
+    }
+    //for user search
+   /* ObservableList<userlist>list = FXCollections.observableArrayList();
+            try {
+        PreparedStatement ps =  con.prepareStatement("SELECT Name,Username FROM `userlist`");
+        ResultSet rs = ps.executeQuery();
+
+        while(rs.next()){
+            //String Title,Type, Address, Division, District, Id,AddInfo
+            list.add(new userlist(rs.getString(1), rs.getString(2))); //rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7)));
+        }
+    } catch (Exception e) {
+        System.out.println("error at db userlist");
+    }finally{
+
+        try {
+            con.close();
+        } catch (Exception e) {
+        }
+    }*/
+
+    void loadtable1(){
+        col_title.setCellValueFactory(new PropertyValueFactory<diaster,String>("Title"));
+        col_type.setCellValueFactory(new PropertyValueFactory<diaster,String>("Type"));
+        col_district.setCellValueFactory(new PropertyValueFactory<diaster,String>("District"));
+        col_address.setCellValueFactory(new PropertyValueFactory<diaster,String>("Address"));
+        col_id.setCellValueFactory(new PropertyValueFactory<diaster,Integer>("Id"));
+
+        //table.setItems(list);
+        //listF=list;
+        table.setItems(listF);
+
+    }
+
     ObservableList<diaster> getdisasterList(){
         ObservableList<diaster> disasterlist1 = FXCollections.observableArrayList();
 
@@ -186,7 +306,7 @@ public class TeamDashboardController implements Initializable {
     @FXML
     void hresponse(ActionEvent event) {
         try{
-            Others.FXMLScene scene =  Others.FXMLScene.load("Post.fxml");
+            Others.FXMLScene scene =  Others.FXMLScene.load("HelpResponse.fxml");
             Parent root = scene.root;
             HelpResponseController admin= (HelpResponseController) scene.controller;
             admin.set(username,role);
@@ -221,14 +341,14 @@ public class TeamDashboardController implements Initializable {
     @FXML
     void vapprove(ActionEvent event) {
         try{
-            FXMLScene scene =  FXMLScene.load("VolunteerApprove.fxml");
+            Others.FXMLScene scene =  Others.FXMLScene.load("VolunteerApprove.fxml");
             Parent root = scene.root;
             System.out.println("tao run hoi na");
-            VolunteerApproveController admin= (VolunteerApproveController) scene.controller;
+            Others.VolunteerApproveController admin= (Others.VolunteerApproveController) scene.controller;
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Volunteer Near Me");
+            stage.setTitle("Volunteer Approve");
             stage.show();
         }catch (Exception e){
             System.out.println("Bhul hoilo V approve button Team controller "+e.getMessage());
@@ -450,5 +570,17 @@ public class TeamDashboardController implements Initializable {
     }
     @FXML
     public void vnear(ActionEvent actionEvent) {
+        try{
+            Shoinik.FXMLScene scene =  Shoinik.FXMLScene.load("Volunteerfromarea.fxml");
+            Parent root = scene.root;
+            Shoinik.VolunteerfromareaController admin= (Shoinik.VolunteerfromareaController) scene.controller;
+            admin.set(username,role);
+            stage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("VolunteerfromareaController");
+            stage.show();
+        }catch(IOException e){
+            System.out.println("Bhul hoilo F button userdashboard controller "+e.getMessage());
+        }
     }
 }

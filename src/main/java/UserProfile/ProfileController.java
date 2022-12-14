@@ -39,6 +39,15 @@ public class ProfileController implements Initializable {
     public String role1="";
     @FXML
     private Button pfield;
+    private String user2;
+    private String name2;
+
+    public void set(String username,String role,String name2, String user2) {
+        this.role1 = role;
+        this.username = username;
+        this.user2 = user2;
+        this.name2 = name2;
+    }
 @FXML
 void paction(ActionEvent event){
     try {
@@ -46,7 +55,7 @@ void paction(ActionEvent event){
             Chat.FXMLScene scene = Chat.FXMLScene.load("ChatPrivate.fxml");
             Parent root = scene.root;
             ChatPrivateController adminController = (ChatPrivateController) scene.controller;
-            adminController.set(username, role1);
+            adminController.set(username,role1,name2,user2);
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Chat");

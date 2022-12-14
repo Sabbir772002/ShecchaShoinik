@@ -47,11 +47,19 @@ public class ProfileController implements Initializable {
     private Parent root;
     public String username="";
     public String role="";
+    public String name2="";
+    public String user2="";
 
 
     public void set(String username,String role) {
         this.role = role;
         this.username = username;
+    }
+    public void set(String username,String role,String name2, String user2) {
+        this.role = role;
+        this.username = username;
+        this.user2 = user2;
+        this.name2 = name2;
     }
     @FXML
     void BbankClick(ActionEvent event) {
