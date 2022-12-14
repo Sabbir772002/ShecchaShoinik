@@ -247,11 +247,11 @@ void loadtable(){
 
         //System.out.println("vaiya ki khobor "+username);
         try{
-            //FXMLScene scene = FXMLScene.load("UserDashboard.fxml");
-            FXMLScene scene = FXMLScene.load("BackgroundDesign.fxml");
+            FXMLScene scene = FXMLScene.load("UserDashboard.fxml");
+            //FXMLScene scene = FXMLScene.load("BackgroundDesign.fxml");
             Parent root = scene.root;
-            //AdminDashboardController adminController = (AdminDashboardController) scene.controller;
-            Back adminController = (Back) scene.controller;
+            AdminDashboardController adminController = (AdminDashboardController) scene.controller;
+            //Back adminController = (Back) scene.controller;
             adminController.set(username, role);
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
