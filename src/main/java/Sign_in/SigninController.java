@@ -86,7 +86,7 @@ public class SigninController implements Initializable {
                         FXMLScene scene = FXMLScene.load("UserDashboard.fxml");
                         //FXMLScene scene = FXMLScene.load("BackgroundDesign.fxml");
                         Parent root = scene.root;
-                        AdminDashboardController adminController = (AdminDashboardController) scene.controller;
+                        UserDashboardController adminController = (UserDashboardController) scene.controller;
                         //Back adminController = (Back) scene.controller;
                         adminController.set(usern, role);
                         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

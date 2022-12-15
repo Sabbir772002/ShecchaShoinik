@@ -5,13 +5,12 @@ import AdminDB.TeamDashboardController;
 import AdminDB.UserDashboardController;
 import DB.ConnectionDb;
 import Others.TaskCompletedController;
-import Post.AddPostController;
+import PostBox.AddPostController;
 import Sign_in.SigninController;
 import UserProfile.ProfileController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,11 +24,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import java.io.*;
-import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.SocketException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -268,7 +264,7 @@ public class CommunityChatHandelar implements Initializable {
     @FXML
     void addpost(ActionEvent event) {
         try{
-            Post.FXMLScene scene =  Post.FXMLScene.load("AddPost.fxml");
+            PostBox.FXMLScene scene =  PostBox.FXMLScene.load("AddPost.fxml");
             Parent root = scene.root;
             AddPostController admin= (AddPostController) scene.controller;
             admin.set(username,role);

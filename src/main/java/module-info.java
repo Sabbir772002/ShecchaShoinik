@@ -29,8 +29,8 @@ module com.example.sheccashoinik {
     opens AdminDB to javafx.fxml;
     exports AdminDB;
 
-    opens Post to javafx.fxml;
-    exports Post;
+    opens PostBox to javafx.fxml;
+    exports PostBox;
 
     opens TeamProfile to javafx.fxml;
     exports TeamProfile;

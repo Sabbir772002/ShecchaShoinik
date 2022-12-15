@@ -1,11 +1,9 @@
 package AdminDB;
 
-import Chat.userlist;
 import DB.ConnectionDb;
 import Others.HelpResponseController;
 import Others.TaskCompletedController;
-import Others.VolunteerApproveController;
-import Post.AddPostController;
+import PostBox.AddPostController;
 import Sign_in.SigninController;
 import TeamProfile.TeamProfileController;
 import UserProfile.ProfileController;
@@ -39,8 +37,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
-import static com.sun.javafx.util.Utils.split;
 
 public class TeamDashboardController implements Initializable {
 
@@ -511,7 +507,7 @@ public class TeamDashboardController implements Initializable {
     void addpost(ActionEvent event) {
         System.out.println("hello");
         try{
-            Post.FXMLScene scene =  Post.FXMLScene.load("AddPost.fxml");
+            PostBox.FXMLScene scene =  PostBox.FXMLScene.load("AddPost.fxml");
             Parent root = scene.root;
             AddPostController admin= (AddPostController) scene.controller;
             admin.set(username,role);

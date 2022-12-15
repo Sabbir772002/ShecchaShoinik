@@ -1,4 +1,4 @@
-package Post;
+package PostBox;
 
 import AdminDB.FXMLScene;
 import Others.HelpResponseController;
@@ -125,13 +125,7 @@ public class AddPostController implements Initializable {
                 // where my problem is
                image1 = new Image(file.toURI().toString());
 
-                // what I tried to do
-                // Image image1 = new Image(file);
-                //ImageView ip = new ImageView(image1);
-                /*BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false);*/
-/*
-                BackgroundImage backgroundImage = new BackgroundImage(image1, BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
-*/
+
             }
 
 
@@ -219,14 +213,7 @@ public class AddPostController implements Initializable {
                 stage.setTitle("UserProfile");
                 stage.show();
 
-               /* AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard1.fxml");
-                Parent root = scene.root;
-                AdminDashboardController adminController = (AdminDashboardController) scene.controller;
-                adminController.set(username, role);
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.setTitle("AdminDashboard");
-                stage.show();*/
+
             }else{
                 AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard.fxml");
                 Parent root = scene.root;
@@ -236,14 +223,6 @@ public class AddPostController implements Initializable {
                 stage.setScene(new Scene(root));
                 stage.setTitle("TeamDashboard");
                 stage.show();
-                /*AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard1.fxml");
-                Parent root = scene.root;
-                TeamDashboardController adminController = (TeamDashboardController) scene.controller;
-                adminController.set(username, role);
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.setTitle("TeamDashboard");
-                stage.show();*/
             }
             }catch(IOException e){
             System.out.println("vul hoilo add post er dashboard "+e.getMessage());
@@ -287,7 +266,7 @@ public class AddPostController implements Initializable {
     }
 
     @FXML
-    void Vnear(ActionEvent event) {
+    void vnear(ActionEvent event) {
 
     }
 
@@ -379,12 +358,6 @@ public class AddPostController implements Initializable {
             }
         }else {
             try{
-                  /* root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
-                   stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                   scene = new Scene(root);
-                   stage.setScene(scene);
-                   stage.setTitle("SIGN IN");
-                   stage.show();*/
                 UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
                 Parent root = scene.root;
                 ProfileController adminController = (ProfileController) scene.controller;
@@ -397,20 +370,6 @@ public class AddPostController implements Initializable {
             }catch (Exception e){
 
             }
-               /* try {
-                    //  FxmlLoader o = new FxmlLoader();
-                    p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
-
-                    pane1.setCenter(p);
-                    stage.setTitle("Profile");
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                   stage.setScene(scene);
-                    stage.setTitle("Profile");
-                    stage.show();
-                    System.out.println("helloApplication");
-                } catch (Exception e) {
-
-                }*/
         }
 
     }
@@ -444,12 +403,6 @@ public class AddPostController implements Initializable {
             preparedStatement.setString(5, district.getValue().toString());
             preparedStatement.setString(6, address1.getText().toString());
             preparedStatement.setBinaryStream(7,fis,(int)file1.length());
-            /*preparedStatement.setString(7, "1963890981");
-            preparedStatement.setString(8, cbGender.getValue().toString());
-            preparedStatement.setString(9, cbgroup.getValue().toString());
-            preparedStatement.setString(10, bloodgroup.getValue().toString());
-            preparedStatement.setString(11, phone.getText());
-            preparedStatement.setString(12, mail.getText());*/
             preparedStatement.execute();
             preparedStatement.close();
             con.close();
