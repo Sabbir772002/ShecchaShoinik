@@ -1,9 +1,9 @@
-package AdminDB;
+package Event;
 
+import AdminDB.AdminDashboardController;
 import AdminProfile.AdminProfileController;
 import BloodBank.BloodBankController;
 import DB.ConnectionDb;
-import Event.EventApproveController;
 import Others.TeamApproveController;
 import UserProfile.ProfileController;
 import Post.AddPostController;
@@ -37,7 +37,7 @@ import java.sql.ResultSet;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class AdminDashboardController implements Initializable {
+public class EventApproveController implements Initializable {
 
     @FXML
     private BorderPane pane1;
@@ -99,16 +99,6 @@ public class AdminDashboardController implements Initializable {
             Connection con =ConnectionDb.DBC();
             //ObservableList<diaster>list = FXCollections.observableArrayList();
             try {
-                /*PreparedStatement ps =  con.prepareStatement(
-                        "SELECT * FROM `diasterlist` WHERE" +
-                                      " Division='"+textfield.getText().toString()
-                                    +"' OR District='"+textfield.getText().toString()
-                                    +"' OR `Title`='"+textfield.getText().toString()
-                                    +"' OR `Type`='"+textfield.getText().toString()
-                                    +"' OR `Address`='"+textfield.getText().toString()
-                                    +"' OR `AddInfo`='"+textfield.getText().toString()
-                                    +"' OR `Id`='"+textfield.getText().toString()
-                                    +"' ORDER BY Id DESC;");*/
                 PreparedStatement ps = con.prepareStatement("SELECT * FROM `diasterlist` ORDER BY Id DESC;");
                 ResultSet rs = ps.executeQuery();
                 // +"' OR `Title`='"+textfield.getText().toString()
@@ -167,25 +157,6 @@ public class AdminDashboardController implements Initializable {
 
 
     }
-    //for user search
-   /* ObservableList<userlist>list = FXCollections.observableArrayList();
-            try {
-        PreparedStatement ps =  con.prepareStatement("SELECT Name,Username FROM `userlist`");
-        ResultSet rs = ps.executeQuery();
-        while(rs.next()){
-            //String Title,Type, Address, Division, District, Id,AddInfo
-            list.add(new userlist(rs.getString(1), rs.getString(2))); //rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7)));
-        }
-    } catch (Exception e) {
-        System.out.println("error at db userlist");
-    }finally{
-
-        try {
-            con.close();
-        } catch (Exception e) {
-        }
-    }*/
-
     void loadtable1(){
         col_title.setCellValueFactory(new PropertyValueFactory<disaster,String>("Title"));
         col_type.setCellValueFactory(new PropertyValueFactory<disaster,String>("Type"));
@@ -211,14 +182,10 @@ public class AdminDashboardController implements Initializable {
             stage.setTitle("Blood Bank ");
             stage.show();
         }catch (Exception e){
-            System.out.println("vul hoilo AdminDashboardController "+e.getMessage());
+            System.out.println("vul hoilo bbankclick AdminDashboardController "+e.getMessage());
         }
     }
 
-    @FXML
-    void Cevent(ActionEvent event) {
-
-    }
     @FXML
     void Control(ActionEvent event) {
 
@@ -366,7 +333,7 @@ public class AdminDashboardController implements Initializable {
             Image image = new Image(file.toURI().toString());
             stage = (Stage) alert.getDialogPane().getScene().getWindow();
             stage.getIcons().add(image);
-           // alert.initOwner(stage);
+            // alert.initOwner(stage);
             //alert.setGraphic(new ImageView(image));
             //user.setImage(image);
             Optional<ButtonType> result=alert.showAndWait();
@@ -402,65 +369,7 @@ public class AdminDashboardController implements Initializable {
         }catch (Exception e){
             System.out.println("vul hoilo Admin Dashbaord profile button profile controller");
         }
-       /* try {
-            System.out.println("ok");
-
-          //Pane p = FXMLScene.loadpane("Profile.fxml");
-            FXMLLoader fxmlLoader = FXMLScene.loadpane("Profile.fxml");
-            p=fxmlLoader.load();
-            //Parent root = scene.root;
-            //p = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-            // p=(Pane)scene;
-           // FXMLLoader fxmlLoader = (FXMLLoader) (this.p.getScene().getUserData());
-            AdminDashboardController controller = (AdminDashboardController) fxmlLoader.getController();
-         //  AdminDashboardController adminController = (AdminDashboardController) scene.controller;
-            controller.set(username+" vai");
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.setScene(new Scene(root));
-            stage.setTitle("Profile");
-            pane1.setCenter(p);
-            stage.show();
-        }
-        catch (IOException e) {
-            System.out.println("error vai \n"+e);
-
-        }*/
-        /*try {
-            System.out.println("ok");
-
-            *//*FXMLScene scene = FXMLScene.load("Profile.fxml");
-            Parent root = scene.root;*//*
-            p = FXMLLoader.load(Dashboard.ProfileController.class.getResource("Profile.fxml"));
-           // p=(Pane)scene;
-            pane1.setCenter(p);
-           // AdminDashboardController adminController = (AdminDashboardController) scene.controller;
-           // adminController.set(username);
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.setScene(new Scene(root));
-            stage.setTitle("Profile");
-            stage.show();
-        }
-        catch (Exception e) {
-
-        }*/
-
-
-
-
-           /* try {
-                // FXMLLoader o = new FXMLLoader(Profile.ProfileController.class.getResource("Profile.fxml"));
-                p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
-                pane1.setCenter(p);
-                stage.setTitle("Profile");
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-                stage.setTitle("Profile");
-                stage.show();
-               // System.out.println("helloApplication");
-            } catch (Exception e) {
-
-            }*/
-        }
+    }
 
 
 
@@ -510,40 +419,22 @@ public class AdminDashboardController implements Initializable {
                 e.printStackTrace();
             }
         }else {
-               try{
-                  /* root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
-                   stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                   scene = new Scene(root);
-                   stage.setScene(scene);
-                   stage.setTitle("SIGN IN");
-                   stage.show();*/
-                   UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
-                   Parent root = scene.root;
-                   ProfileController adminController = (ProfileController) scene.controller;
-                   adminController.set(username,role);
-                   stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                   stage.setScene(new Scene(root));
-                   stage.setTitle("Profile");
-                   stage.show();
+            try{
 
-               }catch (Exception e){
+                UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
+                Parent root = scene.root;
+                ProfileController adminController = (ProfileController) scene.controller;
+                adminController.set(username,role);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Profile");
+                stage.show();
 
-               }
-               /* try {
-                    //  FxmlLoader o = new FxmlLoader();
-                    p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
+            }catch (Exception e){
 
-                    pane1.setCenter(p);
-                    stage.setTitle("Profile");
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                   stage.setScene(scene);
-                    stage.setTitle("Profile");
-                    stage.show();
-                    System.out.println("helloApplication");
-                } catch (Exception e) {
-
-                }*/
             }
+
+        }
 
     }
     @FXML
@@ -559,13 +450,6 @@ public class AdminDashboardController implements Initializable {
             stage.setTitle("Post Diaster");
             stage.show();
 
-          /*  root = FXMLLoader.load(AddPostController.class.getResource("AddPost.fxml"));
-
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("SIGN IN");
-            stage.show();*/
 
         }catch (Exception e ){
 
@@ -597,7 +481,7 @@ public class AdminDashboardController implements Initializable {
         File file1 = new File("src/main/Font/1.png");
         Image image1 = new Image(file1.toURI().toString());
         bimage.setImage(image1);
-         file1 = new File("src/main/Font/logotext.png");
+        file1 = new File("src/main/Font/logotext.png");
         Image image4 = new Image(file1.toURI().toString());
         logoimage.setImage(image4);
         file1 = new File("src/main/Font/icon1.png");
@@ -607,8 +491,21 @@ public class AdminDashboardController implements Initializable {
         Image image6 = new Image(file1.toURI().toString());
         search.setImage(image6);
         username= Application.oname;
-       loadtable();
-     //   choice.setOnAction(this::ChoiceClick);
+        loadtable();
+        //   choice.setOnAction(this::ChoiceClick);
 
+    }
+
+    @FXML
+    public void vapprove(ActionEvent actionEvent) {
+    }
+    @FXML
+    public void task(ActionEvent actionEvent) {
+    }
+    @FXML
+    public void hresponse(ActionEvent actionEvent) {
+    }
+    @FXML
+    public void vnear(ActionEvent actionEvent) {
     }
 }

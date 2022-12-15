@@ -163,7 +163,10 @@ public class BloodBankController implements Initializable {
             System.out.println("Bhul hoilo Dashboard button bloodbank controller");
         }
     }
+@FXML
+void hrequest(ActionEvent e){
 
+}
     @FXML
     void Diaster(ActionEvent event) throws IOException {
 

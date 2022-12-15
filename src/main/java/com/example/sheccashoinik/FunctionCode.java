@@ -31,8 +31,49 @@ public class FunctionCode {
     String role;
     private Stage stage;
 /*
-    @FXML
+ @FXML
     void Dashboard(ActionEvent event) {
+        try {
+            if (role.equals("User")) {
+                FXMLScene scene = FXMLScene.load("UserDashboard.fxml");
+                Parent root = scene.root;
+                UserDashboardController adminController = (UserDashboardController) scene.controller;
+                adminController.set(username, role);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("UserProfile");
+                stage.show();
+            }else if(role.equals("Admin")){
+                FXMLScene scene = FXMLScene.load("AdminDashboard.fxml");
+                Parent root = scene.root;
+                AdminDashboardController adminController = (AdminDashboardController) scene.controller;
+                adminController.set(username, role);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("UserProfile");
+                stage.show();
+
+
+
+
+            }else{
+                    FXMLScene scene = FXMLScene.load("TeamDashboard.fxml");
+                    Parent root = scene.root;
+                    TeamDashboardController adminController = (TeamDashboardController) scene.controller;
+                    adminController.set(username, role);
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(new Scene(root));
+                    stage.setTitle("TeamDashboard");
+                    stage.show();
+                    }
+                    }catch(IOException e){
+                    System.out.println("vul hoilo add post er dashboard "+e.getMessage());
+                    }
+                    }
+
+
+    @FXML
+    void Dashboard1(ActionEvent event) {
         //loadtable();
         //System.out.println("vaiya ki khobor "+username);
         try{
@@ -51,6 +92,8 @@ public class FunctionCode {
             System.out.println("vul hoilo Dashboard button userdashboard controller");
         }
     }
+
+
     @FXML
     void Diaster(ActionEvent event) throws IOException {
 

@@ -83,11 +83,11 @@ public class SigninController implements Initializable {
                 Optional<ButtonType> result=alert.showAndWait();
                 if(alert.getResult().getText().compareTo("OK")==0){
                     if(role.equals("User")) {
-                        //FXMLScene scene = FXMLScene.load("UserDashboard.fxml");
-                        FXMLScene scene = FXMLScene.load("BackgroundDesign.fxml");
+                        FXMLScene scene = FXMLScene.load("UserDashboard.fxml");
+                        //FXMLScene scene = FXMLScene.load("BackgroundDesign.fxml");
                         Parent root = scene.root;
-                        //AdminDashboardController adminController = (AdminDashboardController) scene.controller;
-                        Back adminController = (Back) scene.controller;
+                        UserDashboardController adminController = (UserDashboardController) scene.controller;
+                        //Back adminController = (Back) scene.controller;
                         adminController.set(usern, role);
                         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.setScene(new Scene(root));
@@ -95,7 +95,7 @@ public class SigninController implements Initializable {
                         stage.show();
                     }else if(role.equals("Admin")){
                         FXMLScene scene = FXMLScene.load("AdminDashboard.fxml");
-                        Parent root = scene.root;
+                        root = scene.root;
                         AdminDashboardController adminController = (AdminDashboardController) scene.controller;
                         adminController.set(usern, role);
                         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

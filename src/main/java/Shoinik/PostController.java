@@ -1,4 +1,4 @@
-package Event;
+package Shoinik;
 
 import AdminDB.AdminDashboardController;
 import AdminDB.FXMLScene;
@@ -23,6 +23,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -30,14 +31,14 @@ import java.sql.Connection;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class ViewEvent implements Initializable {
+public class PostController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
     public String username="";
     public String role="";
     Connection con;
-    public ViewEvent(){
+    public PostController(){
         con=ConnectionDb.DBC();
     }
 
@@ -49,7 +50,6 @@ public class ViewEvent implements Initializable {
         this.role = role;
         System.out.println(username);
     }
-
     @FXML
     private Label address;
 
@@ -122,6 +122,14 @@ public class ViewEvent implements Initializable {
             // openFile(file);
             // where my problem is
             image1 = new Image(file.toURI().toString());
+
+            // what I tried to do
+            // Image image1 = new Image(file);
+            //ImageView ip = new ImageView(image1);
+            /*BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false);*/
+/*
+                BackgroundImage backgroundImage = new BackgroundImage(image1, BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
+*/
         }
 
 
@@ -154,8 +162,15 @@ public class ViewEvent implements Initializable {
                 stage.setTitle("UserProfile");
                 stage.show();
 
-
-            }else {
+               /* AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard1.fxml");
+                Parent root = scene.root;
+                AdminDashboardController adminController = (AdminDashboardController) scene.controller;
+                adminController.set(username, role);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("AdminDashboard");
+                stage.show();*/
+            }else{
                 FXMLScene scene = FXMLScene.load("TeamDashboard.fxml");
                 Parent root = scene.root;
                 TeamDashboardController adminController = (TeamDashboardController) scene.controller;
@@ -164,6 +179,14 @@ public class ViewEvent implements Initializable {
                 stage.setScene(new Scene(root));
                 stage.setTitle("TeamDashboard");
                 stage.show();
+                /*AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard1.fxml");
+                Parent root = scene.root;
+                TeamDashboardController adminController = (TeamDashboardController) scene.controller;
+                adminController.set(username, role);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("TeamDashboard");
+                stage.show();*/
             }
         }catch(IOException e){
             System.out.println("vul hoilo add post er dashboard "+e.getMessage());

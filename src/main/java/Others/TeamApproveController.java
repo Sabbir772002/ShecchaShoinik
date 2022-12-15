@@ -85,6 +85,22 @@ public class TeamApproveController implements Initializable {
         }
     }
 
+     @FXML
+    void H(ActionEvent event) {
+        try{
+            Others.FXMLScene scene =  Others.FXMLScene.load("TeamApprove.fxml");
+            Parent root = scene.root;
+            TeamApproveController admin= (TeamApproveController) scene.controller;
+            admin.set(username,role);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Team Approve");
+            stage.show();
+        }catch (Exception e){
+            System.out.println("vul hoilo Teamaopprove TeamApproveController"+e.getMessage());
+        }
+    }
+
     @FXML
     void Cevent(ActionEvent event) {
 

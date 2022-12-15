@@ -1,11 +1,10 @@
-package Event;
+package Others;
 
 import AdminDB.AdminDashboardController;
 import AdminDB.FXMLScene;
 import AdminDB.TeamDashboardController;
 import AdminDB.UserDashboardController;
 import DB.ConnectionDb;
-import Others.HelpResponseController;
 import Sign_in.SigninController;
 import UserProfile.ProfileController;
 import com.example.sheccashoinik.Application;
@@ -23,6 +22,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -30,14 +30,14 @@ import java.sql.Connection;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class ViewEvent implements Initializable {
+public class PostController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
     public String username="";
     public String role="";
     Connection con;
-    public ViewEvent(){
+    public PostController(){
         con=ConnectionDb.DBC();
     }
 
@@ -49,7 +49,6 @@ public class ViewEvent implements Initializable {
         this.role = role;
         System.out.println(username);
     }
-
     @FXML
     private Label address;
 
@@ -102,31 +101,8 @@ public class ViewEvent implements Initializable {
     @FXML
     void ChoiceClick(ActionEvent event) {
 
-    }
-    @FXML
-    void upimage(ActionEvent event) {
-        FileChooser fileChooser = new FileChooser();
-
-        //final Button openButton = new Button("Choose Background Image");
-        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Select Image","*.jpg","*.png"));
-        // fileChooser.setInitialDirectory(new File("C:\\Users\\USER\\Pictures"));
-        File file = fileChooser.showOpenDialog(stage);
-        if (file != null) {
-            imagef = file.getAbsolutePath();
-            String s[]=imagef.split("\\\\");
-            //System.out.println(imagef);
-            System.out.println(s[s.length - 1]);
-            imageup.setText(s[s.length - 1]);
-            // File f= new File("src/main/file.image");
-
-            // openFile(file);
-            // where my problem is
-            image1 = new Image(file.toURI().toString());
-        }
-
 
     }
-
     @FXML
     void ChoiceClick(MouseEvent event) {
 
@@ -154,8 +130,15 @@ public class ViewEvent implements Initializable {
                 stage.setTitle("UserProfile");
                 stage.show();
 
-
-            }else {
+               /* AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard1.fxml");
+                Parent root = scene.root;
+                AdminDashboardController adminController = (AdminDashboardController) scene.controller;
+                adminController.set(username, role);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("AdminDashboard");
+                stage.show();*/
+            }else{
                 FXMLScene scene = FXMLScene.load("TeamDashboard.fxml");
                 Parent root = scene.root;
                 TeamDashboardController adminController = (TeamDashboardController) scene.controller;
@@ -164,6 +147,14 @@ public class ViewEvent implements Initializable {
                 stage.setScene(new Scene(root));
                 stage.setTitle("TeamDashboard");
                 stage.show();
+                /*AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard1.fxml");
+                Parent root = scene.root;
+                TeamDashboardController adminController = (TeamDashboardController) scene.controller;
+                adminController.set(username, role);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("TeamDashboard");
+                stage.show();*/
             }
         }catch(IOException e){
             System.out.println("vul hoilo add post er dashboard "+e.getMessage());
@@ -307,6 +298,12 @@ public class ViewEvent implements Initializable {
             }
         }else {
             try{
+                  /* root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
+                   stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                   scene = new Scene(root);
+                   stage.setScene(scene);
+                   stage.setTitle("SIGN IN");
+                   stage.show();*/
                 UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
                 Parent root = scene.root;
                 ProfileController adminController = (ProfileController) scene.controller;

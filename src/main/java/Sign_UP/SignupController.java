@@ -136,18 +136,6 @@ public class SignupController implements Initializable {
                         preparedStatement.close();
                         connection.close();
                         System.out.println("THIK ASE INPUT");
-               /* try{
-                    Dashboard.FXMLScene scene =  Dashboard.FXMLScene.load("Profile.fxml");
-                    Parent root = scene.root;
-                    SigninController admin= (SigninController) scene.controller;
-                    admin.set(username.getText().toString());
-                    stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-                    stage.setScene(new Scene(root));
-                    stage.setTitle("Post Diaster");
-                    stage.show();
-                }catch (Exception e){
-                    System.out.println("vul hoilo profile button profile controller");
-                }*/
 
                         root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
                         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
