@@ -2,6 +2,8 @@ package AdminDB;
 
 import Chat.CommunityChatHandelar;
 import DB.ConnectionDb;
+import Others.HelpResponseController;
+import Others.TaskCompletedController;
 import Post.AddPostController;
 import Sign_in.SigninController;
 import UserProfile.ProfileController;
@@ -41,11 +43,6 @@ public class Back implements Initializable {
     @FXML
     private BorderPane pane1;
 
-  /*  @FXML
-    private Button Bbank;
-
-    @FXML
-    private Label Logo1;*/
 
     @FXML
     private ChoiceBox<String> choice;
@@ -87,9 +84,6 @@ public class Back implements Initializable {
 
     @FXML
     private ImageView logoimage;
-
-    @FXML
-    private ScrollPane spane;
 
     @FXML
     private TableView<disaster> table;
@@ -244,7 +238,6 @@ void loadtable(){
     @FXML
     void Dashboard(ActionEvent event) {
     loadtable();
-
         //System.out.println("vaiya ki khobor "+username);
         try{
             //FXMLScene scene = FXMLScene.load("UserDashboard.fxml");
@@ -262,31 +255,8 @@ void loadtable(){
             System.out.println("vul hoilo Dashboard button userdashboard controller");
         }
     }
-
     @FXML
     void Diaster(ActionEvent event) throws IOException {
-
-
-
-        //for cheking purposes only
-                  /*  VBox vbox[]=new VBox[3];
-                    for(int i =0;i<3;i++) {
-                        p = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
-                        vbox[i]=new VBox();
-                        vbox[i].getChildren().add(p);
-                        *//*stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                        scene = new Scene(root);
-                        stage.setScene(scene);
-                        stage.setTitle("SIGN IN");
-                        stage.show();*//*
-
-                    }
-                    //AnchorPane apane = new AnchorPane();
-                    HBox a = new HBox();
-                    a.getChildren().add(vbox);
-                    pane1.setCenter(vbox);
-            */
-
 
     }
     @FXML
@@ -299,6 +269,60 @@ void loadtable(){
 
     @FXML
     void hrequest(ActionEvent event) {
+
+
+
+    }
+    @FXML
+    void hresponse(ActionEvent event) {
+        try{
+            Others.FXMLScene scene =  Others.FXMLScene.load("HelpResponse.fxml");
+            Parent root = scene.root;
+            HelpResponseController admin= (HelpResponseController) scene.controller;
+            admin.set(username,role);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Help Response");
+            stage.show();
+        }catch (Exception e){
+            System.out.println("Bhul hoilo team dashboard button Help response controller "+e.getMessage());
+        }
+
+
+    }
+
+    @FXML
+    void task(ActionEvent event) {
+        try{
+            Others.FXMLScene scene =  Others.FXMLScene.load("TaskCompleted.fxml");
+            Parent root = scene.root;
+            TaskCompletedController admin= (TaskCompletedController) scene.controller;
+            admin.set(username,role);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Task Completed");
+            stage.show();
+        }catch (Exception e){
+            System.out.println("bhul hoilo team dashboard button G controller "+e.getMessage());
+        }
+
+    }
+
+    @FXML
+    void vapprove(ActionEvent event) {
+        try{
+            Others.FXMLScene scene =  Others.FXMLScene.load("VolunteerApprove.fxml");
+            Parent root = scene.root;
+            System.out.println("tao run hoi na");
+            Others.VolunteerApproveController admin= (Others.VolunteerApproveController) scene.controller;
+            admin.set(username,role);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Volunteer Approve");
+            stage.show();
+        }catch (Exception e){
+            System.out.println("Bhul hoilo V approve button Team controller "+e.getMessage());
+        }
 
     }
 
@@ -455,21 +479,7 @@ void BbankClick(ActionEvent event){
                }catch (Exception e){
 
                }
-               /* try {
-                    //  FxmlLoader o = new FxmlLoader();
-                    p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
-
-                    pane1.setCenter(p);
-                    stage.setTitle("Profile");
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                   stage.setScene(scene);
-                    stage.setTitle("Profile");
-                    stage.show();
-                    System.out.println("helloApplication");
-                } catch (Exception e) {
-
-                }*/
-            }
+        }
 
     }
     @FXML
@@ -508,6 +518,8 @@ void BbankClick(ActionEvent event){
     private ImageView dpimage;
     @FXML
     private ImageView simage;
+    @FXML
+    private ImageView postimage;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         /*user.setText(username);
@@ -543,10 +555,21 @@ void BbankClick(ActionEvent event){
     }
     @FXML
     void tableclick(MouseEvent event) {
-        System.out.println("click korse ");
-    }
-    @FXML
-    void tableclick(DragEvent event) {
+        try{
+            Post.FXMLScene scene =  Post.FXMLScene.load("Post.fxml");
+            Parent root = scene.root;
+            Post.Post admin= (Post.Post) scene.controller;
+            admin.set(username,role);
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Post");
+            stage.show();
+
+
+        }catch (Exception e ){
+            System.out.println(e.getMessage());
+
+        }
         System.out.println("click korse ");
     }
 }

@@ -1,137 +1,36 @@
-package Post;
+package com.example.sheccashoinik;
 
+import AdminDB.Back;
 import AdminDB.FXMLScene;
 import Chat.CommunityChatHandelar;
 import Others.HelpResponseController;
 import Others.TaskCompletedController;
-import UserProfile.ProfileController;
+import Post.AddPostController;
 import Sign_in.SigninController;
-import com.example.sheccashoinik.Application;
+import UserProfile.ProfileController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import AdminDB.*;
-import Post.*;
-import javafx.stage.FileChooser;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import DB.ConnectionDb;
+
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.util.Optional;
-import java.util.ResourceBundle;
 
-public class Post implements Initializable {
+
+public class FunctionCode {
+    String username;
+    String role;
     private Stage stage;
-    private Scene scene;
-    private Parent root;
-    public String username="";
-    public String role="";
-    Connection con;
-    public Post(){
-        con=ConnectionDb.DBC();
-    }
-
-
-    public void set(String username,String role) {
-        user.setText(username);
-        rolee.setText("@"+role);
-        this.username = username;
-        this.role = role;
-        System.out.println(username);
-    }
-    @FXML
-    private Label address;
-
-
-    @FXML
-    private TextField address1;
-
-    @FXML
-    private Button b;
-
-    @FXML
-    private Button bbutton;
-
-    @FXML
-    private ImageView bimage;
-
-    @FXML
-    private ChoiceBox<String> choice;
-
-    @FXML
-    private TextField diastertitle;
-
-    @FXML
-    private ComboBox<String> diaster;
-
-    @FXML
-    private Label district;
-    @FXML
-    private Label division;
-
-    @FXML
-    private ImageView imageview;
-
-    @FXML
-    private ImageView imageview1;
-
-    @FXML
-    private ImageView logoimage;
-
-    @FXML
-    private BorderPane pane1;
-    String imagef="src/main/Font/1.jpg";
-    Image image1;
-    @FXML
-    private Button imageup;
-
-    @FXML
-    void BbankClick(MouseEvent event) {
-
-    }
-    @FXML
-    void ChoiceClick(ActionEvent event) {
-
-    }
-    @FXML
-    void upimage(ActionEvent event) {
-        FileChooser fileChooser = new FileChooser();
-
-
-        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Select Image","*.jpg","*.png"));
-        fileChooser.setInitialDirectory(new File("C:\\Users\\USER\\Pictures"));
-        File file = fileChooser.showOpenDialog(stage);
-        if (file != null) {
-            imagef = file.getAbsolutePath();
-            String s[]=imagef.split("\\\\");
-            //System.out.println(imagef);
-            System.out.println(s[s.length - 1]);
-            imageup.setText(s[s.length - 1]);
-            image1 = new Image(file.toURI().toString());
-
-        }
-
-
-    }
-
-    @FXML
-    void ChoiceClick(MouseEvent event) {
-
-    }
-
+/*
     @FXML
     void Dashboard(ActionEvent event) {
         //loadtable();
@@ -143,6 +42,7 @@ public class Post implements Initializable {
             //AdminDashboardController adminController = (AdminDashboardController) scene.controller;
             Back adminController = (Back) scene.controller;
             adminController.set(username, role);
+
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("UserProfile");
@@ -289,6 +189,8 @@ public class Post implements Initializable {
         }
 
     }
+    Pane p;
+
     @FXML
     void BbankClick(ActionEvent event){
 
@@ -309,6 +211,27 @@ public class Post implements Initializable {
             System.out.println("vul hoilo profile button Userdashboard controller "+e.getMessage());
         }
 
+    }
+
+
+
+    @FXML
+    void ChoiceClick(MouseEvent event) {
+        if(choice.getValue().toString().equals("Logout")){
+            try {
+
+                root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
+
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.setTitle("SIGN IN");
+                stage.show();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
     @FXML
     void Choiceclick(ActionEvent event) {
@@ -359,7 +282,7 @@ public class Post implements Initializable {
     void addpost(ActionEvent event) {
         System.out.println("hello");
         try{
-            FXMLScene scene =  FXMLScene.load("AddPost.fxml");
+            Post.FXMLScene scene =  Post.FXMLScene.load("AddPost.fxml");
             Parent root = scene.root;
             AddPostController admin= (AddPostController) scene.controller;
             admin.set(username,role);
@@ -373,76 +296,5 @@ public class Post implements Initializable {
 
         }
 
-    }
-
-    @FXML
-    private Label rolee;
-
-    @FXML
-    private Label user;
-
-
-    public void set(String username) {
-        user.setText(username);
-        rolee.setText("@"+role);
-        this.username = username;
-        System.out.println(username);
-    }
-    @FXML
-    void viewmap(ActionEvent event) {
-        System.out.println("hello");
-        try{
-            FXMLScene scene =  FXMLScene.load("AddPost.fxml");
-            Parent root = scene.root;
-            AddPostController admin= (AddPostController) scene.controller;
-            admin.set(username,role);
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Post Diaster");
-            stage.show();
-
-
-        }catch (Exception e ){
-
-        }
-
-    }
-    @FXML
-    private ImageView dpimage;
-    @FXML
-    private ImageView simage;
-    @FXML
-    private ImageView postimage;
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        String []division1={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
-       // division.getItems().addAll(division1);
-        String []user={"EarthQuake","Storm Surge","Wildfire","Cyclone","Flood","Drought","Tsunami","Typhoon","LandSlide","Epidemic","Structural Collapse","Transport Disasters","Mining Accidents","Explosions and Fires","Others"};
-        diaster.getItems().addAll(user);
-        String []choiceb={"Profile","Logout"};
-        choice.getItems().addAll(choiceb);
-        File file = new File("src/main/Font/user1.png");
-        Image image = new Image(file.toURI().toString());
-        imageview.setImage(image);
-        File file1 = new File("src/main/Font/1.png");
-        Image image1 = new Image(file1.toURI().toString());
-        bimage.setImage(image1);
-        file1 = new File("src/main/Font/logotext.png");
-        Image image4 = new Image(file1.toURI().toString());
-        logoimage.setImage(image4);
-        file1 = new File("src/main/Font/icon1.png");
-        Image image5 = new Image(file1.toURI().toString());
-        imageview1.setImage(image5);
-        file1 = new File("src/main/Font/dp7.jpg");
-        Image image7 = new Image(file1.toURI().toString());
-        dpimage.setImage(image7);
-        file1 = new File("src/main/Font/side.jpg");
-        Image image8 = new Image(file1.toURI().toString());
-        simage.setImage(image8);
-        file1 = new File("src/main/Font/1.jpg");
-        Image image9= new Image(file1.toURI().toString());
-        simage.setImage(image9);
-
-
-    }
+    }*/
 }

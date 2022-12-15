@@ -29,9 +29,6 @@ module com.example.sheccashoinik {
     opens AdminDB to javafx.fxml;
     exports AdminDB;
 
-    opens Post to javafx.fxml;
-    exports Post;
-
     opens TeamProfile to javafx.fxml;
     exports TeamProfile;
 
@@ -49,4 +46,6 @@ module com.example.sheccashoinik {
 
     opens Event to javafx.fxml;
     exports Event;
+    opens Post to javafx.fxml;
+    exports Post;
 }
