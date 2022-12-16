@@ -1,12 +1,15 @@
-/*
 package Map;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
-public class MapController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class MapController implements Initializable {
 
     @FXML
     private WebView view;
@@ -14,8 +17,17 @@ public class MapController {
     @FXML
     void Click(ActionEvent event) {
         WebEngine engine = view.getEngine();
-        engine.load("https://www.google.com/maps/place/%E0%A6%A2%E0%A6%BE%E0%A6%95%E0%A6%BE/@23.7805733,90.2791955,11z/data=!3m1!4b1!4m5!3m4!1s0x3755b8b087026b81:0x8fa563bbdd5904c2!8m2!3d23.810332!4d90.4125181");
+        //  engine.load(String.valueOf(getClass().getResource("https://www.google.com/maps/place/%E0%A6%A2%E0%A6%BE%E0%A6%95%E0%A6%BE/@23.7805733,90.2791955,11z/data=!3m1!4b1!4m5!3m4!1s0x3755b8b087026b81:0x8fa563bbdd5904c2!8m2!3d23.810332!4d90.4125181")));
+        engine.load(String.valueOf(getClass().getResource("map1.html")));
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        WebEngine engine = view.getEngine();
+        //  engine.load(String.valueOf(getClass().getResource("https://www.google.com/maps/place/%E0%A6%A2%E0%A6%BE%E0%A6%95%E0%A6%BE/@23.7805733,90.2791955,11z/data=!3m1!4b1!4m5!3m4!1s0x3755b8b087026b81:0x8fa563bbdd5904c2!8m2!3d23.810332!4d90.4125181")));
+        engine.load(String.valueOf(getClass().getResource("map.html")));
+    }
+
+
+
 }
-*/

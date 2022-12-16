@@ -5,7 +5,7 @@ import BloodBank.BloodBankController;
 import DB.ConnectionDb;
 import Others.VolunteerNearController;
 import UserProfile.ProfileController;
-import Post.AddPostController;
+import PostBox.AddPostController;
 import Sign_in.SigninController;
 import com.example.sheccashoinik.Application;
 import com.example.sheccashoinik.disaster;
@@ -338,7 +338,7 @@ public class VolunteerareaController implements Initializable {
     void addpost(ActionEvent event) {
         System.out.println("hello");
         try{
-            Post.FXMLScene scene =  Post.FXMLScene.load("AddPost.fxml");
+            PostBox.FXMLScene scene =  PostBox.FXMLScene.load("AddPost.fxml");
             Parent root = scene.root;
             AddPostController admin= (AddPostController) scene.controller;
             admin.set(username,role);

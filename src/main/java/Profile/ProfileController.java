@@ -1,6 +1,7 @@
 package Profile;
 
-import Post.AddPostController;
+import PostBox.AddPostController;
+import PostBox.FXMLScene;
 import Sign_in.SigninController;
 import com.example.sheccashoinik.Application;
 import javafx.event.ActionEvent;
@@ -15,7 +16,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -342,7 +342,7 @@ public class ProfileController implements Initializable {
     void addpost(ActionEvent event) {
         System.out.println("hello");
         try{
-            Post.FXMLScene scene =  Post.FXMLScene.load("AddPost.fxml");
+            FXMLScene scene =  FXMLScene.load("AddPost.fxml");
             Parent root = scene.root;
             AddPostController admin= (AddPostController) scene.controller;
             admin.set(username);

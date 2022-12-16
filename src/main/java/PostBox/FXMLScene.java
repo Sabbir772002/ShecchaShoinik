@@ -1,4 +1,4 @@
-package Post;
+package PostBox;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

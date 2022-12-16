@@ -3,7 +3,7 @@ module com.example.sheccashoinik {
     requires javafx.fxml;
     requires java.sql;
     requires javafx.graphics;
-   // requires javafx.web;
+     requires javafx.web;
     
     opens UserProfile to javafx.fxml;
     exports UserProfile;
@@ -29,8 +29,8 @@ module com.example.sheccashoinik {
     opens AdminDB to javafx.fxml;
     exports AdminDB;
 
-    opens Post to javafx.fxml;
-    exports Post;
+    opens PostBox to javafx.fxml;
+    exports PostBox;
 
     opens TeamProfile to javafx.fxml;
     exports TeamProfile;
@@ -49,4 +49,6 @@ module com.example.sheccashoinik {
 
     opens Event to javafx.fxml;
     exports Event;
+    opens Map to javafx.fxml;
+    exports Map;
 }

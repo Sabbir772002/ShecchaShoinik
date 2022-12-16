@@ -1,14 +1,10 @@
 package AdminDB;
 
-import BloodBank.BloodBankController;
-import Chat.CommunityChatHandelar;
 import DB.ConnectionDb;
-import ExtraFeature.VolunteerareaController;
-import Others.VolunteerNearController;
+import PostBox.Post;
 import UserProfile.ProfileController;
-import Post.AddPostController;
+import PostBox.AddPostController;
 import Sign_in.SigninController;
-import com.example.sheccashoinik.Application;
 import com.example.sheccashoinik.disaster;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -452,20 +448,7 @@ void BbankClick(ActionEvent event){
                }catch (Exception e){
 
                }
-               /* try {
-                    //  FxmlLoader o = new FxmlLoader();
-                    p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
 
-                    pane1.setCenter(p);
-                    stage.setTitle("Profile");
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                   stage.setScene(scene);
-                    stage.setTitle("Profile");
-                    stage.show();
-                    System.out.println("helloApplication");
-                } catch (Exception e) {
-
-                }*/
             }
 
     }
@@ -473,7 +456,7 @@ void BbankClick(ActionEvent event){
     void addpost(ActionEvent event) {
         System.out.println("hello");
         try{
-            Post.FXMLScene scene =  Post.FXMLScene.load("AddPost.fxml");
+            PostBox.FXMLScene scene =  PostBox.FXMLScene.load("AddPost.fxml");
             Parent root = scene.root;
             AddPostController admin= (AddPostController) scene.controller;
             admin.set(username,role);
@@ -482,8 +465,8 @@ void BbankClick(ActionEvent event){
             stage.setTitle("Post Diaster");
             stage.show();
 
-
         }catch (Exception e ){
+            System.out.println(e.getMessage());
 
         }
 
@@ -522,18 +505,32 @@ void BbankClick(ActionEvent event){
         file1 = new File("src/main/Font/search.png");
         Image image6 = new Image(file1.toURI().toString());
         search.setImage(image6);
-
         loadtable();
 
      //   choice.setOnAction(this::ChoiceClick);
 
     }
     @FXML
-    void tableclick(MouseEvent event) {
+    void tableclick(MouseEvent event)
+    {
+        System.out.println("kaj kore na");
+        System.out.println(table.getSelectionModel().getSelectedItem().getId());
         System.out.println("click korse ");
-    }
-    @FXML
-    void tableclick(DragEvent event) {
-        System.out.println("click korse ");
+        try{
+            PostBox.FXMLScene scene =  PostBox.FXMLScene.load("PostView.fxml");
+            Parent root = scene.root;
+            PostBox.Post admin= (PostBox.Post) scene.controller;
+           admin.set(username,role,table.getSelectionModel().getSelectedItem().getId());
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("PostBox");
+            stage.show();
+
+
+        }catch (Exception e ){
+            System.out.println(e.getMessage());
+        }
+
+
     }
 }

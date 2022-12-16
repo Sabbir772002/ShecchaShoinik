@@ -5,10 +5,9 @@ import AdminDB.TeamDashboardController;
 import AdminDB.UserDashboardController;
 import DB.ConnectionDb;
 import Others.TaskCompletedController;
-import Post.AddPostController;
+import PostBox.AddPostController;
 import Sign_in.SigninController;
 import UserProfile.ProfileController;
-import com.example.sheccashoinik.disaster;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,7 +22,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -32,10 +30,8 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.jar.Attributes;
 
 import static java.lang.Thread.sleep;
 
@@ -311,7 +307,7 @@ public class ChatPrivateController implements Initializable {
     @FXML
     void addpost(ActionEvent event) {
         try{
-            Post.FXMLScene scene =  Post.FXMLScene.load("AddPost.fxml");
+            PostBox.FXMLScene scene =  PostBox.FXMLScene.load("AddPost.fxml");
             Parent root = scene.root;
             AddPostController admin= (AddPostController) scene.controller;
             admin.set(username,role);
