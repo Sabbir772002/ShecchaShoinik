@@ -1,5 +1,6 @@
 package com.example.sheccashoinik;
 
+import Map.MapController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -13,7 +14,8 @@ public class Application extends javafx.application.Application {
     public static String oname="";
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HomeController.class.getResource("Home.fxml"));
+        //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Home.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MapController.class.getResource("Map.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("ShecchaShoinik");
         stage.setScene(scene);
