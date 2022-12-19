@@ -1,9 +1,13 @@
-package PostBox;
+package TeamPostBox;
 
+import AdminDB.AdminDashboardController;
 import AdminDB.FXMLScene;
+import AdminDB.TeamDashboardController;
+import AdminDB.UserDashboardController;
+import DB.ConnectionDb;
 import Others.HelpResponseController;
-import UserProfile.ProfileController;
 import Sign_in.SigninController;
+import UserProfile.ProfileController;
 import com.example.sheccashoinik.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,10 +21,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import AdminDB.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import DB.ConnectionDb;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -198,7 +200,7 @@ public class AddPostController implements Initializable {
     void Dashboard(ActionEvent event) {
         try {
             if (role.equals("User")) {
-                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("UserDashboard.fxml");
+                FXMLScene scene = FXMLScene.load("UserDashboard.fxml");
                 Parent root = scene.root;
                 UserDashboardController adminController = (UserDashboardController) scene.controller;
                 adminController.set(username, role);
@@ -207,7 +209,7 @@ public class AddPostController implements Initializable {
                 stage.setTitle("UserProfile");
                 stage.show();
             }else if(role.equals("Admin")){
-                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard.fxml");
+                FXMLScene scene = FXMLScene.load("AdminDashboard.fxml");
                 Parent root = scene.root;
                 AdminDashboardController adminController = (AdminDashboardController) scene.controller;
                 adminController.set(username, role);
@@ -218,7 +220,7 @@ public class AddPostController implements Initializable {
 
 
             }else{
-                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard.fxml");
+                FXMLScene scene = FXMLScene.load("TeamDashboard.fxml");
                 Parent root = scene.root;
                 TeamDashboardController adminController = (TeamDashboardController) scene.controller;
                 adminController.set(username, role);

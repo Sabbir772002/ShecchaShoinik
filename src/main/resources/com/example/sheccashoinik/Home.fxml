@@ -14,7 +14,7 @@
             <Font name="Book Antiqua Bold" size="22.0" />
          </font>
       </Button>
-      <Button fx:id="Signinb" alignment="CENTER_RIGHT" layoutX="611.0" layoutY="541.0" mnemonicParsing="false" onAction="#Signin" prefHeight="42.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-cursor: hand;" styleClass="btlogin" stylesheets="@../../../../Style/style.css" text="Sign in" textFill="#1e0808">
+      <Button fx:id="Signinb" alignment="CENTER" layoutX="617.0" layoutY="541.0" mnemonicParsing="false" onAction="#Signin" prefHeight="42.0" prefWidth="144.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-cursor: hand;" styleClass="btlogin" stylesheets="@../../../../Style/style.css" text="Sign in" textFill="#1e0808">
          <font>
             <Font name="Book Antiqua Bold" size="22.0" />
          </font>
@@ -98,10 +98,5 @@
                   </Button>-->
       </children>
    </AnchorPane>
-      <ImageView fx:id="loginimage" fitHeight="31.0" fitWidth="50.0" layoutX="623.0" layoutY="547.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../Font/login0.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

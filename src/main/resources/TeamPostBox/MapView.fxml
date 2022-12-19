@@ -12,8 +12,10 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
 
-<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TeamProfile.TeamProfileController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TeamPostBox.MapController">
     <left>
         <VBox layoutX="50.0" prefHeight="617.0" prefWidth="199.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);" BorderPane.alignment="CENTER">
             <children>
@@ -32,7 +34,7 @@
                                 <Font name="Arial Bold" size="12.0" />
                             </font>
                         </Label>
-                        <Label fx:id="user" alignment="CENTER" layoutX="-5.0" layoutY="117.0" prefHeight="52.0" prefWidth="204.0" style="-fx-cursor: had;" text="Nusrat" textFill="WHITE" AnchorPane.leftAnchor="-5.0">
+                        <Label fx:id="user" alignment="CENTER" layoutX="-5.0" layoutY="117.0" prefHeight="52.0" prefWidth="204.0" text="Nusrat" textFill="WHITE" AnchorPane.leftAnchor="-5.0">
                             <font>
                                 <Font name="Arial Bold" size="18.0" />
                             </font>
@@ -72,7 +74,31 @@
                                         <Blend />
                                     </effect>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#Vnear" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Volunteer Near">
+                                <Button mnemonicParsing="false" onAction="#vnear" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Volunteer Near">
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="5.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#hresponse" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Help Response">
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="5.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#task" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Task Completed">
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="5.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#vapprove" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Volunteer Approve">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -89,30 +115,6 @@
                                     </VBox.margin>
                                 </Button>
                                 <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Disaster Guidelines">
-                                    <font>
-                                        <Font name="System Bold" size="13.0" />
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets top="5.0" />
-                                    </VBox.margin>
-                                </Button>
-                                <Button mnemonicParsing="false" onAction="#F" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="F">
-                                    <font>
-                                        <Font name="System Bold" size="13.0" />
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets top="5.0" />
-                                    </VBox.margin>
-                                </Button>
-                                <Button mnemonicParsing="false" onAction="#H" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="H">
-                                    <font>
-                                        <Font name="System Bold" size="13.0" />
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets top="5.0" />
-                                    </VBox.margin>
-                                </Button>
-                                <Button mnemonicParsing="false" onAction="#G" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="G">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -180,6 +182,27 @@
         </AnchorPane>
     </top>
     <center>
-        <AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER" />
+        <AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="45.0" layoutY="52.0" prefHeight="534.0" prefWidth="726.0">
+               <children>
+                  <AnchorPane layoutX="-15.0" layoutY="-45.0" prefHeight="581.0" prefWidth="738.0" style="-fx-background-color: black; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 5;">
+                     <children>
+                        <Text fx:id="title" fill="WHITE" fontSmoothingType="LCD" layoutX="14.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: black;" text="Disaster hazard at uiu" wrappingWidth="429.2371063232422">
+                           <font>
+                              <Font name="Bell MT Bold" size="21.0" />
+                           </font>
+                        </Text>
+                        <WebView fx:id="view" layoutY="50.0" prefHeight="531.0" prefWidth="738.0" />
+                        <Label fx:id="address" layoutX="14.0" layoutY="17.0" prefHeight="30.0" prefWidth="421.0" text="\@Dhaka">
+                           <font>
+                              <Font name="Bell MT" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
     </center>
 </BorderPane>
