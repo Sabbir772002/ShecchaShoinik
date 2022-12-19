@@ -308,6 +308,17 @@
                   <Image url="@../../Font/user1.png" />
                </image>
             </ImageView>
+            <Button fx:id="alertbutton" layoutX="831.0" layoutY="1.0" mnemonicParsing="false" onAction="#alert" prefHeight="33.0" prefWidth="74.0" style="-fx-background-color: black;" />
+            <ImageView fx:id="alertimage" fitHeight="30.0" fitWidth="27.0" layoutX="849.0" layoutY="8.0" onDragDetected="#alert" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Font/notify.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="alertnum" layoutX="876.0" layoutY="-1.0" prefHeight="22.0" prefWidth="28.0" text="10" textFill="RED">
+               <font>
+                  <Font name="Bell MT Bold" size="17.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </top>
@@ -333,7 +344,8 @@
                               <Image url="@../../Font/search.png" />
                            </image>
                         </ImageView>
-                     </graphic></Button>
+                     </graphic>
+                  </Button>
                </children>
             </AnchorPane>
          </children>

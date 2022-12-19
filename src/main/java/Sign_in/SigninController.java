@@ -83,7 +83,7 @@ public class SigninController implements Initializable {
                 Optional<ButtonType> result=alert.showAndWait();
                 if(alert.getResult().getText().compareTo("OK")==0){
                     if(role.equals("User")) {
-                        FXMLScene scene = FXMLScene.load("UserDashboard.fxml");
+                        AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("UserDashboard.fxml");
                         //FXMLScene scene = FXMLScene.load("BackgroundDesign.fxml");
                         Parent root = scene.root;
                         UserDashboardController adminController = (UserDashboardController) scene.controller;

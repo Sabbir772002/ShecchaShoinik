@@ -30,6 +30,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -37,7 +38,8 @@ public class UserDashboardController implements Initializable {
 
     @FXML
     private BorderPane pane1;
-
+   @FXML
+    private Label alertnum;
 
     @FXML
     private ChoiceBox<String> choice;
@@ -72,6 +74,8 @@ public class UserDashboardController implements Initializable {
         rolee.setText("@" + role);
         this.role = role;
         this.username = username;
+        alertcount();
+
     }
 
     @FXML
@@ -515,11 +519,20 @@ public class UserDashboardController implements Initializable {
 
     @FXML
     private Label user;
+    int count = 0;
+    @FXML
+    ImageView alertimage;
 
+    /* @FXML
+     private Button alertbutton;*/
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        /*user.setText(username);
-        rolee.setText(role);*/
+        ImageView imageView = new ImageView(new Image(new File("src/main/Font/notify.png").toURI().toString()));
+        imageView.setFitHeight(25);
+        imageView.setFitWidth(27);
+
+      //  alertbutton.setGraphic(imageView);
+        alertimage.setImage(new Image(new File("src/main/Font/notify.png").toURI().toString()));
         String[] choiceb = {"Profile", "Logout"};
         choice.getItems().addAll(choiceb);
         File file = new File("src/main/Font/user1.png");
@@ -542,22 +555,92 @@ public class UserDashboardController implements Initializable {
         //   choice.setOnAction(this::ChoiceClick);
 
     }
- /*   @FXML
-    void tableclick(ActionEvent e){
+    void alertcount( )  {
+        Connection con=ConnectionDb.DBC();
+      try{
+          int allpost=0;
+          int i=0;
+          PreparedStatement ps = con.prepareStatement("SELECT Id FROM `diasterlist` ORDER BY Id DESC;");
+          ResultSet rs = ps.executeQuery();
+          while(rs.next()) {
+         i++;
+         allpost=rs.getInt(1);
+              //System.out.println(allpost);
+         if(i==1){
+             break;
+         }
+
+          }
+          rs.close();
+          ps.close();
+          //PreparedStatement ps1 = con.prepareStatement("SELECT Postid FROM `notify` Where Username ='"+username+"';");
+          String s="SELECT Postid FROM `notify` Where Username='"+username+"'";
+          System.out.println(s);
+          PreparedStatement ps1 = con.prepareStatement(s);
+          ResultSet rs1 = ps1.executeQuery();
+        int j=0;
+        while(rs1.next()) {
+            System.out.println("1bar");
+            System.out.println( rs1.getInt(1));
+            j++;
+            System.out.println(j);
+
+        }
+        ps1.close();
+        rs1.close();
+          System.out.println(allpost);
+        //  System.out.println("kaj korlo na");
+        count =allpost-j;
+        alertnum.setText(count+"");
+      }catch( Exception e ){
+          System.out.println(e.getMessage());
+
+      }
 
     }
-*/
+    @FXML
+    void alert(ActionEvent e){
+        System.out.println("vai amare marse");
+
+    }
 @FXML
     void tableclick(MouseEvent event)
     {
-        System.out.println("kaj kore na");
         System.out.println(table.getSelectionModel().getSelectedItem().getId());
-        System.out.println("click korse ");
         try{
             PostBox.FXMLScene scene =  PostBox.FXMLScene.load("PostView.fxml");
             Parent root = scene.root;
             PostBox.Post admin= (PostBox.Post) scene.controller;
             admin.set(username,role,table.getSelectionModel().getSelectedItem().getId());
+            Connection con=ConnectionDb.DBC();
+            try{
+                String sql = "SELECT * FROM notify Where username = ? and Postid = ?";
+                try {
+                    PreparedStatement preparedStatement = con.prepareStatement(sql);
+                    preparedStatement.setString(1, username);
+                    preparedStatement.setInt(2, table.getSelectionModel().getSelectedItem().getId());
+                    ResultSet resultSet = preparedStatement.executeQuery();
+                    if (!resultSet.next()) {
+                        PreparedStatement ps1 = con.prepareStatement("insert into `notify`  (Username,Postid) values (?,?);");
+                       // ResultSet rs1= ps1.executeQuery();
+                       ps1.setString(1, username);
+                       ps1.setInt(2,table.getSelectionModel().getSelectedItem().getId());
+                        ps1.execute();
+                        ps1.close();
+                        //rs1.close();
+                    } else {;
+                        System.out.println("ase aita");
+                    }
+                    resultSet.close();
+                    con.close();
+                } catch (SQLException ex) {
+                    System.err.println(ex.getMessage());
+                }
+
+            }catch( Exception e ){
+                System.out.println(e.getMessage());
+
+            }
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("PostBox");
