@@ -200,6 +200,80 @@ public class UserDashboardController implements Initializable {
 
 
     }
+    @FXML
+    void search(ActionEvent e) {
+        ObservableList<disaster> list = FXCollections.observableArrayList();
+        //i++;
+
+
+            Connection con = ConnectionDb.DBC();
+            //ObservableList<diaster>list = FXCollections.observableArrayList();
+            try {
+                /*PreparedStatement ps =  con.prepareStatement(
+                        "SELECT * FROM `diasterlist` WHERE" +
+                                      " Division='"+textfield.getText().toString()
+                                    +"' OR District='"+textfield.getText().toString()
+                                    +"' OR `Title`='"+textfield.getText().toString()
+                                    +"' OR `Type`='"+textfield.getText().toString()
+                                    +"' OR `Address`='"+textfield.getText().toString()
+                                    +"' OR `AddInfo`='"+textfield.getText().toString()
+                                    +"' OR `Id`='"+textfield.getText().toString()
+                                    +"' ORDER BY Id DESC;");*/
+                PreparedStatement ps = con.prepareStatement("SELECT * FROM `diasterlist` ORDER BY Id DESC;");
+                ResultSet rs = ps.executeQuery();
+                // +"' OR `Title`='"+textfield.getText().toString()
+               /* ps.setString(1,textfield.getText().toString());
+                ps.setString(2,textfield.getText().toString());*/
+                // ps.setString(1,textfield.getText().toString());
+                while (rs.next()) {
+                    String s[] = {rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), (rs.getInt(6)) + "", rs.getString(7)};
+                    String s1 = s[0] + " " + s[1] + " " + s[2] + " " + s[3] + " " + s[4] + " " + s[5] + " " + s[6];
+                    String s5[] = s1.split(" ");
+
+                    String s2 = textfield.getText().toString() + "";
+                    // System.out.println(s2);
+                    boolean i = false;
+                    for (int j = 0; j < s5.length; j++) {
+                        // System.out.println(textfield.getText().toString());
+                        // System.out.println(s2);
+/*
+                        if(s[j]==textfield.getText().toString()){
+*/
+                        if (s5[j].equalsIgnoreCase(s2)) {
+                            // System.out.println((s[j])+"=="+textfield.getText().toString());
+                            i = true;
+                        }
+                    }
+                    s2 += " ";
+                    if (s2.equals("")) {
+                        i = true;
+                        // System.out.println("thik ase");
+                    }
+                    if (s2.equals(" ")) {
+                        i = true;
+                        //System.out.println("thik ase2");
+                    }
+                    if (i) {
+                        list.add(new disaster(s[0], s[1], s[2], s[3], s[4], Integer.parseInt(s[5]), s[6]));
+                    }
+
+                }
+                // rs.getString(1)), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7))
+            } catch (Exception ie) {
+                System.out.println("error at disaster backlist");
+            } finally {
+
+                try {
+                    con.close();
+                } catch (Exception ee) {
+                }
+            }
+            listF = list;
+            loadtable1();
+
+
+
+    }
     //for user search
    /* ObservableList<userlist>list = FXCollections.observableArrayList();
             try {
