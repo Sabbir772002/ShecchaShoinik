@@ -121,7 +121,7 @@ public class UserDashboardController implements Initializable {
     ObservableList<disaster> listF;
 
     @FXML
-    void search(KeyEvent e) {
+    void keyclick(KeyEvent e) {
         ObservableList<disaster> list = FXCollections.observableArrayList();
         //i++;
         if (e.getCode() != KeyCode.ENTER) {
