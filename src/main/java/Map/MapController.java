@@ -205,7 +205,7 @@ public class MapController implements Initializable {
                 "<div class=\"mapouter\">\n" +
                 "    <div class=\"gmap_canvas\">\n" +
                 "        <iframe class=\"gmap_iframe\" width=\"100%\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"\n" +
-                "                src=\"https://maps.google.com/maps?width=721&amp;height=621&amp;hl=en&amp;q="+district+"&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed\"></iframe>\n" +
+                "                src=\"https://maps.google.com/maps?width=721&amp;height=621&amp;hl=en&amp;q="+address.getText().toString()+","+district+"&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed\"></iframe>\n" +
                 "        <a href=\"https://embedmapgenerator.com\">google maps code generator</a>\n" +
                 "    </div>\n" +
                 "    <style>\n" +
