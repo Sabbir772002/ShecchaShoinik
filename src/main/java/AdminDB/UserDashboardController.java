@@ -26,7 +26,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -540,16 +539,16 @@ public class UserDashboardController implements Initializable {
     @FXML
     ImageView alertimage;
 
-    /* @FXML
-     private Button alertbutton;*/
+    @FXML
+    private Button alertbutton;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ImageView imageView = new ImageView(new Image(new File("src/main/Font/notify.png").toURI().toString()));
         imageView.setFitHeight(25);
         imageView.setFitWidth(27);
 
-      //  alertbutton.setGraphic(imageView);
-        alertimage.setImage(new Image(new File("src/main/Font/notify.png").toURI().toString()));
+      alertbutton.setGraphic(imageView);
+        //alertimage.setImage(new Image(new File("src/main/Font/notify.png").toURI().toString()));
         String[] choiceb = {"Profile", "Logout"};
         choice.getItems().addAll(choiceb);
         File file = new File("src/main/Font/user1.png");
