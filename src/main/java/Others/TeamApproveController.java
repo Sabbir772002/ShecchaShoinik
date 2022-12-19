@@ -89,6 +89,13 @@ public class TeamApproveController implements Initializable {
 
     }
     @FXML
+    void H(ActionEvent event) {
+
+    } @FXML
+    void F(ActionEvent event) {
+
+    }
+    @FXML
     void Control(ActionEvent event) {
 
     }

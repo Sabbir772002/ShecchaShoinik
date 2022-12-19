@@ -13,7 +13,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button layoutX="89.0" layoutY="20.0" mnemonicParsing="false" onAction="#Click" prefHeight="26.0" prefWidth="66.0" text="Click" />
+
       <WebView fx:id="view" layoutX="47.0" layoutY="61.0" prefHeight="476.0" prefWidth="784.0" />
    </children>
 </AnchorPane>

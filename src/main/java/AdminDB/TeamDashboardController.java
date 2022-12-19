@@ -3,6 +3,7 @@ package AdminDB;
 import DB.ConnectionDb;
 import Others.HelpResponseController;
 import Others.TaskCompletedController;
+import Others.TeamApproveController;
 import PostBox.AddPostController;
 import Sign_in.SigninController;
 import TeamProfile.TeamProfileController;
@@ -100,8 +101,21 @@ public class TeamDashboardController implements Initializable {
 
     }
     @FXML
-    private ScrollPane spane;
+    void Event(ActionEvent event) {
+        try {
+            Event.FXMLScene scene = Event.FXMLScene.load("ViewEventTeam.fxml");
+            Parent root = scene.root;
+            Event.ViewEvent admin = (Event.ViewEvent) scene.controller;
+            admin.set(username, role);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Event");
+            stage.show();
+        } catch (IOException e) {
+            System.out.println("vul hoilo Event button Teamshboard controller " + e.getMessage());
+        }
 
+    }
     @FXML
     private TableView<disaster> table;
     @FXML
@@ -232,6 +246,7 @@ public class TeamDashboardController implements Initializable {
 
     }
 
+
     ObservableList<disaster> getdisasterList(){
         ObservableList<disaster> disasterlist1 = FXCollections.observableArrayList();
 
@@ -333,6 +348,7 @@ public class TeamDashboardController implements Initializable {
         }
 
     }
+
 
     @FXML
     void vapprove(ActionEvent event) {
@@ -486,20 +502,6 @@ public class TeamDashboardController implements Initializable {
                }catch (Exception e){
 
                }
-               /* try {
-                    //  FxmlLoader o = new FxmlLoader();
-                    p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
-
-                    pane1.setCenter(p);
-                    stage.setTitle("Profile");
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                   stage.setScene(scene);
-                    stage.setTitle("Profile");
-                    stage.show();
-                    System.out.println("helloApplication");
-                } catch (Exception e) {
-
-                }*/
             }
 
     }

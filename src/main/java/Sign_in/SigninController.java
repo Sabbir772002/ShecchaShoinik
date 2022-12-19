@@ -94,7 +94,7 @@ public class SigninController implements Initializable {
                         stage.setTitle("UserProfile");
                         stage.show();
                     }else if(role.equals("Admin")){
-                        FXMLScene scene = FXMLScene.load("AdminDashboard.fxml");
+                        AdminDB.FXMLScene scene =AdminDB.FXMLScene.load("AdminDashboard.fxml");
                         Parent root = scene.root;
                         AdminDashboardController adminController = (AdminDashboardController) scene.controller;
                         adminController.set(usern, role);

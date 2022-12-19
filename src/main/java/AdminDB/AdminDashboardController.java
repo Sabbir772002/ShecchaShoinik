@@ -215,7 +215,20 @@ public class AdminDashboardController implements Initializable {
     }
 
     @FXML
-    void Cevent(ActionEvent event) {
+    void event(ActionEvent event) {
+            try {
+                Event.FXMLScene scene = Event.FXMLScene.load("ApproveEVent.fxml");
+                Parent root = scene.root;
+                Event.ApproveEVentController admin = (Event.ApproveEVentController) scene.controller;
+                admin.set(username, role);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Event");
+                stage.show();
+            } catch (IOException e) {
+                System.out.println("vul hoilo Event button Teamshboard controller " + e.getMessage());
+            }
+
 
     }
     @FXML
@@ -340,9 +353,8 @@ public class AdminDashboardController implements Initializable {
     void H(ActionEvent event) {
 
     }
-
     @FXML
-    void Vnear(ActionEvent event) {
+    void vnear(ActionEvent event) {
         try{
             Shoinik.FXMLScene scene =  Shoinik.FXMLScene.load("Volunteerfromarea.fxml");
             Parent root = scene.root;
@@ -617,6 +629,30 @@ public class AdminDashboardController implements Initializable {
         username= Application.oname;
        loadtable();
      //   choice.setOnAction(this::ChoiceClick);
+
+    }
+
+    @FXML
+    void tableclick(MouseEvent event)
+    {
+        //System.out.println("kaj kore na");
+        System.out.println(table.getSelectionModel().getSelectedItem().getId());
+        //System.out.println("click korse ");
+        try{
+            PostBox.FXMLScene scene =  PostBox.FXMLScene.load("PostView.fxml");
+            Parent root = scene.root;
+            PostBox.Post admin= (PostBox.Post) scene.controller;
+            admin.set(username,role,table.getSelectionModel().getSelectedItem().getId());
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("PostBox");
+            stage.show();
+
+
+        }catch (Exception e ){
+            System.out.println(e.getMessage());
+        }
+
 
     }
 }

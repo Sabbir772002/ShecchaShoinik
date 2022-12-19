@@ -13,8 +13,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
 
-<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PostBox.Post">
+<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Map.MapController">
     <left>
         <VBox layoutX="50.0" prefHeight="617.0" prefWidth="199.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);" BorderPane.alignment="CENTER">
             <children>
@@ -185,69 +186,20 @@
          <children>
             <AnchorPane layoutX="45.0" layoutY="52.0" prefHeight="534.0" prefWidth="726.0">
                <children>
-                  <AnchorPane layoutX="-15.0" layoutY="-30.0" prefHeight="534.0" prefWidth="734.0" style="-fx-background-color: black; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 5;">
+                  <AnchorPane layoutX="-15.0" layoutY="-45.0" prefHeight="581.0" prefWidth="738.0" style="-fx-background-color: black; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 5;">
                      <children>
-                        <ImageView fx:id="poster" fitHeight="300.0" fitWidth="338.0" layoutX="389.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../Font/2.jpg" />
-                           </image></ImageView>
-                        <Text fx:id="title" fill="WHITE" fontSmoothingType="LCD" layoutX="66.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: black;" text="Disaster hazard at uiu" wrappingWidth="429.2371063232422">
+                        <Text fx:id="title" fill="WHITE" fontSmoothingType="LCD" layoutX="14.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: black;" text="Disaster hazard at uiu" wrappingWidth="429.2371063232422">
                            <font>
                               <Font name="Bell MT Bold" size="21.0" />
                            </font>
                         </Text>
-                        <Button fx:id="mapclick" layoutX="169.0" layoutY="441.0" mnemonicParsing="false" onAction="#viewmap" prefHeight="36.0" prefWidth="89.0" text="View in Map" />
-                        <Label layoutX="69.0" layoutY="145.0" prefHeight="31.0" prefWidth="99.0" text="Addres:">
+                        <WebView fx:id="view" layoutY="50.0" prefHeight="531.0" prefWidth="738.0" />
+                        <Label fx:id="address" layoutX="14.0" layoutY="17.0" prefHeight="30.0" prefWidth="421.0" text="\@Dhaka">
                            <font>
-                              <Font name="Bell MT Bold" size="21.0" />
+                              <Font name="Bell MT" size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="71.0" layoutY="197.0" prefHeight="34.0" prefWidth="94.0" text="District:">
-                           <font>
-                              <Font name="Bell MT Bold" size="21.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="70.0" layoutY="229.0" prefHeight="31.0" prefWidth="85.0" text="Division:">
-                           <font>
-                              <Font name="Bell MT Bold" size="21.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="68.0" layoutY="261.0" prefHeight="31.0" prefWidth="88.0" text="Type:">
-                           <font>
-                              <Font name="Bell MT Bold" size="21.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" layoutX="130.0" layoutY="302.0" prefHeight="31.0" prefWidth="186.0" text="Additional Info:">
-                           <font>
-                              <Font name="System Bold" size="21.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="address" alignment="CENTER" disable="true" layoutX="166.0" layoutY="122.0" prefHeight="70.0" prefWidth="204.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Label" wrapText="true">
-                           <font>
-                              <Font name="Bell MT Bold" size="21.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="district" alignment="CENTER" disable="true" layoutX="167.0" layoutY="198.0" prefHeight="26.0" prefWidth="204.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Label">
-                           <font>
-                              <Font name="Bell MT Bold" size="21.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="type" alignment="CENTER" contentDisplay="TOP" disable="true" layoutX="169.0" layoutY="263.0" prefHeight="26.0" prefWidth="202.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Label">
-                           <font>
-                              <Font name="Bell MT Bold" size="21.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="division" disable="true" layoutX="168.0" layoutY="229.0" prefHeight="28.0" prefWidth="202.0" style="-fx-background-color: white; -fx-alignment: Center; -fx-background-radius: 5;" text="Label">
-                           <font>
-                              <Font name="Bell MT Bold" size="21.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="68.0" layoutY="57.0" prefHeight="18.0" prefWidth="98.0" text="\@Sabbir" textFill="WHITE" />
-                        <Label fx:id="addinfo" alignment="CENTER" disable="true" layoutX="71.0" layoutY="334.0" prefHeight="98.0" prefWidth="304.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Label" wrapText="true">
-                           <font>
-                              <Font name="Bell MT Bold" size="17.0" />
-                           </font>
-                        </Label>
+                        <Button layoutX="551.0" layoutY="10.0" mnemonicParsing="false" onAction="#gomap" prefHeight="26.0" prefWidth="181.0" text="Go to Disaster Address" />
                      </children>
                   </AnchorPane>
                </children>
