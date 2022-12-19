@@ -429,8 +429,10 @@ public class AddPostController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String []division1={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
         division.getItems().addAll(division1);
+        division.getSelectionModel().selectFirst();
         String []user={"EarthQuake","Storm Surge","Wildfire","Cyclone","Flood","Drought","Tsunami","Typhoon","LandSlide","Epidemic","Structural Collapse","Transport Disasters","Mining Accidents","Explosions and Fires","Others"};
         diaster.getItems().addAll(user);
+        diaster.getSelectionModel().selectFirst();
         String []choiceb={"Profile","Logout"};
         choice.getItems().addAll(choiceb);
         File file = new File("src/main/Font/user1.png");

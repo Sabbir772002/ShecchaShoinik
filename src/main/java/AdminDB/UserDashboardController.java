@@ -7,6 +7,7 @@ import UserProfile.ProfileController;
 import PostBox.AddPostController;
 import Sign_in.SigninController;
 import com.example.sheccashoinik.disaster;
+import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,6 +25,8 @@ import javafx.scene.input.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -81,6 +84,7 @@ public class UserDashboardController implements Initializable {
         this.role = role;
         this.username = username;
         alertcount();
+        alertnum.setText(String.valueOf(newcount));
         Thread t=new AlertThread();
         t.start();
 
@@ -564,8 +568,12 @@ public class UserDashboardController implements Initializable {
         Image image6 = new Image(file1.toURI().toString());
         search.setImage(image6);
         loadtable();
-
-        //   choice.setOnAction(this::ChoiceClick);
+        /*PauseTransition wait = new PauseTransition(Duration.seconds(1));
+        wait.setOnFinished((e) -> {
+            alertnum.setText(String.valueOf(newcount));
+            wait.playFromStart();
+        });
+        wait.play();*/
 
     }
 
@@ -599,15 +607,21 @@ public class UserDashboardController implements Initializable {
         }
         ps1.close();
         rs1.close();
-          System.out.println(allpost);
+         // System.out.println(allpost);
         //  System.out.println("kaj korlo na");
         newcount =allpost-j;
         if(oldcount==newcount){
-            System.out.println("Old= "+oldcount+" New= "+newcount);
+            //System.out.println("Old= "+oldcount+" New= "+newcount);
         }else{
-            System.out.println("Old= "+oldcount+" New= "+newcount);
-            alertnum.setText(newcount+"");
+            //System.out.println("Old= "+oldcount+" New= "+newcount);
+            //alertnum.setText(newcount+"");
             oldcount=newcount;
+            PauseTransition wait = new PauseTransition(Duration.seconds(1));
+            wait.setOnFinished((e) -> {
+                alertnum.setText(String.valueOf(newcount));
+                wait.playFromStart();
+            });
+            wait.play();
         }
 
       }catch( Exception e ){
@@ -624,6 +638,15 @@ public class UserDashboardController implements Initializable {
                   //  System.out.println("hey ami choltesi");
                     Thread.sleep(5000);
                     alertcount();
+                    if(newcount!=oldcount){
+                       /* PauseTransition wait = new PauseTransition(Duration.seconds(1));
+                        wait.setOnFinished((e) -> {
+                            alertnum.setText(String.valueOf(newcount));
+                            wait.playFromStart();
+                        });
+                        wait.play();*/
+
+                    }
                 } catch (InterruptedException e) {
                     System.out.println("interrupted");
                 }
