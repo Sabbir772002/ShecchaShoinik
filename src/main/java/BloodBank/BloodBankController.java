@@ -1,15 +1,11 @@
 package BloodBank;
 
-
+import AdminDB.AdminDashboardController;
+import AdminDB.TeamDashboardController;
 import AdminDB.UserDashboardController;
-import DB.ConnectionDb;
-import UserProfile.ProfileController;
 import PostBox.AddPostController;
 import Sign_in.SigninController;
-import com.example.sheccashoinik.Application;
-import com.example.sheccashoinik.disaster;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import UserProfile.ProfileController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,10 +14,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -33,143 +29,93 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class BloodBankController implements Initializable {
-
-    @FXML
-    private BorderPane pane1;
-
-  /*  @FXML
-    private Button Bbank;
-
-    @FXML
-    private Label Logo1;*/
-
-    @FXML
-    private ChoiceBox<String> choice;
-
-    @FXML
-    private ImageView imageview;
-    @FXML
-    private ImageView bimage;
-    @FXML
-    void BbankClick(ActionEvent event) {
-        try{
-            BloodBank.FXMLScene scene =  BloodBank.FXMLScene.load("BloodBank.fxml");
-            Parent root = scene.root;
-            BloodBankController admin= (BloodBankController) scene.controller;
-            admin.set(username,role);
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Blood Bank");
-            stage.show();
-        }catch(Exception e){
-            System.out.println("bhul holo Dashboard button BloodBank controller");
-        }
-
-    }
-    @FXML
-    private Button b;
-
-    @FXML
-    private Button bbutton;
-
-   /* @FXML
-    private ChoiceBox<?> choice;
-
-    @FXML
-    private ImageView imageview;
-*/
-
+ String  username;
+String role;
     private Stage stage;
     private Scene scene;
     private Parent root;
-    public String username="";
-    public String role="";
 
+        @FXML
+        private AnchorPane Requestpane;
 
-    public void set(String username,String role) {
-        user.setText(username);
-        rolee.setText("@"+role);
-        this.role = role;
-        this.username = username;
-    }
+        @FXML
+        private Button b;
 
-    @FXML
-    private ImageView imageview1;
+        @FXML
+        private Button bbutton;
 
-    @FXML
-    private ImageView logoimage;
+        @FXML
+        private ImageView bimage;
 
-    @FXML
-    void BbankClick(MouseEvent event) {
+        @FXML
+        private Button bt1;
 
-    }
-    @FXML
-    private ScrollPane spane;
+        @FXML
+        private ChoiceBox<String> choice;
 
-    @FXML
-    private TableView<disaster> table;
-    @FXML
-    private TableColumn<disaster, String> col_address;
+        @FXML
+        private AnchorPane donatepane;
 
-    @FXML
-    private TableColumn<disaster, String> col_district;
+        @FXML
+        private ImageView imageview;
 
-    @FXML
-    private TableColumn<disaster, String> col_title;
+        @FXML
+        private ImageView imageview1;
 
-    @FXML
-    private TableColumn<disaster, String> col_type;
+        @FXML
+        private ImageView logoimage;
 
-    @FXML
-    private TableColumn<disaster, Integer> col_id;
+        @FXML
+        private BorderPane pane1;
 
-    ObservableList<disaster> listF;
-    ObservableList<disaster> getdiasterList(){
-        ObservableList<disaster> diasterlist1 = FXCollections.observableArrayList();
+        @FXML
+        private Label rolee;
 
+        @FXML
+        private Label user;
 
-        return diasterlist1;
-    }
-    int indexM = -1;
-
-    void loadtable(){
-        col_title.setCellValueFactory(new PropertyValueFactory<disaster,String>("Title"));
-        col_type.setCellValueFactory(new PropertyValueFactory<disaster,String>("Type"));
-        col_district.setCellValueFactory(new PropertyValueFactory<disaster,String>("District"));
-        col_address.setCellValueFactory(new PropertyValueFactory<disaster,String>("Address"));
-        col_id.setCellValueFactory(new PropertyValueFactory<disaster,Integer>("Id"));
-
-        //table.setItems(list);
-        listF = ConnectionDb.getdiasterlist();
-        table.setItems(listF);
-
-
-    }
     @FXML
     void Dashboard(ActionEvent event) {
-        loadtable();
+        try {
+            if (role.equals("User")) {
+                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("UserDashboard.fxml");
+                Parent root = scene.root;
+                UserDashboardController adminController = (UserDashboardController) scene.controller;
+                adminController.set(username, role);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("User Home");
+                stage.show();
+            }else if(role.equals("Admin")){
+                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard.fxml");
+                Parent root = scene.root;
+                AdminDashboardController adminController = (AdminDashboardController) scene.controller;
+                adminController.set(username, role);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Admin Home");
+                stage.show();
 
-        //System.out.println("Bhaiya ki khobor "+username);
-        try{
-            AdminDB.FXMLScene scene =  AdminDB.FXMLScene.load("UserDashboard.fxml");
-            Parent root = scene.root;
-            UserDashboardController admin= (UserDashboardController) scene.controller;
-            admin.set(username,role);
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("User Dashboard");
-            stage.show();
-        }catch(Exception e){
-            System.out.println("Bhul hoilo Dashboard button bloodbank controller");
+            }else {
+                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard.fxml");
+                Parent root = scene.root;
+                TeamDashboardController adminController = (TeamDashboardController) scene.controller;
+                adminController.set(username, role);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Team Home");
+                stage.show();
+            }
+        }catch(IOException e){
+            System.out.println("vul hoilo add post er dashboard "+e.getMessage());
         }
-    }
 
+    }
     @FXML
     void Diaster(ActionEvent event) throws IOException {
 
 
-
-        //for checking purposes only
+        //for cheking purposes only
                   /*  VBox vbox[]=new VBox[3];
                     for(int i =0;i<3;i++) {
                         p = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
@@ -192,28 +138,53 @@ public class BloodBankController implements Initializable {
     }
 
     @FXML
-    void F(ActionEvent event) {
-
-    }
-
-    @FXML
     void G(ActionEvent event) {
+    }
+
+    @FXML
+    void Event(ActionEvent event) {
 
     }
 
     @FXML
-    void H(ActionEvent event) {
+    void hrequest(ActionEvent event) {
 
     }
 
     @FXML
-    void Vnear(ActionEvent event) {
+    void vnear(ActionEvent event) {
+        try {
+            Shoinik.FXMLScene scene = Shoinik.FXMLScene.load("Volunteerfromarea.fxml");
+            Parent root = scene.root;
+            Shoinik.VolunteerfromareaController admin = (Shoinik.VolunteerfromareaController) scene.controller;
+            admin.set(username, role);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Volunteer Near Me");
+            stage.show();
+        } catch (IOException e) {
+            System.out.println("vul hoilo F button userdashboard1 controller " + e.getMessage());
+        }
 
     }
 
 
     @FXML
     void chat(ActionEvent event) {
+        try {
+            Chat.FXMLScene scene = Chat.FXMLScene.load("CommunityChat.fxml");
+            Parent root = scene.root;
+            //System.out.println("chat cole na");
+            Chat.CommunityChatHandelar admin = (Chat.CommunityChatHandelar) scene.controller;
+            admin.set(username, role);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Chat");
+            stage.show();
+        } catch (Exception e) {
+            System.out.println("vul hoilo chat button Userdashboard controller " + e.getMessage());
+        }
+
 
     }
 
@@ -230,8 +201,8 @@ public class BloodBankController implements Initializable {
             // alert.initOwner(stage);
             //alert.setGraphic(new ImageView(image));
             //user.setImage(image);
-            Optional<ButtonType> result=alert.showAndWait();
-            if(alert.getResult().getText().equals("OK")){
+            Optional<ButtonType> result = alert.showAndWait();
+            if (alert.getResult().getText().equals("OK")) {
                 root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
@@ -245,7 +216,26 @@ public class BloodBankController implements Initializable {
         }
 
     }
+
     Pane p;
+
+    @FXML
+    void BbankClick(ActionEvent event) {
+        System.out.println("hlw ki bank");
+        try {
+            BloodBank.FXMLScene scene = BloodBank.FXMLScene.load("BloodBank.fxml");
+            Parent root = scene.root;
+            BloodBankController admin = (BloodBankController) scene.controller;
+            admin.set(username, role);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Profile");
+            stage.show();
+        } catch (Exception e) {
+            System.out.println("vul hoilo profile button Userdashboard controller " + e.getMessage());
+        }
+
+    }
 
 
     @FXML
@@ -261,7 +251,7 @@ public class BloodBankController implements Initializable {
             stage.setTitle("Profile");
             stage.show();
         }catch (Exception e){
-            System.out.println("Bhul hoilo profile button profile controller");
+            System.out.println("vul hoilo profile button Userdashboard controller "+e.getMessage());
         }
 
     }
@@ -328,20 +318,7 @@ public class BloodBankController implements Initializable {
             }catch (Exception e){
 
             }
-               /* try {
-                    //  FxmlLoader o = new FxmlLoader();
-                    p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
 
-                    pane1.setCenter(p);
-                    stage.setTitle("Profile");
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                   stage.setScene(scene);
-                    stage.setTitle("Profile");
-                    stage.show();
-                    System.out.println("helloApplication");
-                } catch (Exception e) {
-
-                }*/
         }
 
     }
@@ -355,28 +332,24 @@ public class BloodBankController implements Initializable {
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Post Disaster");
+            stage.setTitle("Post Diaster");
             stage.show();
 
-
         }catch (Exception e ){
+            System.out.println(e.getMessage());
 
         }
 
     }
 
-    @FXML
-    void Homego(MouseEvent event) {
 
+
+    public void set(String username, String role) {
+        user.setText(username);
+        rolee.setText("@" + role);
+        this.role= role;
+        this.username = username;
     }
-    @FXML
-    private Label rolee;
-
-    @FXML
-    private ImageView search;
-
-    @FXML
-    private Label user;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         /*user.setText(username);
@@ -397,9 +370,8 @@ public class BloodBankController implements Initializable {
         imageview1.setImage(image5);
         file1 = new File("src/main/Font/search.png");
         Image image6 = new Image(file1.toURI().toString());
-        search.setImage(image6);
-        username= Application.oname;
-        loadtable();
+      //  search.setImage(image6);
+
 
         //   choice.setOnAction(this::ChoiceClick);
 

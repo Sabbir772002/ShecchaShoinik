@@ -244,7 +244,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Disaster Guidelines">
+                        <Button mnemonicParsing="false" onAction="#Event" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Event">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>

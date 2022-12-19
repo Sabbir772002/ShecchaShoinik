@@ -185,7 +185,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#addpost" prefHeight="34.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Approve Crisis Post">
+                        <Button mnemonicParsing="false" onAction="#addpost" prefHeight="34.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Add Disaster">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -220,7 +220,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Add crisis guidelines">
+                        <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Disaster Guidelines">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -236,7 +236,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#Cevent" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Event Approve">
+                        <Button mnemonicParsing="false" onAction="#event" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Event">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -316,7 +316,7 @@
          <children>
             <AnchorPane layoutX="27.0" layoutY="13.0" prefHeight="574.0" prefWidth="703.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-border-radius: 10; -fx-background-radius: 10;">
                <children>
-                  <TableView fx:id="table" layoutX="3.0" layoutY="48.0" onMouseClicked="#tableclcik" prefHeight="525.0" prefWidth="718.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 10;">
+                  <TableView fx:id="table" layoutX="3.0" layoutY="48.0" onMouseClicked="#tableclick" prefHeight="525.0" prefWidth="718.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 10;">
                     <columns>
                       <TableColumn fx:id="col_title" prefWidth="238.39999771118164" text="Title" />
                       <TableColumn fx:id="col_type" minWidth="0.0" prefWidth="127.199951171875" text="Disaster Type" />

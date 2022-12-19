@@ -51,6 +51,8 @@ module com.example.sheccashoinik {
     exports Event;
     opens Map to javafx.fxml;
     exports Map;
+
+
 }
 
 //

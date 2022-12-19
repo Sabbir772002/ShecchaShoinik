@@ -92,7 +92,7 @@ public class AddPostController implements Initializable {
 
     @FXML
     private BorderPane pane1;
-    String imagef="src/main/Font/1.jpg";
+    String imagef="src/main/Font/1.png";
     Image image1;
     @FXML
     private Button imageup;
@@ -113,11 +113,14 @@ public class AddPostController implements Initializable {
              fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Select Image","*.jpg","*.png"));
             // fileChooser.setInitialDirectory(new File("C:\\Users\\USER\\Pictures"));
             File file = fileChooser.showOpenDialog(stage);
+        System.out.println(imagef);
             if (file != null) {
+                System.out.println(file);
                 imagef = file.getAbsolutePath();
+                System.out.println(imagef);
                 String s[]=imagef.split("\\\\");
                 //System.out.println(imagef);
-                System.out.println(s[s.length - 1]);
+              //  System.out.println(s[s.length - 1]);
                 imageup.setText(s[s.length - 1]);
                // File f= new File("src/main/file.image");
 
@@ -426,8 +429,10 @@ public class AddPostController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String []division1={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
         division.getItems().addAll(division1);
+        division.getSelectionModel().selectFirst();
         String []user={"EarthQuake","Storm Surge","Wildfire","Cyclone","Flood","Drought","Tsunami","Typhoon","LandSlide","Epidemic","Structural Collapse","Transport Disasters","Mining Accidents","Explosions and Fires","Others"};
         diaster.getItems().addAll(user);
+        diaster.getSelectionModel().selectFirst();
         String []choiceb={"Profile","Logout"};
         choice.getItems().addAll(choiceb);
         File file = new File("src/main/Font/user1.png");
