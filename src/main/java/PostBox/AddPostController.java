@@ -150,47 +150,55 @@ public class AddPostController implements Initializable {
             district.getItems().removeAll(district.getItems());
             String []ditrict={"Dhaka","Gazipur","Faridpur","Gopalganj","Jamalpur","Kishoreganj","Madaripur","Manikganj","Munshiganj","Narayanganj","Narshingdi","Rajbari","Shariatpur","Tangail"};
             district.getItems().addAll(ditrict);
+            district.getSelectionModel().select(0);
         }else if(divisionname.equals("Rajshahi")){
             district.getItems().removeAll(district.getItems());
 
             String []ditrict={"Rajshahi","Sirajgonj","Bogra","Chapinawabganj","Joypurhat","Naogaon","Natore","Pabna"};
             district.getItems().addAll(ditrict);
+            district.getSelectionModel().select(0);
         }
         else if(divisionname.equals("Chattogram")){
             district.getItems().removeAll(district.getItems());
 
             String []ditrict={"Chattogram","Cox's Bazar", "Rangamati", "Bandarban", "Khagrachhari", "Feni", "Lakshmipur", "Comilla"," Noakhali", "Brahmanbaria" ,"Chandpur"};
             district.getItems().addAll(ditrict);
+            district.getSelectionModel().select(0);
         }
         else if(divisionname.equals("Barishal")){
             district.getItems().removeAll(district.getItems());
 
             String []ditrict={"Barishal", "Barguna", "Bhola", "Jhalokati", "Pirojpur","Patuakhali"};
             district.getItems().addAll(ditrict);
+            district.getSelectionModel().select(0);
         }
         else if(divisionname.equals("Sylhet")){
             district.getItems().removeAll(district.getItems());
 
             String []ditrict={"Sylhet","Habiganj","Moulvibazar","Sunamganj" };
             district.getItems().addAll(ditrict);
+            district.getSelectionModel().select(0);
         }
         else if(divisionname.equals("Mymensingh")){
             district.getItems().removeAll(district.getItems());
 
             String []ditrict={"Mymensingh","Jamalpur","Netrokona","Sherpur" };
             district.getItems().addAll(ditrict);
+            district.getSelectionModel().select(0);
         }
         else if(divisionname.equals("Khulna")){
             district.getItems().removeAll(district.getItems());
 
             String []ditrict={"Khulna","Bagherhat","Chuadanga","Jessore","Jinaidaha","Magura","Meherpur","Narail","Satkhira" };
             district.getItems().addAll(ditrict);
+            district.getSelectionModel().select(0);
         }
         else if(divisionname.equals("Rangpur")){
             district.getItems().removeAll(district.getItems());
 
             String []ditrict={"Rangpur","Kurigram","Gaibandha","Thakurgaon","Dinajpur","Nilphamari","Panchagarh","Lalmonirhat" };
             district.getItems().addAll(ditrict);
+            district.getSelectionModel().select(0);
         }
     }
 
@@ -429,10 +437,10 @@ public class AddPostController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String []division1={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
         division.getItems().addAll(division1);
-        division.getSelectionModel().selectFirst();
+        division.getSelectionModel().select(0);
         String []user={"EarthQuake","Storm Surge","Wildfire","Cyclone","Flood","Drought","Tsunami","Typhoon","LandSlide","Epidemic","Structural Collapse","Transport Disasters","Mining Accidents","Explosions and Fires","Others"};
         diaster.getItems().addAll(user);
-        diaster.getSelectionModel().selectFirst();
+        diaster.getSelectionModel().select(0);
         String []choiceb={"Profile","Logout"};
         choice.getItems().addAll(choiceb);
         File file = new File("src/main/Font/user1.png");

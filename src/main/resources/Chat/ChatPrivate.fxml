@@ -184,18 +184,13 @@
             <children>
                 <ScrollPane layoutX="40.0" layoutY="97.0" prefHeight="387.0" prefWidth="438.0" style="-fx-background-radius: 5;" styleClass="tt" stylesheets="@../../Style/style.css">
                     <content>
-                        <TextArea fx:id="msgbox" editable="false" prefHeight="398.0" prefWidth="438.0" styleClass="bt" stylesheets="@../../Style/style.css" />
+                        <TextArea fx:id="msgbox" editable="false" prefHeight="373.0" prefWidth="438.0" styleClass="bt" stylesheets="@../../Style/style.css" />
                     </content>
                 </ScrollPane>
                 <TextField fx:id="writebox" layoutX="38.0" layoutY="501.0" prefHeight="27.0" prefWidth="318.0" promptText="Write your message here...." styleClass="tt" stylesheets="@../../Style/style.css" />
                 <Button layoutX="361.0" layoutY="501.0" mnemonicParsing="false" onAction="#send" prefHeight="27.0" prefWidth="58.0" style="-fx-background-color: green;" styleClass="tt" stylesheets="@../../Style/style.css" text="Send" />
-                <Label fx:id="Name2" alignment="CENTER" layoutX="40.0" layoutY="71.0" prefHeight="20.0" prefWidth="154.0" style="-fx-background-color: grey;" styleClass="tt" stylesheets="@../../Style/style.css" text="Nusrat Hossain" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold" size="14.0" />
-                    </font>
-                </Label>
-                <Circle fill="#d11ba7" layoutX="114.0" layoutY="44.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
-                <ImageView fitHeight="48.0" fitWidth="50.0" layoutX="90.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                <Circle fill="#d11ba7" layoutX="114.0" layoutY="38.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
+                <ImageView fitHeight="48.0" fitWidth="50.0" layoutX="90.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../Font/account-circle-fill.png" />
                     </image>
@@ -222,6 +217,7 @@
                   </TableView>
                </children>
                   </VBox>
+            <Button fx:id="Name2" layoutX="43.0" layoutY="66.0" mnemonicParsing="false" onAction="#UserClick" prefHeight="23.0" prefWidth="142.0" style="-fx-background-color: grey;" text="Nusrat Hossain" />
             </children></AnchorPane>
     </center>
 </BorderPane>

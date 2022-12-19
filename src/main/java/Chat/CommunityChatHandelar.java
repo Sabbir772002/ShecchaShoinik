@@ -85,12 +85,6 @@ public class CommunityChatHandelar implements Initializable {
         String Name2=usertable.getSelectionModel().getSelectedItem().getName().toString();
         String user2=usertable.getSelectionModel().getSelectedItem().getUsername().toString();
         try{
-                  /* root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
-                   stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                   scene = new Scene(root);
-                   stage.setScene(scene);
-                   stage.setTitle("SIGN IN");
-                   stage.show();*/
             Chat.FXMLScene scene =  Chat.FXMLScene.load("ChatPrivate.fxml");
             Parent root = scene.root;
             Chat.ChatPrivateController adminController = (Chat.ChatPrivateController) scene.controller;
@@ -101,6 +95,7 @@ public class CommunityChatHandelar implements Initializable {
             stage.show();
 
         }catch (Exception e){
+            System.out.println(e.getMessage());
 
         }
 

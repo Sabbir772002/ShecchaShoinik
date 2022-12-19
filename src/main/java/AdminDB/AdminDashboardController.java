@@ -9,6 +9,7 @@ import PostBox.AddPostController;
 import Sign_in.SigninController;
 import com.example.sheccashoinik.Application;
 import com.example.sheccashoinik.disaster;
+import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,19 +28,25 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AdminDashboardController implements Initializable {
-
+   Connection con;
     @FXML
     private BorderPane pane1;
+    @FXML
+    Label alertnum;
 
   /*  @FXML
     private Button Bbankkk;
@@ -80,6 +87,11 @@ public class AdminDashboardController implements Initializable {
         rolee.setText("@"+role);
         this.role = role;
         this.username = username;
+        con=ConnectionDb.DBC();
+        alertcount();
+        alertnum.setText(String.valueOf(newcount));
+        Thread t=new AlertThread();
+        t.start();
     }
 
     @FXML
@@ -90,7 +102,7 @@ public class AdminDashboardController implements Initializable {
     @FXML
     private TextField textfield;
     @FXML
-    void search(KeyEvent e) {
+    void searchfiled(KeyEvent e) {
         ObservableList<disaster> list=FXCollections.observableArrayList();
         //i++;
         if(e.getCode() != KeyCode.ENTER){return;}
@@ -373,7 +385,19 @@ public class AdminDashboardController implements Initializable {
 
     @FXML
     void chat(ActionEvent event) {
-
+        try {
+            Chat.FXMLScene scene = Chat.FXMLScene.load("CommunityChat.fxml");
+            Parent root = scene.root;
+            //System.out.println("chat cole na");
+            Chat.CommunityChatHandelar admin = (Chat.CommunityChatHandelar) scene.controller;
+            admin.set(username, role);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Chat");
+            stage.show();
+        } catch (Exception e) {
+            System.out.println("vul hoilo chat button Userdashboard controller " + e.getMessage());
+        }
     }
 
     @FXML
@@ -598,6 +622,80 @@ public class AdminDashboardController implements Initializable {
 
     }
     @FXML
+    void search(ActionEvent e) {
+        ObservableList<disaster> list = FXCollections.observableArrayList();
+        //i++;
+
+
+        Connection con = ConnectionDb.DBC();
+        //ObservableList<diaster>list = FXCollections.observableArrayList();
+        try {
+                /*PreparedStatement ps =  con.prepareStatement(
+                        "SELECT * FROM `diasterlist` WHERE" +
+                                      " Division='"+textfield.getText().toString()
+                                    +"' OR District='"+textfield.getText().toString()
+                                    +"' OR `Title`='"+textfield.getText().toString()
+                                    +"' OR `Type`='"+textfield.getText().toString()
+                                    +"' OR `Address`='"+textfield.getText().toString()
+                                    +"' OR `AddInfo`='"+textfield.getText().toString()
+                                    +"' OR `Id`='"+textfield.getText().toString()
+                                    +"' ORDER BY Id DESC;");*/
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM `diasterlist` ORDER BY Id DESC;");
+            ResultSet rs = ps.executeQuery();
+            // +"' OR `Title`='"+textfield.getText().toString()
+               /* ps.setString(1,textfield.getText().toString());
+                ps.setString(2,textfield.getText().toString());*/
+            // ps.setString(1,textfield.getText().toString());
+            while (rs.next()) {
+                String s[] = {rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), (rs.getInt(6)) + "", rs.getString(7)};
+                String s1 = s[0] + " " + s[1] + " " + s[2] + " " + s[3] + " " + s[4] + " " + s[5] + " " + s[6];
+                String s5[] = s1.split(" ");
+
+                String s2 = textfield.getText().toString() + "";
+                // System.out.println(s2);
+                boolean i = false;
+                for (int j = 0; j < s5.length; j++) {
+                    // System.out.println(textfield.getText().toString());
+                    // System.out.println(s2);
+/*
+                        if(s[j]==textfield.getText().toString()){
+*/
+                    if (s5[j].equalsIgnoreCase(s2)) {
+                        // System.out.println((s[j])+"=="+textfield.getText().toString());
+                        i = true;
+                    }
+                }
+                s2 += " ";
+                if (s2.equals("")) {
+                    i = true;
+                    // System.out.println("thik ase");
+                }
+                if (s2.equals(" ")) {
+                    i = true;
+                    //System.out.println("thik ase2");
+                }
+                if (i) {
+                    list.add(new disaster(s[0], s[1], s[2], s[3], s[4], Integer.parseInt(s[5]), s[6]));
+                }
+
+            }
+            // rs.getString(1)), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7))
+        } catch (Exception ie) {
+            System.out.println("error at disaster backlist");
+        } finally {
+
+            try {
+                con.close();
+            } catch (Exception ee) {
+            }
+        }
+        listF = list;
+        loadtable1();
+
+
+
+    }
+    @FXML
     private Label rolee;
 
     @FXML
@@ -605,10 +703,21 @@ public class AdminDashboardController implements Initializable {
 
     @FXML
     private Label user;
+    @FXML
+    private Button alertbutton;
+    @FXML
+    private Button btsearch;
+    int oldcount=0,newcount=0;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        /*user.setText(username);
-        rolee.setText(role);*/
+        ImageView imageView0 = new ImageView(new Image(new File("src/main/Font/notify.png").toURI().toString()));
+        imageView0.setFitHeight(20);
+        imageView0.setFitWidth(25);
+        alertbutton.setGraphic(imageView0);
+        ImageView imageView1= new ImageView(new Image(new File("src/main/Font/search.png").toURI().toString()));
+        imageView1.setFitHeight(20);
+        imageView1.setFitWidth(25);
+        btsearch.setGraphic(imageView1);
         String []choiceb={"Profile","Logout"};
         choice.getItems().addAll(choiceb);
         File file = new File("src/main/Font/user1.png");
@@ -625,34 +734,144 @@ public class AdminDashboardController implements Initializable {
         imageview1.setImage(image5);
         file1 = new File("src/main/Font/search.png");
         Image image6 = new Image(file1.toURI().toString());
-        search.setImage(image6);
-        username= Application.oname;
+        //search.setImage(image6);
        loadtable();
      //   choice.setOnAction(this::ChoiceClick);
 
     }
 
-    @FXML
-    void tableclick(MouseEvent event)
-    {
-        //System.out.println("kaj kore na");
-        System.out.println(table.getSelectionModel().getSelectedItem().getId());
-        //System.out.println("click korse ");
+   void alertcount( )  {
         try{
-            PostBox.FXMLScene scene =  PostBox.FXMLScene.load("PostView.fxml");
-            Parent root = scene.root;
-            PostBox.Post admin= (PostBox.Post) scene.controller;
-            admin.set(username,role,table.getSelectionModel().getSelectedItem().getId());
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("PostBox");
-            stage.show();
+            int allpost=0;
+            int i=0;
+            PreparedStatement ps = con.prepareStatement("SELECT Id FROM `diasterlist` ORDER BY Id DESC;");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                i++;
+                allpost=rs.getInt(1);
+                //System.out.println(allpost);
+                if(i==1){
+                    break;
+                }
 
+            }
+            rs.close();
+            ps.close();
+            //PreparedStatement ps1 = con.prepareStatement("SELECT Postid FROM `notify` Where Username ='"+username+"';");
+            String s="SELECT Postid FROM `notify` Where Username='"+username+"'";
+            //System.out.println(s);
+            PreparedStatement ps1 = con.prepareStatement(s);
+            ResultSet rs1 = ps1.executeQuery();
+            int j=0;
+            while(rs1.next()) {
+                rs1.getInt(1);
+                j++;
 
-        }catch (Exception e ){
+            }
+            ps1.close();
+            rs1.close();
+            // System.out.println(allpost);
+            //  System.out.println("kaj korlo na");
+            newcount =allpost-j;
+            if(oldcount==newcount){
+                //System.out.println("Old= "+oldcount+" New= "+newcount);
+            }else{
+                //System.out.println("Old= "+oldcount+" New= "+newcount);
+                //alertnum.setText(newcount+"");
+                oldcount=newcount;
+                PauseTransition wait = new PauseTransition(Duration.seconds(1));
+                wait.setOnFinished((e) -> {
+                    alertnum.setText(String.valueOf(newcount));
+                    wait.playFromStart();
+                });
+                wait.play();
+            }
+
+        }catch( Exception e ){
             System.out.println(e.getMessage());
+
         }
 
+    }
+        class AlertThread extends Thread{
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        //  System.out.println("hey ami choltesi");
+                        Thread.sleep(5000);
+                        alertcount();
+                        if(newcount!=oldcount){
+                       /* PauseTransition wait = new PauseTransition(Duration.seconds(1));
+                        wait.setOnFinished((e) -> {
+                            alertnum.setText(String.valueOf(newcount));
+                            wait.playFromStart();
+                        });
+                        wait.play();*/
+
+                        }
+                    } catch (InterruptedException e) {
+                        System.out.println("interrupted");
+                    }
+
+
+                }
+            }
+
+        }
+        @FXML
+        void alert(ActionEvent e){
+        System.out.println("vai amare marse");
 
     }
+        @FXML
+        void tableclick(MouseEvent event)
+        {
+            System.out.println(table.getSelectionModel().getSelectedItem().getId());
+            try{
+                PostBox.FXMLScene scene =  PostBox.FXMLScene.load("PostView.fxml");
+                Parent root = scene.root;
+                PostBox.Post admin= (PostBox.Post) scene.controller;
+                admin.set(username,role,table.getSelectionModel().getSelectedItem().getId());
+                Connection con=ConnectionDb.DBC();
+                try{
+                    String sql = "SELECT * FROM notify Where username = ? and Postid = ?";
+                    try {
+                        PreparedStatement preparedStatement = con.prepareStatement(sql);
+                        preparedStatement.setString(1, username);
+                        preparedStatement.setInt(2, table.getSelectionModel().getSelectedItem().getId());
+                        ResultSet resultSet = preparedStatement.executeQuery();
+                        if (!resultSet.next()) {
+                            PreparedStatement ps1 = con.prepareStatement("insert into `notify`  (Username,Postid) values (?,?);");
+                            // ResultSet rs1= ps1.executeQuery();
+                            ps1.setString(1, username);
+                            ps1.setInt(2,table.getSelectionModel().getSelectedItem().getId());
+                            ps1.execute();
+                            ps1.close();
+                            //rs1.close();
+                        } else {;
+                            System.out.println("ase aita");
+                        }
+                        resultSet.close();
+                        con.close();
+                    } catch (SQLException ex) {
+                        System.err.println(ex.getMessage());
+                    }
+
+                }catch( Exception e ){
+                    System.out.println(e.getMessage());
+
+                }
+                stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("PostBox");
+                stage.show();
+
+
+            }catch (Exception e ){
+                System.out.println(e.getMessage());
+            }
+
+
+        }
 }
