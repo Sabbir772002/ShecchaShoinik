@@ -998,30 +998,7 @@
    </AnchorPane>
 </top>
 <center>
-   <AnchorPane prefHeight="601.0" prefWidth="586.0" style="-fx-cursor: had; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER">
-      <children>
-         <AnchorPane layoutX="27.0" layoutY="13.0" prefHeight="574.0" prefWidth="703.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-border-radius: 10; -fx-background-radius: 10;">
-            <children>
-               <TableView layoutX="3.0" layoutY="48.0" prefHeight="525.0" prefWidth="718.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 10;">
-                  <columns>
-                     <TableColumn fx:id="col_title" prefWidth="195.1999969482422" text="Title" />
-                     <TableColumn fx:id="col_type" minWidth="0.0" prefWidth="169.60003662109375" text="Diaster Type" />
-                     <TableColumn fx:id="col_district" minWidth="0.0" prefWidth="169.60003662109375" text="District" />
-                     <TableColumn fx:id="col_address" minWidth="0.0" prefWidth="182.39996337890625" text="Address" />
-                     <TableColumn fx:id="col_id" minWidth="0.0" prefWidth="182.39996337890625" text="Id" />
-                  </columns>
-               </TableView>
-               <TextField layoutX="531.0" layoutY="6.0" prefHeight="30.0" prefWidth="188.0" promptText="Search" style="-fx-background-radius: 5;" />
-               <Button layoutX="667.0" layoutY="7.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="51.0" style="-fx-background-color: white;">
-                  <graphic>
-                     <ImageView fx:id="search" fitHeight="20.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                           <Image url="@../../Font/search.png" />
-                        </image>
-                     </ImageView>
-                  </graphic>
-               </Button>
-            </children>
+
          </AnchorPane>
       </children>
    </AnchorPane>
