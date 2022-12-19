@@ -52,3 +52,5 @@ module com.example.sheccashoinik {
     opens Map to javafx.fxml;
     exports Map;
 }
+
+//
