@@ -331,7 +331,7 @@
                         <TableColumn fx:id="col_id" minWidth="0.0" prefWidth="182.39996337890625" text="ID" visible="false" />
                     </columns>
                   </TableView>
-                  <TextField fx:id="textfield" layoutX="529.0" layoutY="6.0" onAction="#search" onKeyPressed="#search" prefHeight="30.0" prefWidth="186.0" promptText="Search" style="-fx-background-radius: 5;" />
+                  <TextField fx:id="textfield" layoutX="529.0" layoutY="6.0" onKeyPressed="#keyclick" prefHeight="30.0" prefWidth="186.0" promptText="Search" style="-fx-background-radius: 5;" />
                   <Button fx:id="btsearch" layoutX="636.0" layoutY="7.0" mnemonicParsing="false" onAction="#search" prefHeight="28.0" prefWidth="77.0" style="-fx-background-color: white;" />
                </children>
             </AnchorPane>
