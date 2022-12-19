@@ -35,6 +35,11 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class UserDashboardController implements Initializable {
+    Connection con=ConnectionDb.DBC();
+    public UserDashboardController(){
+       con=ConnectionDb.DBC();
+
+    }
 
     @FXML
     private BorderPane pane1;
@@ -70,11 +75,15 @@ public class UserDashboardController implements Initializable {
 
 
     public void set(String username, String role) {
+        con=ConnectionDb.DBC();
         user.setText(username);
         rolee.setText("@" + role);
         this.role = role;
         this.username = username;
         alertcount();
+        Thread t=new AlertThread();
+        t.start();
+
 
     }
 
@@ -441,6 +450,9 @@ public class UserDashboardController implements Initializable {
 
     @FXML
     void Choiceclick(ActionEvent event) {
+        if(choice.getValue()==null){
+            return;
+        }
         if (choice.getValue().toString().equals("Logout")) {
             try {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -519,7 +531,8 @@ public class UserDashboardController implements Initializable {
 
     @FXML
     private Label user;
-    int count = 0;
+
+    int oldcount = 0,newcount = 0;
     @FXML
     ImageView alertimage;
 
@@ -555,8 +568,8 @@ public class UserDashboardController implements Initializable {
         //   choice.setOnAction(this::ChoiceClick);
 
     }
+
     void alertcount( )  {
-        Connection con=ConnectionDb.DBC();
       try{
           int allpost=0;
           int i=0;
@@ -575,27 +588,49 @@ public class UserDashboardController implements Initializable {
           ps.close();
           //PreparedStatement ps1 = con.prepareStatement("SELECT Postid FROM `notify` Where Username ='"+username+"';");
           String s="SELECT Postid FROM `notify` Where Username='"+username+"'";
-          System.out.println(s);
+          //System.out.println(s);
           PreparedStatement ps1 = con.prepareStatement(s);
           ResultSet rs1 = ps1.executeQuery();
         int j=0;
         while(rs1.next()) {
-            System.out.println("1bar");
-            System.out.println( rs1.getInt(1));
+            rs1.getInt(1);
             j++;
-            System.out.println(j);
 
         }
         ps1.close();
         rs1.close();
           System.out.println(allpost);
         //  System.out.println("kaj korlo na");
-        count =allpost-j;
-        alertnum.setText(count+"");
+        newcount =allpost-j;
+        if(oldcount==newcount){
+            System.out.println("Old= "+oldcount+" New= "+newcount);
+        }else{
+            System.out.println("Old= "+oldcount+" New= "+newcount);
+            alertnum.setText(newcount+"");
+            oldcount=newcount;
+        }
+
       }catch( Exception e ){
           System.out.println(e.getMessage());
 
       }
+
+    }
+    class AlertThread extends Thread{
+        @Override
+        public void run() {
+            while (true) {
+                try {
+                  //  System.out.println("hey ami choltesi");
+                    Thread.sleep(5000);
+                    alertcount();
+                } catch (InterruptedException e) {
+                    System.out.println("interrupted");
+                }
+
+
+            }
+        }
 
     }
     @FXML

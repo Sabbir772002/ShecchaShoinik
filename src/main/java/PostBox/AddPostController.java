@@ -92,7 +92,7 @@ public class AddPostController implements Initializable {
 
     @FXML
     private BorderPane pane1;
-    String imagef="src/main/Font/1.jpg";
+    String imagef="src/main/Font/1.png";
     Image image1;
     @FXML
     private Button imageup;
@@ -113,11 +113,14 @@ public class AddPostController implements Initializable {
              fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Select Image","*.jpg","*.png"));
             // fileChooser.setInitialDirectory(new File("C:\\Users\\USER\\Pictures"));
             File file = fileChooser.showOpenDialog(stage);
+        System.out.println(imagef);
             if (file != null) {
+                System.out.println(file);
                 imagef = file.getAbsolutePath();
+                System.out.println(imagef);
                 String s[]=imagef.split("\\\\");
                 //System.out.println(imagef);
-                System.out.println(s[s.length - 1]);
+              //  System.out.println(s[s.length - 1]);
                 imageup.setText(s[s.length - 1]);
                // File f= new File("src/main/file.image");
 
