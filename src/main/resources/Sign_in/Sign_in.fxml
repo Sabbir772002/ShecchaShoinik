@@ -10,38 +10,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="631.0" prefWidth="878.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_in.SigninController">
+<AnchorPane prefHeight="610.0" prefWidth="865.0" style="-fx-background-color: #03396c;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_in.SigninController">
    <children>
-      <AnchorPane layoutX="240.0" layoutY="146.0" prefHeight="338.0" prefWidth="349.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);; -fx-background-radius: 20,20,20,20;">
+      <AnchorPane prefHeight="632.0" prefWidth="518.0" style="-fx-background-color: linear-gradient(to right, #360033, #0b8793); -fx-background-radius: 0,0,0,0;">
          <children>
-            <Label layoutX="123.0" layoutY="14.0" prefHeight="22.0" prefWidth="102.0" text="You are" textFill="#c7c7c7">
-               <font>
-                  <Font name="System Bold" size="22.0" />
-               </font>
-            </Label>
-            <ComboBox fx:id="sign_in_box" layoutX="87.0" layoutY="62.0" prefWidth="150.0" promptText="Role" />
-           
-            <TextField fx:id="username" layoutX="87.0" layoutY="106.0" promptText="Username" />
-            <PasswordField fx:id="password" layoutX="87.0" layoutY="142.0" promptText="Password" />
-            <Button alignment="CENTER_RIGHT" layoutX="110.0" layoutY="188.0" mnemonicParsing="false" onAction="#sign_in" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: green; -fx-cursor: hand; -fx-background-radius: 10,10,10,10;" text="SIGN IN" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font></Button>
-            <Label layoutX="98.0" layoutY="219.0" prefHeight="18.0" prefWidth="133.0" text="Don't have an account?" />
-            <Button alignment="CENTER_RIGHT" defaultButton="true" layoutX="110.0" layoutY="237.0" mnemonicParsing="false" onAction="#sign_up" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: blue; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font></Button>
-            <ImageView fx:id="user" fitHeight="26.0" fitWidth="32.0" layoutX="55.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Font/user.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="pass" fitHeight="26.0" fitWidth="32.0" layoutX="55.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Font/lock-outline.png" />
-               </image>
-            </ImageView>
             <Label fx:id="userl" layoutX="87.0" layoutY="129.0" prefHeight="10.0" prefWidth="62.0" text="*Field Required" textFill="RED" visible="false">
                <font>
                   <Font size="9.0" />
@@ -57,17 +29,37 @@
                   <Font size="9.0" />
                </font>
             </Label>
-            <ImageView fx:id="loginimage" fitHeight="26.0" fitWidth="31.0" layoutX="120.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
+            <ComboBox fx:id="sign_in_box" layoutX="176.0" layoutY="170.0" prefWidth="150.0" promptText="Role" />
+            <Label layoutX="63.0" layoutY="86.0" prefHeight="32.0" prefWidth="394.0" text="Sign in according to your user type" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+           
+                  <TextField fx:id="username" layoutX="251.0" layoutY="233.0" promptText="Username" />
+            <Button alignment="CENTER_RIGHT" layoutX="179.0" layoutY="383.0" mnemonicParsing="false" onAction="#sign_in" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: linear-gradient(to right, #360033, #0b8793); -fx-cursor: hand; -fx-background-radius: 10,10,10,10;" text="SIGN IN" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <PasswordField fx:id="password" layoutX="251.0" layoutY="282.0" promptText="Password" />
+            <ImageView fx:id="user" fitHeight="26.0" fitWidth="32.0" layoutX="63.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Font/login.png" />
+                  <Image url="@../../Font/user.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="loginimage1" fitHeight="26.0" fitWidth="31.0" layoutX="120.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="pass" fitHeight="26.0" fitWidth="32.0" layoutX="151.0" layoutY="458.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Font/signup.png" />
+                  <Image url="@../../Font/lock-outline.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
+      <Button alignment="CENTER_RIGHT" defaultButton="true" layoutX="639.0" layoutY="366.0" mnemonicParsing="false" onAction="#sign_up" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: blue; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="609.0" layoutY="317.0" prefHeight="18.0" prefWidth="133.0" text="Don't have an account?" textFill="WHITE" />
    </children>
 </AnchorPane>
