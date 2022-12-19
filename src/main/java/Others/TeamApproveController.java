@@ -3,8 +3,7 @@ package Others;
 import AdminDB.AdminDashboardController;
 import AdminDB.TeamDashboardController;
 import AdminDB.UserDashboardController;
-import BloodBank.BloodBankController;
-import Post.AddPostController;
+import PostBox.AddPostController;
 import Sign_in.SigninController;
 import UserProfile.ProfileController;
 import javafx.event.ActionEvent;
@@ -87,6 +86,13 @@ public class TeamApproveController implements Initializable {
 
     @FXML
     void Cevent(ActionEvent event) {
+
+    }
+    @FXML
+    void H(ActionEvent event) {
+
+    } @FXML
+    void F(ActionEvent event) {
 
     }
     @FXML
@@ -210,7 +216,7 @@ public class TeamApproveController implements Initializable {
     @FXML
     void addpost(ActionEvent event) {
         try{
-            Post.FXMLScene scene =  Post.FXMLScene.load("AddPost.fxml");
+            PostBox.FXMLScene scene =  PostBox.FXMLScene.load("AddPost.fxml");
             Parent root = scene.root;
             AddPostController admin= (AddPostController) scene.controller;
             admin.set(username,role);

@@ -1,9 +1,7 @@
 package Sign_in;
 
-import AdminDB.AdminDashboardController;
+import AdminDB.*;
 import AdminDB.FXMLScene;
-import AdminDB.TeamDashboardController;
-import AdminDB.UserDashboardController;
 import DB.ConnectionDb;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -86,15 +84,17 @@ public class SigninController implements Initializable {
                 if(alert.getResult().getText().compareTo("OK")==0){
                     if(role.equals("User")) {
                         FXMLScene scene = FXMLScene.load("UserDashboard.fxml");
+                        //FXMLScene scene = FXMLScene.load("BackgroundDesign.fxml");
                         Parent root = scene.root;
                         UserDashboardController adminController = (UserDashboardController) scene.controller;
+                        //Back adminController = (Back) scene.controller;
                         adminController.set(usern, role);
                         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.setScene(new Scene(root));
                         stage.setTitle("UserProfile");
                         stage.show();
                     }else if(role.equals("Admin")){
-                        FXMLScene scene = FXMLScene.load("AdminDashboard.fxml");
+                        AdminDB.FXMLScene scene =AdminDB.FXMLScene.load("AdminDashboard.fxml");
                         Parent root = scene.root;
                         AdminDashboardController adminController = (AdminDashboardController) scene.controller;
                         adminController.set(usern, role);

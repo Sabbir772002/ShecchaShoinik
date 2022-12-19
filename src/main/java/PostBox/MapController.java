@@ -1,4 +1,4 @@
-package Map;
+package PostBox;
 
 import AdminDB.AdminDashboardController;
 import AdminDB.TeamDashboardController;
@@ -26,15 +26,22 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.URL;
-import java.sql.*;
+import java.sql.Blob;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class MapController implements Initializable {
+
+    @FXML
+    private WebView view;
+    WebEngine engine = view.getEngine();
+
     public MapController() throws FileNotFoundException {
         con= ConnectionDb.DBC();
     }
-    String s;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -42,11 +49,7 @@ public class MapController implements Initializable {
     public String role="";
     int id;
     Connection con;
-    @FXML
-    private WebView view;
-
-    @FXML
-    private Label addinfo;
+    String addinfo;
 
     @FXML
     private Label address;
@@ -66,8 +69,9 @@ public class MapController implements Initializable {
     @FXML
     private ChoiceBox<String> choice;
 
-    String district;
+   String district;
 
+    @FXML
     String division;
 
     @FXML
@@ -82,6 +86,8 @@ public class MapController implements Initializable {
     @FXML
     private BorderPane pane1;
 
+    @FXML
+    private ImageView poster;
 
     @FXML
     private Label rolee;
@@ -89,6 +95,8 @@ public class MapController implements Initializable {
     @FXML
     private Text title;
 
+    @FXML
+    private Label type;
 
     @FXML
     private Label user;
@@ -99,132 +107,45 @@ public class MapController implements Initializable {
     Blob blob;
     disaster dlist = null;
 
-    public void set(String username,String role,int id) {
-        System.out.println("i am in set");
+    public void set(String username,String role,int id) throws IOException {
+        System.out.println("i am in map set");
         user.setText(username);
         rolee.setText("@"+role);
         this.role = role;
         this.username = username;
         this.id=id;
         loadbox();
-       title.setText(dlist.getTitle());
-        //type.setText(dlist.getType());
-         address.setText(dlist.getAddress());
-         district=dlist.getDistrict();
-        //district.setText(dlist.District);
+       // title.setText(dlist.getTitle());
+       // type.setText(dlist.getType());
+        address.setText(dlist.getAddress());
+
+       // division.setText(dlist.Division);
+        district=dlist.District;
         //addinfo.setText(dlist.getAddInfo());
-    /*    try {
-
-           // poster.setImage(new Image(file.toURI().toString()));
-            FileReader f1 = new FileReader(new File("src/main/resources/Map/map2.html"));
-            File f0=new File("src/main/resources/Map/map3.html");
-            FileWriter f = new FileWriter(f0);
-            BufferedWriter bw = new BufferedWriter(f);
-            BufferedReader bf = new BufferedReader(f1);
-            String s = "";
-            while ((s = bf.readLine()) != null) {
-                if (s.equals("Sabbir")) {
-                    s = address.getText().toString();
-                    System.out.println("s add hoi nai");
-                }
-                System.out.println(district);
-                s = s.replace("ullapara", district);
-                bw.write(s);
-                bw.write("\n");
-
-
+        //poster.setImage(new Image(file.toURI().toString()));
+        FileReader f1=new FileReader(new File("src/main/resources/Map/map2.html"));
+        FileWriter f=new FileWriter(new File("src/main/resources/Map/mapsbd.html"));
+        BufferedWriter bw=new BufferedWriter(f);
+        BufferedReader bf= new BufferedReader(f1);
+        String s="";
+        while((s =bf.readLine()) != null){
+            if(s.equals("Sabbir")){
+                s=address.getText().toString();
+                System.out.println("s add hoi nai");
             }
-            bf.close();
-            bw.close();
-            f.close();
-            f1.close();
-            File f9=new File("src/main/resources/Map/map3.html");
-            FileInputStream fis=new FileInputStream(f9);
-            FileReader f00=new FileReader(f9);
-            con=ConnectionDb.DBC();
-            String st = "Update map set File=? where ID=1";
-            PreparedStatement preparedStatement = (PreparedStatement) con.prepareStatement(st);
-           // preparedStatement.setString(1,"Map3");
-            preparedStatement.setBinaryStream(1,fis,(int)f9.length());
+            System.out.println(district);
+            s=s.replace("ullapara",district);
+            bw.write(s);
+            bw.write("\n");
 
-            preparedStatement.execute();
-            System.out.println("hoye gelo");
-            preparedStatement.close();
-            con.close();
-          *//*  File file = new File("map4.html");
-            FileOutputStream fos = new FileOutputStream(file);
-            byte b[];
-            String s0="";
-              con= ConnectionDb.DBC();
-            PreparedStatement ps = con.prepareStatement("select File where Where ID=1");
-            ResultSet rs = ps.executeQuery();*//*
-            con= ConnectionDb.DBC();
-            File file = new File("src/main/resources/Map/map5.html");
-            FileOutputStream fos = new FileOutputStream(file);
-            byte b[];
+        }
+        bf.close();
+        bw.close();
+        f.close();
+        f1.close();
+        engine.load(String.valueOf(getClass().getResource("mapsbd.html")));
 
 
-            PreparedStatement ps = con.prepareStatement("select File from map where ID=1");
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-                blob = rs.getBlob("File");
-                b = blob.getBytes(1, (int) blob.length());
-                fos.write(b);
-            }
-            //System.out.println("Imgae Rerived successfully to " + file.getPath() + "  path");
-            ps.close();
-            con.close();
-           *//* while (rs.next()) {
-
-              *//**//*  Clob clob = rs.getClob("File");
-                Reader reader = clob.getCharacterStream();
-                System.out.println("hello");
-                //String filePath = "E:\Data\clob_output"+j+".txt";
-                FileWriter writer = new FileWriter(file);
-                int i;
-                while ((i = reader.read())!=-1) {
-                    writer.write(i);
-                }
-                writer.close();*//**//*
-            }
-            rs.close();
-            ps.close();*//*
-            con.close();
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }*/
-        s="<html>\n" +
-                "\n" +
-                "<head>\n" +
-                "    <title>Google Map</title>\n" +
-                "</head>\n" +
-                "\n" +
-                "<body>\n" +
-                "\n" +
-                "<div class=\"mapouter\">\n" +
-                "    <div class=\"gmap_canvas\">\n" +
-                "        <iframe class=\"gmap_iframe\" width=\"100%\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"\n" +
-                "                src=\"https://maps.google.com/maps?width=721&amp;height=621&amp;hl=en&amp;q="+district+"&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed\"></iframe>\n" +
-                "        <a href=\"https://embedmapgenerator.com\">google maps code generator</a>\n" +
-                "    </div>\n" +
-                "    <style>\n" +
-                ".mapouter{\n" +
-                "           position:relative;text-align:right;width:100%;height:621px;\n" +
-                "}\n" +
-                ".gmap_canvas {\n" +
-                "       overflow:hidden;background:none!important;width:100%;height:621px;\n" +
-                "}\n" +
-                ".gmap_iframe {\n" +
-                "height:621px!important;\n" +
-                "}</style>\n" +
-                "</div>\n" +
-                "</body>\n" +
-                "\n" +
-                "</html>";
-        WebEngine engine = view.getEngine();
-        //engine.load(String.valueOf(getClass().getResource("mapsbd.html")));
-        engine.loadContent(s);
     }
 
     void loadbox(){
@@ -243,14 +164,45 @@ public class MapController implements Initializable {
                 dlist=new disaster((rs.getString(1)), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), id, rs.getString(6));
 
                 // if(rs.next()){
-               /* blob=rs.getBlob(7);
+                blob=rs.getBlob(7);
                 pic=blob.getBytes(1,(int)blob.length());
-                fos.write(pic);*/
+                fos.write(pic);
                 // }
 
             }
             rs.close();
             fos.close();
+            // System.out.println(dlist.AddInfo+" "+dlist.Address);
+              /*if(resultSet.next()) {
+                  post[0] = resultSet.getString(1);
+                  System.out.println(post[1]);
+              } if(resultSet.next()) {
+                  post[1] = resultSet.getString(2);
+                  System.out.println(post[2]);
+              } if(resultSet.next()) {
+                  post[2] = resultSet.getString(3);
+              } if(resultSet.next()) {
+                  post[3] = resultSet.getString(4);
+              } if(resultSet.next()) {
+                  post[4] = resultSet.getString(5);
+              } if(resultSet.next()) {
+                  post[5] = resultSet.getString(7);
+              }*/
+                /*  System.out.println(i+" bar");
+                  if(j==6){j=7;}
+                  post[i]= resultSet.getString(j);
+                  System.out.println(post[i]);*/
+            //System.out.println(resultSet.getString(1));
+                 /* post[0] = resultSet.getString(1);
+                  System.out.println(post[0]);
+                  post[1] = resultSet.getString(2);
+                  post[2] = resultSet.getString(3);
+                  post[3] = resultSet.getString(4);
+                  post[4] = resultSet.getString(5);
+                  post[5] = resultSet.getString(7);*/
+                   /*  blob=resultSet.getBlob(8);
+                     pic=blob.getBytes(1,(int)blob.length());
+                      fos.write(pic);*/
 
         } catch (Exception e) {
             System.out.println("plbm in sql"+e.getMessage());
@@ -360,9 +312,9 @@ public class MapController implements Initializable {
     void addpost(ActionEvent event) {
         System.out.println("hello");
         try{
-            PostBox.FXMLScene scene =  PostBox.FXMLScene.load("AddPost.fxml");
+            FXMLScene scene =  FXMLScene.load("AddPost.fxml");
             Parent root = scene.root;
-            PostBox.AddPostController admin= (PostBox.AddPostController) scene.controller;
+            AddPostController admin= (AddPostController) scene.controller;
             admin.set(username,role);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -467,6 +419,10 @@ public class MapController implements Initializable {
 
     }
 
+    @FXML
+    void viewmap(ActionEvent event) {
+
+    }
 
     @FXML
     void vnear(ActionEvent event) {
@@ -509,8 +465,6 @@ public class MapController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-         WebEngine engine = view.getEngine();
-        //engine.load(String.valueOf(getClass().getResource("map3.html")));
         /*user.setText(username);
         rolee.setText(role);*/
         String []choiceb={"Profile","Logout"};
@@ -529,32 +483,45 @@ public class MapController implements Initializable {
         imageview1.setImage(image5);
         file1 = new File("src/main/Font/search.png");
         Image image6 = new Image(file1.toURI().toString());
+        //WebEngine engine = view.getEngine();
+      /*  try {
+            loadweb();
+        }catch(Exception e){
 
-
-    }
-    @FXML
-    void viewmap(ActionEvent e){
-        //System.out.println("ashlam kaj holo na1");
-        try{
-            System.out.println("ashlam kaj holo na");
-            Map.FXMLScene scene =  Map.FXMLScene.load("MapD.fxml");
-            Parent root = scene.root;
-            Map.MapController admin= (Map.MapController) scene.controller;
-            // admin.set(username,role,id);
-            stage = (Stage)((Node) e.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Maps");
-            stage.show();
-        }catch(Exception et){
-            System.out.println("vul hoilo viewmap button post controller "+et.getMessage());
         }
+        //  engine.load(String.valueOf(getClass().getResource("https://www.google.com/maps/place/%E0%A6%A2%E0%A6%BE%E0%A6%95%E0%A6%BE/@23.7805733,90.2791955,11z/data=!3m1!4b1!4m5!3m4!1s0x3755b8b087026b81:0x8fa563bbdd5904c2!8m2!3d23.810332!4d90.4125181")));
+        engine.load(String.valueOf(getClass().getResource("mapsbd.html")));
+*/
+    }
+void loadweb()throws Exception {
+
+    FileReader f1=new FileReader(new File("src/main/resources/Map/map2.html"));
+    FileWriter f=new FileWriter(new File("src/main/resources/Map/mapsbd.html"));
+    BufferedWriter bw=new BufferedWriter(f);
+    BufferedReader bf= new BufferedReader(f1);
+    String s="";
+    while((s =bf.readLine()) != null){
+        if(s.equals("Sabbir")){
+            s=address.getText().toString();
+            System.out.println("s add hoi nai");
+        }
+        System.out.println(district);
+        s=s.replace("ullapara",district);
+        bw.write(s);
+        bw.write("\n");
 
 
     }
-    @FXML
-    public void gomap(ActionEvent actionEvent) {
-        WebEngine engine = view.getEngine();
-        engine.loadContent(s);
+    bf.close();
+    bw.close();
+    f.close();
+    f1.close();
+}
+@FXML
+void gomap(ActionEvent event){
 
+        engine.load(String.valueOf(getClass().getResource("mapsbd.html")));
     }
+
+
 }
