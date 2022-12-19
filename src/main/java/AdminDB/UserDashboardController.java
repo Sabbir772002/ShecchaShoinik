@@ -541,11 +541,16 @@ public class UserDashboardController implements Initializable {
 
     @FXML
     private Button alertbutton;
+    @FXML
+    private Button btsearch;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ImageView imageView = new ImageView(new Image(new File("src/main/Font/notify.png").toURI().toString()));
         imageView.setFitHeight(25);
-        imageView.setFitWidth(27);
+        imageView.setFitWidth(27);ImageView imageView0 = new ImageView(new Image(new File("src/main/Font/search.png").toURI().toString()));
+        imageView0.setFitHeight(20);
+        imageView0.setFitWidth(25);
+        btsearch.setGraphic(imageView0);
 
       alertbutton.setGraphic(imageView);
         //alertimage.setImage(new Image(new File("src/main/Font/notify.png").toURI().toString()));
@@ -565,7 +570,7 @@ public class UserDashboardController implements Initializable {
         imageview1.setImage(image5);
         file1 = new File("src/main/Font/search.png");
         Image image6 = new Image(file1.toURI().toString());
-        search.setImage(image6);
+        //search.setImage(image6);
         loadtable();
         /*PauseTransition wait = new PauseTransition(Duration.seconds(1));
         wait.setOnFinished((e) -> {

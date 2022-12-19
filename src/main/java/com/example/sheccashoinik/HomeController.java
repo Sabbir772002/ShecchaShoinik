@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -32,7 +33,8 @@ public class HomeController implements Initializable {
     private ImageView front;
     @FXML
     private ImageView back;
-
+    @FXML
+    private Button Signinb;
     @FXML
     private ImageView logo1;
     @FXML
@@ -460,11 +462,14 @@ public class HomeController implements Initializable {
     private ImageView loginimage;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ImageView imageView = new ImageView(new Image(new File("src/main/Font/login0.png").toURI().toString()));
+        imageView.setFitWidth(35);
+        imageView.setFitHeight(31);
+        Signinb.setGraphic(imageView);
         sliderThread.start();
-        loginimage.setImage(new Image(new File("src/main/Font/login0.png").toURI().toString()));
+       // loginimage.setImage(new Image(new File("src/main/Font/mlogin0.png").toURI().toString()));
         File file = new File("src/main/Font/logo.png");
         Image image0 = new Image(file.toURI().toString());
-        //backfont.setImage(image);
         file = new File("src/main/Font/icon1.png");
         image0 = new Image(file.toURI().toString());
         logo.setImage(image0);
