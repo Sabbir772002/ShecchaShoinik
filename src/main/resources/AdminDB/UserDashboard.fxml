@@ -185,7 +185,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#addpost" prefHeight="34.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Add Disaster">
+                        <Button mnemonicParsing="false" onAction="#addpost" prefHeight="34.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Add Crisis Post">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
