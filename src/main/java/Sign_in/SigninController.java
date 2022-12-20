@@ -133,6 +133,45 @@ public class SigninController implements Initializable {
             }
 
     }
+    @FXML
+    void send(ActionEvent event) {
+        try {
+            if (role.equals("User")) {
+                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("User2Dashboard.fxml");
+                //FXMLScene scene = FXMLScene.load("BackgroundDesign.fxml");
+                Parent root = scene.root;
+                UserDashboardController adminController = (UserDashboardController) scene.controller;
+                //Back adminController = (Back) scene.controller;
+                adminController.set(usern, role);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("UserProfile");
+                stage.show();
+            } else if (role.equals("Admin")) {
+                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard.fxml");
+                Parent root = scene.root;
+                AdminDashboardController adminController = (AdminDashboardController) scene.controller;
+                adminController.set(usern, role);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Admin Dashboard");
+                stage.show();
+            } else {
+                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard.fxml");
+                Parent root = scene.root;
+                TeamDashboardController adminController = (TeamDashboardController) scene.controller;
+                adminController.set(usern, role);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Team Home");
+                stage.show();
+            }
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
     private String logIn() {
         String status = "Success";
         System.out.println( password.getText());

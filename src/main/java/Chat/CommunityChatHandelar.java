@@ -1,5 +1,141 @@
 package Chat;
 
+import DB.ConnectionDb;
+import UserProfile.ProfileController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+
+import java.sql.Connection;
+
+public class CommunityChatHandelar {
+    Connection con;
+    String username="";
+    String role="";
+
+    @FXML
+    BorderPane pane1;
+
+  ;
+
+    public void set(String username, String role) {
+        con= ConnectionDb.DBC();
+        role=role;
+        this.role = role;
+        this.username = username;
+        loadtable();
+
+        // alertcount();
+        //alertnum.setText(String.valueOf(newcount));
+        // Thread t=new HelpRequest.AlertThread();
+        //t.start();
+
+
+    }
+   AnchorPane pane;
+    public void set(String username, String role, BorderPane pane) {
+        con= ConnectionDb.DBC();
+        role=role;
+        this.role = role;
+        this.username = username;
+        loadtable();
+          this.pane1=pane;
+        // alertcount();
+        //alertnum.setText(String.valueOf(newcount));
+        // Thread t=new HelpRequest.AlertThread();
+        //t.start();
+
+
+    }
+
+    @FXML
+    private TextField inputField;
+
+    @FXML
+    private TextArea showArea;
+
+    @FXML
+    private Label user2;
+
+    @FXML
+    private Label user21;
+
+
+
+    @FXML
+    void send(ActionEvent event) {
+
+    }
+
+
+    @FXML
+    private TableColumn<userlist, String> colname;
+
+    @FXML
+    private TableColumn<userlist, String> coluser;
+
+    @FXML
+    void tableclick(MouseEvent event) {
+        String Name2=usertable.getSelectionModel().getSelectedItem().getName().toString();
+        String user2=usertable.getSelectionModel().getSelectedItem().getUsername().toString();
+        try{
+            System.out.println("hey ki khobor");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(UserProfile.ProfileController.class.getResource("Profile.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            ProfileController sadmin = fxmlLoader.getController();
+            sadmin.set(username,role);
+            //pane1.setVisible(false);
+            pane1.setCenter(ap);
+            //.setCenter(ap);
+            System.out.println("kno holo na");
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+    }
+    @FXML
+    private TableView<userlist> usertable;
+
+    ObservableList<userlist> listF;
+    ObservableList<userlist> getdiasterList(){
+        ObservableList<userlist> userlist1 = FXCollections.observableArrayList();
+
+
+        return userlist1;
+    }
+    int indexM = -1;
+
+    void loadtable(){
+        colname.setCellValueFactory(new PropertyValueFactory<userlist,String>("Name"));
+        coluser.setCellValueFactory(new PropertyValueFactory<userlist,String>("Username"));
+
+
+        //table.setItems(list);
+        listF = ConnectionDb.getuserlist();
+        usertable.setItems(listF);
+
+
+    }
+
+}
+
+
+/*
+package Chat;
+
 import AdminDB.AdminDashboardController;
 import AdminDB.TeamDashboardController;
 import AdminDB.UserDashboardController;
@@ -22,6 +158,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.*;
 import java.net.Socket;
@@ -85,18 +222,18 @@ public class CommunityChatHandelar implements Initializable {
         String Name2=usertable.getSelectionModel().getSelectedItem().getName().toString();
         String user2=usertable.getSelectionModel().getSelectedItem().getUsername().toString();
         try{
-            Chat.FXMLScene scene =  Chat.FXMLScene.load("ChatPrivate.fxml");
-            Parent root = scene.root;
-            Chat.ChatPrivateController adminController = (Chat.ChatPrivateController) scene.controller;
-            adminController.set(username,role,Name2,user2);
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Chat");
-            stage.show();
+            System.out.println("hey ki khobor");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(UserProfile.ProfileController.class.getResource("Profile.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            ProfileController sadmin = fxmlLoader.getController();
+            sadmin.set(username,role);
+            ap.setVisible(true);
+            //.setCenter(ap);
+            System.out.println("kno holo na");
 
         }catch (Exception e){
             System.out.println(e.getMessage());
-
         }
 
     }
@@ -123,7 +260,8 @@ public class CommunityChatHandelar implements Initializable {
 
 
     }
-    @FXML
+*/
+/*    @FXML
     void BbankxClick(ActionEvent event) {
 
     }
@@ -322,7 +460,8 @@ public class CommunityChatHandelar implements Initializable {
         }catch (Exception e){
             System.out.println("vul hoilo add post controller");
         }
-    }
+    }*//*
+
     String []name;
     @FXML
     Button button;
@@ -379,19 +518,32 @@ public class CommunityChatHandelar implements Initializable {
     }
     @FXML
     void send(ActionEvent e){
-       /* if(!isConnected) {
+       */
+/* if(!isConnected) {
             // Client is not connected with the server, lets connect with server
-           *//* inputName = inputField.getText();
+           *//*
+*/
+/* inputName = inputField.getText();
             inputField.clear();*//*
+*/
+/*
            // int i=1;
-           *//* for(String n : name){
+           *//*
+*/
+/* for(String n : name){
                 if(n.equals(inputName))i=1;
 
             }*//*
-          *//*  if(inputName == null || inputName.length() == 0){
+*/
+/*
+          *//*
+*/
+/*  if(inputName == null || inputName.length() == 0){
                 showArea.appendText("Enter a valid name!\n");
                 return;
             }*//*
+*/
+/*
 
             try {
                 Socket sc = new Socket("localhost", 1100);
@@ -466,7 +618,8 @@ public class CommunityChatHandelar implements Initializable {
 
             }
         }
-        else{*/
+        else{*//*
+
             try {
                 OutputStreamWriter o = new OutputStreamWriter(sc.getOutputStream());
                 writer = new BufferedWriter(o);
@@ -517,12 +670,15 @@ public class CommunityChatHandelar implements Initializable {
        // connect();
     }
 
-    public void VolunteerNear(ActionEvent actionEvent) {
+*/
+/*    public void VolunteerNear(ActionEvent actionEvent) {
 
     }
 
     public void BbankClick(MouseEvent mouseEvent) {
-    }
+    }*//*
+
 
 }
 
+*/

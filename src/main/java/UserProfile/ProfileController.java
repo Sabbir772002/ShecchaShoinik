@@ -1,4 +1,137 @@
 package UserProfile;
+
+import DB.ConnectionDb;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class ProfileController {
+    Connection con;
+    String username="";
+    String role="";
+    private String user2;
+    private String name2;
+
+    public void set(String username, String role, String name2, String user2) {
+        this.role = role;
+        this.username = username;
+
+
+        this.user2 = user2;
+        this.name2 = name2;
+        pfield.setText("Edit Profile");
+        String sname = username;
+        if (!username.equals(user2)) {
+            sname=user2;
+            pfield.setText("Chat");
+        }
+        output();
+    }
+    public void set(String username, String role) {
+        con= ConnectionDb.DBC();
+        role=role;
+        this.role = role;
+        this.username = username;
+
+        // alertcount();
+        //alertnum.setText(String.valueOf(newcount));
+        // Thread t=new HelpRequest.AlertThread();
+        //t.start();
+
+
+    }
+
+    @FXML
+    private Label BG;
+
+    @FXML
+    private Label District;
+
+    @FXML
+    private Label Division;
+
+    @FXML
+    private Label NID;
+
+    @FXML
+    private Label Name;
+
+    @FXML
+    private Label Phone;
+
+    @FXML
+    private Label field;
+
+    @FXML
+    private Button pfield;
+
+    @FXML
+    private Label showuser;
+
+    @FXML
+    void paction(ActionEvent event) {
+
+    }
+    public String uname;
+
+    public void output() {
+        try {
+            Statement stmt = con.createStatement();
+            System.out.println(user2);
+            String sql = "SELECT Name,Username,Phone,ID,Division,District,Volunteer,BG FROM userlist Where Username = \'" + user2.toString() + "\'";
+            //String sql = "SELECT * FROM `userlist` Where Username = '"+1+"'";
+            //System.out.println("'"+user.getText()+"'");
+            //SELECT Name,ID FROM `userlist` WHERE Username= "Nuha";
+            //String s1="select * from teacher where Subject='PHYSICS'";
+            ResultSet rs = stmt.executeQuery(sql);
+            if (rs.next()) {
+                Name.setText(rs.getString(1));
+                showuser.setText(rs.getString(2));
+                Phone.setText(rs.getString(3));
+                NID.setText(rs.getString(4));
+                District.setText(rs.getString(6));
+                Division.setText(rs.getString(5));
+                field.setText(rs.getString(7));
+                BG.setText(rs.getString(8));
+
+
+            }
+            rs.close();
+            stmt.close();
+            con.close();
+            uname = showuser.getText().toString();
+        }catch (Exception e){
+
+        }
+        }
+        }
+/* System.out.println(uname);
+            System.out.println(username);*//*
+
+            //System.out.println(user.getText().toString());
+            if (user.getText().toString().equals(uname)) {
+                // pfield.setText("Edit"); //pore add korbo
+            } else {
+
+            }
+            showuser.setText("@" + showuser.getText().toString());
+        } catch (SQLException ex) {
+            System.out.println("onk error");
+            System.err.println(ex.getMessage());
+        }
+    }
+
+}
+
+
+
+/*
+package UserProfile;
 import AdminDB.*;
 import Chat.ChatPrivateController;
 import Chat.CommunityChatHandelar;
@@ -151,14 +284,16 @@ public class ProfileController implements Initializable {
                 stage.setScene(new Scene(root));
                 stage.setTitle("UserProfile");
                 stage.show();
-               /* AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard1.fxml");
+               */
+/* AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard1.fxml");
                 Parent root = scene.root;
                 AdminDashboardController adminController = (AdminDashboardController) scene.controller;
                 adminController.set(username, role1);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.setTitle("AdminDashboard");
-                stage.show();*/
+                stage.show();*//*
+
             } else {
                 AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("UserDashboard.fxml");
                 Parent root = scene.root;
@@ -168,14 +303,16 @@ public class ProfileController implements Initializable {
                 stage.setScene(new Scene(root));
                 stage.setTitle("UserProfile");
                 stage.show();
-           /* AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard1.fxml");
+           */
+/* AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard1.fxml");
                 Parent root = scene.root;
                 TeamDashboardController adminController = (TeamDashboardController) scene.controller;
                 adminController.set(username, role1);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.setTitle("TeamDashboard");
-                stage.show();*/
+                stage.show();*//*
+
             }
         } catch (IOException e) {
             System.out.println("vul hoilo Profile controller dashboard " + e.getMessage());
@@ -313,12 +450,14 @@ public class ProfileController implements Initializable {
             }
         } else {
             try {
-                  /* root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
+                  */
+/* root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                    scene = new Scene(root);
                    stage.setScene(scene);
                    stage.setTitle("SIGN IN");
-                   stage.show();*/
+                   stage.show();*//*
+
                 UserProfile.FXMLScene scene = UserProfile.FXMLScene.load("Profile.fxml");
                 Parent root = scene.root;
                 UserProfile.ProfileController adminController = (UserProfile.ProfileController) scene.controller;
@@ -331,7 +470,8 @@ public class ProfileController implements Initializable {
             } catch (Exception e) {
 
             }
-               /* try {
+               */
+/* try {
                     //  FxmlLoader o = new FxmlLoader();
                     p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
 
@@ -344,7 +484,8 @@ public class ProfileController implements Initializable {
                     System.out.println("helloApplication");
                 } catch (Exception e) {
 
-                }*/
+                }*//*
+
         }
 
     }
@@ -367,13 +508,15 @@ public class ProfileController implements Initializable {
             stage.setTitle("Post Diaster");
             stage.show();
 
-          /*  root = FXMLLoader.load(AddPostController.class.getResource("AddPost.fxml"));
+          */
+/*  root = FXMLLoader.load(AddPostController.class.getResource("AddPost.fxml"));
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("SIGN IN");
-            stage.show();*/
+            stage.show();*//*
+
 
         } catch (Exception e) {
 
@@ -455,8 +598,10 @@ public class ProfileController implements Initializable {
             stmt.close();
             con.close();
             uname = showuser.getText().toString();
-           /* System.out.println(uname);
-            System.out.println(username);*/
+           */
+/* System.out.println(uname);
+            System.out.println(username);*//*
+
             //System.out.println(user.getText().toString());
             if (user.getText().toString().equals(uname)) {
                 // pfield.setText("Edit"); //pore add korbo
@@ -489,3 +634,4 @@ public class ProfileController implements Initializable {
         imageview1.setImage(image5);
     }
 }
+*/
