@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -35,6 +36,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import org.controlsfx.control.*;
 
 public class UserDashboardController implements Initializable {
     Connection con=ConnectionDb.DBC();
@@ -61,13 +63,6 @@ public class UserDashboardController implements Initializable {
 
     @FXML
     private Button bbutton;
-
-   /* @FXML
-    private ChoiceBox<?> choice;
-
-    @FXML
-    private ImageView imageview;
-*/
 
     private Stage stage;
     private Scene scene;
@@ -621,7 +616,8 @@ public class UserDashboardController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ImageView imageView = new ImageView(new Image(new File("src/main/Font/notify.png").toURI().toString()));
         imageView.setFitHeight(25);
-        imageView.setFitWidth(27);ImageView imageView0 = new ImageView(new Image(new File("src/main/Font/search.png").toURI().toString()));
+        imageView.setFitWidth(27);
+        ImageView imageView0 = new ImageView(new Image(new File("src/main/Font/search.png").toURI().toString()));
         imageView0.setFitHeight(20);
         imageView0.setFitWidth(25);
         btsearch.setGraphic(imageView0);
@@ -694,9 +690,11 @@ public class UserDashboardController implements Initializable {
             //System.out.println("Old= "+oldcount+" New= "+newcount);
             //alertnum.setText(newcount+"");
             oldcount=newcount;
-            PauseTransition wait = new PauseTransition(Duration.seconds(1));
+            PauseTransition wait = new PauseTransition(Duration.seconds(5));
             wait.setOnFinished((e) -> {
                 alertnum.setText(String.valueOf(newcount));
+               Notifications.create().title("New Disaster Posted!").text("Please check home page!").position(Pos.TOP_LEFT).showInformation();
+
                 wait.playFromStart();
             });
             wait.play();
@@ -717,6 +715,7 @@ public class UserDashboardController implements Initializable {
                     Thread.sleep(5000);
                     alertcount();
                     if(newcount!=oldcount){
+
                        /* PauseTransition wait = new PauseTransition(Duration.seconds(1));
                         wait.setOnFinished((e) -> {
                             alertnum.setText(String.valueOf(newcount));

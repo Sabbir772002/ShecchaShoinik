@@ -308,6 +308,12 @@
                   <Image url="@../../Font/user1.png" />
                </image>
             </ImageView>
+            <Button fx:id="alertbutton" layoutX="829.0" layoutY="10.0" mnemonicParsing="false" onAction="#alert" prefHeight="0.0" prefWidth="74.0" style="-fx-background-color: black;" />
+            <Label fx:id="alertnum" layoutX="876.0" layoutY="-1.0" prefHeight="22.0" prefWidth="28.0" text="10" textFill="RED">
+               <font>
+                  <Font name="Bell MT Bold" size="17.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </top>
@@ -325,16 +331,8 @@
                         <TableColumn fx:id="col_id" minWidth="0.0" prefWidth="182.39996337890625" text="ID" visible="false" />
                     </columns>
                   </TableView>
-                  <TextField fx:id="textfield" layoutX="531.0" layoutY="6.0" onKeyPressed="#search" prefHeight="30.0" prefWidth="188.0" promptText="Search" style="-fx-background-radius: 5;" />
-                  <Button layoutX="667.0" layoutY="7.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="51.0" style="-fx-background-color: white;">
-                     <graphic>
-                        <ImageView fx:id="search" fitHeight="20.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../Font/search.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
+                  <TextField fx:id="textfield" layoutX="531.0" layoutY="6.0" onKeyPressed="#searchfiled" prefHeight="30.0" prefWidth="188.0" promptText="Search" style="-fx-background-radius: 5;" />
+                  <Button fx:id="btsearch" layoutX="667.0" layoutY="7.0" mnemonicParsing="false" onAction="#search" prefHeight="27.0" prefWidth="51.0" style="-fx-background-color: white;" />
                </children>
             </AnchorPane>
          </children>

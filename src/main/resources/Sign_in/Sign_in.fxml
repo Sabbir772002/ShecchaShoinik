@@ -19,16 +19,16 @@
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <ComboBox fx:id="sign_in_box" layoutX="87.0" layoutY="62.0" prefWidth="150.0" promptText="Role" />
+            <ComboBox fx:id="sign_in_box" layoutX="88.0" layoutY="62.0" prefHeight="26.0" prefWidth="150.0" promptText="Role" />
            
             <TextField fx:id="username" layoutX="87.0" layoutY="106.0" promptText="Username" />
             <PasswordField fx:id="password" layoutX="87.0" layoutY="142.0" promptText="Password" />
-            <Button alignment="CENTER_RIGHT" layoutX="110.0" layoutY="188.0" mnemonicParsing="false" onAction="#sign_in" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: green; -fx-cursor: hand; -fx-background-radius: 10,10,10,10;" text="SIGN IN" textFill="WHITE">
+            <Button alignment="CENTER_RIGHT" layoutX="110.0" layoutY="188.0" mnemonicParsing="false" onAction="#sign_in" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: green; -fx-cursor: hand; -fx-background-radius: 10,10,10,10;" text="SIGN IN" textFill="#fffafa">
                <font>
                   <Font size="14.0" />
                </font></Button>
             <Label layoutX="98.0" layoutY="219.0" prefHeight="18.0" prefWidth="133.0" text="Don't have an account?" />
-            <Button alignment="CENTER_RIGHT" defaultButton="true" layoutX="110.0" layoutY="237.0" mnemonicParsing="false" onAction="#sign_up" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: blue; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="WHITE">
+            <Button alignment="CENTER_RIGHT" defaultButton="true" layoutX="110.0" layoutY="237.0" mnemonicParsing="false" onAction="#sign_up" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: green; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font></Button>

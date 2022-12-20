@@ -48,7 +48,7 @@ public class ChatPrivateController implements Initializable {
     @FXML
     public TextField writebox;
     @FXML
-    public Label Name2;
+    public Button Name2;
     @FXML
     public TextArea msgbox;
     public void set(String username,String role) {
@@ -284,6 +284,25 @@ public class ChatPrivateController implements Initializable {
 
     @FXML
     void G(ActionEvent event) {
+
+    }
+    @FXML
+    void UserClick(ActionEvent event) {
+            try{
+                UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
+                Parent root = scene.root;
+                ProfileController adminController = (ProfileController) scene.controller;
+                System.out.println(username+role+name2+user2);
+                adminController.set(username,role,name2,user2);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Profile");
+                stage.show();
+
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+
+            }
 
     }
 
