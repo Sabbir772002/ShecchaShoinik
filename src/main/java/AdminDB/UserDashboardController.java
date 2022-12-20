@@ -10,6 +10,7 @@ import Others.HelpRequest;
 import Others.VolunteerNearController;
 import PostBox.Post;
 //import PostBox.SinglePostController;
+import PostBox.SinglePostController;
 import UserProfile.ProfileController;
 import PostBox.AddPostController;
 import Sign_in.SigninController;
@@ -64,7 +65,7 @@ public class UserDashboardController implements Initializable {
         alertnum.setText(String.valueOf(newcount));
         Thread t=new AlertThread();
         t.start();
-        loadtable();
+       // loadtable0();
     }
     @FXML
     private BorderPane pane1;
@@ -725,7 +726,7 @@ public class UserDashboardController implements Initializable {
         ImageView imageView0 = new ImageView(new Image(new File("src/main/Font/search.png").toURI().toString()));
         imageView0.setFitHeight(20);
         imageView0.setFitWidth(25);
-        btsearch.setGraphic(imageView0);
+        //btsearch.setGraphic(imageView0);
         alertbutton.setGraphic(imageView);
         //alertimage.setImage(new Image(new File("src/main/Font/notify.png").toURI().toString()));
         String[] choiceb = {"Profile", "Logout"};
@@ -754,7 +755,7 @@ public class UserDashboardController implements Initializable {
         wait.play();*/
 
     }
-   /* ArrayList<post> list;
+   ArrayList<post> list;
     ArrayList<post> loaddata(){
         list=new ArrayList<post>();
         File file=new File("im.png");
@@ -927,6 +928,7 @@ public class UserDashboardController implements Initializable {
                 fxmlLoader.setLocation(PostBox.SinglePostController.class.getResource("SinglePost.fxml"));
                 VBox productBox = fxmlLoader.load();
                  SinglePostController sadmin = fxmlLoader.getController();
+                 sadmin.set(pane1);
                  sadmin.loadtable0(product,username,role);
                 if(column == 3){
                     column = 1;
@@ -943,7 +945,7 @@ public class UserDashboardController implements Initializable {
 
 
 
-    }*/
+    }
     void alertcount( )  {
       try{
           int allpost=0;

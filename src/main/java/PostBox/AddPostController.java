@@ -31,7 +31,7 @@ import java.sql.PreparedStatement;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class AddPostController{
+public class AddPostController implements Initializable{
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -129,10 +129,6 @@ public class AddPostController{
 
     }
 
-    @FXML
-    void ChoiceClick(MouseEvent event) {
-
-    }
 
     @FXML
     void select(ActionEvent event) {
@@ -234,5 +230,13 @@ public class AddPostController{
 
         }
 
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        String []division1={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
+
+        division.getItems().addAll(division1);
+        division.getSelectionModel().select(0);
     }
 }

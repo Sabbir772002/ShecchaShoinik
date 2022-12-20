@@ -1,4 +1,3 @@
-/*
 package PostBox;
 
 import AdminDB.UserDashboardController;
@@ -7,6 +6,7 @@ import com.example.sheccashoinik.disaster;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -15,6 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -29,6 +31,10 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class SinglePostController implements Initializable {
+    public void set(BorderPane pane){
+
+        pane1=pane;
+    }
 
     @FXML
     private Label Date;
@@ -53,14 +59,26 @@ public class SinglePostController implements Initializable {
     int id=0;
     private String name;
     private String role;
+    @FXML
+    BorderPane pane1;
 
     @FXML
     void ViewPost(ActionEvent event) {
         try{
-            PostBox.FXMLScene scene =  PostBox.FXMLScene.load("PostView.fxml");
-            Parent root = scene.root;
-            PostBox.Post admin= (PostBox.Post) scene.controller;
-            admin.set(name,role,id);
+            try{
+                System.out.println("hey ki khobor");
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(PostBox.Post.class.getResource("PostView.fxml"));
+                AnchorPane ap = fxmlLoader.load();
+                PostBox.Post sadmin = fxmlLoader.getController();
+                sadmin.set(name, role,id,pane1);
+                pane1.setCenter(ap);
+                System.out.println("kno holo na");
+
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+            //admin.set(name,role,id);
             Connection con=ConnectionDb.DBC();
             try{
                 String sql = "SELECT * FROM notify Where username = ? and Postid = ?";
@@ -90,10 +108,10 @@ public class SinglePostController implements Initializable {
                 System.out.println(e.getMessage());
 
             }
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            /*stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("PostBox");
-            stage.show();
+            stage.show();*/
 
 
         }catch (Exception e ){
@@ -131,4 +149,3 @@ public class SinglePostController implements Initializable {
         //loadtable0();
     }
 }
-*/
