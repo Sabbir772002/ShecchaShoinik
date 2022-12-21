@@ -176,17 +176,19 @@ public class HomeboardController implements Initializable {
                                 String s2 = textfield.getText().toString() + "";
                                 // System.out.println(s2);
                                 boolean i = false;
-                                for (int j = 0; j < s5.length; j++) {
-                                        // System.out.println(textfield.getText().toString());
-                                        // System.out.println(s2);
+                            for (int j = 0; j < s1.length(); j++) {
+                                for(int p = j+1; p < s1.length()-1; p++) {
+                                    // System.out.println(textfield.getText().toString());
+                                    // System.out.println(s2);
 /*
                         if(s[j]==textfield.getText().toString()){
 */
-                                        if (s5[j].equalsIgnoreCase(s2)) {
-                                                // System.out.println((s[j])+"=="+textfield.getText().toString());
-                                                i = true;
-                                        }
+                                    if (s1.substring(j, p).equalsIgnoreCase(s2)) {
+                                        // System.out.println((s[j])+"=="+textfield.getText().toString());
+                                        i = true;
+                                    }
                                 }
+                            }
                                 s2 += " ";
                                 if (s2.equals("")) {
                                         i = true;
