@@ -340,7 +340,7 @@ public class UserDashboardController implements Initializable {
         loadtable();
 
         //System.out.println("vaiya ki khobor "+username);
-        try {
+     /*   try {
             AdminDB.FXMLScene scene = FXMLScene.load("UserDashboard.fxml");
             Parent root = scene.root;
             UserDashboardController admin = (UserDashboardController) scene.controller;
@@ -351,7 +351,20 @@ public class UserDashboardController implements Initializable {
             stage.show();
         } catch (Exception e) {
             System.out.println("vul hoilo Dashboard button userdashboard controller");
+        }*/
+        try{
+            System.out.println("hey ki khobor");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(AdminDB.HomeboardController.class.getResource("HomeBoard.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            HomeboardController sadmin = fxmlLoader.getController();
+            sadmin.set(username,role,pane1);
+            pane1.setCenter(ap);
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
+
     }
 
     @FXML
@@ -647,6 +660,7 @@ public class UserDashboardController implements Initializable {
                     stage.setTitle("SIGN IN");
                     stage.show();
                 }
+                //choice.getSelectionModel().
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -726,7 +740,7 @@ public class UserDashboardController implements Initializable {
         ImageView imageView0 = new ImageView(new Image(new File("src/main/Font/search.png").toURI().toString()));
         imageView0.setFitHeight(20);
         imageView0.setFitWidth(25);
-        //btsearch.setGraphic(imageView0);
+        btsearch.setGraphic(imageView0);
         alertbutton.setGraphic(imageView);
         //alertimage.setImage(new Image(new File("src/main/Font/notify.png").toURI().toString()));
         String[] choiceb = {"Profile", "Logout"};
@@ -1045,6 +1059,7 @@ PauseTransition wait1 = new PauseTransition(Duration.seconds(1));
     }
     @FXML
     void alert(ActionEvent e){
+
         System.out.println("vai amare marse");
 
     }
