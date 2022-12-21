@@ -693,7 +693,7 @@ public class UserDashboardController implements Initializable {
             PauseTransition wait = new PauseTransition(Duration.seconds(5));
             wait.setOnFinished((e) -> {
                 alertnum.setText(String.valueOf(newcount));
-               Notifications.create().title("New Disaster Posted!").text("Please check home page!").position(Pos.TOP_LEFT).showInformation();
+             // Notifications.create().title("New Disaster Posted!").text("Please check home page!").position(Pos.TOP_LEFT).showInformation();
 
                 wait.playFromStart();
             });
