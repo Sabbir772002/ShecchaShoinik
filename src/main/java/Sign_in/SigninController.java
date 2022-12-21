@@ -133,6 +133,45 @@ public class SigninController implements Initializable {
             }
 
     }
+    @FXML
+    void send(ActionEvent event) {
+        try {
+            if (role.equals("User")) {
+                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("User2Dashboard.fxml");
+                //FXMLScene scene = FXMLScene.load("BackgroundDesign.fxml");
+                Parent root = scene.root;
+                UserDashboardController adminController = (UserDashboardController) scene.controller;
+                //Back adminController = (Back) scene.controller;
+                adminController.set(usern, role);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("UserProfile");
+                stage.show();
+            } else if (role.equals("Admin")) {
+                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard.fxml");
+                Parent root = scene.root;
+                AdminDashboardController adminController = (AdminDashboardController) scene.controller;
+                adminController.set(usern, role);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Admin Dashboard");
+                stage.show();
+            } else {
+                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard.fxml");
+                Parent root = scene.root;
+                TeamDashboardController adminController = (TeamDashboardController) scene.controller;
+                adminController.set(usern, role);
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Team Home");
+                stage.show();
+            }
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
     private String logIn() {
         String status = "Success";
         System.out.println( password.getText());
@@ -207,14 +246,15 @@ public class SigninController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String items[]={"User","Volunteer Leader","Admin"};
         sign_in_box.getItems().addAll(items);
-        File file = new File("src/main/Font/user.png");
+        sign_in_box.getSelectionModel().select(0);
+        File file = new File("src/main/Font/user5.png");
         Image image = new Image(file.toURI().toString());
         user.setImage(image);
-        file = new File("src/main/Font/lock-outline.png");
+        file = new File("src/main/Font/pass.png");
         image = new Image(file.toURI().toString());
         pass.setImage(image);
         loginimage.setImage(new Image(new File("src/main/Font/login.png").toURI().toString()));
-        loginimage1.setImage(new Image(new File("src/main/Font/signup.png").toURI().toString()));
+        loginimage1.setImage(new Image(new File("src/main/Font/add1.png").toURI().toString()));
     }
     @FXML
     private AnchorPane enter;

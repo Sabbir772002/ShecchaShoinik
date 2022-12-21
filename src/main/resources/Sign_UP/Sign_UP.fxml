@@ -11,16 +11,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="907.0" style="-fx-background-color: #0A3CCF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_UP.SignupController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="907.0" style="-fx-background-color: #0A3CCF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_UP.SignupController">
    <children>
       <AnchorPane layoutX="327.0" layoutY="-4.0" prefHeight="620.0" prefWidth="582.0" style="-fx-background-color: linear-gradient(to right, #360033, #0b8793); -fx-background-radius: 10;" AnchorPane.leftAnchor="327.0">
          <children>
-            <Label alignment="CENTER" layoutX="82.0" layoutY="61.0" prefHeight="32.0" prefWidth="226.0" text="Choose your role" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="169.0" layoutY="27.0" prefHeight="54.0" prefWidth="322.0" text="Fill UP this from carefully" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="Bell MT Bold" size="18.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cb_sign_up" layoutX="282.0" layoutY="64.0" prefHeight="26.0" prefWidth="118.0" promptText="USER" />
             <TextField fx:id="name" layoutX="195.0" layoutY="106.0" prefHeight="26.0" prefWidth="328.0" promptText="Name" />
             <TextField fx:id="mail" layoutX="195.0" layoutY="142.0" prefHeight="26.0" prefWidth="328.0" promptText="Mail" />
             <TextField fx:id="username" layoutX="195.0" layoutY="181.0" prefHeight="26.0" prefWidth="137.0" promptText="Username" />
@@ -37,7 +36,7 @@
                </font>
             </Text>
             <ComboBox fx:id="cbgroup" layoutX="347.0" layoutY="474.0" prefHeight="26.0" prefWidth="175.0" promptText="Earthquake" />
-            <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="251.0" layoutY="538.0" mnemonicParsing="false" onAction="#Sign_up" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: #0A3CCF; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="#f0f2f1" AnchorPane.leftAnchor="251.0">
+            <Button fx:id="sign" alignment="CENTER_RIGHT" contentDisplay="CENTER" defaultButton="true" layoutX="251.0" layoutY="538.0" mnemonicParsing="false" onAction="#Sign_up" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: #0A3CCF; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="#f0f2f1" AnchorPane.leftAnchor="251.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -62,7 +61,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="73.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact no.:">
+            <Text fill="WHITE" layoutX="79.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact no.:">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

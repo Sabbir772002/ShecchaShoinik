@@ -1,5 +1,66 @@
 package Others;
 
+import DB.ConnectionDb;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+
+import java.sql.Connection;
+
+public class VolunteerNearController {
+    Connection con;
+    String username="";
+    String role="";
+
+    public void set(String username, String role) {
+        con= ConnectionDb.DBC();
+        role=role;
+        this.role = role;
+        this.username = username;
+
+        // alertcount();
+        //alertnum.setText(String.valueOf(newcount));
+        // Thread t=new HelpRequest.AlertThread();
+        //t.start();
+
+
+    }
+    @FXML
+    private Label District;
+
+    @FXML
+    private Label Division;
+
+    @FXML
+    private Label Name;
+
+    @FXML
+    private Label Phone;
+
+    @FXML
+    private Label Phone1;
+
+    @FXML
+    private Label Phone11;
+
+    @FXML
+    private Button btsearch;
+
+    @FXML
+    private Label field;
+
+    @FXML
+    private Label field1;
+
+    @FXML
+    private Label showuser;
+
+}
+
+
+/*
+package Others;
+
 import UserProfile.ProfileController;
 import Sign_in.SigninController;
 import com.example.sheccashoinik.Application;
@@ -180,14 +241,16 @@ public class VolunteerNearController implements Initializable {
                 stage.setTitle("UserProfile");
                 stage.show();
 
-               /* AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard1.fxml");
+               */
+/* AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard1.fxml");
                 Parent root = scene.root;
                 AdminDashboardController adminController = (AdminDashboardController) scene.controller;
                 adminController.set(username, role);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.setTitle("AdminDashboard");
-                stage.show();*/
+                stage.show();*//*
+
             }else{
                 AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard.fxml");
                 Parent root = scene.root;
@@ -197,14 +260,16 @@ public class VolunteerNearController implements Initializable {
                 stage.setScene(new Scene(root));
                 stage.setTitle("TeamDashboard");
                 stage.show();
-                /*AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard1.fxml");
+                */
+/*AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard1.fxml");
                 Parent root = scene.root;
                 TeamDashboardController adminController = (TeamDashboardController) scene.controller;
                 adminController.set(username, role);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.setTitle("TeamDashboard");
-                stage.show();*/
+                stage.show();*//*
+
             }
         }catch(IOException e){
             System.out.println("bhul holo add post er dashboard "+e.getMessage());
@@ -326,12 +391,14 @@ public class VolunteerNearController implements Initializable {
             }
         }else {
             try{
-                  /* root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
+                  */
+/* root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                    scene = new Scene(root);
                    stage.setScene(scene);
                    stage.setTitle("SIGN IN");
-                   stage.show();*/
+                   stage.show();*//*
+
                 UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
                 Parent root = scene.root;
                 ProfileController adminController = (ProfileController) scene.controller;
@@ -344,7 +411,8 @@ public class VolunteerNearController implements Initializable {
             }catch (Exception e){
 
             }
-               /* try {
+               */
+/* try {
                     //  FxmlLoader o = new FxmlLoader();
                     p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
 
@@ -357,7 +425,8 @@ public class VolunteerNearController implements Initializable {
                     System.out.println("helloApplication");
                 } catch (Exception e) {
 
-                }*/
+                }*//*
+
         }
 
     }
@@ -388,12 +457,14 @@ public class VolunteerNearController implements Initializable {
             preparedStatement.setString(4, division.getValue().toString());
             preparedStatement.setString(5, district.getValue().toString());
             preparedStatement.setString(6, address1.getText().toString());
-            /*preparedStatement.setString(7, "1963890981");
+            */
+/*preparedStatement.setString(7, "1963890981");
             preparedStatement.setString(8, cbGender.getValue().toString());
             preparedStatement.setString(9, cbgroup.getValue().toString());
             preparedStatement.setString(10, bloodgroup.getValue().toString());
             preparedStatement.setString(11, phone.getText());
-            preparedStatement.setString(12, mail.getText());*/
+            preparedStatement.setString(12, mail.getText());*//*
+
             preparedStatement.execute();
             preparedStatement.close();
             con.close();
@@ -437,3 +508,4 @@ public class VolunteerNearController implements Initializable {
 
     }
 }
+*/

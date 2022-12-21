@@ -5,18 +5,18 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminDB.AdminDashboardController">
+<BorderPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminDB.UserDashboardController">
   <!-- <left>
       <VBox layoutX="50.0" prefHeight="602.0" prefWidth="237.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
          <children>
@@ -159,12 +159,12 @@
 
                      </viewport>
                   </ImageView>
-                  <Label fx:id="rolee" alignment="CENTER" layoutX="-2.0" layoutY="143.0" prefHeight="28.0" prefWidth="198.0" style="-fx-cursor: had;" text="\@Admin" textFill="#230505">
+                  <Label fx:id="rolee" alignment="CENTER" layoutX="-2.0" layoutY="143.0" prefHeight="28.0" prefWidth="198.0" style="-fx-cursor: had;" text="\@User" textFill="#230505">
                      <font>
                         <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="user" alignment="CENTER" layoutX="-5.0" layoutY="117.0" prefHeight="52.0" prefWidth="204.0" style="-fx-cursor: had;" text="Rajshahi" textFill="WHITE" AnchorPane.leftAnchor="-5.0">
+                  <Label fx:id="user" alignment="CENTER" layoutX="-5.0" layoutY="117.0" prefHeight="52.0" prefWidth="204.0" style="-fx-cursor: had;" text="Nusrat" textFill="WHITE" AnchorPane.leftAnchor="-5.0">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
@@ -185,7 +185,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#addpost" prefHeight="34.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Add Disaster">
+                        <Button mnemonicParsing="false" onAction="#addpost" prefHeight="34.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Add Post">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -220,31 +220,31 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
+                        <Button mnemonicParsing="false" onAction="#hrequest" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Help Request">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#Event" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Event">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="G">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
                         <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Disaster Guidelines">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#TeamApprove" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Team Approve">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#event" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Event">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#Control" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Control">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -308,7 +308,7 @@
                   <Image url="@../../Font/user1.png" />
                </image>
             </ImageView>
-            <Button fx:id="alertbutton" layoutX="819.0" layoutY="2.0" mnemonicParsing="false" onAction="#alert" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: black;" />
+            <Button fx:id="alertbutton" layoutX="829.0" layoutY="10.0" mnemonicParsing="false" onAction="#alert" prefHeight="0.0" prefWidth="74.0" style="-fx-background-color: black;" />
             <Label fx:id="alertnum" layoutX="876.0" layoutY="-1.0" prefHeight="22.0" prefWidth="28.0" text="10" textFill="RED">
                <font>
                   <Font name="Bell MT Bold" size="17.0" />
@@ -318,23 +318,17 @@
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane prefHeight="601.0" prefWidth="586.0" style="-fx-cursor: had; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="601.0" prefWidth="586.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane layoutX="27.0" layoutY="13.0" prefHeight="574.0" prefWidth="703.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-border-radius: 10; -fx-background-radius: 10;">
-               <children>
-                  <TableView fx:id="table" layoutX="3.0" layoutY="48.0" onMouseClicked="#tableclick" prefHeight="525.0" prefWidth="718.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 10;">
-                    <columns>
-                      <TableColumn fx:id="col_title" prefWidth="238.39999771118164" text="Title" />
-                      <TableColumn fx:id="col_type" minWidth="0.0" prefWidth="127.199951171875" text="Disaster Type" />
-                        <TableColumn fx:id="col_district" minWidth="0.0" prefWidth="169.60003662109375" text="District" />
-                        <TableColumn fx:id="col_address" minWidth="0.0" prefWidth="182.39996337890625" text="Address" />
-                        <TableColumn fx:id="col_id" minWidth="0.0" prefWidth="182.39996337890625" text="ID" visible="false" />
-                    </columns>
-                  </TableView>
-                  <TextField fx:id="textfield" layoutX="531.0" layoutY="6.0" onKeyPressed="#searchfiled" prefHeight="30.0" prefWidth="188.0" promptText="Search" style="-fx-background-radius: 5;" />
-                  <Button fx:id="btsearch" layoutX="667.0" layoutY="7.0" mnemonicParsing="false" onAction="#search" prefHeight="27.0" prefWidth="51.0" style="-fx-background-color: white;" />
-               </children>
-            </AnchorPane>
+            <ScrollPane layoutX="13.0" layoutY="38.0" prefHeight="542.0" prefWidth="743.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);">
+               <content>
+                  <GridPane fx:id="pane" prefHeight="0.0" prefWidth="7.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
          </children>
       </AnchorPane>
    </center>

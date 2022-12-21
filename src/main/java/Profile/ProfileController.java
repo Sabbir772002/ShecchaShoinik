@@ -49,7 +49,8 @@ public class ProfileController implements Initializable {
     public String role="";
     public String name2="";
     public String user2="";
-
+    @FXML
+   private Button pfield;
 
     public void set(String username,String role) {
         this.role = role;
@@ -60,6 +61,9 @@ public class ProfileController implements Initializable {
         this.username = username;
         this.user2 = user2;
         this.name2 = name2;
+        if(!username.equals(user2)){
+
+        }
     }
     @FXML
     void BbankClick(ActionEvent event) {
@@ -98,14 +102,7 @@ public class ProfileController implements Initializable {
 
     @FXML
     void Dashboard(ActionEvent event) {
-        /* *//* Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        // Step 2
-        diasterlist u = (diasterlist) stage.getUserData();
-        // Step 3
-        String name = u.getname();*//*
-       // String email = u.getEmail();*/
-        System.out.println("vaiya ki khobor "+username);
+
 
     }
 
@@ -159,6 +156,19 @@ public class ProfileController implements Initializable {
 
     @FXML
     void chat(ActionEvent event) {
+        try {
+            Chat.FXMLScene scene = Chat.FXMLScene.load("CommunityChat.fxml");
+            Parent root = scene.root;
+            //System.out.println("chat cole na");
+            Chat.CommunityChatHandelar admin = (Chat.CommunityChatHandelar) scene.controller;
+            admin.set(username, role);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Chat");
+            stage.show();
+        } catch (Exception e) {
+            System.out.println("vul hoilo chat button Userdashboard controller " + e.getMessage());
+        }
 
     }
 
@@ -350,14 +360,6 @@ public class ProfileController implements Initializable {
             stage.setScene(new Scene(root));
             stage.setTitle("Post Diaster");
             stage.show();
-
-          /*  root = FXMLLoader.load(AddPostController.class.getResource("AddPost.fxml"));
-
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("SIGN IN");
-            stage.show();*/
 
         }catch (Exception e ){
 

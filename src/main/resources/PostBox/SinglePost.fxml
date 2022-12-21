@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="productBox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="293.0" prefWidth="314.0" spacing="6.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PostBox.SinglePostController">
+    <children>
+        <ImageView fx:id="image" fitHeight="159.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../Font/2.jpg" />
+            </image>
+        </ImageView>
+        <VBox alignment="TOP_CENTER" prefHeight="130.0" prefWidth="174.0">
+            <children>
+                <Label fx:id="Title" alignment="CENTER" prefHeight="26.0" prefWidth="318.0" text="Disaster Hazard">
+                    <font>
+                        <Font name="Arial Bold" size="16.0" />
+                    </font>
+                </Label>
+                <Label fx:id="Type" alignment="CENTER" prefHeight="26.0" prefWidth="285.0" text=" EarthQuake">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Label>
+                <Label fx:id="District" alignment="CENTER" prefHeight="30.0" prefWidth="282.0" text="Sirajgong">
+                    <font>
+                        <Font name="Arial Italic" size="15.0" />
+                    </font>
+                </Label>
+            <Label fx:id="Date" alignment="CENTER" prefHeight="37.0" prefWidth="284.0" text="12/05/17">
+               <font>
+                  <Font name="Arial Italic" size="15.0" />
+               </font>
+            </Label>
+            </children>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+            <padding>
+                <Insets left="5.0" top="5.0" />
+            </padding>
+        </VBox>
+        <Button mnemonicParsing="false" onAction="#ViewPost" prefHeight="24.0" prefWidth="102.0" style="-fx-background-color: green;" text="View Details" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="13.0" />
+            </font>
+            <effect>
+                <DropShadow blurType="TWO_PASS_BOX" height="6.16" radius="4.3025" width="13.05">
+                    <color>
+                        <Color red="0.43481969833374023" green="0.7894737124443054" blue="0.2704678475856781" />
+                    </color></DropShadow>
+            </effect>
+        </Button>
+    </children>
+    <padding>
+        <Insets bottom="13.0" left="13.0" right="13.0" top="13.0" />
+    </padding>
+</VBox>

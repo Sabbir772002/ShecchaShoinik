@@ -1,8 +1,16 @@
 package AdminDB;
 
 import BloodBank.BloodBankController;
+import Chat.ChatPrivateController;
+import Chat.CommunityChatHandelar;
 import DB.ConnectionDb;
+import Event.ViewEvent;
+import Others.HRequest;
+import Others.HelpRequest;
+import Others.VolunteerNearController;
 import PostBox.Post;
+//import PostBox.SinglePostController;
+import PostBox.SinglePostController;
 import UserProfile.ProfileController;
 import PostBox.AddPostController;
 import Sign_in.SigninController;
@@ -14,6 +22,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -22,19 +32,21 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import org.controlsfx.control.*;
 
 public class UserDashboardController implements Initializable {
     Connection con=ConnectionDb.DBC();
@@ -43,6 +55,18 @@ public class UserDashboardController implements Initializable {
 
     }
 
+    public void set(String username, String role) {
+        con=ConnectionDb.DBC();
+        user.setText(username);
+        rolee.setText("@" + role);
+        this.role = role;
+        this.username = username;
+        alertcount();
+        alertnum.setText(String.valueOf(newcount));
+        Thread t=new AlertThread();
+        t.start();
+       // loadtable0();
+    }
     @FXML
     private BorderPane pane1;
    @FXML
@@ -62,13 +86,6 @@ public class UserDashboardController implements Initializable {
     @FXML
     private Button bbutton;
 
-   /* @FXML
-    private ChoiceBox<?> choice;
-
-    @FXML
-    private ImageView imageview;
-*/
-
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -76,19 +93,7 @@ public class UserDashboardController implements Initializable {
     public String role = "";
 
 
-    public void set(String username, String role) {
-        con=ConnectionDb.DBC();
-        user.setText(username);
-        rolee.setText("@" + role);
-        this.role = role;
-        this.username = username;
-        alertcount();
-        alertnum.setText(String.valueOf(newcount));
-        Thread t=new AlertThread();
-        t.start();
 
-
-    }
 
     @FXML
     private ImageView imageview1;
@@ -150,20 +155,22 @@ public class UserDashboardController implements Initializable {
                 while (rs.next()) {
                     String s[] = {rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), (rs.getInt(6)) + "", rs.getString(7)};
                     String s1 = s[0] + " " + s[1] + " " + s[2] + " " + s[3] + " " + s[4] + " " + s[5] + " " + s[6];
-                    String s5[] = s1.split(" ");
+                    //String s5[] = s1.split(" ");
 
                     String s2 = textfield.getText().toString() + "";
                     // System.out.println(s2);
                     boolean i = false;
-                    for (int j = 0; j < s5.length; j++) {
-                        // System.out.println(textfield.getText().toString());
-                        // System.out.println(s2);
+                    for (int j = 0; j < s1.length(); j++) {
+                        for(int p = j+1; p < s1.length()-1; p++) {
+                            // System.out.println(textfield.getText().toString());
+                            // System.out.println(s2);
 /*
                         if(s[j]==textfield.getText().toString()){
 */
-                        if (s5[j].equalsIgnoreCase(s2)) {
-                            // System.out.println((s[j])+"=="+textfield.getText().toString());
-                            i = true;
+                            if (s1.substring(j, p).equalsIgnoreCase(s2)) {
+                                // System.out.println((s[j])+"=="+textfield.getText().toString());
+                                i = true;
+                            }
                         }
                     }
                     s2 += " ";
@@ -233,15 +240,17 @@ public class UserDashboardController implements Initializable {
                     String s2 = textfield.getText().toString() + "";
                     // System.out.println(s2);
                     boolean i = false;
-                    for (int j = 0; j < s5.length; j++) {
-                        // System.out.println(textfield.getText().toString());
-                        // System.out.println(s2);
+                    for (int j = 0; j < s1.length(); j++) {
+                        for(int p = j+1; p < s1.length()-1; p++) {
+                            // System.out.println(textfield.getText().toString());
+                            // System.out.println(s2);
 /*
                         if(s[j]==textfield.getText().toString()){
 */
-                        if (s5[j].equalsIgnoreCase(s2)) {
-                            // System.out.println((s[j])+"=="+textfield.getText().toString());
-                            i = true;
+                            if (s1.substring(j, p).equalsIgnoreCase(s2)) {
+                                // System.out.println((s[j])+"=="+textfield.getText().toString());
+                                i = true;
+                            }
                         }
                     }
                     s2 += " ";
@@ -335,7 +344,7 @@ public class UserDashboardController implements Initializable {
         loadtable();
 
         //System.out.println("vaiya ki khobor "+username);
-        try {
+     /*   try {
             AdminDB.FXMLScene scene = FXMLScene.load("UserDashboard.fxml");
             Parent root = scene.root;
             UserDashboardController admin = (UserDashboardController) scene.controller;
@@ -346,7 +355,20 @@ public class UserDashboardController implements Initializable {
             stage.show();
         } catch (Exception e) {
             System.out.println("vul hoilo Dashboard button userdashboard controller");
+        }*/
+        try{
+            System.out.println("hey ki khobor");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(AdminDB.HomeboardController.class.getResource("HomeBoard.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            HomeboardController sadmin = fxmlLoader.getController();
+            sadmin.set(username,role,pane1);
+            pane1.setCenter(ap);
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
+
     }
 
     @FXML
@@ -381,7 +403,7 @@ public class UserDashboardController implements Initializable {
 
     @FXML
     void Event(ActionEvent event) {
-        try {
+       /* try {
             Event.FXMLScene scene = Event.FXMLScene.load("ViewEvent.fxml");
             Parent root = scene.root;
             Event.ViewEvent admin = (Event.ViewEvent) scene.controller;
@@ -392,18 +414,70 @@ public class UserDashboardController implements Initializable {
             stage.show();
         } catch (IOException e) {
             System.out.println("vul hoilo Event button userdashboard controller " + e.getMessage());
+        }*/
+        try{
+            //System.out.println("hey ki khobor");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(Event.ViewEvent.class.getResource("ViewEvent.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            ViewEvent sadmin = fxmlLoader.getController();
+            sadmin.set(username,role);
+            pane1.setCenter(ap);
+            //System.out.println("kno holo na");
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
 
     }
 
     @FXML
     void hrequest(ActionEvent event) {
+        /*try {
+            Others.FXMLScene scene = Others.FXMLScene.load("HelpRequest1.fxml");
+            Parent root = scene.root;
+            Others.HelpRequest admin = (Others.HelpRequest) scene.controller;
+            admin.set(username, role);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Event");
+            stage.show();
+        } catch (Exception e) {
+            System.out.println("vul hoilo hrequest button userdashboard controller " + e.getMessage());
+        }*/
+        try{
+            System.out.println("hey ki khobor");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(Others.HelpRequest.class.getResource("HelpRequest.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            HRequest sadmin = fxmlLoader.getController();
+            sadmin.set(username,role);
+            pane1.setCenter(ap);
+            System.out.println("kno holo na");
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
 
     }
 
     @FXML
     void vnear(ActionEvent event) {
-        try {
+        try{
+            System.out.println("hey ki khobor");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(Others.VolunteerNearController.class.getResource("VolunteerNear.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            VolunteerNearController sadmin = fxmlLoader.getController();
+            sadmin.set(username,role);
+            pane1.setCenter(ap);
+            System.out.println("kno holo na");
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        /*try {
             Shoinik.FXMLScene scene = Shoinik.FXMLScene.load("Volunteerfromarea.fxml");
             Parent root = scene.root;
             Shoinik.VolunteerfromareaController admin = (Shoinik.VolunteerfromareaController) scene.controller;
@@ -414,14 +488,14 @@ public class UserDashboardController implements Initializable {
             stage.show();
         } catch (IOException e) {
             System.out.println("vul hoilo F button userdashboard1 controller " + e.getMessage());
-        }
+        }*/
 
     }
 
 
     @FXML
     void chat(ActionEvent event) {
-        try {
+        /*try {
             Chat.FXMLScene scene = Chat.FXMLScene.load("CommunityChat.fxml");
             Parent root = scene.root;
             //System.out.println("chat cole na");
@@ -433,8 +507,21 @@ public class UserDashboardController implements Initializable {
             stage.show();
         } catch (Exception e) {
             System.out.println("vul hoilo chat button Userdashboard controller " + e.getMessage());
-        }
+        }*/
 
+        try{
+            System.out.println("hey ki khobor");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(Chat.ChatPrivateController.class.getResource("CommunityChat.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            CommunityChatHandelar sadmin = fxmlLoader.getController();
+            sadmin.set(username,role,pane1);
+            pane1.setCenter(ap);
+            System.out.println("kno holo na");
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
 
     }
 
@@ -470,7 +557,7 @@ public class UserDashboardController implements Initializable {
 
     @FXML
     void BbankClick(ActionEvent event) {
-        System.out.println("hlw ki bank");
+       /* System.out.println("hlw ki bank");
         try {
             BloodBank.FXMLScene scene = BloodBank.FXMLScene.load("BloodBank.fxml");
             Parent root = scene.root;
@@ -482,6 +569,19 @@ public class UserDashboardController implements Initializable {
             stage.show();
         } catch (Exception e) {
             System.out.println("vul hoilo profile button Userdashboard controller " + e.getMessage());
+        }*/
+        try{
+            System.out.println("hey ki khobor");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(BloodBankController.class.getResource("BloodBank.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            BloodBankController sadmin = fxmlLoader.getController();
+            sadmin.set(username,role);
+            pane1.setCenter(ap);
+            System.out.println("kno holo na");
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
 
     }
@@ -490,7 +590,7 @@ public class UserDashboardController implements Initializable {
     @FXML
     void profile(ActionEvent event) {
 
-        try {
+     /*   try {
             UserProfile.FXMLScene scene = UserProfile.FXMLScene.load("Profile.fxml");
             Parent root = scene.root;
             ProfileController admin = (ProfileController) scene.controller;
@@ -501,8 +601,21 @@ public class UserDashboardController implements Initializable {
             stage.show();
         } catch (Exception e) {
             System.out.println("vul hoilo profile button Userdashboard controller " + e.getMessage());
-        }
+        }*/
 
+        try{
+            System.out.println("hey ki khobor");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(UserProfile.ProfileController.class.getResource("Profile.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            ProfileController sadmin = fxmlLoader.getController();
+            sadmin.set(username,role,pane1);
+            pane1.setCenter(ap);
+            System.out.println("kno holo na");
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
 
@@ -551,24 +664,24 @@ public class UserDashboardController implements Initializable {
                     stage.setTitle("SIGN IN");
                     stage.show();
                 }
+                //choice.getSelectionModel().
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
-            try {
+            try{
+               // System.out.println("hey ki khobor");
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(UserProfile.ProfileController.class.getResource("Profile.fxml"));
+                AnchorPane ap = fxmlLoader.load();
+                ProfileController sadmin = fxmlLoader.getController();
+                sadmin.set(username,role,pane1);
+                pane1.setCenter(ap);
+                //System.out.println("kno holo na");
 
-                UserProfile.FXMLScene scene = UserProfile.FXMLScene.load("Profile.fxml");
-                Parent root = scene.root;
-                ProfileController adminController = (ProfileController) scene.controller;
-                adminController.set(username, role);
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.setTitle("Profile");
-                stage.show();
-
-            } catch (Exception e) {
-
+            }catch (Exception e){
+                System.out.println(e.getMessage());
             }
 
         }
@@ -577,28 +690,20 @@ public class UserDashboardController implements Initializable {
 
     @FXML
     void addpost(ActionEvent event) {
-        System.out.println("hello");
-        try {
-            PostBox.FXMLScene scene = PostBox.FXMLScene.load("AddPost.fxml");
-            Parent root = scene.root;
-            AddPostController admin = (AddPostController) scene.controller;
-            admin.set(username, role);
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Post Diaster");
-            stage.show();
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(PostBox.AddPostController.class.getResource("AddPost.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            AddPostController sadmin = fxmlLoader.getController();
+            sadmin.set(username,role);
+            pane1.setCenter(ap);
 
-        } catch (Exception e) {
+        }catch (Exception e){
             System.out.println(e.getMessage());
-
         }
 
     }
 
-    @FXML
-    void Homego(MouseEvent event) {
-
-    }
 
     @FXML
     private Label rolee;
@@ -617,16 +722,30 @@ public class UserDashboardController implements Initializable {
     private Button alertbutton;
     @FXML
     private Button btsearch;
+    @FXML
+    private GridPane pane;
+/*    public void set(String username, String role) {
+        con=ConnectionDb.DBC();
+        user.setText(username);
+        rolee.setText("@" + role);
+        this.role = role;
+        this.username = username;
+        alertcount();
+        alertnum.setText(String.valueOf(newcount));
+        Thread t=new AlertThread();
+        t.start();
+        loadtable();
+    }*/
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ImageView imageView = new ImageView(new Image(new File("src/main/Font/notify.png").toURI().toString()));
         imageView.setFitHeight(25);
-        imageView.setFitWidth(27);ImageView imageView0 = new ImageView(new Image(new File("src/main/Font/search.png").toURI().toString()));
+        imageView.setFitWidth(27);
+        ImageView imageView0 = new ImageView(new Image(new File("src/main/Font/search.png").toURI().toString()));
         imageView0.setFitHeight(20);
         imageView0.setFitWidth(25);
         btsearch.setGraphic(imageView0);
-
-      alertbutton.setGraphic(imageView);
+        alertbutton.setGraphic(imageView);
         //alertimage.setImage(new Image(new File("src/main/Font/notify.png").toURI().toString()));
         String[] choiceb = {"Profile", "Logout"};
         choice.getItems().addAll(choiceb);
@@ -654,7 +773,199 @@ public class UserDashboardController implements Initializable {
         wait.play();*/
 
     }
+   ArrayList<post> list;
+    ArrayList<post> loaddata(){
+        list=new ArrayList<post>();
+        File file=new File("im.png");
+        try {
+        FileOutputStream fos=new FileOutputStream(file);
+        byte pic[];
+        Blob blob;
 
+            PreparedStatement ps =  con.prepareStatement("SELECT Title,Type,Address,District,ID,Image FROM diasterlist Order by Id Desc;");
+            ;
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                //String Title,Type, Address, Division, District, Id,AddInfo
+                blob = rs.getBlob("Image");
+                pic = blob.getBytes(1, (int) blob.length());
+                fos.write(pic);
+               // System.out.println("ami ashlam");
+               // ImageView image=new ImageView(new Image(file.toURI().toString()));
+                list.add(new post((rs.getString(1)), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5),pic));
+
+
+                // con.close();
+            }} catch (Exception e) {
+            System.out.println("error at bd backlist");
+        }
+
+
+       return list;
+    }
+    public class post {
+        public String Title,Type, Address, Division, District,AddInfo;
+        int Id;
+        public ImageView image;
+        public String s;
+        byte[] b;
+
+        public byte[] getB() {
+            return b;
+        }
+
+        public void setB(byte[] b) {
+            this.b = b;
+        }
+
+
+
+        public FileOutputStream getOutput() {
+            return output;
+        }
+
+        public void setOutput(FileOutputStream output) {
+            this.output = output;
+        }
+
+        FileOutputStream output;
+        File file;
+        public File getFile() {
+            return file;
+        }
+
+        public void setFile(File file) {
+            this.file = file;
+        }
+
+
+
+        public String getIs() {
+            return s;
+        }
+        public String sets() {
+            return s;
+        }
+
+        public void getImage(ImageView image) {
+            this.image = image;
+        }
+
+        public String getTitle() {
+            return Title;
+        }
+
+        public void setTitle(String title) {
+            Title = title;
+        }
+
+        public int getId() {
+            return Id;
+        }
+
+        public void setId(int id) {
+            Id = id;
+        }
+
+        public String getType() {
+            return Type;
+        }
+
+        public String getAddInfo() {
+            return AddInfo;
+        }
+
+        public void setAddInfo(String addInfo) {
+            AddInfo = addInfo;
+        }
+
+        public String getDistrict() {
+            return District;
+        }
+
+        public void setDistrict(String district) {
+            District = district;
+        }
+
+        public void setDivision(String division) {
+            Division = division;
+        }
+
+        public String getDivision() {
+            return Division;
+        }
+
+        public String getAddress() {
+            return Address;
+        }
+
+        public void setAddress(String address) {
+            Address = address;
+        }
+
+        public void setType(String type) {
+            Type = type;
+        }
+
+        public post(String Title, String Type, String Address, String Division, String District, int Id, String AddInfo) {
+            this.Title = Title;
+            this.Type = Type;
+            this.Address = Address;
+            this.Division = Division;
+            this.District = District;
+            this.Id = Id;
+            this.AddInfo = AddInfo;
+
+
+
+        }
+        public post(String Title, String Type, String Address,String District, int Id,byte[]b) {
+            this.Title = Title;
+            this.Type = Type;
+            this.Address = Address;
+           // this.Division = Division;
+            this.District = District;
+            this.Id = Id;
+            this.b = b;
+          //  this.AddInfo = AddInfo;
+
+
+
+        }
+    }
+    void loadtable0() {
+        list=loaddata();
+      //  listF = ConnectionDb.getdiasterlist();
+        //table.setItems(listF);
+       //List = new ArrayList<>(productList());
+        int column = 1;
+        int row = 1;
+        try{
+            for(post product : list){
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(PostBox.SinglePostController.class.getResource("SinglePost.fxml"));
+                VBox productBox = fxmlLoader.load();
+                 SinglePostController sadmin = fxmlLoader.getController();
+                 sadmin.set(pane1);
+                 sadmin.loadtable0(product,username,role);
+                if(column == 3){
+                    column = 1;
+                    ++row;
+                }
+                pane.add(productBox, column++, row);
+                GridPane.setMargin(productBox, new Insets(15));
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        //table.setItems(list);
+
+
+
+    }
+    int oldct=0;
+    int z=0;
     void alertcount( )  {
       try{
           int allpost=0;
@@ -667,6 +978,10 @@ public class UserDashboardController implements Initializable {
               //System.out.println(allpost);
          if(i==1){
              break;
+         }
+         if(z==0){
+             oldct=allpost;
+             z++;
          }
 
           }
@@ -690,17 +1005,34 @@ public class UserDashboardController implements Initializable {
         newcount =allpost-j;
         if(oldcount==newcount){
             //System.out.println("Old= "+oldcount+" New= "+newcount);
-        }else{
+        }else {
             //System.out.println("Old= "+oldcount+" New= "+newcount);
             //alertnum.setText(newcount+"");
-            oldcount=newcount;
+            oldcount = newcount;
             PauseTransition wait = new PauseTransition(Duration.seconds(1));
             wait.setOnFinished((e) -> {
                 alertnum.setText(String.valueOf(newcount));
+                // Notifications.create().title("New Disaster Posted!").text("Please check home page!").position(Pos.TOP_LEFT).showInformation();
+
                 wait.playFromStart();
             });
             wait.play();
+
+/*
+PauseTransition wait1 = new PauseTransition(Duration.seconds(1));
+            wait1.setOnFinished((e) -> {
+              //  alertnum.setText(String.valueOf(newcount));
+               Notifications.create().title("New Disaster Posted!").text("Please check home page!").position(Pos.TOP_LEFT).showInformation();
+
+                wait1.playFromStart();
+            });
+            wait1.play();
+            Thread.sleep(1000);
+            wait1.stop();
         }
+*/
+        }
+
 
       }catch( Exception e ){
           System.out.println(e.getMessage());
@@ -714,9 +1046,10 @@ public class UserDashboardController implements Initializable {
             while (true) {
                 try {
                   //  System.out.println("hey ami choltesi");
-                    Thread.sleep(5000);
+                    Thread.sleep(1000);
                     alertcount();
                     if(newcount!=oldcount){
+
                        /* PauseTransition wait = new PauseTransition(Duration.seconds(1));
                         wait.setOnFinished((e) -> {
                             alertnum.setText(String.valueOf(newcount));
@@ -736,57 +1069,101 @@ public class UserDashboardController implements Initializable {
     }
     @FXML
     void alert(ActionEvent e){
+        loadtable();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("New Post Notification");
+        System.out.println(oldct);
+        alert.setHeaderText("("+(Integer.parseInt(alertnum.getText().toString())-oldct)+") New post added!");
+        File file = new File("src/main/Font/icon1.png");
+        Image image = new Image(file.toURI().toString());
+        stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(image);
+        // alert.initOwner(stage);
+        //alert.setGraphic(new ImageView(image));
+        //user.setImage(image);
+        Optional<ButtonType> result = alert.showAndWait();
+        System.out.println("hey ki khobor");
+        oldct=Integer.parseInt(alertnum.getText().toString());
+        System.out.println(oldct);
+
+        //System.out.println("vaiya ki khobor "+username);
+     /*   try {
+            AdminDB.FXMLScene scene = FXMLScene.load("UserDashboard.fxml");
+            Parent root = scene.root;
+            UserDashboardController admin = (UserDashboardController) scene.controller;
+            admin.set(username, role);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("User Dashboard");
+            stage.show();
+        } catch (Exception e) {
+            System.out.println("vul hoilo Dashboard button userdashboard controller");
+        }*/
+        try{
+            System.out.println("hey ki khobor");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(AdminDB.HomeboardController.class.getResource("HomeBoard.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            HomeboardController sadmin = fxmlLoader.getController();
+            sadmin.set(username,role,pane1);
+            pane1.setCenter(ap);
+
+        }catch (Exception ee){
+            System.out.println(ee.getMessage());
+        }
         System.out.println("vai amare marse");
 
     }
 @FXML
-    void tableclick(MouseEvent event)
-    {
-        System.out.println(table.getSelectionModel().getSelectedItem().getId());
-        try{
-            PostBox.FXMLScene scene =  PostBox.FXMLScene.load("PostView.fxml");
-            Parent root = scene.root;
-            PostBox.Post admin= (PostBox.Post) scene.controller;
-            admin.set(username,role,table.getSelectionModel().getSelectedItem().getId());
-            Connection con=ConnectionDb.DBC();
-            try{
+    void tableclick(MouseEvent event) {
+    //System.out.println(table.getSelectionModel().getSelectedItem().getId());
+    try {
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(PostBox.Post.class.getResource("PostView.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            Post sadmin = fxmlLoader.getController();
+            //sadmin.set(username,role);
+
+
+            sadmin.set(username, role, table.getSelectionModel().getSelectedItem().getId(),pane1);
+            pane1.setCenter(ap);
+            Connection con = ConnectionDb.DBC();
+            try {
                 String sql = "SELECT * FROM notify Where username = ? and Postid = ?";
-                try {
-                    PreparedStatement preparedStatement = con.prepareStatement(sql);
-                    preparedStatement.setString(1, username);
-                    preparedStatement.setInt(2, table.getSelectionModel().getSelectedItem().getId());
-                    ResultSet resultSet = preparedStatement.executeQuery();
-                    if (!resultSet.next()) {
-                        PreparedStatement ps1 = con.prepareStatement("insert into `notify`  (Username,Postid) values (?,?);");
-                       // ResultSet rs1= ps1.executeQuery();
-                       ps1.setString(1, username);
-                       ps1.setInt(2,table.getSelectionModel().getSelectedItem().getId());
-                        ps1.execute();
-                        ps1.close();
-                        //rs1.close();
-                    } else {;
-                        System.out.println("ase aita");
-                    }
-                    resultSet.close();
-                    con.close();
-                } catch (SQLException ex) {
-                    System.err.println(ex.getMessage());
+                PreparedStatement preparedStatement = con.prepareStatement(sql);
+                preparedStatement.setString(1, username);
+                preparedStatement.setInt(2, table.getSelectionModel().getSelectedItem().getId());
+                ResultSet resultSet = preparedStatement.executeQuery();
+                if (!resultSet.next()) {
+                    PreparedStatement ps1 = con.prepareStatement("insert into `notify`  (Username,Postid) values (?,?);");
+                    // ResultSet rs1= ps1.executeQuery();
+                    ps1.setString(1, username);
+                    ps1.setInt(2, table.getSelectionModel().getSelectedItem().getId());
+                    ps1.execute();
+                    ps1.close();
+                    //rs1.close();
+                } else {
+                    ;
+                    System.out.println("ase aita");
                 }
-
-            }catch( Exception e ){
-                System.out.println(e.getMessage());
-
+                resultSet.close();
+                con.close();
+            } catch (SQLException ex) {
+                System.err.println(ex.getMessage());
             }
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("PostBox");
-            stage.show();
 
-
-        }catch (Exception e ){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
+
         }
 
-
+    } catch (Exception e) {
+        System.out.println(e.getMessage());
     }
-}
+
+
+
+        }
+    }

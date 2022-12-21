@@ -4,7 +4,8 @@ module com.example.sheccashoinik {
     requires java.sql;
     requires javafx.graphics;
      requires javafx.web;
-    
+    requires org.controlsfx.controls;
+
     opens UserProfile to javafx.fxml;
     exports UserProfile;
 
