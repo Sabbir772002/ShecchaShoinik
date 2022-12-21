@@ -1063,7 +1063,33 @@ PauseTransition wait1 = new PauseTransition(Duration.seconds(1));
     }
     @FXML
     void alert(ActionEvent e){
+        loadtable();
 
+        //System.out.println("vaiya ki khobor "+username);
+     /*   try {
+            AdminDB.FXMLScene scene = FXMLScene.load("UserDashboard.fxml");
+            Parent root = scene.root;
+            UserDashboardController admin = (UserDashboardController) scene.controller;
+            admin.set(username, role);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("User Dashboard");
+            stage.show();
+        } catch (Exception e) {
+            System.out.println("vul hoilo Dashboard button userdashboard controller");
+        }*/
+        try{
+            System.out.println("hey ki khobor");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(AdminDB.HomeboardController.class.getResource("HomeBoard.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            HomeboardController sadmin = fxmlLoader.getController();
+            sadmin.set(username,role,pane1);
+            pane1.setCenter(ap);
+
+        }catch (Exception ee){
+            System.out.println(ee.getMessage());
+        }
         System.out.println("vai amare marse");
 
     }
