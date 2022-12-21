@@ -155,20 +155,22 @@ public class UserDashboardController implements Initializable {
                 while (rs.next()) {
                     String s[] = {rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), (rs.getInt(6)) + "", rs.getString(7)};
                     String s1 = s[0] + " " + s[1] + " " + s[2] + " " + s[3] + " " + s[4] + " " + s[5] + " " + s[6];
-                    String s5[] = s1.split(" ");
+                    //String s5[] = s1.split(" ");
 
                     String s2 = textfield.getText().toString() + "";
                     // System.out.println(s2);
                     boolean i = false;
-                    for (int j = 0; j < s5.length; j++) {
-                        // System.out.println(textfield.getText().toString());
-                        // System.out.println(s2);
+                    for (int j = 0; j < s1.length(); j++) {
+                        for(int p = j+1; p < s1.length()-1; p++) {
+                            // System.out.println(textfield.getText().toString());
+                            // System.out.println(s2);
 /*
                         if(s[j]==textfield.getText().toString()){
 */
-                        if (s5[j].equalsIgnoreCase(s2)) {
-                            // System.out.println((s[j])+"=="+textfield.getText().toString());
-                            i = true;
+                            if (s1.substring(j, p).equalsIgnoreCase(s2)) {
+                                // System.out.println((s[j])+"=="+textfield.getText().toString());
+                                i = true;
+                            }
                         }
                     }
                     s2 += " ";
@@ -414,7 +416,7 @@ public class UserDashboardController implements Initializable {
         try{
             //System.out.println("hey ki khobor");
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(Event.ViewEvent.class.getResource("Profile.fxml"));
+            fxmlLoader.setLocation(Event.ViewEvent.class.getResource("ViewEvent.fxml"));
             AnchorPane ap = fxmlLoader.load();
             ViewEvent sadmin = fxmlLoader.getController();
             sadmin.set(username,role);
