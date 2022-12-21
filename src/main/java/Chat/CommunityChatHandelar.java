@@ -43,7 +43,7 @@ public class CommunityChatHandelar {
 
 
     }
-   AnchorPane pane;
+   BorderPane pane;
     public void set(String username, String role, BorderPane pane) {
         con= ConnectionDb.DBC();
         role=role;
@@ -95,7 +95,7 @@ public class CommunityChatHandelar {
             fxmlLoader.setLocation(UserProfile.ProfileController.class.getResource("Profile.fxml"));
             AnchorPane ap = fxmlLoader.load();
             ProfileController sadmin = fxmlLoader.getController();
-            sadmin.set(username,role);
+            sadmin.set(username,role,Name2,user2,pane1);
             //pane1.setVisible(false);
             pane1.setCenter(ap);
             //.setCenter(ap);

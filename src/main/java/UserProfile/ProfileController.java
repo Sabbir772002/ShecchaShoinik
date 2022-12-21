@@ -1,10 +1,15 @@
 package UserProfile;
 
+import BloodBank.User;
+import Chat.ChatPrivateController;
 import DB.ConnectionDb;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -16,11 +21,13 @@ public class ProfileController {
     String role="";
     private String user2;
     private String name2;
+    BorderPane pane;
 
-    public void set(String username, String role, String name2, String user2) {
+    public void set(String username, String role, String name2, String user2,BorderPane pane) {
+        this.pane = pane;
+        con=ConnectionDb.DBC();
         this.role = role;
         this.username = username;
-
 
         this.user2 = user2;
         this.name2 = name2;
@@ -30,13 +37,30 @@ public class ProfileController {
             sname=user2;
             pfield.setText("Chat");
         }
+        System.out.println("akhono thik");
         output();
     }
-    public void set(String username, String role) {
+    public void set(String username, String role,BorderPane pane) {
+        pane=pane;
         con= ConnectionDb.DBC();
         role=role;
         this.role = role;
         this.username = username;
+        output();
+
+        // alertcount();
+        //alertnum.setText(String.valueOf(newcount));
+        // Thread t=new HelpRequest.AlertThread();
+        //t.start();
+
+
+    }public void set(String username, String role) {
+        pane=pane;
+        con= ConnectionDb.DBC();
+        role=role;
+        this.role = role;
+        this.username = username;
+        output();
 
         // alertcount();
         //alertnum.setText(String.valueOf(newcount));
@@ -75,6 +99,25 @@ public class ProfileController {
 
     @FXML
     void paction(ActionEvent event) {
+        try {
+            if (pfield.getText().equals("Chat")) {
+                FXMLLoader fxmlLoader=new FXMLLoader();
+                fxmlLoader.setLocation(Chat.ChatPrivateController.class.getResource("ChatPrivate.fxml"));
+                AnchorPane ap=fxmlLoader.load();
+                ChatPrivateController padmin=fxmlLoader.getController();
+                padmin.set(username,role,name2,user2,pane);
+                pane.setCenter(ap);
+            } else {
+                FXMLLoader fxmlLoader=new FXMLLoader();
+                fxmlLoader.setLocation(UserProfile.ProfileEditController.class.getResource("ProfileEdit.fxml"));
+                AnchorPane ap=fxmlLoader.load();
+                ProfileEditController padmin=fxmlLoader.getController();
+                padmin.set(username,role);
+                pane.setCenter(ap);
+            }
+        } catch (Exception e) {
+            System.out.println("paction profile controller " + e.getMessage());
+        }
 
     }
     public String uname;
@@ -82,7 +125,7 @@ public class ProfileController {
     public void output() {
         try {
             Statement stmt = con.createStatement();
-            System.out.println(user2);
+            System.out.println(user2+" ase na kn");
             String sql = "SELECT Name,Username,Phone,ID,Division,District,Volunteer,BG FROM userlist Where Username = \'" + user2.toString() + "\'";
             //String sql = "SELECT * FROM `userlist` Where Username = '"+1+"'";
             //System.out.println("'"+user.getText()+"'");

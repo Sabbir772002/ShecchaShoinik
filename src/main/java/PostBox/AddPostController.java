@@ -186,6 +186,7 @@ public class AddPostController implements Initializable{
             district.getItems().addAll(ditrict);
             district.getSelectionModel().select(0);
         }
+
     }
 
 
@@ -235,8 +236,14 @@ public class AddPostController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String []division1={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
-
         division.getItems().addAll(division1);
         division.getSelectionModel().select(0);
+        district.getItems().removeAll(district.getItems());
+        String[] ditrict = {"Dhaka", "Gazipur", "Faridpur", "Gopalganj", "Jamalpur", "Kishoreganj", "Madaripur", "Manikganj", "Munshiganj", "Narayanganj", "Narshingdi", "Rajbari", "Shariatpur", "Tangail"};
+        district.getItems().addAll(ditrict);
+        district.getSelectionModel().select(0);
+        String []user2={"EarthQuake","Storm Surge","Wildfire","Cyclone","Flood","Drought","Tsunami","Typhoon","LandSlide","Epidemic","Structural Collapse","Transport Disasters","Mining Accidents","Explosions and Fires","Others"};
+        diaster.getItems().addAll(user2);
+        diaster.getSelectionModel().select(0);
     }
 }

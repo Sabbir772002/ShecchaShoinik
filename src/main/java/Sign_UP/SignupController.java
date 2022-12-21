@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.File;
 import java.net.URL;
@@ -224,10 +225,12 @@ public class SignupController implements Initializable {
             cbdistrict.getItems().addAll(ditrict);
         }
     }
+    @FXML
+    private Button sign;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String []user={"User","Volunteer Team"};
-        cb_sign_up.getItems().addAll(user);
+        //cb_sign_up.getItems().addAll(user);
         String []division={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
         cbdivision.getItems().addAll(division);
         String []user2={"EarthQuake","Storm Surge","Wildfire","Cyclone","Flood","Drought","Tsunami","Typhoon","LandSlide","Epidemic","Structural Collapse","Transport Disasters","Mining Accidents","Explosions and Fires","Others"};
@@ -237,5 +240,9 @@ public class SignupController implements Initializable {
 
         String []user3={"A+","A-","B+","B-","AB+","AB-","O+","O-"};
         bloodgroup.getItems().addAll(user3);
+        ImageView i=new ImageView(new Image(new File("src/main/Font/add1.png").toURI().toString()));
+        i.setFitHeight(27);
+        i.setFitWidth(27);
+        sign.setGraphic(i);
     }
 }

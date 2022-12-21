@@ -247,14 +247,14 @@ public class SigninController implements Initializable {
         String items[]={"User","Volunteer Leader","Admin"};
         sign_in_box.getItems().addAll(items);
         sign_in_box.getSelectionModel().select(0);
-        File file = new File("src/main/Font/user.png");
+        File file = new File("src/main/Font/user5.png");
         Image image = new Image(file.toURI().toString());
         user.setImage(image);
-        file = new File("src/main/Font/lock-outline.png");
+        file = new File("src/main/Font/pass.png");
         image = new Image(file.toURI().toString());
         pass.setImage(image);
         loginimage.setImage(new Image(new File("src/main/Font/login.png").toURI().toString()));
-        loginimage1.setImage(new Image(new File("src/main/Font/signup.png").toURI().toString()));
+        loginimage1.setImage(new Image(new File("src/main/Font/add1.png").toURI().toString()));
     }
     @FXML
     private AnchorPane enter;

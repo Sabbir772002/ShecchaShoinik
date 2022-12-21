@@ -1,6 +1,8 @@
 package AdminDB;
 
+import BloodBank.BloodBankController;
 import DB.ConnectionDb;
+import Event.ViewEvent;
 import Others.HelpResponseController;
 import Others.TaskCompletedController;
 import Others.TeamApproveController;
@@ -27,6 +29,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -47,11 +50,6 @@ public class TeamDashboardController implements Initializable {
     @FXML
     private BorderPane pane1;
 
-  /*  @FXML
-    private Button Bbank;
-
-    @FXML
-    private Label Logo1;*/
     Connection con;
     @FXML
     private ChoiceBox<String> choice;
@@ -62,8 +60,22 @@ public class TeamDashboardController implements Initializable {
     private ImageView bimage;
     @FXML
     void BbankClick(ActionEvent event) {
+        try{
+            System.out.println("hey ki khobor");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(BloodBankController.class.getResource("BloodBank.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            BloodBankController sadmin = fxmlLoader.getController();
+            sadmin.set(username,role);
+            pane1.setCenter(ap);
+            System.out.println("kno holo na");
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
 
     }
+
     @FXML
     private Button b;
     @FXML
@@ -122,15 +134,18 @@ public class TeamDashboardController implements Initializable {
                     String s2 = textfield.getText().toString() + "";
                     // System.out.println(s2);
                     boolean i = false;
-                    for (int j = 0; j < s5.length; j++) {
-                        // System.out.println(textfield.getText().toString());
-                        // System.out.println(s2);
+
+                    for (int j = 0; j < s1.length(); j++) {
+                        for(int p = j+1; p < s1.length()-1; p++) {
+                            // System.out.println(textfield.getText().toString());
+                            // System.out.println(s2);
 /*
                         if(s[j]==textfield.getText().toString()){
 */
-                        if (s5[j].equalsIgnoreCase(s2)) {
-                            // System.out.println((s[j])+"=="+textfield.getText().toString());
-                            i = true;
+                            if (s1.substring(j, p).equalsIgnoreCase(s2)) {
+                                // System.out.println((s[j])+"=="+textfield.getText().toString());
+                                i = true;
+                            }
                         }
                     }
                     s2 += " ";
@@ -179,14 +194,12 @@ public class TeamDashboardController implements Initializable {
     @FXML
     void Event(ActionEvent event) {
         try {
-            Event.FXMLScene scene = Event.FXMLScene.load("ViewEventTeam.fxml");
-            Parent root = scene.root;
-            Event.ViewEvent admin = (Event.ViewEvent) scene.controller;
-            admin.set(username, role);
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Event");
-            stage.show();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(Event.ViewEvent.class.getResource("ViewEventTeam.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            ViewEvent sadmin = fxmlLoader.getController();
+            sadmin.set(username,role);
+            pane1.setCenter(ap);
         } catch (IOException e) {
             System.out.println("vul hoilo Event button Teamshboard controller " + e.getMessage());
         }
