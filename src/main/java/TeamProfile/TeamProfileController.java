@@ -30,7 +30,7 @@ public class TeamProfileController {
     private Label division;
 
     @FXML
-    private TextField mail;
+    private Label mail;
 
     @FXML
     private TextField name;
@@ -40,6 +40,8 @@ public class TeamProfileController {
 
     @FXML
     private Label showuser;
+    @FXML
+    private Label License;
     String username;
     String role;
     public void set(String username, String role) {
@@ -59,11 +61,13 @@ public class TeamProfileController {
     BorderPane pane;
 
     public void set(String username, String role, BorderPane pane) {
+        con= ConnectionDb.DBC();
         this.pane=pane;
         // user.setText(username);
         // rolee.setText("@"+role);
         this.role = role;
         this.username = username;
+        output();
     }
 
 
@@ -73,7 +77,7 @@ public class TeamProfileController {
     public void output(){
         try{
             Statement stmt=con.createStatement();
-            String sql = "SELECT Name,Username,Phone,Division,District,Mail FROM userlist Where Username = \'"+username+"\'";
+            String sql = "SELECT Name,Username,Phone,Division,District,Mail,License FROM teams Where Username = \'"+username+"\'";
             //String sql = "SELECT * FROM `userlist` Where Username = '"+1+"'";
             //System.out.println("'"+user.getText()+"'");
             //SELECT Name,ID FROM `userlist` WHERE Username= "Nuha";
@@ -86,12 +90,14 @@ public class TeamProfileController {
                 division.setText(rs.getString(4));
                 district.setText(rs.getString(5));
                 mail.setText(rs.getString(6));
+                License.setText(rs.getString(7));
+
 
             }
             rs.close();
             stmt.close();
             con.close();
-            name.setText(Name.getText().toString());
+           // name.setText(Name.getText().toString());
             String uname = showuser.getText().toString();
            /* System.out.println(uname);
             System.out.println(username);*/
@@ -108,6 +114,17 @@ public class TeamProfileController {
         }
     }
 
+    @FXML
+    void request(ActionEvent event) {
+
+
+    }
+    @FXML
+    void join(ActionEvent event) {
+
+
+
+    }
     @FXML
     void Save(ActionEvent event) {
         Stage stage;
