@@ -129,26 +129,26 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="14.0" layoutY="179.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="District:">
+            <Label alignment="CENTER" layoutX="14.0" layoutY="233.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="District:">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cbdis" layoutX="108.0" layoutY="184.0" onAction="#select" prefHeight="26.0" prefWidth="127.0" promptText="District" />
-            <ComboBox fx:id="cddiv" layoutX="107.0" layoutY="230.0" prefHeight="26.0" prefWidth="130.0" promptText="Division" />
-            <Label alignment="CENTER" layoutX="14.0" layoutY="225.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Division:">
+            <ComboBox fx:id="cbdis" layoutX="108.0" layoutY="238.0" onAction="#select" prefHeight="26.0" prefWidth="127.0" promptText="District" />
+            <ComboBox fx:id="cddiv" layoutX="107.0" layoutY="181.0" onAction="#select" prefHeight="26.0" prefWidth="130.0" promptText="Division" />
+            <Label alignment="CENTER" layoutX="14.0" layoutY="176.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Division:">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="14.0" layoutY="127.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Hospital:">
+            <Label alignment="CENTER" layoutX="14.0" layoutY="114.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Hospital:">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="hospital" layoutX="108.0" layoutY="132.0" prefHeight="26.0" prefWidth="128.0" />
-            <DatePicker fx:id="cbdate" layoutX="107.0" layoutY="271.0" prefHeight="26.0" prefWidth="131.0" />
-            <Label alignment="CENTER" layoutX="14.0" layoutY="269.0" prefHeight="33.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Date:">
+            <TextField fx:id="hospital" layoutX="108.0" layoutY="119.0" prefHeight="26.0" prefWidth="128.0" />
+            <DatePicker fx:id="cbdate" layoutX="106.0" layoutY="287.0" prefHeight="26.0" prefWidth="131.0" />
+            <Label alignment="CENTER" layoutX="14.0" layoutY="284.0" prefHeight="33.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Date:">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -163,14 +163,14 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="14.0" layoutY="226.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="District:">
+            <Label alignment="CENTER" layoutX="14.0" layoutY="272.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="District:">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cbdis" layoutX="109.0" layoutY="231.0" onAction="#select" prefHeight="26.0" prefWidth="127.0" promptText="District" />
-            <ComboBox layoutX="108.0" layoutY="291.0" prefHeight="26.0" prefWidth="130.0" promptText="Division" />
-            <Label alignment="CENTER" layoutX="14.0" layoutY="286.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Division:">
+            <ComboBox fx:id="cbdis" layoutX="108.0" layoutY="277.0" onAction="#select" prefHeight="26.0" prefWidth="127.0" promptText="District" />
+            <ComboBox layoutX="106.0" layoutY="226.0" onAction="#select" prefHeight="26.0" prefWidth="130.0" promptText="Division" />
+            <Label alignment="CENTER" layoutX="14.0" layoutY="226.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Division:">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -181,19 +181,25 @@
                </font>
             </Label>
             <TextField layoutX="109.0" layoutY="181.0" prefHeight="26.0" prefWidth="128.0" promptText="United " />
-            <DatePicker layoutX="106.0" layoutY="344.0" prefHeight="26.0" prefWidth="131.0" />
-            <Label alignment="CENTER" layoutX="14.0" layoutY="344.0" prefHeight="33.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Date:">
+            <DatePicker layoutX="107.0" layoutY="330.0" prefHeight="26.0" prefWidth="130.0" />
+            <Label alignment="CENTER" layoutX="14.0" layoutY="327.0" prefHeight="33.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Date:">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Button layoutX="88.0" layoutY="403.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="70.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Request" />
+            <Button layoutX="100.0" layoutY="436.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="70.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Request" />
             <Label alignment="CENTER" layoutX="14.0" layoutY="126.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Reason:">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
             <TextField fx:id="reason" layoutX="108.0" layoutY="131.0" prefHeight="26.0" prefWidth="128.0" promptText="Fever" />
+            <Label alignment="CENTER" layoutX="14.0" layoutY="378.0" prefHeight="33.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="BAG:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField layoutX="109.0" layoutY="379.0" prefHeight="26.0" prefWidth="131.0" promptText="2" />
          </children>
       </AnchorPane>
    </children>

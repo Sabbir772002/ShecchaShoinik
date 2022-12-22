@@ -210,7 +210,7 @@ public class BloodBankController implements Initializable
 
         }
     @FXML
-    void Select(ActionEvent event) {
+    void select(ActionEvent event) {
         String divisionname;
         try{
             divisionname=cbdiv.getSelectionModel().getSelectedItem().toString();
