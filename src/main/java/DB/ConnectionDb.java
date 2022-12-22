@@ -89,7 +89,7 @@ public class ConnectionDb {
             ResultSet rs1 = ps1.executeQuery();
 
             while(rs1.next()){
-                System.out.println("rs1");
+                //System.out.println("rs1");
                 //String Title,Type, Address, Division, District, Id,AddInfo
                 list.add(new Team(rs1.getString(1), rs1.getString(2),rs1.getString(3))); //rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7)));
             }
@@ -98,7 +98,7 @@ public class ConnectionDb {
             ResultSet rs2 = ps2.executeQuery();
            // System.out.println(Division);
             while(rs2.next()){
-                System.out.println("rs2");
+               // System.out.println("rs2");
                 //String Title,Type, Address, Division, District, Id,AddInfo
                 list.add(new Team(rs2.getString(1), rs2.getString(2),rs2.getString(3))); //rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7)));
             }

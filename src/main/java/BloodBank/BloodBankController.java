@@ -65,13 +65,13 @@ public class BloodBankController {
         private DatePicker cbdate;
 
         @FXML
-        private ComboBox<?> cbdis;
+        private ComboBox<String> cbdis;
 
         @FXML
-        private ComboBox<?> cbdiv;
+        private ComboBox<String> cbdiv;
 
         @FXML
-        private ComboBox<?> cddiv;
+        private ComboBox<String> cddiv;
 
         @FXML
         private Button claimbt;
@@ -203,6 +203,9 @@ public class BloodBankController {
         void type(ActionEvent event) {
 
         }
+        @FXML
+        void select(ActionEvent event) {
 
+        }
 
 }
