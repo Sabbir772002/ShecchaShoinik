@@ -7,15 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-  <AnchorPane prefHeight="596.0" prefWidth="776.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PostBox.AddPostController">
+<AnchorPane prefHeight="596.0" prefWidth="776.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PostBox.AddPostController">
    <children>
-      <Label layoutX="91.0" layoutY="53.0" prefHeight="31.0" prefWidth="187.0" text="Add Diaster Title" textFill="WHITE">
+      <Label layoutX="91.0" layoutY="53.0" prefHeight="31.0" prefWidth="187.0" text="Add Disaster Title" textFill="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="272.0" layoutY="138.0" prefHeight="31.0" prefWidth="268.0" text="Details About Diaster" textFill="WHITE">
+      <Label layoutX="272.0" layoutY="138.0" prefHeight="31.0" prefWidth="268.0" text="Details About Disaster" textFill="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
@@ -37,7 +36,7 @@
          </font>
       </Label>
       <ComboBox fx:id="district" layoutX="257.0" layoutY="256.0" prefHeight="26.0" prefWidth="148.0" />
-      <Label layoutX="88.0" layoutY="297.0" prefHeight="31.0" prefWidth="162.0" text="Diaster Type:" textFill="WHITE">
+      <Label layoutX="88.0" layoutY="297.0" prefHeight="31.0" prefWidth="162.0" text="Disaster Type:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>

@@ -8,7 +8,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="596.0" prefWidth="776.0" style="-fx-background-color: black; -fx-background-radius: 5; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PostBox.Post">
    <children>
       <ImageView fx:id="poster" fitHeight="300.0" fitWidth="338.0" layoutX="389.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
@@ -16,7 +15,7 @@
             <Image url="@../../Font/2.jpg" />
          </image>
       </ImageView>
-      <Text fx:id="title" fill="WHITE" fontSmoothingType="LCD" layoutX="66.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: black;" text="Disaster hazard at uiu" wrappingWidth="429.2371063232422">
+      <Text fx:id="title" fill="WHITE" fontSmoothingType="LCD" layoutX="66.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white;" text="Disaster hazard at uiu" wrappingWidth="429.2371063232422">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
