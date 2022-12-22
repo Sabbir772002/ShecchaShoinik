@@ -3,14 +3,18 @@ package BloodBank;
 import DB.ConnectionDb;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ResourceBundle;
 
-public class BloodBankController {
+public class BloodBankController implements Initializable
+{
     Connection con;
     String username="";
     String role="";
@@ -208,4 +212,8 @@ public class BloodBankController {
 
         }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }
