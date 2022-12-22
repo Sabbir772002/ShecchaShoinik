@@ -11,15 +11,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-  <AnchorPane prefHeight="537.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Event.ApproveEVentController">
+<AnchorPane prefHeight="537.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Event.ApproveEVentController">
       <children>
               <Label layoutX="11.0" layoutY="13.0" prefHeight="42.0" prefWidth="147.0" text=" Event">
                   <font>
                       <Font name="Arial Bold" size="44.0" />
                   </font>
               </Label>
-              <TextField layoutX="18.0" layoutY="78.19999694824219" prefHeight="30.0" prefWidth="309.0" promptText="Search event" />
+              <TextField layoutX="22.0" layoutY="78.0" prefHeight="30.0" prefWidth="306.0" promptText="Search event" />
               <Label alignment="CENTER" layoutX="368.0" layoutY="78.19999694824219" prefHeight="30.0" prefWidth="388.0" text="Seminar on guidelines to winter">
                   <font>
                       <Font name="System Bold" size="20.0" />

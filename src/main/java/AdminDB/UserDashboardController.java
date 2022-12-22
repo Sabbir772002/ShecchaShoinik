@@ -623,9 +623,7 @@ public class UserDashboardController implements Initializable {
     void ChoiceClick(MouseEvent event) {
         if (choice.getValue().toString().equals("Logout")) {
             try {
-
                 root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
-
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);

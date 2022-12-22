@@ -41,7 +41,7 @@ public class ProfileController {
         output();
     }
     public void set(String username, String role,BorderPane pane) {
-        pane=pane;
+        this.pane=pane;
         con= ConnectionDb.DBC();
         role=role;
         this.role = role;

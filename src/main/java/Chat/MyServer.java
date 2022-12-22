@@ -10,7 +10,7 @@ public class MyServer {
     public static void main(String []args) {
         try {
             System.out.println("Server is waiting for client.");
-            ServerSocket serverSocket = new ServerSocket(1100);
+            ServerSocket serverSocket = new ServerSocket(100);
             while (true){
                 Socket sc = serverSocket.accept();
                 Client client = new Client(sc);
