@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="596.0" prefWidth="776.0" style="-fx-background-color: black; -fx-background-radius: 5; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PostBox.Post">
+<AnchorPane focusTraversable="true" prefHeight="596.0" prefWidth="776.0" style="-fx-background-color: black; -fx-background-radius: 5; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PostBox.Post">
    <children>
       <ImageView fx:id="poster" fitHeight="300.0" fitWidth="338.0" layoutX="389.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -20,57 +20,59 @@
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Text>
-      <Button fx:id="mapclick" layoutX="169.0" layoutY="441.0" mnemonicParsing="false" onAction="#viewmap" prefHeight="36.0" prefWidth="89.0" text="View in Map" />
-      <Label layoutX="69.0" layoutY="145.0" prefHeight="31.0" prefWidth="99.0" text="Addres:">
+      <Button fx:id="mapclick" layoutX="169.0" layoutY="451.0" mnemonicParsing="false" onAction="#viewmap" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: green;" text="View in Map" />
+      <Label layoutX="69.0" layoutY="145.0" prefHeight="31.0" prefWidth="99.0" text="Addres:" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="71.0" layoutY="197.0" prefHeight="34.0" prefWidth="94.0" text="District:">
+      <Label layoutX="71.0" layoutY="197.0" prefHeight="34.0" prefWidth="94.0" text="District:" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="70.0" layoutY="229.0" prefHeight="31.0" prefWidth="85.0" text="Division:">
+      <Label layoutX="70.0" layoutY="229.0" prefHeight="31.0" prefWidth="85.0" text="Division:" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="68.0" layoutY="261.0" prefHeight="31.0" prefWidth="88.0" text="Type:">
+      <Label layoutX="68.0" layoutY="261.0" prefHeight="31.0" prefWidth="88.0" text="Type:" textFill="#ffebeb">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="130.0" layoutY="302.0" prefHeight="31.0" prefWidth="186.0" text="Additional Info:">
+      <Label alignment="CENTER" layoutX="130.0" layoutY="298.0" prefHeight="31.0" prefWidth="186.0" text="Additional Info:" textFill="#fffdfd">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="address" alignment="CENTER" disable="true" layoutX="166.0" layoutY="122.0" prefHeight="70.0" prefWidth="204.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Label" wrapText="true">
+      <Label fx:id="address" alignment="CENTER" layoutX="166.0" layoutY="122.0" prefHeight="70.0" prefWidth="204.0" style="-fx-background-radius: 5; -fx-border-color: white;" text="Kuril Road" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="district" alignment="CENTER" disable="true" layoutX="167.0" layoutY="198.0" prefHeight="26.0" prefWidth="204.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Label">
+      <Label fx:id="district" alignment="CENTER" layoutX="167.0" layoutY="198.0" prefHeight="26.0" prefWidth="204.0" style="-fx-background-radius: 5;" text="Dhaka" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="type" alignment="CENTER" contentDisplay="TOP" disable="true" layoutX="169.0" layoutY="263.0" prefHeight="26.0" prefWidth="202.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Label">
+      <Label fx:id="type" alignment="CENTER" contentDisplay="TOP" layoutX="169.0" layoutY="263.0" prefHeight="26.0" prefWidth="202.0" style="-fx-background-color: null; -fx-background-radius: 5;" text="EarthQuake" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="division" disable="true" layoutX="168.0" layoutY="229.0" prefHeight="28.0" prefWidth="202.0" style="-fx-background-color: white; -fx-alignment: Center; -fx-background-radius: 5;" text="Label">
+      <Label fx:id="division" layoutX="168.0" layoutY="229.0" prefHeight="28.0" prefWidth="202.0" style="-fx-alignment: Center; -fx-background-radius: 5;" text="Dhaka" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
       <Label layoutX="68.0" layoutY="57.0" prefHeight="18.0" prefWidth="98.0" text="\@Sabbir" textFill="WHITE" />
-      <Label fx:id="addinfo" alignment="CENTER" disable="true" layoutX="71.0" layoutY="334.0" prefHeight="98.0" prefWidth="304.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Label" wrapText="true">
+      <Label fx:id="addinfo" alignment="CENTER" layoutX="71.0" layoutY="334.0" prefHeight="98.0" prefWidth="304.0" style="-fx-background-color: null; -fx-background-radius: 5; -fx-border-color: white;" text="Label" textFill="#fff7f7" wrapText="true">
          <font>
             <Font name="Bell MT Bold" size="17.0" />
          </font>
       </Label>
+      <Button fx:id="delete" layoutX="169.0" layoutY="491.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: red;" text="Delete" visible="false" />
+      <Button fx:id="delete1" layoutX="179.0" layoutY="501.0" mnemonicParsing="false" onAction="#Delete" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: red;" text="Delete" visible="false" />
    </children>
 </AnchorPane>

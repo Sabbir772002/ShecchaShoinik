@@ -82,6 +82,7 @@
                      </font>
                   </Label>
                   <Button fx:id="pfield" layoutX="296.0" layoutY="171.0" mnemonicParsing="false" onAction="#paction" prefHeight="27.0" prefWidth="113.0" style="-fx-background-color: green;" styleClass="bt" stylesheets="@../../Style/style.css" text="Edit Profile" />
+      <Button fx:id="delete" layoutX="312.0" layoutY="483.0" mnemonicParsing="false" onAction="#Delete" prefHeight="27.0" prefWidth="113.0" style="-fx-background-color: red;" styleClass="bt" stylesheets="@../../Style/style.css" text="Delete User" visible="false" />
 <!--
                   <Button fx:id="editprofilebt" layoutX="331.0" layoutY="451.0" mnemonicParsing="false" onAction="#Editprofile" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: pink;" styleClass="bt" stylesheets="@../../style.css" text="Edit Profile" />
 -->

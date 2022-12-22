@@ -53,7 +53,7 @@ public class Post {
     private Label address;
 
     @FXML
-    private Button b;
+    private Button delete;
 
     @FXML
     private Button bbutton;
@@ -106,7 +106,8 @@ public class Post {
     Blob blob;
     disaster dlist = null;
     public void set(String username, String role, int id) {
-        System.out.println("i am in set");
+        if(role.equals("Admin"))delete.setVisible(true);
+       // System.out.println("i am in set");
         // user.setText(username);
         // rolee.setText("@"+role);
         this.role = role;
@@ -121,7 +122,9 @@ public class Post {
         addinfo.setText(dlist.getAddInfo());
         poster.setImage(new Image(file.toURI().toString()));
     }  public void set(String username, String role, int id, BorderPane pane) {
-        System.out.println("i am in set");
+        if(role.equals("Admin"))delete.setVisible(true);
+
+       // System.out.println("i am in set");
         // user.setText(username);
         // rolee.setText("@"+role);
         this.role = role;

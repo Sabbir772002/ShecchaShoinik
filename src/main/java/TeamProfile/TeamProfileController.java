@@ -44,7 +44,11 @@ public class TeamProfileController {
     private Label License;
     String username;
     String role;
+    @FXML
+    private Button delete;
     public void set(String username, String role) {
+        if(role.equals("Admin"))delete.setVisible(true);
+
         con = ConnectionDb.DBC();
         role = role;
         this.role = role;
@@ -61,6 +65,8 @@ public class TeamProfileController {
     BorderPane pane;
 
     public void set(String username, String role, BorderPane pane) {
+        if(role.equals("Admin"))delete.setVisible(true);
+
         con= ConnectionDb.DBC();
         this.pane=pane;
         // user.setText(username);

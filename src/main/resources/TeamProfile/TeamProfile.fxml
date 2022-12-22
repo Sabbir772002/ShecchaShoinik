@@ -83,5 +83,6 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
+      <Button fx:id="delete" layoutX="314.0" layoutY="498.0" mnemonicParsing="false" onAction="#Delete" prefHeight="26.0" prefWidth="119.0" style="-fx-background-color: red; -fx-background-radius: 10;" text="Delete Team" visible="false" />
       </children>
 </AnchorPane>

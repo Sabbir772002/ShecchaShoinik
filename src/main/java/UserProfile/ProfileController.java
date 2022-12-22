@@ -22,8 +22,12 @@ public class ProfileController {
     private String user2;
     private String name2;
     BorderPane pane;
+    @FXML
+    private Button delete;
 
     public void set(String username, String role, String name2, String user2,BorderPane pane) {
+        if(role.equals("Admin"))delete.setVisible(true);
+
         this.pane = pane;
         con=ConnectionDb.DBC();
         this.role = role;
@@ -41,6 +45,8 @@ public class ProfileController {
         output();
     }
     public void set(String username, String role,BorderPane pane) {
+        if(role.equals("Admin"))delete.setVisible(true);
+
         this.pane=pane;
         con= ConnectionDb.DBC();
         role=role;
@@ -54,7 +60,10 @@ public class ProfileController {
         //t.start();
 
 
-    }public void set(String username, String role) {
+    }
+    public void set(String username, String role) {
+        if(role.equals("Admin"))delete.setVisible(true);
+
         pane=pane;
         con= ConnectionDb.DBC();
         role=role;

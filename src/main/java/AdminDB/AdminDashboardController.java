@@ -9,6 +9,7 @@ import Event.ViewEvent;
 import Others.HRequest;
 import Others.TeamApproveController;
 import Others.VolunteerNearController;
+import PostBox.MapController;
 import PostBox.Post;
 import PostBox.SinglePostController;
 import TeamProfile.TeamProfileController;
@@ -48,6 +49,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -660,10 +662,12 @@ public class AdminDashboardController implements Initializable {
     void tableclick(MouseEvent event) {
         System.out.println(table.getSelectionModel().getSelectedItem().getId());
         try {
-            PostBox.FXMLScene scene = PostBox.FXMLScene.load("PostView.fxml");
-            Parent root = scene.root;
-            PostBox.Post admin = (PostBox.Post) scene.controller;
-            admin.set(username, role, table.getSelectionModel().getSelectedItem().getId());
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(PostBox.Post.class.getResource("PostView.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            Post sadmin = fxmlLoader.getController();
+            pane1.setCenter(ap);
+            sadmin.set(username, role, table.getSelectionModel().getSelectedItem().getId(),pane1);
             Connection con = ConnectionDb.DBC();
             try {
                 String sql = "SELECT * FROM notify Where username = ? and Postid = ?";
