@@ -2287,22 +2287,3 @@
                            <Insets top="5.0" />
                         </VBox.margin>
                      </Button>
-                     <Button mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="158.0" style="-fx-background-color: #985aaa;" text="Log out">
-                        <font>
-                           <Font name="System Bold" size="13.0" />
-                        </font>
-                        <VBox.margin>
-                           <Insets top="5.0" />
-                        </VBox.margin>
-                     </Button>
-                  </children>
-                  <padding>
-                     <Insets bottom="5.0" left="10.0" top="5.0" />
-                  </padding>
-                  <cursor>
-                     <Cursor fx:constant="DEFAULT" />
-                  </cursor>
-               </VBox>
-            </children>
-            <cursor>
-               <Cursor fx:constant="DEFAULT" />

@@ -3,10 +3,9 @@ module com.example.sheccashoinik {
     requires javafx.fxml;
     requires java.sql;
     requires javafx.graphics;
-     requires javafx.web;
-    requires org.controlsfx.controls;
+    requires javafx.web;
+    //requires javafx.controlsfx.controls;
 
-    opens UserProfile to javafx.fxml;
     exports UserProfile;
 
     opens com.example.sheccashoinik to javafx.fxml;
@@ -57,5 +56,3 @@ module com.example.sheccashoinik {
 
 
 }
-
-//
