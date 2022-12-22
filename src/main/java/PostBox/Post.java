@@ -228,6 +228,10 @@ public class Post {
     }
 
     @FXML
+    void Delete(ActionEvent e) {
+
+    }
+    @FXML
     void viewmap(ActionEvent e) {
         //System.out.println("ashlam kaj holo na1");
         try {

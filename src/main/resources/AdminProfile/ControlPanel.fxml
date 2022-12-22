@@ -7,18 +7,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="596.0" prefWidth="778.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminProfile.ControlPanelController">
    <children>
-      <Button layoutX="44.0" layoutY="214.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="131.0" style="-fx-background-color: white;" text="View All User" />
-      <Button layoutX="44.0" layoutY="266.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="131.0" style="-fx-background-color: white;" text="View All Team" />
-      <Button layoutX="44.0" layoutY="323.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="131.0" style="-fx-background-color: white;" text="View All Post" />
-      <Label layoutX="19.0" layoutY="28.0" prefHeight="26.0" prefWidth="463.0" style="-fx-border-color: white;" text="Control Your Area User, Team and Post" textFill="WHITE">
+      <Button layoutX="98.0" layoutY="203.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="131.0" style="-fx-background-color: white;" text="View All User" />
+      <Button layoutX="98.0" layoutY="263.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="131.0" style="-fx-background-color: white;" text="View All Team" />
+      <Button layoutX="98.0" layoutY="323.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="131.0" style="-fx-background-color: white;" text="View All Post" />
+      <Label layoutX="19.0" layoutY="28.0" prefHeight="26.0" prefWidth="463.0" style="-fx-border-color: white; -fx-padding: 4;" text="Control Your Area User, Team and Post" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
-      <TableView fx:id="alluser" layoutX="305.0" layoutY="81.0" prefHeight="486.0" prefWidth="448.0" visible="false">
+      <TableView fx:id="alluser" layoutX="316.0" layoutY="74.0" prefHeight="517.0" prefWidth="448.0">
         <columns>
           <TableColumn fx:id="Name" prefWidth="132.79998779296875" text="Name" />
           <TableColumn fx:id="Username" minWidth="8.0" prefWidth="168.800048828125" text="Username" />
@@ -29,11 +28,11 @@
          <columns>
             <TableColumn fx:id="Teamname" prefWidth="132.79998779296875" text="Name" />
             <TableColumn fx:id="Teamuser" minWidth="8.0" prefWidth="122.4000244140625" text="Username" />
-            <TableColumn fx:id="District" minWidth="8.0" prefWidth="147.199951171875" text="District" />
+            <TableColumn fx:id="TeamDistrict" minWidth="8.0" prefWidth="147.199951171875" text="District" />
             <TableColumn fx:id="TeamType" minWidth="8.0" prefWidth="147.199951171875" text="Type" />
          </columns>
       </TableView>
-      <TableView fx:id="alluser11" layoutX="236.0" layoutY="80.0" prefHeight="486.0" prefWidth="533.0">
+      <TableView fx:id="alluser11" layoutX="236.0" layoutY="80.0" prefHeight="486.0" prefWidth="533.0" visible="false">
          <columns>
             <TableColumn fx:id="Teamname1" prefWidth="217.59996032714844" text="Title" />
             <TableColumn fx:id="PostDistrict" minWidth="8.0" prefWidth="136.0" text="District" />

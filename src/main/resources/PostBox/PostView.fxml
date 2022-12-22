@@ -46,12 +46,12 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="address" alignment="CENTER" layoutX="166.0" layoutY="122.0" prefHeight="70.0" prefWidth="204.0" style="-fx-background-radius: 5; -fx-border-color: white;" text="Kuril Road" textFill="WHITE" wrapText="true">
+      <Label fx:id="address" alignment="CENTER" layoutX="166.0" layoutY="122.0" prefHeight="70.0" prefWidth="204.0" style="-fx-background-radius: 5; -fx-border-color: white; -fx-padding: 5;" text="Kuril Road" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="district" alignment="CENTER" layoutX="167.0" layoutY="198.0" prefHeight="26.0" prefWidth="204.0" style="-fx-background-radius: 5;" text="Dhaka" textFill="WHITE">
+      <Label fx:id="district" alignment="CENTER" layoutX="167.0" layoutY="198.0" prefHeight="26.0" prefWidth="204.0" style="-fx-background-radius: 5;" text="Gazipur" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
@@ -67,7 +67,7 @@
          </font>
       </Label>
       <Label layoutX="68.0" layoutY="57.0" prefHeight="18.0" prefWidth="98.0" text="\@Sabbir" textFill="WHITE" />
-      <Label fx:id="addinfo" alignment="CENTER" layoutX="71.0" layoutY="334.0" prefHeight="98.0" prefWidth="304.0" style="-fx-background-color: null; -fx-background-radius: 5; -fx-border-color: white;" text="Label" textFill="#fff7f7" wrapText="true">
+      <Label fx:id="addinfo" alignment="CENTER" layoutX="71.0" layoutY="334.0" prefHeight="98.0" prefWidth="304.0" style="-fx-background-color: null; -fx-background-radius: 5; -fx-border-color: white; -fx-padding: 5;" text="Label" textFill="#fff7f7" wrapText="true">
          <font>
             <Font name="Bell MT Bold" size="17.0" />
          </font>
