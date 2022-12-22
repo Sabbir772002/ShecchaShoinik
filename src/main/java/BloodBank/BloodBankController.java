@@ -207,13 +207,65 @@ public class BloodBankController implements Initializable
         void type(ActionEvent event) {
 
         }
-        @FXML
-        void select(ActionEvent event) {
-
+    @FXML
+    void Select(ActionEvent event) {
+        String divisionname;
+        try{
+            divisionname=cbdiv.getSelectionModel().getSelectedItem().toString();
+        }catch(Exception e ){
+            divisionname="";
         }
+        if(divisionname.equals("Dhaka")){
+            cbdis.getItems().removeAll(cbdis.getItems());
+            String []ditrict={"Dhaka","Gazipur","Faridpur","Gopalganj","Jamalpur","Kishoreganj","Madaripur","Manikganj","Munshiganj","Narayanganj","Narshingdi","Rajbari","Shariatpur","Tangail"};
+            cbdis.getItems().addAll(ditrict);
+        }else if(divisionname.equals("Rajshahi")){
+            cbdis.getItems().removeAll(cbdis.getItems());
+
+            String []ditrict={"Rajshahi","Sirajgonj","Bogra","Chapinawabganj","Joypurhat","Naogaon","Natore","Pabna"};
+            cbdis.getItems().addAll(ditrict);
+        }
+        else if(divisionname.equals("Chattogram")){
+            cbdis.getItems().removeAll(cbdis.getItems());
+
+            String []ditrict={"Chattogram","Cox's Bazar", "Rangamati", "Bandarban", "Khagrachhari", "Feni", "Lakshmipur", "Comilla"," Noakhali", "Brahmanbaria" ,"Chandpur"};
+            cbdis.getItems().addAll(ditrict);
+        }
+        else if(divisionname.equals("Barishal")){
+            cbdis.getItems().removeAll(cbdis.getItems());
+
+            String []ditrict={"Barishal", "Barguna", "Bhola", "Jhalokati", "Pirojpur","Patuakhali"};
+            cbdis.getItems().addAll(ditrict);
+        }
+        else if(divisionname.equals("Sylhet")){
+            cbdis.getItems().removeAll(cbdis.getItems());
+
+            String []ditrict={"Sylhet","Habiganj","Moulvibazar","Sunamganj" };
+            cbdis.getItems().addAll(ditrict);
+        }
+        else if(divisionname.equals("Mymensingh")){
+            cbdis.getItems().removeAll(cbdis.getItems());
+
+            String []ditrict={"Mymensingh","Jamalpur","Netrokona","Sherpur" };
+            cbdis.getItems().addAll(ditrict);
+        }
+        else if(divisionname.equals("Khulna")){
+            cbdis.getItems().removeAll(cbdis.getItems());
+
+            String []ditrict={"Khulna","Bagherhat","Chuadanga","Jessore","Jinaidaha","Magura","Meherpur","Narail","Satkhira" };
+            cbdis.getItems().addAll(ditrict);
+        }
+        else if(divisionname.equals("Rangpur")){
+            cbdis.getItems().removeAll(cbdis.getItems());
+
+            String []ditrict={"Rangpur","Kurigram","Gaibandha","Thakurgaon","Dinajpur","Nilphamari","Panchagarh","Lalmonirhat" };
+            cbdis.getItems().addAll(ditrict);
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        String []division={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
 
     }
 }
