@@ -609,7 +609,7 @@ public class UserDashboardController implements Initializable {
             fxmlLoader.setLocation(UserProfile.ProfileController.class.getResource("Profile.fxml"));
             AnchorPane ap = fxmlLoader.load();
             ProfileController sadmin = fxmlLoader.getController();
-            sadmin.set(username,role);
+            sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
             System.out.println("kno holo na");
 
@@ -676,7 +676,7 @@ public class UserDashboardController implements Initializable {
                 fxmlLoader.setLocation(UserProfile.ProfileController.class.getResource("Profile.fxml"));
                 AnchorPane ap = fxmlLoader.load();
                 ProfileController sadmin = fxmlLoader.getController();
-                sadmin.set(username,role);
+                sadmin.set(username,role,pane1);
                 pane1.setCenter(ap);
                 //System.out.println("kno holo na");
 
@@ -964,6 +964,8 @@ public class UserDashboardController implements Initializable {
 
 
     }
+    int oldct=0;
+    int z=0;
     void alertcount( )  {
       try{
           int allpost=0;
@@ -976,6 +978,10 @@ public class UserDashboardController implements Initializable {
               //System.out.println(allpost);
          if(i==1){
              break;
+         }
+         if(z==0){
+             oldct=allpost;
+             z++;
          }
 
           }
@@ -1063,7 +1069,48 @@ PauseTransition wait1 = new PauseTransition(Duration.seconds(1));
     }
     @FXML
     void alert(ActionEvent e){
+        loadtable();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("New Post Notification");
+        System.out.println(oldct);
+        alert.setHeaderText("("+(Integer.parseInt(alertnum.getText().toString())-oldct)+") New post added!");
+        File file = new File("src/main/Font/icon1.png");
+        Image image = new Image(file.toURI().toString());
+        stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(image);
+        // alert.initOwner(stage);
+        //alert.setGraphic(new ImageView(image));
+        //user.setImage(image);
+        Optional<ButtonType> result = alert.showAndWait();
+        System.out.println("hey ki khobor");
+        oldct=Integer.parseInt(alertnum.getText().toString());
+        System.out.println(oldct);
 
+        //System.out.println("vaiya ki khobor "+username);
+     /*   try {
+            AdminDB.FXMLScene scene = FXMLScene.load("UserDashboard.fxml");
+            Parent root = scene.root;
+            UserDashboardController admin = (UserDashboardController) scene.controller;
+            admin.set(username, role);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("User Dashboard");
+            stage.show();
+        } catch (Exception e) {
+            System.out.println("vul hoilo Dashboard button userdashboard controller");
+        }*/
+        try{
+            System.out.println("hey ki khobor");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(AdminDB.HomeboardController.class.getResource("HomeBoard.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            HomeboardController sadmin = fxmlLoader.getController();
+            sadmin.set(username,role,pane1);
+            pane1.setCenter(ap);
+
+        }catch (Exception ee){
+            System.out.println(ee.getMessage());
+        }
         System.out.println("vai amare marse");
 
     }
@@ -1072,7 +1119,7 @@ PauseTransition wait1 = new PauseTransition(Duration.seconds(1));
     //System.out.println(table.getSelectionModel().getSelectedItem().getId());
     try {
         try {
-            System.out.println("hey ki khobor");
+
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(PostBox.Post.class.getResource("PostView.fxml"));
             AnchorPane ap = fxmlLoader.load();

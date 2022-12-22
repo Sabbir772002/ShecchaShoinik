@@ -504,7 +504,7 @@ public class HelpRequest implements Initializable {
             UserProfile.FXMLScene scene = UserProfile.FXMLScene.load("Profile.fxml");
             Parent root = scene.root;
             ProfileController admin = (ProfileController) scene.controller;
-            admin.set(username, role);
+            admin.set(username, role,pane1);
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Profile");
@@ -571,7 +571,7 @@ public class HelpRequest implements Initializable {
                 UserProfile.FXMLScene scene = UserProfile.FXMLScene.load("Profile.fxml");
                 Parent root = scene.root;
                 ProfileController adminController = (ProfileController) scene.controller;
-                adminController.set(username, role);
+                adminController.set(username, role,pane1);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.setTitle("Profile");
@@ -584,6 +584,7 @@ public class HelpRequest implements Initializable {
         }
 
     }
+
 
     @FXML
     void addpost(ActionEvent event) {
