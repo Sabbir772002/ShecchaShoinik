@@ -268,6 +268,8 @@ public class BloodBankController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String []division={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
+        cbdiv.getItems().addAll(division);
+        cbdiv.getSelectionModel().select(0);
 
 
     }
