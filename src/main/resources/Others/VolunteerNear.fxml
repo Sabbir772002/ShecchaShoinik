@@ -75,7 +75,7 @@
                     <Font name="System Bold" size="18.0" />
                 </font>
             </Label>
-            <Button layoutX="494.0" layoutY="538.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="128.0" style="-fx-background-radius: 10;" text="Request for Help">
+            <Button layoutX="494.0" layoutY="538.0" mnemonicParsing="false" onAction="#helpclcik" prefHeight="26.0" prefWidth="128.0" style="-fx-background-radius: 10;" text="Request for Help">
                 <font>
                     <Font name="System Bold" size="11.0" />
                 </font>
@@ -92,16 +92,17 @@
             </Label>
             <AnchorPane layoutY="107.0" prefHeight="407.0" prefWidth="352.0">
                 <children>
-                    <TableView layoutX="1.0" layoutY="-7.0" prefHeight="482.0" prefWidth="359.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);">
+                    <TableView fx:id="vtable" layoutX="1.0" layoutY="-7.0" onMouseClicked="#tableclick" prefHeight="482.0" prefWidth="359.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);">
                         <columns>
-                            <TableColumn prefWidth="170.3999662399292" style="fx-border-colour: red;" text="Name" />
-                            <TableColumn minWidth="0.0" prefWidth="182.3999786376953" text="Location" />
+                            <TableColumn fx:id="col_name" prefWidth="170.3999662399292" style="fx-border-colour: red;" text="Name" />
+                            <TableColumn fx:id="col_district" minWidth="0.0" prefWidth="188.79998779296875" text="Location" />
+                  <TableColumn fx:id="col_user" minWidth="0.0" prefWidth="0.0" style="fx-border-colour: red;" text="username" visible="false" />
                         </columns>
                     </TableView>
                 </children>
             </AnchorPane>
-            <TextField layoutX="84.0" layoutY="60.0" prefHeight="27.0" prefWidth="199.0" promptText="Search" style="-fx-background-color: white; -fx-background-radius: 10;" />
-            <Button fx:id="btsearch" layoutX="210.0" layoutY="61.0" minWidth="47.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="70.0" style="-fx-background-color: white; -fx-background-radius: 10;" textFill="WHITE" />
+            <TextField layoutX="84.0" layoutY="60.0" onKeyPressed="#searchkey" prefHeight="27.0" prefWidth="199.0" promptText="Search" style="-fx-background-color: white; -fx-background-radius: 10;" />
+            <Button fx:id="btsearch" layoutX="210.0" layoutY="61.0" minWidth="47.0" mnemonicParsing="false" onAction="#search" prefHeight="7.0" prefWidth="70.0" style="-fx-background-color: white; -fx-background-radius: 10;" textFill="WHITE" />
             <ImageView fitHeight="38.0" fitWidth="31.0" layoutX="69.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../../Font/group.png" />
