@@ -20,7 +20,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TableView fx:id="blooddonatorlist" layoutX="9.0" layoutY="74.0" prefHeight="459.0" prefWidth="238.0">
+            <TableView fx:id="blooddonatorlist" layoutX="9.0" layoutY="74.0" onMouseClicked="#usergo" prefHeight="459.0" prefWidth="238.0">
               <columns>
                 <TableColumn fx:id="colname" prefWidth="236.800048828125" text="DONATOR" />
                 <TableColumn fx:id="colusername" minWidth="0.0" prefWidth="0.7999267578125" text="C2" />
@@ -30,7 +30,7 @@
       </AnchorPane>
       <AnchorPane layoutX="14.0" layoutY="31.0" prefHeight="543.0" prefWidth="238.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css">
          <children>
-            <Label alignment="CENTER" layoutX="11.0" layoutY="36.0" prefHeight="36.0" prefWidth="186.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css" text="Please Pick your blood type">
+            <Label alignment="CENTER" layoutX="37.0" layoutY="33.0" prefHeight="36.0" prefWidth="186.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css" text="Please Pick your blood type">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -57,7 +57,7 @@
             <Button fx:id="b1" layoutX="30.0" layoutY="201.0" mnemonicParsing="false" onAction="#bloodselect" prefHeight="26.0" prefWidth="78.0" style="-fx-text-fill: white;" styleClass="btguide" stylesheets="@../../Style/style.css" text="B+" />
             <Button fx:id="bombay" layoutX="131.0" layoutY="354.0" mnemonicParsing="false" onAction="#bloodselect" prefHeight="26.0" prefWidth="78.0" style="-fx-text-fill: white; -fx-background-color: red;" styleClass="bt" stylesheets="@../../Style/style.css" text="Bombay" />
             <Button fx:id="rh" layoutX="30.0" layoutY="354.0" mnemonicParsing="false" onAction="#bloodselect" prefHeight="26.0" prefWidth="78.0" style="-fx-text-fill: white; -fx-background-color: red;" styleClass="bt" stylesheets="@../../Style/style.css" text="RH(null)" />
-            <Label fx:id="bdtype" alignment="CENTER" layoutX="80.0" layoutY="79.0" prefHeight="26.0" prefWidth="78.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Label">
+            <Label fx:id="bdtype" alignment="CENTER" layoutX="80.0" layoutY="69.0" prefHeight="36.0" prefWidth="78.0" styleClass="bt" stylesheets="@../../Style/style.css" text="A+">
                <font>
                   <Font name="Bell MT Bold" size="14.0" />
                </font>
@@ -79,7 +79,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="BloodAvailableno" alignment="CENTER" layoutX="75.0" layoutY="128.0" prefHeight="46.0" prefWidth="86.0" style="-fx-text-fill: white; -fx-background-color: green;" styleClass="bt" stylesheets="@../../Style/style.css" text="500 BAG">
+            <Label fx:id="BloodAvailableno" alignment="CENTER" layoutX="75.0" layoutY="128.0" prefHeight="46.0" prefWidth="86.0" style="-fx-text-fill: white; -fx-background-color: green;" styleClass="bt" stylesheets="@../../Style/style.css" text="50 BAG">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -88,15 +88,15 @@
             <Button fx:id="donatebt" layoutX="125.0" layoutY="320.0" mnemonicParsing="false" onAction="#donatort" prefHeight="66.0" prefWidth="78.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Donator" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="claimpane" layoutX="510.0" layoutY="32.0" prefHeight="544.0" prefWidth="218.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css">
+      <AnchorPane fx:id="claimpane" layoutX="523.0" layoutY="32.0" prefHeight="544.0" prefWidth="218.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css" visible="false">
          <children>
             <Label alignment="CENTER" layoutX="14.0" layoutY="225.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="District:">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cbdis" layoutX="107.0" layoutY="230.0" prefHeight="26.0" prefWidth="127.0" promptText="District" />
-            <ComboBox fx:id="cbdiv" layoutX="107.0" layoutY="179.0" onAction="#select" prefHeight="26.0" prefWidth="130.0" promptText="Division" />
+            <ComboBox fx:id="cbdisc" layoutX="107.0" layoutY="230.0" prefHeight="26.0" prefWidth="127.0" promptText="District" />
+            <ComboBox fx:id="cbdivc" layoutX="107.0" layoutY="179.0" onAction="#selectc" prefHeight="26.0" prefWidth="130.0" promptText="Division" />
             <Label alignment="CENTER" layoutX="16.0" layoutY="174.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Division:">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -107,8 +107,8 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="hos" layoutX="108.0" layoutY="132.0" prefHeight="26.0" prefWidth="128.0" />
-            <DatePicker fx:id="date" layoutX="107.0" layoutY="271.0" prefHeight="26.0" prefWidth="131.0" />
+            <TextField fx:id="hosc" layoutX="108.0" layoutY="132.0" prefHeight="26.0" prefWidth="128.0" />
+            <DatePicker fx:id="dater" layoutX="107.0" layoutY="271.0" prefHeight="26.0" prefWidth="131.0" />
             <Label alignment="CENTER" layoutX="14.0" layoutY="269.0" prefHeight="33.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Date:">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -122,7 +122,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="donatepane1" layoutX="509.0" layoutY="31.0" prefHeight="542.0" prefWidth="258.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css" visible="false">
+      <AnchorPane fx:id="donatepane1" layoutX="509.0" layoutY="31.0" prefHeight="542.0" prefWidth="258.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css">
          <children>
             <Label alignment="CENTER" layoutX="36.0" layoutY="38.0" prefHeight="36.0" prefWidth="186.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css" text="Choice Your Suitable Area">
                <font>
@@ -135,7 +135,7 @@
                </font>
             </Label>
             <ComboBox fx:id="cbdis" layoutX="108.0" layoutY="238.0" prefHeight="26.0" prefWidth="127.0" promptText="District" />
-            <ComboBox fx:id="cddiv" layoutX="107.0" layoutY="181.0" onAction="#select" prefHeight="26.0" prefWidth="130.0" promptText="Division" />
+            <ComboBox fx:id="cbdivd" layoutX="107.0" layoutY="181.0" onAction="#selectd" prefHeight="26.0" prefWidth="130.0" promptText="Division" />
             <Label alignment="CENTER" layoutX="14.0" layoutY="176.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Division:">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -146,8 +146,8 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="hospital" layoutX="108.0" layoutY="119.0" prefHeight="26.0" prefWidth="128.0" />
-            <DatePicker fx:id="cbdate" layoutX="106.0" layoutY="287.0" prefHeight="26.0" prefWidth="131.0" />
+            <TextField fx:id="hosd" layoutX="108.0" layoutY="119.0" prefHeight="26.0" prefWidth="128.0" />
+            <DatePicker fx:id="dated" layoutX="106.0" layoutY="287.0" prefHeight="26.0" prefWidth="131.0" />
             <Label alignment="CENTER" layoutX="14.0" layoutY="284.0" prefHeight="33.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Date:">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -168,8 +168,8 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cbdis" layoutX="108.0" layoutY="277.0" onAction="#select" prefHeight="26.0" prefWidth="127.0" promptText="District" />
-            <ComboBox fx:id="cbdiv" layoutX="106.0" layoutY="226.0" onAction="#select" prefHeight="26.0" prefWidth="130.0" promptText="Division" />
+            <ComboBox fx:id="cbdisr" editable="true" layoutX="108.0" layoutY="277.0" prefHeight="26.0" prefWidth="127.0" promptText="District" />
+            <ComboBox fx:id="cbdivr" layoutX="106.0" layoutY="226.0" onAction="#selectr" prefHeight="26.0" prefWidth="130.0" promptText="Division" />
             <Label alignment="CENTER" layoutX="14.0" layoutY="223.0" prefHeight="34.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Division:">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -180,8 +180,8 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField layoutX="109.0" layoutY="181.0" prefHeight="26.0" prefWidth="128.0" promptText="United " />
-            <DatePicker layoutX="107.0" layoutY="330.0" prefHeight="26.0" prefWidth="130.0" />
+            <TextField fx:id="hosr" layoutX="109.0" layoutY="181.0" prefHeight="26.0" prefWidth="128.0" promptText="United " />
+            <DatePicker fx:id="dater" layoutX="107.0" layoutY="330.0" prefHeight="26.0" prefWidth="130.0" />
             <Label alignment="CENTER" layoutX="14.0" layoutY="327.0" prefHeight="33.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Date:">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -199,7 +199,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField layoutX="109.0" layoutY="379.0" prefHeight="26.0" prefWidth="131.0" promptText="2" />
+            <TextField fx:id="bag" layoutX="109.0" layoutY="379.0" prefHeight="26.0" prefWidth="131.0" promptText="2" />
          </children>
       </AnchorPane>
    </children>

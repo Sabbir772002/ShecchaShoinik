@@ -168,17 +168,16 @@ public class AdminDashboardController implements Initializable {
     @FXML
     void Control(ActionEvent event) {
         try {
-
-            System.out.println("hey ki khobor");
+            ;
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(AdminProfile.ControlPanelController.class.getResource("ControlPanel.fxml"));
 
             AnchorPane ap = fxmlLoader.load();
             ControlPanelController sadmin = fxmlLoader.getController();
-            sadmin.set(username, role);
+            //sadmin.set(username, role);
             pane1.setCenter(ap);
         } catch (Exception e) {
-            System.out.println("vul hoilo Teamaopprove AdminDashboardController" + e.getMessage());
+            System.out.println("vul hoilo Control AdminDashboardController" + e.getMessage());
         }
     }
 
