@@ -8,6 +8,7 @@ import Others.TaskCompletedController;
 import PostBox.AddPostController;
 import Sign_in.SigninController;
 import UserProfile.ProfileController;
+import UserProfile.ProfileEditController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -127,6 +128,17 @@ public class ChatPrivateController implements Initializable{
     private TableColumn<userlist, String> coluser;
     @FXML
     void UserClick(ActionEvent event) {
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(UserProfile.ProfileController.class.getResource("Profile.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+           ProfileController sadmin = fxmlLoader.getController();
+            sadmin.set(username, role,name2,user2,pane);
+            pane.setCenter(ap);
+        } catch (Exception e) {
+            System.out.println("vul hoilo Admin Dashbaord profile button profile controller");
+        }
 
     }
 

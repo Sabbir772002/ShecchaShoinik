@@ -17,6 +17,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -25,7 +26,7 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class VolunteerApproveController implements Initializable {
+public class VolunteerApproveController {
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -34,283 +35,18 @@ public class VolunteerApproveController implements Initializable {
 
 
     public void set(String username,String role) {
-        user.setText(username);
-        rolee.setText("@"+role);
         this.role = role;
         this.username = username;
     }
-    @FXML
-    private Button b;
+    BorderPane pane;
 
-    @FXML
-    private Button bbutton;
-
-    @FXML
-    private ImageView bimage;
-
-    @FXML
-    private Button bt1;
-
-    @FXML
-    private ChoiceBox<String> choice;
-
-    @FXML
-    private ImageView imageview;
-
-    @FXML
-    private ImageView imageview1;
-
-    @FXML
-    private ImageView logoimage;
-
-    @FXML
-    private Label rolee;
-
-    @FXML
-    private Label user;
-
-    @FXML
-    void BbankxClick(ActionEvent event) {
-
+    public void set(String username, String role, BorderPane pane) {
+        this.pane=pane;
+        // user.setText(username);
+        // rolee.setText("@"+role);
+        this.role = role;
+        this.username = username;
     }
 
-    @FXML
-    void ChoiceClick(MouseEvent event) {
 
-    }
-
-    @FXML
-    void Choiceclick(ActionEvent event) {
-        if(choice.getValue().toString().equals("Logout")){
-            try {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Logout Confirmation");
-                alert.setHeaderText("Are you sure you want to log out?");
-                File file = new File("src/main/Font/icon1.png");
-                Image image = new Image(file.toURI().toString());
-                stage = (Stage) alert.getDialogPane().getScene().getWindow();
-                stage.getIcons().add(image);
-                // alert.initOwner(stage);
-                //alert.setGraphic(new ImageView(image));
-                //user.setImage(image);
-                Optional<ButtonType> result=alert.showAndWait();
-                if(alert.getResult().getText().equals("OK")){
-                    root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.setTitle("SIGN IN");
-                    stage.show();
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }else {
-            try{
-                UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
-                Parent root = scene.root;
-                ProfileController adminController = (ProfileController) scene.controller;
-                adminController.set(username,role);
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.setTitle("Profile");
-                stage.show();
-
-            }catch (Exception e){
-
-            }
-
-        }
-
-    }
-
-    @FXML
-    void Dashboard(ActionEvent event) {
-        try {
-            if (role.equals("User")) {
-                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("UserDashboard.fxml");
-                Parent root = scene.root;
-                UserDashboardController adminController = (UserDashboardController) scene.controller;
-                adminController.set(username, role);
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.setTitle("UserProfile");
-                stage.show();
-            }else if(role.equals("Admin")){
-                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard.fxml");
-                Parent root = scene.root;
-                AdminDashboardController adminController = (AdminDashboardController) scene.controller;
-                adminController.set(username, role);
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.setTitle("UserProfile");
-                stage.show();
-
-            }else {
-                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard.fxml");
-                Parent root = scene.root;
-                TeamDashboardController adminController = (TeamDashboardController) scene.controller;
-                adminController.set(username, role);
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.setTitle("TeamDashboard");
-                stage.show();
-            }
-        }catch(IOException e){
-            System.out.println("bhul hoilo add post er dashboard "+e.getMessage());
-        }
-
-    }
-
-    @FXML
-    void Diaster(ActionEvent event) {
-
-    }
-
-    @FXML
-    void task(ActionEvent event) {
-        try {
-            Others.FXMLScene scene = Others.FXMLScene.load("TaskCompleted.fxml");
-            Parent root = scene.root;
-            TaskCompletedController admin = (TaskCompletedController) scene.controller;
-            admin.set(username, role);
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Task Completed");
-            stage.show();
-        } catch (Exception e) {
-            System.out.println("bhul hoilo team dashbaord button G controller " + e.getMessage());
-        }
-    }
-        @FXML
-    void Hresponse(ActionEvent event) {
-            try{
-                Others.FXMLScene scene =  Others.FXMLScene.load("VolunteerApprove.fxml");
-                Parent root = scene.root;
-                System.out.println("tao run hoi na");
-                VolunteerApproveController admin= (VolunteerApproveController) scene.controller;
-                admin.set(username,role);
-                stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.setTitle("Volunteers Near Me");
-                stage.show();
-            }catch (Exception e){
-                System.out.println("bhul hoilo Vapprove button Team controller "+e.getMessage());
-            }
-
-    }
-
-    @FXML
-    void VRequest(ActionEvent event) {
-
-    }
-
-    @FXML
-    void addpost(ActionEvent event) {
-        try{
-            PostBox.FXMLScene scene =  PostBox.FXMLScene.load("AddPost.fxml");
-            Parent root = scene.root;
-            AddPostController admin= (AddPostController) scene.controller;
-            admin.set(username,role);
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Post Disaster");
-            stage.show();
-
-
-        }catch (Exception e ){
-
-        }
-    }
-
-    @FXML
-    void chat(ActionEvent event) {
-
-    }
-
-    @FXML
-    void logout(ActionEvent event) {
-
-        try {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Logout Confirmation");
-            alert.setHeaderText("Are you sure you want to log out?");
-            File file = new File("src/main/Font/icon1.png");
-            Image image = new Image(file.toURI().toString());
-            stage = (Stage) alert.getDialogPane().getScene().getWindow();
-            stage.getIcons().add(image);
-            // alert.initOwner(stage);
-            //alert.setGraphic(new ImageView(image));
-            //user.setImage(image);
-            Optional<ButtonType> result=alert.showAndWait();
-            if(alert.getResult().getText().equals("OK")){
-                root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.setTitle("SIGN IN");
-                stage.show();
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void profile(ActionEvent event) {
-        try{
-            UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
-            Parent root = scene.root;
-            ProfileController admin= (ProfileController) scene.controller;
-            admin.set(username,role);
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Profile");
-            stage.show();
-        }catch (Exception e){
-            System.out.println("bhul holo add post controller");
-        }
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        String []choice1={"Profile","Logout"};
-        choice.getItems().addAll(choice1);
-        File file = new File("src/main/Font/user1.png");
-        Image image = new Image(file.toURI().toString());
-        imageview.setImage(image);
-        File file1 = new File("src/main/Font/1.png");
-        Image image1 = new Image(file1.toURI().toString());
-        bimage.setImage(image1);
-        file1 = new File("src/main/Font/logotext.png");
-        Image image4 = new Image(file1.toURI().toString());
-        logoimage.setImage(image4);
-        file1 = new File("src/main/Font/icon1.png");
-        Image image5 = new Image(file1.toURI().toString());
-        imageview1.setImage(image5);
-        file1 = new File("src/main/Font/search.png");
-        Image image6 = new Image(file1.toURI().toString());
-        //search.setImage(image6);
-    }
-    @FXML
-    public void vnear(ActionEvent event) {
-        try{
-            Shoinik.FXMLScene scene =  Shoinik.FXMLScene.load("Volunteerfromarea.fxml");
-            Parent root = scene.root;
-            Shoinik.VolunteerfromareaController admin= (Shoinik.VolunteerfromareaController) scene.controller;
-            admin.set(username,role);
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("VolunteerfromareaController");
-            stage.show();
-        }catch(IOException e){
-            System.out.println("bhul holo F button user dashboard controller "+e.getMessage());
-        }
-
-    }
-
-    public void BbankClick(MouseEvent mouseEvent) {
-    }
 }

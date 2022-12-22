@@ -6,15 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-  <AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Others.TaskCompletedController">
+<AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Others.TaskCompletedController">
    <children>
-      <TableView layoutX="5.0" layoutY="47.0" prefHeight="547.0" prefWidth="770.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);">
+      <TableView fx:id="taskteam" layoutX="5.0" layoutY="47.0" prefHeight="547.0" prefWidth="770.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);">
         <columns>
-          <TableColumn prefWidth="218.39995098114014" text="Title" />
-          <TableColumn minWidth="0.0" prefWidth="192.80003356933594" text="Location" />
-            <TableColumn prefWidth="183.20001220703125" text="District" />
-            <TableColumn prefWidth="183.20001220703125" text="Time" />
+          <TableColumn fx:id="title" prefWidth="218.39995098114014" text="Title" />
+          <TableColumn fx:id="address" minWidth="0.0" prefWidth="192.80003356933594" text="Location" />
+            <TableColumn fx:id="district" prefWidth="183.20001220703125" text="District" />
+            <TableColumn fx:id="time" prefWidth="183.20001220703125" text="Time" />
         </columns>
       </TableView>
       <Label alignment="CENTER" layoutX="7.0" layoutY="8.0" prefHeight="30.0" prefWidth="766.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);" styleClass="bt" stylesheets="@../../Style/style.css" text="All Task Completed By Our  Team" textFill="WHITE">

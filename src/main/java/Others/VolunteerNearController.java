@@ -4,6 +4,7 @@ import DB.ConnectionDb;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 
 import java.sql.Connection;
 
@@ -25,6 +26,16 @@ public class VolunteerNearController {
 
 
     }
+    BorderPane pane;
+
+    public void set(String username, String role, BorderPane pane) {
+        this.pane=pane;
+        // user.setText(username);
+        // rolee.setText("@"+role);
+        this.role = role;
+        this.username = username;
+    }
+
     @FXML
     private Label District;
 

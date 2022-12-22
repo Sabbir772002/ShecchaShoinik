@@ -5,21 +5,24 @@ import UserProfile.ProfileController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
+import java.io.*;
+import java.net.Socket;
+import java.net.SocketException;
+import java.net.URL;
 import java.sql.Connection;
+import java.util.ResourceBundle;
 
-public class CommunityChatHandelar {
+public class CommunityChatHandelar implements Initializable {
     Connection con;
     String username="";
     String role="";
@@ -35,7 +38,7 @@ public class CommunityChatHandelar {
         this.role = role;
         this.username = username;
         loadtable();
-
+     connect();
         // alertcount();
         //alertnum.setText(String.valueOf(newcount));
         // Thread t=new HelpRequest.AlertThread();
@@ -55,7 +58,7 @@ public class CommunityChatHandelar {
         //alertnum.setText(String.valueOf(newcount));
         // Thread t=new HelpRequest.AlertThread();
         //t.start();
-
+   connect();
 
     }
 
@@ -73,10 +76,6 @@ public class CommunityChatHandelar {
 
 
 
-    @FXML
-    void send(ActionEvent event) {
-
-    }
 
 
     @FXML
@@ -129,7 +128,179 @@ public class CommunityChatHandelar {
 
 
     }
+    boolean isConnected = false;
+    BufferedReader reader;
+    String inputName=username;
+    BufferedWriter writer;
+    Socket sc;
 
+    void connect() {
+        try {
+            sc = new Socket("localhost", 100);
+            OutputStreamWriter o = new OutputStreamWriter(sc.getOutputStream());
+            writer = new BufferedWriter(o);
+            writer.write(username + "\n");
+            writer.flush();
+            InputStreamReader isr = new InputStreamReader(sc.getInputStream());
+            reader = new BufferedReader(isr);
+            Thread serverListener = new WriteThread(showArea,reader);
+            serverListener.start();
+            //showArea.appendText("Connection established!\n");
+            BufferedReader in = null;
+            File file = new File("msg.txt");
+            System.out.println("connection established");
+            try {
+                in = new BufferedReader(new FileReader(file));
+                String str;
+                while ((str = in.readLine()) != null) {
+                    showArea.appendText(str + "\n");
+                }
+            } catch (IOException ie) {
+            } finally {
+                try {
+                    in.close();
+                } catch (Exception ex) {
+                }
+            }
+            //button.setText("Send");
+            //inputField.setPromptText("Write your message.");
+            isConnected = true;
+        } catch (IOException ie) {
+            System.out.println("net pai na");
+            ie.printStackTrace();
+        }catch(Exception ie0){
+            System.out.println("onek vul abr net pai na");
+
+        }
+
+    }
+
+    @FXML
+    void send(ActionEvent e) {
+        if (!isConnected) {
+            // Client is not connected with the server, lets connect with server
+
+
+          /*  inputName = inputField.getText();
+            inputField.clear();*/
+            // int i=1;
+
+/* for(String n : name){
+                if(n.equals(inputName))i=1;
+
+            }*//*
+             */
+            /*
+             *//*
+             */
+/*  if(inputName == null || inputName.length() == 0){
+                showArea.appendText("Enter a valid name!\n");
+                return;
+            }
+*//*
+            try {
+               sc = new Socket("localhost", 100);
+                OutputStreamWriter o = new OutputStreamWriter(sc.getOutputStream());
+                writer = new BufferedWriter(o);
+                writer.write(username + "\n");
+                writer.flush();
+                InputStreamReader isr = new InputStreamReader(sc.getInputStream());
+                reader = new BufferedReader(isr);
+                String name11 = "sabbir";
+                String name12 = "shahin";
+                //Anonymous inner class
+                Thread serverListener = new Thread() {
+                    @Override
+                    public void run() {
+                        while (true) {
+
+                            try {
+                                System.out.println("likhtesi");
+                                String data = reader.readLine() + "\n";
+                                showArea.appendText(data);
+                                //  reader.
+                            } catch (SocketException e) {
+
+                                showArea.appendText("Connection lost!\n");
+                                break;
+                            } catch (IOException e) {
+                                System.out.println("hoi na kn " + e.getMessage());
+
+                            } catch (Exception e) {
+                                System.out.println("ki plbm " + e.getMessage());
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                };
+
+                serverListener.start();
+               // showArea.appendText("Connection established!\n");
+                Alert a = new Alert(Alert.AlertType.NONE);
+                EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
+                    public void handle(ActionEvent e) {
+
+                        a.setAlertType(Alert.AlertType.CONFIRMATION);
+                        a.show();
+                    }
+                };
+
+                BufferedReader in = null;
+                File file = new File("msg.txt");
+                try {
+                    in = new BufferedReader(new FileReader(file));
+                    String str;
+                    while ((str = in.readLine()) != null) {
+                        showArea.appendText(str + "\n");
+                    }
+                } catch (IOException ie) {
+                } finally {
+                    try {
+                        in.close();
+                    } catch (Exception ex) {
+                    }
+                }
+                //button.setText("Send");
+                //inputField.setPromptText("Write your message.");
+                isConnected = true;
+            } catch (IOException ie) {
+                System.out.println("net pai na");
+                ie.printStackTrace();
+            } catch (Exception ie0) {
+                System.out.println("one vul abr net pai na");
+
+            }*/
+        } else {
+
+            try {
+                OutputStreamWriter o = new OutputStreamWriter(sc.getOutputStream());
+                writer = new BufferedWriter(o);
+                String msg = inputField.getText();
+                inputField.clear();
+                if (msg == null || msg.length() == 0) {
+                    System.out.println("msg likh");
+                    return;
+                }
+                File file = new File("msg.txt");
+                FileWriter w = new FileWriter(file, true);
+                w.write(username + ": " + msg + "\n");
+                writer.write(msg + "\n");
+                writer.flush();
+                //writer.close();
+                //showArea.appendText(username+": "+msg+ "\n");
+                w.close();
+                System.out.println("msg gese");
+
+            } catch (IOException ie) {
+                ie.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        connect();
+    }
 }
 
 
