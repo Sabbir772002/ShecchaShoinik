@@ -3,14 +3,18 @@ package BloodBank;
 import DB.ConnectionDb;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ResourceBundle;
 
-public class BloodBankController {
+public class BloodBankController implements Initializable
+{
     Connection con;
     String username="";
     String role="";
@@ -65,13 +69,13 @@ public class BloodBankController {
         private DatePicker cbdate;
 
         @FXML
-        private ComboBox<?> cbdis;
+        private ComboBox<String> cbdis;
 
         @FXML
-        private ComboBox<?> cbdiv;
+        private ComboBox<String> cbdiv;
 
         @FXML
-        private ComboBox<?> cddiv;
+        private ComboBox<String> cddiv;
 
         @FXML
         private Button claimbt;
@@ -203,6 +207,13 @@ public class BloodBankController {
         void type(ActionEvent event) {
 
         }
+        @FXML
+        void select(ActionEvent event) {
 
+        }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }

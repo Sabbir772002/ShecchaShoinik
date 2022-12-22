@@ -48,6 +48,10 @@ public class ApproveEVentController{
         this.role = role;
         this.username = username;
     }
+    @FXML
+    void Decline(ActionEvent event) {
+
+    }
 
 
 

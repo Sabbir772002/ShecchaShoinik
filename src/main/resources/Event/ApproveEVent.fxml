@@ -84,7 +84,7 @@
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Button layoutX="518.0" layoutY="513.2000122070312" mnemonicParsing="false" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: green;" text="Approve" />
+              <Button layoutX="460.0" layoutY="519.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: green;" text="Approve" />
               <Label layoutX="385.0" layoutY="462.20001220703125" prefHeight="31.0" prefWidth="101.0" text="Location:">
                   <font>
                       <Font size="21.0" />
@@ -95,5 +95,6 @@
                       <Font size="21.0" />
                   </font>
               </Label>
+      <Button layoutX="552.0" layoutY="519.0" mnemonicParsing="false" onAction="#Decline" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: red;" text="Approve" />
       </children>
   </AnchorPane>
