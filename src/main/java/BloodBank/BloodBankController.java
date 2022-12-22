@@ -106,6 +106,8 @@ public class BloodBankController implements Initializable
 
         @FXML
         private TextField hospital;
+        @FXML
+        private TextField reason;
 
         @FXML
         private Button o0;
