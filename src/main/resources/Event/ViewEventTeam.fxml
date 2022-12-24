@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="596.0" prefWidth="776.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Event.ViewEvent">
    <children>
       <Label layoutX="11.0" layoutY="13.0" prefHeight="42.0" prefWidth="147.0" text=" Event">
@@ -16,15 +15,14 @@
             <Font name="Arial Bold" size="44.0" />
          </font>
       </Label>
-      <TextField layoutX="21.0" layoutY="65.0" prefHeight="26.0" prefWidth="478.0" promptText="Search event" />
-      <TableView fx:id="time" layoutX="21.0" layoutY="90.5999984741211" prefHeight="468.0" prefWidth="478.0">
+      <TextField layoutX="21.0" layoutY="65.0" prefHeight="26.0" prefWidth="438.0" promptText="Search event" />
+      <TableView fx:id="eventtable" layoutX="21.0" layoutY="91.0" prefHeight="468.0" prefWidth="438.0">
         <columns>
-            <TableColumn fx:id="image" minWidth="2.4414062522737368E-5" prefWidth="121.60000610351562" text="Poster" />
-          <TableColumn fx:id="title" prefWidth="236.0" text="Event Name" />
-          <TableColumn minWidth="0.0" prefWidth="120.79998779296875" text="Date" />
+          <TableColumn fx:id="title" prefWidth="261.5999755859375" text="Event Name" />
+          <TableColumn fx:id="time" minWidth="0.0" prefWidth="216.800048828125" text="Date" />
         </columns>
       </TableView>
-      <Button layoutX="574.0" layoutY="273.6000061035156" mnemonicParsing="false" onAction="#addevent" prefHeight="68.0" prefWidth="127.0" text="Add your event">
+      <Button layoutX="574.0" layoutY="274.0" mnemonicParsing="false" onAction="#addevent" prefHeight="52.0" prefWidth="127.0" text="Add your event">
          <font>
             <Font size="15.0" />
          </font>

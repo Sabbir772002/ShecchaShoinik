@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="630.0" prefWidth="758.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Event.EventForm">
    <children>
             <Label layoutX="48.0" layoutY="8.0" prefHeight="43.0" prefWidth="238.0" text="Event Title" textFill="WHITE">
@@ -59,20 +58,20 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <TextField fx:id="address" layoutX="210.0" layoutY="160.0" prefHeight="27.0" prefWidth="356.0" promptText="Awami League" styleClass="tt" stylesheets="@../../Style/style.css">
+            <TextField fx:id="author" layoutX="210.0" layoutY="160.0" prefHeight="27.0" prefWidth="356.0" promptText="Awami League" styleClass="tt" stylesheets="@../../Style/style.css">
                <font>
                   <Font size="15.0" />
                </font>
       </TextField>
-            <TextField layoutX="214.0" layoutY="371.0" prefHeight="26.0" prefWidth="362.0" promptText="UIU Playground" styleClass="tt" stylesheets="@../../Style/style.css" />
-            <TextField fx:id="Address" layoutX="47.0" layoutY="64.0" prefHeight="30.0" prefWidth="524.0" promptText="Strict against BNP" styleClass="tt" stylesheets="@../../Style/style.css">
+            <TextField fx:id="address" layoutX="214.0" layoutY="371.0" prefHeight="26.0" prefWidth="362.0" promptText="UIU Playground" styleClass="tt" stylesheets="@../../Style/style.css" />
+            <TextField fx:id="Title" layoutX="47.0" layoutY="64.0" prefHeight="30.0" prefWidth="524.0" promptText="Strict against BNP" styleClass="tt" stylesheets="@../../Style/style.css">
                <font>
                   <Font size="13.0" />
                </font>
             </TextField>
-            <DatePicker layoutX="213.0" layoutY="287.0" prefHeight="26.0" prefWidth="143.0" promptText="22/12/2022" />
-            <TextField fx:id="address3" layoutX="361.0" layoutY="286.0" prefHeight="27.0" prefWidth="30.0" promptText="12\" style="-fx-background-radius: 0;" styleClass="tt" stylesheets="@../../Style/style.css" />
-            <TextField fx:id="address31" layoutX="403.0" layoutY="286.0" prefHeight="27.0" prefWidth="30.0" promptText="30" style="-fx-background-radius: 0;" styleClass="tt" stylesheets="@../../Style/style.css" />
+            <DatePicker fx:id="date" layoutX="213.0" layoutY="287.0" prefHeight="26.0" prefWidth="143.0" promptText="22/12/2022" />
+            <TextField fx:id="time" layoutX="361.0" layoutY="286.0" prefHeight="27.0" prefWidth="30.0" promptText="12\" style="-fx-background-radius: 0;" styleClass="tt" stylesheets="@../../Style/style.css" />
+            <TextField fx:id="timem" layoutX="403.0" layoutY="286.0" prefHeight="27.0" prefWidth="30.0" promptText="30" style="-fx-background-radius: 0;" styleClass="tt" stylesheets="@../../Style/style.css" />
             <Label layoutX="48.0" layoutY="327.0" prefHeight="31.0" prefWidth="157.0" text="Duration:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="21.0" />

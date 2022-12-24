@@ -226,7 +226,7 @@ public class VolunteerNearController implements Initializable {
                     }
                 }
 
-                    ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity FROM Teams where Division!='" + division + "'");
+                ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity FROM Teams where Division!='" + division + "'");
                     ;
                     rs = ps.executeQuery();
                     while (rs.next()) {

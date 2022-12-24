@@ -14,8 +14,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-
-  <AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chat.ChatPrivateController">
+<AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chat.ChatPrivateController">
       <children>
           <ScrollPane layoutX="40.0" layoutY="97.0" prefHeight="387.0" prefWidth="438.0" style="-fx-background-radius: 5;" styleClass="tt" stylesheets="@../../Style/style.css">
               <content>
@@ -42,7 +41,7 @@
               </image>
           </ImageView>
       <Button layoutX="423.0" layoutY="501.0" mnemonicParsing="false" onAction="#refresh" prefHeight="27.0" prefWidth="58.0" style="-fx-background-color: green;" styleClass="tt" stylesheets="@../../Style/style.css" text="Refresh" />
-            <VBox layoutX="558.0" layoutY="97.0" prefHeight="425.0" prefWidth="198.0" styleClass="bt" stylesheets="@../../Style/style.css">
+            <VBox layoutX="558.0" layoutY="128.0" prefHeight="395.0" prefWidth="198.0" styleClass="bt" stylesheets="@../../Style/style.css">
          <children>
             <TableView fx:id="usertable" onMouseClicked="#tableclick" prefHeight="426.0" prefWidth="154.0" styleClass="bt" stylesheets="@../../Style/style.css">
               <columns>
@@ -53,5 +52,6 @@
          </children>
             </VBox>
       <Button fx:id="Name2" layoutX="43.0" layoutY="66.0" mnemonicParsing="false" onAction="#UserClick" prefHeight="23.0" prefWidth="142.0" style="-fx-background-color: grey;" text="Nusrat Hossain" />
+      <TextField fx:id="search" layoutX="562.0" layoutY="97.0" onKeyPressed="#search" prefHeight="26.0" prefWidth="190.0" promptText="Search User" />
       </children>
 </AnchorPane>
