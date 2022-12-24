@@ -1,6 +1,7 @@
 package PostBox;
 
 import AdminDB.AdminDashboardController;
+import AdminDB.ControlPanelController;
 import AdminDB.TeamDashboardController;
 import AdminDB.UserDashboardController;
 import DB.ConnectionDb;
@@ -228,7 +229,39 @@ public class Post {
     }
 
     @FXML
-    void Delete(ActionEvent e) {
+    void Delete(ActionEvent ee)  {
+        try {
+            String st = "Delete from diasterlist WHERE Id=" + id;
+            PreparedStatement preparedStatement = (PreparedStatement) con.prepareStatement(st);
+            preparedStatement.execute();
+            System.out.println("post deleted");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Post deleted Successfully");
+            alert.setHeaderText("Click ok to Back!");
+            File file = new File("src/main/Font/icon1.png");
+            Image image = new Image(file.toURI().toString());
+            stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(image);
+            // alert.initOwner(stage);
+            //alert.setGraphic(new ImageView(image));
+            //user.setImage(image);
+            Optional<ButtonType> result = alert.showAndWait();
+            try {
+                System.out.println("hey ki khobor");
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(AdminDB.ControlPanelController.class.getResource("ControlPanel.fxml"));
+                AnchorPane ap = fxmlLoader.load();
+                ControlPanelController sadmin = fxmlLoader.getController();
+                sadmin.set(username, role, pane1);
+                pane1.setCenter(ap);
+                System.out.println("kno holo na");
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
     }
     @FXML

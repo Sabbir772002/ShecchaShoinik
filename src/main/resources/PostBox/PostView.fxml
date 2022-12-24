@@ -72,7 +72,6 @@
             <Font name="Bell MT Bold" size="17.0" />
          </font>
       </Label>
-      <Button fx:id="delete" layoutX="169.0" layoutY="491.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: red;" text="Delete" visible="false" />
-      <Button fx:id="delete1" layoutX="179.0" layoutY="501.0" mnemonicParsing="false" onAction="#Delete" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: red;" text="Delete" visible="false" />
+      <Button fx:id="delete" layoutX="169.0" layoutY="491.0" mnemonicParsing="false" onAction="#Delete" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: red;" text="Delete" visible="false" />
    </children>
 </AnchorPane>

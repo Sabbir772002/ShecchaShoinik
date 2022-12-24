@@ -1,15 +1,21 @@
 package BloodBank;
 
+import Chat.userlist;
 import DB.ConnectionDb;
+import Others.Team;
+import com.example.sheccashoinik.disaster;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
@@ -17,9 +23,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
 
 public class BloodBankController implements Initializable
 {
@@ -32,6 +41,7 @@ public class BloodBankController implements Initializable
         role = role;
         this.role = role;
         this.username = username;
+        //showDonator();
 
         // alertcount();
         //alertnum.setText(String.valueOf(newcount));
@@ -101,10 +111,10 @@ public class BloodBankController implements Initializable
     private AnchorPane claimpane;
 
     @FXML
-    private TableColumn<?, ?> colname;
+    private TableColumn<User, String > colname;
 
     @FXML
-    private TableColumn<?, ?> colusername;
+    private TableColumn<User, String > colusername;
 
     @FXML
     private DatePicker dated;
@@ -144,6 +154,131 @@ public class BloodBankController implements Initializable
 
     @FXML
     private Button rh;
+    @FXML
+    private TextField  search;;
+    @FXML
+    void keyclick(KeyEvent e) {
+        ObservableList<User> list1 = FXCollections.observableArrayList();
+        //i++;
+
+
+        Connection con ;
+        //= ConnectionDb.DBC();
+        //ObservableList<diaster>list = FXCollections.observableArrayList();
+        try {
+
+            con = ConnectionDb.DBC();
+            String s = "Select Name,Username,LastTime from userlist";
+            try {
+                // System.out.println("hlw");
+                PreparedStatement ps = con.prepareStatement(s);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+
+                    String s1 = rs.getString(1);
+                    String s3 = rs.getString(2);
+                    String s5 = rs.getString(3);
+                    //System.out.println(s5);
+                    if (check(s5) || s5.equals(null)) {
+                        String s0=s1+s3;
+
+                        String s4[] = s0.split(" ");
+
+
+                        String s2 = search.getText().toString() + "";
+                        // System.out.println(s2);
+                        boolean i = false;
+                        for (int j = 0; j < s0.length(); j++) {
+                            for (int p = j + 1; p < s0.length() - 2; p++) {
+                      if (s0.substring(j, p).equalsIgnoreCase(s2)) {
+                                    // System.out.println((s[j])+"=="+textfield.getText().toString());
+                                    i = true;
+                                }
+                            }
+                        }
+                        s2 += " ";
+                        if (s2.equals("")) {
+                            i = true;
+                            // System.out.println("thik ase");
+                        }
+                        if (s2.equals(" ")) {
+                            i = true;
+                            //System.out.println("thik ase2");
+                        }
+                        if (i) {
+                            list1.add(new User(s1, s3));                        }
+
+                    }
+                }
+                // rs.getString(1)), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7))
+            } catch (Exception ie) {
+                System.out.println("error at bank serch user backlist"+ie.getMessage());
+            } finally {
+
+                try {
+                   // con.close();
+                } catch (Exception ee) {
+                }
+            }
+            colname.setCellValueFactory(new PropertyValueFactory<User,String>("Name"));
+            colusername.setCellValueFactory(new PropertyValueFactory<User, String>("Username"));
+            blooddonatorlist.setItems(list1);
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    ObservableList<User> list = FXCollections.observableArrayList();
+    ObservableList<User> loaddonator() {
+        con=ConnectionDb.DBC();
+        String s = "Select Name,Username,LastTime from userlist";
+        try
+        {
+           // System.out.println("hlw");
+            PreparedStatement ps=con.prepareStatement(s);
+            ResultSet rs=ps.executeQuery();
+            while(rs.next()){
+
+                String s1=rs.getString(1);
+                String s2=rs.getString(2);
+                String s5=rs.getString(3);
+                System.out.println(s5);
+                if(check((s5))||s5.equals(null)) {
+                   // list.add(new User(rs.getString(1), rs.getString(2)));
+                    list.add(new User(s1, s2));
+                }
+
+            }
+            ps.close();
+
+        }catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+
+
+return list;
+
+    }
+    void showDonator(){
+        colname.setCellValueFactory(new PropertyValueFactory<User,String>("Name"));
+        colusername.setCellValueFactory(new PropertyValueFactory<User, String>("Username"));
+
+        list =loaddonator();
+        blooddonatorlist.setItems(list);
+
+
+
+    }
+void showDonators(){
+        colname.setCellValueFactory(new PropertyValueFactory<User,String>("Name"));
+        colusername.setCellValueFactory(new PropertyValueFactory<User, String>("Username"));
+
+        blooddonatorlist.setItems(list);
+
+
+
+    }
 
 
     @FXML
@@ -162,10 +297,10 @@ public class BloodBankController implements Initializable
         boolean check(String d) throws ParseException {
            /* String Date1=  "20/12/2022";
             String Date2=  "24/07/2022";*/
-            Date d1 = null;
+           /* Date d1 = null;
             Date d2 = null;
             Date date = new Date();
-            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
             String str = format.format(date);
             String str2 = format.format(d);
             d1 = format.parse(str2);
@@ -173,17 +308,59 @@ public class BloodBankController implements Initializable
             long diff = d2.getTime() - d1.getTime();
             long diffDays = diff / (24 * 60 * 60 * 1000);
             System.out.print(diffDays + " days, ");
-            if(diffDays>=90){
+            if(diffDays>=90 ){
              return true;
          }else{
              return false;
-         }
+         }*/
+
+            long millis=System.currentTimeMillis();
+
+            // creating a new object of the class Date
+            java.sql.Date date = new java.sql.Date(millis);
+            LocalDate startDate = LocalDate.parse(d);
+
+            // End date
+            LocalDate endDate = LocalDate.parse(date.toString());
+            //System.out.println("Hey"+date.toString());
+            Period period = Period.between(startDate, endDate);
+            if(period.getMonths()>=3||period.getYears()>0){
+                return true;
+            }else{
+                return false;
+            }
         }
         String bloodtype;
 
         @FXML
         void bloodselect(ActionEvent event) {
            bloodtype=((Button)event.getSource()).getText();
+           // System.out.println(bloodtype);
+            bdtype.setText(bloodtype);
+            try {
+                //String s="INSERT INTO bloodbank (Username,Type) VALUES(?,?);";
+                String s1="select Type from bloodbank where Type='"+bloodtype+"' and Avail=true";
+                PreparedStatement ps= con.prepareStatement(s1);
+                //ps.setString()
+                ResultSet rs = ps.executeQuery();
+                //ps.executeQuery();
+                int i=0;
+                while(rs.next()) {
+                    rs.getString(1);
+                    i++;
+                }
+                rs.close();
+                BloodAvailableno.setText(i+" BAG");
+                System.out.println("ekhane asse");
+            }catch (Exception e ){
+                System.out.println(e.getMessage());
+
+            }
+
+
+        }
+ void bloodselect() {
+          // bloodtype=((Button)event.getSource()).getText();
            // System.out.println(bloodtype);
             bdtype.setText(bloodtype);
             try {
@@ -483,6 +660,11 @@ public class BloodBankController implements Initializable
         cbdis.getSelectionModel().select(0);
         cbdisc.getSelectionModel().select(0);
         cbdisr.getSelectionModel().select(0);
+        bloodtype="A+";
+        con=ConnectionDb.DBC();
+        bloodselect();
+        showDonator();
 
     }
+
 }

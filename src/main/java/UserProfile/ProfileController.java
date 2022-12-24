@@ -1,19 +1,28 @@
 package UserProfile;
 
+import AdminProfile.ControlPanelController;
 import BloodBank.User;
 import Chat.ChatPrivateController;
+import Chat.CommunityChatHandelar;
 import DB.ConnectionDb;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
+import java.io.File;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Optional;
 
 public class ProfileController {
     Connection con;
@@ -24,6 +33,7 @@ public class ProfileController {
     BorderPane pane;
     @FXML
     private Button delete;
+    String tname="";
 
     public void set(String username, String role, String name2, String user2,BorderPane pane) {
         if(role.equals("Admin"))delete.setVisible(true);
@@ -42,7 +52,9 @@ public class ProfileController {
             pfield.setText("Chat");
         }
         System.out.println("akhono thik");
+        tname=user2;
         output();
+        System.out.println(user2);
     }
     public void set(String username, String role,BorderPane pane) {
         if(role.equals("Admin"))delete.setVisible(true);
@@ -52,6 +64,7 @@ public class ProfileController {
         role=role;
         this.role = role;
         this.username = username;
+        tname=username;
         output();
 
         // alertcount();
@@ -69,6 +82,7 @@ public class ProfileController {
         role=role;
         this.role = role;
         this.username = username;
+        tname=username;
         output();
 
         // alertcount();
@@ -78,6 +92,7 @@ public class ProfileController {
 
 
     }
+
 
     @FXML
     private Label BG;
@@ -105,6 +120,44 @@ public class ProfileController {
 
     @FXML
     private Label showuser;
+    @FXML
+    void Delete(){
+        try {
+            con=ConnectionDb.DBC();
+            String st = "Delete from userlist WHERE Username='" + showuser.getText().toString()+"'";
+            PreparedStatement preparedStatement = (PreparedStatement) con.prepareStatement(st);
+            preparedStatement.execute();
+            System.out.println("User deleted");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("User deleted Successfully");
+            alert.setHeaderText("Click ok to Back!");
+            File file = new File("src/main/Font/icon1.png");
+            Image image = new Image(file.toURI().toString());
+           Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(image);
+            // alert.initOwner(stage);
+            //alert.setGraphic(new ImageView(image));
+            //user.setImage(image);
+            Optional<ButtonType> result = alert.showAndWait();
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            System.out.println("hey ki khobor");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(AdminDB.ControlPanelController.class.getResource("ControlPanel.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            AdminDB.ControlPanelController sadmin = fxmlLoader.getController();
+            sadmin.set(username, role, pane);
+            pane.setCenter(ap);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+
+
+    }
 
     @FXML
     void paction(ActionEvent event) {
@@ -134,8 +187,8 @@ public class ProfileController {
     public void output() {
         try {
             Statement stmt = con.createStatement();
-            System.out.println(user2+" ase na kn");
-            String sql = "SELECT Name,Username,Phone,ID,Division,District,Volunteer,BG FROM userlist Where Username = \'" + user2.toString() + "\'";
+            System.out.println(tname+" ase na kn");
+            String sql = "SELECT Name,Username,Phone,ID,Division,District,Volunteer,BG FROM userlist Where Username = \'" + tname.toString() + "\'";
             //String sql = "SELECT * FROM `userlist` Where Username = '"+1+"'";
             //System.out.println("'"+user.getText()+"'");
             //SELECT Name,ID FROM `userlist` WHERE Username= "Nuha";
