@@ -3,6 +3,7 @@ package TeamProfile;
 import DB.ConnectionDb;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -46,6 +47,44 @@ public class TeamProfileController {
     String role;
     @FXML
     private Button delete;
+    @FXML
+    void Delete(ActionEvent event) {
+        try {
+            con=ConnectionDb.DBC();
+            String st = "Delete from userlist WHERE Username='" + showuser.getText().toString()+"'";
+            PreparedStatement preparedStatement = (PreparedStatement) con.prepareStatement(st);
+            preparedStatement.execute();
+            System.out.println("User deleted");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("User deleted Successfully");
+            alert.setHeaderText("Click ok to Back!");
+            File file = new File("src/main/Font/icon1.png");
+            Image image = new Image(file.toURI().toString());
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(image);
+            // alert.initOwner(stage);
+            //alert.setGraphic(new ImageView(image));
+            //user.setImage(image);
+            Optional<ButtonType> result = alert.showAndWait();
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            System.out.println("hey ki khobor");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(AdminDB.ControlPanelController.class.getResource("ControlPanel.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            AdminDB.ControlPanelController sadmin = fxmlLoader.getController();
+            sadmin.set(username, role, pane);
+            pane.setCenter(ap);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+
+
+
+    }
     public void set(String username, String role) {
         if(role.equals("Admin"))delete.setVisible(true);
 

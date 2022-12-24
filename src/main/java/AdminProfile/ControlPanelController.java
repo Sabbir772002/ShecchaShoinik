@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.BorderPane;
 
 public class ControlPanelController {
 
@@ -61,4 +62,10 @@ public class ControlPanelController {
 
     }
 
+    public void set(String username, String role, BorderPane pane) {
+
+
+
+
+    }
 }

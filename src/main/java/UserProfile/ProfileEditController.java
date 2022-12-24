@@ -116,7 +116,7 @@ public class ProfileEditController {
                 preparedStatement.setString(5, mail.getText());
                 preparedStatement.execute();
                 preparedStatement.close();
-                con.close();
+                output();
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Profile Update");
                 alert.setHeaderText("Profile Updated Succesfully!");
@@ -126,6 +126,7 @@ public class ProfileEditController {
                 stage = (Stage) alert.getDialogPane().getScene().getWindow();
                 stage.getIcons().add(image);
                 Optional<ButtonType> result=alert.showAndWait();
+
             }catch (Exception e) {
                 System.out.println(e.getMessage());
             }

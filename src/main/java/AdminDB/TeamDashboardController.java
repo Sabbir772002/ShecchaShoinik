@@ -194,10 +194,10 @@ public class TeamDashboardController implements Initializable {
     void Event(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(Event.ViewEvent.class.getResource("ViewEventTeam.fxml"));
+            fxmlLoader.setLocation(Event.ViewEvent.class.getResource("ViewEvent.fxml"));
             AnchorPane ap = fxmlLoader.load();
             ViewEvent sadmin = fxmlLoader.getController();
-            sadmin.set(username,role);
+            sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
         } catch (IOException e) {
             System.out.println("vul hoilo Event button Teamshboard controller " + e.getMessage());

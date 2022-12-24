@@ -170,14 +170,13 @@ public class AdminDashboardController implements Initializable {
         try {
             ;
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(AdminProfile.ControlPanelController.class.getResource("ControlPanel.fxml"));
-
+            fxmlLoader.setLocation(AdminDB.ControlPanelController.class.getResource("ControlPanel.fxml"));
             AnchorPane ap = fxmlLoader.load();
-            ControlPanelController sadmin = fxmlLoader.getController();
-            //sadmin.set(username, role);
+            AdminDB.ControlPanelController sadmin = fxmlLoader.getController();
+            sadmin.set(username, role,pane1);
             pane1.setCenter(ap);
         } catch (Exception e) {
-            System.out.println("vul hoilo Control AdminDashboardController" + e.getMessage());
+            System.out.println("vul hoilo Control AdminDashboardController " + e.getMessage());
         }
     }
 

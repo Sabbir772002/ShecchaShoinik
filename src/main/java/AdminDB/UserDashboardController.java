@@ -421,7 +421,7 @@ public class UserDashboardController implements Initializable {
             fxmlLoader.setLocation(Event.ViewEvent.class.getResource("ViewEvent.fxml"));
             AnchorPane ap = fxmlLoader.load();
             ViewEvent sadmin = fxmlLoader.getController();
-            sadmin.set(username,role);
+            sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
             //System.out.println("kno holo na");
 

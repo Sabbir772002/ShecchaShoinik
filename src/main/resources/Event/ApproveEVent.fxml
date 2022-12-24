@@ -24,10 +24,10 @@
                       <Font name="System Bold" size="20.0" />
                   </font>
               </Label>
-              <TableView fx:id="time" layoutX="21.0" layoutY="108.19999694824219" prefHeight="479.0" prefWidth="306.0">
+              <TableView fx:id="Eventtable" layoutX="21.0" layoutY="108.19999694824219" prefHeight="479.0" prefWidth="306.0">
                   <columns>
                       <TableColumn fx:id="title" prefWidth="200.00001907348633" text="Event Name" />
-                      <TableColumn minWidth="0.0" prefWidth="102.40000915527344" text="Date" />
+                      <TableColumn fx:id="datetime" minWidth="0.0" prefWidth="102.40000915527344" text="Date" />
                   </columns>
               </TableView>
               <Pane layoutX="335.0" layoutY="109.19999694824219" prefHeight="142.0" prefWidth="434.0">
@@ -44,12 +44,12 @@
                       <Font name="System Bold" size="20.0" />
                   </font>
               </Label>
-              <Label layoutX="385.0" layoutY="298.20001220703125" prefHeight="31.0" prefWidth="101.0" text="Time:">
+              <Label layoutX="385.0" layoutY="298.20001220703125" prefHeight="31.0" prefWidth="101.0" text="Date:">
                   <font>
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Label alignment="CENTER" layoutX="530.0" layoutY="298.20001220703125" prefHeight="31.0" prefWidth="218.0" text="03:40">
+              <Label fx:id="date" alignment="CENTER" layoutX="530.0" layoutY="298.20001220703125" prefHeight="31.0" prefWidth="218.0" text="03:40">
                   <font>
                       <Font size="21.0" />
                   </font>
@@ -59,7 +59,7 @@
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Label alignment="CENTER" layoutX="532.0" layoutY="338.20001220703125" prefHeight="31.0" prefWidth="214.0" text="Dhaka">
+              <Label fx:id="district" alignment="CENTER" layoutX="532.0" layoutY="338.20001220703125" prefHeight="31.0" prefWidth="214.0" text="Dhaka">
                   <font>
                       <Font size="21.0" />
                   </font>
@@ -69,7 +69,7 @@
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Label alignment="CENTER" layoutX="532.0" layoutY="380.20001220703125" prefHeight="31.0" prefWidth="214.0" text="Dhaka">
+              <Label fx:id="division" alignment="CENTER" layoutX="532.0" layoutY="380.20001220703125" prefHeight="31.0" prefWidth="214.0" text="Dhaka">
                   <font>
                       <Font size="21.0" />
                   </font>
@@ -79,18 +79,18 @@
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Label alignment="CENTER" layoutX="532.0" layoutY="420.20001220703125" prefHeight="31.0" prefWidth="214.0" text="Dhaka">
+              <Label fx:id="address" alignment="CENTER" layoutX="532.0" layoutY="420.20001220703125" prefHeight="31.0" prefWidth="214.0" text="UIU">
                   <font>
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Button layoutX="460.0" layoutY="519.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: green;" text="Approve" />
-              <Label layoutX="385.0" layoutY="462.20001220703125" prefHeight="31.0" prefWidth="101.0" text="Location:">
+              <Button layoutX="460.0" layoutY="519.0" mnemonicParsing="false" onAction="#approve" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: green;" text="Approve" />
+              <Label layoutX="385.0" layoutY="462.20001220703125" prefHeight="31.0" prefWidth="101.0" text="Event By:">
                   <font>
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Label alignment="CENTER" layoutX="528.0" layoutY="462.20001220703125" prefHeight="31.0" prefWidth="229.0" text="UIU Playground ">
+              <Label fx:id="poster" alignment="CENTER" layoutX="528.0" layoutY="462.20001220703125" prefHeight="31.0" prefWidth="229.0" text="UIU Student">
                   <font>
                       <Font size="21.0" />
                   </font>
