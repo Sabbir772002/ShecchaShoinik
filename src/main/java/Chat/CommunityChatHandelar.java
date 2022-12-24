@@ -358,47 +358,7 @@ public class CommunityChatHandelar implements Initializable {
 
 
         }
-            ps = con.prepareStatement("SELECT Name,District,Username,Division,Phone,Type FROM Teams");
 
-            rs = ps.executeQuery();
-            while (rs.next()) {
-
-                String     s1 = rs.getString(1);
-                String     s3 = rs.getString(2);
-                String      s5 = rs.getString(3);
-                String   s6 = rs.getString(4);
-                String     s7 = rs.getString(5);
-                String      s8 = rs.getString(6);
-
-                String      s0 = s1 + s3 + s5+s6+s7+s8;
-
-
-
-                String  s2 = search.getText().toString() + "";
-                // System.out.println(s2);
-                boolean i = false;
-                for (int j = 0; j < s0.length(); j++) {
-                    for (int p = j + 1; p < s0.length() - 2; p++) {
-                        if (s0.substring(j, p).equalsIgnoreCase(s2)) {
-                            // System.out.println((s[j])+"=="+textfield.getText().toString());
-                            i = true;
-                        }
-                    }
-                }
-                s2 += " ";
-                if (s2.equals("")) {
-                    i = true;
-                    // System.out.println("thik ase");
-                }
-                if (s2.equals(" ")) {
-                    i = true;
-                    //System.out.println("thik ase2");
-                }
-                if (i) {
-                    list1.add(new userlist(s1, s5));
-                }
-
-            }
         // rs.getString(1)), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7))
     } catch(Exception i){
         System.out.println("error at cmchat serch user" + i.getMessage());

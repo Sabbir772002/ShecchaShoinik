@@ -424,13 +424,13 @@ public class TeamDashboardController implements Initializable {
         try{
             System.out.println("hey task");
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(Others.TaskCompletedController.class.getResource("TaskCompleted.fxml"));
+            fxmlLoader.setLocation(Others.VolunteerList.class.getResource("VolunteerList.fxml"));
             AnchorPane ap = fxmlLoader.load();
-            TaskCompletedController sadmin = fxmlLoader.getController();
+            VolunteerList sadmin = fxmlLoader.getController();
             sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
         }catch (Exception e){
-            System.out.println("bhul hoilo team dashboard button G controller "+e.getMessage());
+            System.out.println("bhul hoilo team dashboard button task  controller "+e.getMessage());
         }
 
     }
@@ -441,7 +441,7 @@ public class TeamDashboardController implements Initializable {
         try{
             System.out.println("hey hresponse");
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(Others.VolunteerApproveController.class.getResource("VolunteerApprove.fxml"));
+            fxmlLoader.setLocation(Others.VolunteerApproveController.class.getResource("VolunteerApprovee.fxml"));
             AnchorPane ap = fxmlLoader.load();
             VolunteerApproveController sadmin = fxmlLoader.getController();
             sadmin.set(username,role,pane1);

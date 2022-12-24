@@ -176,10 +176,8 @@ public class ControlPanelController implements Initializable {
 
     ObservableList<User> loadusers(){
         ObservableList<User>list = FXCollections.observableArrayList();
-
         try {
            System.out.println(division);
-
            PreparedStatement ps = con.prepareStatement("SELECT Name,Username,District FROM userlist where Division='" + division + "'");
            ResultSet rs = ps.executeQuery();
            System.out.println("loadusers");
