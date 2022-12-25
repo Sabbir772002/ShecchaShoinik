@@ -1287,7 +1287,6 @@ PauseTransition wait1 = new PauseTransition(Duration.seconds(1));
         } catch (Exception ee) {
             System.out.println(ee.getMessage());
         }
-        System.out.println("vai amare marse");
 
     }
 
@@ -1299,9 +1298,8 @@ PauseTransition wait1 = new PauseTransition(Duration.seconds(1));
             fxmlLoader.setLocation(ApproveEVentController.class.getResource("ApproveEVent.fxml"));
             AnchorPane ap = fxmlLoader.load();
             ApproveEVentController sadmin = fxmlLoader.getController();
-            sadmin.set(username, role);
+            sadmin.set(username, role,pane1);
             pane1.setCenter(ap);
-            //System.out.println("kno holo na");
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
