@@ -103,7 +103,6 @@ public class ProfileEditController {
          Parent root;
 
 
-
            PreparedStatement preparedStatement;
             try {
                 con= ConnectionDb.DBC();
@@ -115,8 +114,17 @@ public class ProfileEditController {
                 preparedStatement.setString(4, district.getText());
                 preparedStatement.setString(5, mail.getText());
                 preparedStatement.execute();
-                preparedStatement.close();
                 output();
+                con=ConnectionDb.DBC();
+                String st1 = "update volunteer set Name=?,Phone=?,Division=?,District=?,Mail=? WHERE Username ='"+username+"'";
+                PreparedStatement ps= (PreparedStatement) con.prepareStatement(st1);
+                ps.setString(1, name.getText());
+                ps.setString(2, phone.getText());
+                ps.setString(3, division.getText());
+                ps.setString(4, district.getText());
+                ps.setString(5, mail.getText());
+                ps.execute();
+                ps.close();
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Profile Update");
                 alert.setHeaderText("Profile Updated Succesfully!");
