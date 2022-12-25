@@ -41,13 +41,6 @@ public class BloodBankController implements Initializable
         role = role;
         this.role = role;
         this.username = username;
-        //showDonator();
-
-        // alertcount();
-        //alertnum.setText(String.valueOf(newcount));
-        // Thread t=new HelpRequest.AlertThread();
-        //t.start();
-
 
     }
     @FXML
