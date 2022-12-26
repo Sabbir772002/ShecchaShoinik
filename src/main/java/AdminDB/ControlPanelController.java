@@ -156,7 +156,6 @@ public class ControlPanelController implements Initializable {
         String Name2=alluser.getSelectionModel().getSelectedItem().getName().toString();
         String user2=alluser.getSelectionModel().getSelectedItem().getUsername().toString();
         try{
-            System.out.println("hey ki khobor");
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(UserProfile.ProfileController.class.getResource("Profile.fxml"));
             AnchorPane ap = fxmlLoader.load();
@@ -165,7 +164,6 @@ public class ControlPanelController implements Initializable {
             //pane1.setVisible(false);
             pane.setCenter(ap);
             //.setCenter(ap);
-            System.out.println("kno holo na");
 
         }catch (Exception e){
             System.out.println(e.getMessage());
@@ -176,13 +174,10 @@ public class ControlPanelController implements Initializable {
 
     ObservableList<User> loadusers(){
         ObservableList<User>list = FXCollections.observableArrayList();
-
         try {
            System.out.println(division);
-
            PreparedStatement ps = con.prepareStatement("SELECT Name,Username,District FROM userlist where Division='" + division + "'");
            ResultSet rs = ps.executeQuery();
-           System.out.println("loadusers");
            while (rs.next()) {
              list.add(new User(rs.getString(1),rs.getString(2),rs.getString(3)));
            }
@@ -203,7 +198,6 @@ public class ControlPanelController implements Initializable {
 
            PreparedStatement ps = con.prepareStatement("SELECT Title,District,Type,Id FROM diasterlist where Division='" + division + "'");
            ResultSet rs = ps.executeQuery();
-           System.out.println("loadpost");
            while (rs.next()) {
              list.add(new Post(rs.getString(1),rs.getString(2),rs.getString(3),rs.getInt(4)+""));
            }
@@ -225,7 +219,6 @@ public class ControlPanelController implements Initializable {
 
            PreparedStatement ps = con.prepareStatement("SELECT Name,Username,District,Type FROM teams where Division='" + division + "'");
            ResultSet rs = ps.executeQuery();
-           System.out.println("loadpost");
            while (rs.next()) {
              list.add(new Teams(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)));
            }
@@ -238,7 +231,6 @@ public class ControlPanelController implements Initializable {
        return list;
    }
    void loadtable() {
-        System.out.println("table");
         Name.setCellValueFactory(new PropertyValueFactory<User,String>("Name"));
         District.setCellValueFactory(new PropertyValueFactory<User, String>("District"));
         Username.setCellValueFactory(new PropertyValueFactory<User, String>("Username"));
@@ -248,7 +240,6 @@ public class ControlPanelController implements Initializable {
 
     }
 void loadtablep() {
-        System.out.println("tablep");
         title.setCellValueFactory(new PropertyValueFactory<Post,String>("Title"));
         PostDistrict.setCellValueFactory(new PropertyValueFactory<Post, String>("District"));
         PostType.setCellValueFactory(new PropertyValueFactory<Post, String>("type"));
@@ -258,7 +249,6 @@ void loadtablep() {
 
     }
     void loadtablet() {
-        System.out.println("tablet");
        Teamname.setCellValueFactory(new PropertyValueFactory<Teams,String>("Name"));
        TeamDistrict.setCellValueFactory(new PropertyValueFactory<Teams, String>("District"));
         Teamuser.setCellValueFactory(new PropertyValueFactory<Teams, String>("Username"));

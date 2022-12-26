@@ -34,4 +34,10 @@ public class User {
        this.Name = Name;
         District = district;
     }
+
+    public User(String Name, String Username) {
+        this.Username = Username;
+       this.Name = Name;
+
+    }
 }
