@@ -9,8 +9,8 @@ public class MyServer {
     static int i=0;
     public static void main(String []args) {
         try {
-            System.out.println("Server is waiting for client.");
-            ServerSocket serverSocket = new ServerSocket(100);
+            System.out.println("Server wait kortese.");
+            ServerSocket serverSocket = new ServerSocket(1000);
             while (true){
                 Socket sc = serverSocket.accept();
                 Client client = new Client(sc);

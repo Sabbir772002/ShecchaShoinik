@@ -140,7 +140,7 @@ public class CommunityChatHandelar implements Initializable {
 
     void connect() {
         try {
-            sc = new Socket("localhost", 100);
+            sc = new Socket("localhost", 1000);
             OutputStreamWriter o = new OutputStreamWriter(sc.getOutputStream());
             writer = new BufferedWriter(o);
             writer.write(username + "\n");
@@ -152,7 +152,7 @@ public class CommunityChatHandelar implements Initializable {
             //showArea.appendText("Connection established!\n");
             BufferedReader in = null;
             File file = new File("msg.txt");
-            System.out.println("connection established");
+            System.out.println("Connection peye gese");
             try {
                 in = new BufferedReader(new FileReader(file));
                 String str;
@@ -176,6 +176,7 @@ public class CommunityChatHandelar implements Initializable {
             System.out.println("onek vul abr net pai na");
 
         }
+
 
     }
 
@@ -282,7 +283,7 @@ public class CommunityChatHandelar implements Initializable {
                 String msg = inputField.getText();
                 inputField.clear();
                 if (msg == null || msg.length() == 0) {
-                    System.out.println("msg likh");
+                    System.out.println("msg likhen");
                     return;
                 }
                 File file = new File("msg.txt");

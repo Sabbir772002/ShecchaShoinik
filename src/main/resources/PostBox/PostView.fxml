@@ -2,6 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,7 +12,7 @@
 
 <AnchorPane focusTraversable="true" prefHeight="596.0" prefWidth="776.0" style="-fx-background-color: black; -fx-background-radius: 5; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PostBox.Post">
    <children>
-      <ImageView fx:id="poster" fitHeight="300.0" fitWidth="338.0" layoutX="389.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="poster" fitHeight="224.0" fitWidth="334.0" layoutX="412.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Font/2.jpg" />
          </image>
@@ -20,7 +22,7 @@
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Text>
-      <Button fx:id="mapclick" layoutX="169.0" layoutY="451.0" mnemonicParsing="false" onAction="#viewmap" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: green;" text="View in Map" />
+      <Button fx:id="mapclick" layoutX="169.0" layoutY="478.0" mnemonicParsing="false" onAction="#viewmap" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: green;" text="View in Map" />
       <Label layoutX="69.0" layoutY="145.0" prefHeight="31.0" prefWidth="99.0" text="Addres:" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
@@ -67,11 +69,18 @@
          </font>
       </Label>
       <Label layoutX="68.0" layoutY="57.0" prefHeight="18.0" prefWidth="98.0" text="\@Sabbir" textFill="WHITE" />
-      <Label fx:id="addinfo" alignment="CENTER" layoutX="71.0" layoutY="334.0" prefHeight="98.0" prefWidth="304.0" style="-fx-background-color: null; -fx-background-radius: 5; -fx-border-color: white; -fx-padding: 5;" text="Label" textFill="#fff7f7" wrapText="true">
+      <Label fx:id="addinfo" alignment="CENTER" layoutX="71.0" layoutY="334.0" prefHeight="98.0" prefWidth="304.0" style="-fx-background-color: null; -fx-background-radius: 5; -fx-border-color: white; -fx-padding: 5;" text="There is a car accident with 3 buses" textFill="#fff7f7" wrapText="true">
          <font>
             <Font name="Bell MT Bold" size="17.0" />
          </font>
       </Label>
       <Button fx:id="delete" layoutX="169.0" layoutY="491.0" mnemonicParsing="false" onAction="#Delete" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: red;" text="Delete" visible="false" />
+      <TableView fx:id="pteam" layoutX="412.0" layoutY="245.0" prefHeight="322.0" prefWidth="334.0" styleClass="tcl" stylesheets="@../../Style/style.css">
+        <columns>
+          <TableColumn fx:id="Name" prefWidth="163.20001220703125" text="Name" />
+          <TableColumn fx:id="Contact" minWidth="0.0" prefWidth="173.60003662109375" text="Contact" />
+            <TableColumn fx:id="Username" minWidth="0.0" prefWidth="0.0" text="Username" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
