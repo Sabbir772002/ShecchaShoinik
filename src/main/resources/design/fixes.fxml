@@ -194,29 +194,4 @@
             </Text>
             <Text fill="WHITE" layoutX="73.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name: ">
                 <font>
-                    <Font name="System Bold" size="15.0" />
-                </font>
-            </Text>
-        </children>
-    </AnchorPane>
-    <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="104.0" layoutY="396.0" mnemonicParsing="false" onAction="#Signin" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: linear-gradient(to right, #360033, #0b8793); -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN IN" textFill="#f0f2f1">
-        <font>
-            <Font size="18.0" />
-        </font>
-    </Button>
-    <Label alignment="CENTER" layoutX="67.0" layoutY="358.0" prefHeight="26.0" prefWidth="206.0" text="Already have an account?" textFill="WHITE">
-        <font>
-            <Font name="System Bold" size="13.0" />
-        </font>
-    </Label>
-    <ImageView fitHeight="98.0" fitWidth="106.0" layoutX="111.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
-        <image>
-            <Image url="@../../Font/logooo.png" />
-        </image></ImageView>
-    <ImageView fitHeight="170.0" fitWidth="593.0" layoutX="-186.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
-        <image>
-            <Image url="@../../Font/nameee.png" />
-        </image>
-    </ImageView>
-</children>
-</AnchorPane>
+
