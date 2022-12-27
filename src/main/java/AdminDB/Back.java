@@ -40,13 +40,6 @@ public class Back implements Initializable {
 
     @FXML
     private BorderPane pane1;
-
-  /*  @FXML
-    private Button Bbank;
-
-    @FXML
-    private Label Logo1;*/
-
     @FXML
     private ChoiceBox<String> choice;
 

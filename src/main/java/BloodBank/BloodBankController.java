@@ -21,6 +21,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -41,6 +42,7 @@ public class BloodBankController implements Initializable
         role = role;
         this.role = role;
         this.username = username;
+        showDonator();
 
     }
     @FXML
@@ -153,8 +155,6 @@ public class BloodBankController implements Initializable
     void keyclick(KeyEvent e) {
         ObservableList<User> list1 = FXCollections.observableArrayList();
         //i++;
-
-
         Connection con ;
         //= ConnectionDb.DBC();
         //ObservableList<diaster>list = FXCollections.observableArrayList();
@@ -223,6 +223,7 @@ public class BloodBankController implements Initializable
     }
     ObservableList<User> list = FXCollections.observableArrayList();
     ObservableList<User> loaddonator() {
+        ObservableList<User> list = FXCollections.observableArrayList();
         con=ConnectionDb.DBC();
         String s = "Select Name,Username,LastTime from userlist";
         try
@@ -254,6 +255,7 @@ return list;
 
     }
     void showDonator(){
+        loaddonator();
         colname.setCellValueFactory(new PropertyValueFactory<User,String>("Name"));
         colusername.setCellValueFactory(new PropertyValueFactory<User, String>("Username"));
 
@@ -264,9 +266,9 @@ return list;
 
     }
 void showDonators(){
+        loaddonator();
         colname.setCellValueFactory(new PropertyValueFactory<User,String>("Name"));
         colusername.setCellValueFactory(new PropertyValueFactory<User, String>("Username"));
-
         blooddonatorlist.setItems(list);
 
 
@@ -318,6 +320,7 @@ void showDonators(){
             //System.out.println("Hey"+date.toString());
             Period period = Period.between(startDate, endDate);
             if(period.getMonths()>=3||period.getYears()>0){
+
                 return true;
             }else{
                 return false;
@@ -330,6 +333,10 @@ void showDonators(){
            bloodtype=((Button)event.getSource()).getText();
            // System.out.println(bloodtype);
             bdtype.setText(bloodtype);
+            if(((Button) event.getSource()).getText().equals("A+")){
+                a1.setStyle("-fx-background-color: green");
+                a0.setStyle("-fx-background-color: deafault");
+            }
             try {
                 //String s="INSERT INTO bloodbank (Username,Type) VALUES(?,?);";
                 String s1="select Type from bloodbank where Type='"+bloodtype+"' and Avail=true";
@@ -400,43 +407,76 @@ void showDonators(){
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         String str = format.format(date);
+        Connection con;
         try {
-            if (bloodtype.isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Blood Type Warning!");
-                alert.setHeaderText("Please Select Your BloodGroup First!");
-                // alert.setContentText("");
-                File file = new File("src/main/Font/icon1.png");
-                Optional<ButtonType> result=alert.showAndWait();
-                return;
-            } else {
-                //String s="INSERT INTO bloodbank (Username,Type) VALUES(?,?);";
-                String s1 = "Insert into bloodbank (Username,Type,Avail,Hospital,Division,District) Values(?,?,?,?,?,?)";
-                PreparedStatement ps = con.prepareStatement(s1);
-                ps.setString(1, username);
-                ps.setString(2, bloodtype);
-                ps.setInt(3, 1);
-                ps.setString(4, hosd.getText().toString());
-                ps.setString(5, cbdivd.getValue().toString());
-                ps.setString(6, cbdis.getValue().toString());
 
-                ps.execute();
-                String s2 = "UPDATE userlist set LastTime='" + dated.getValue().toString() + "' where username='" + username + "'";
-                ps = con.prepareStatement(s2);
-                ps.execute();
-                ps.close();
-                System.out.println("rokto jog hoise");
-            }
-            }catch(Exception ee ){
-                System.out.println(ee.getMessage());
+            con = ConnectionDb.DBC();
+            String s = "Select LastTime from userlist where username='" + username +"'";
+                PreparedStatement ps1 = con.prepareStatement(s);
+                ResultSet rs = ps1.executeQuery();
+                String s0 = "";
+                while (rs.next()) {
+                s0 = rs.getString(1);
+                }
+                    if (!check(s0)){
+                        //System.out.println("you are not allowed to give blood until 3 months after last time");
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("Not allowed to give blood");
+                        alert.setHeaderText("You are not allowed to give blood until 3 months after last time!");
+                        File file = new File("src/main/Font/icon1.png");
+                        Optional<ButtonType> result = alert.showAndWait();
+                        return;
+                    }else{
+                        try {
+                            if (bloodtype.isEmpty()) {
+                                Alert alert = new Alert(Alert.AlertType.WARNING);
+                                alert.setTitle("Blood Type Warning!");
+                                alert.setHeaderText("Please Select Your BloodGroup First!");
+                                // alert.setContentText("");
+                                File file = new File("src/main/Font/icon1.png");
+                                Optional<ButtonType> result = alert.showAndWait();
 
-            }
+                            }else if (dated.getValue()==null|| cbdis.getValue().isEmpty()||cbdivd.getValue().isEmpty()||hosd.getText().isEmpty()) {
+                                Alert alert = new Alert(Alert.AlertType.WARNING);
+                                alert.setTitle("Something missing!");
+                                alert.setHeaderText("Some info missing, Please try again with proper information");
+                                // alert.setContentText("");
+                                File file = new File("src/main/Font/icon1.png");
+                                Optional<ButtonType> result = alert.showAndWait();
+                            } else {
+                                //String s="INSERT INTO bloodbank (Username,Type) VALUES(?,?);";
+                                String s1 = "Insert into bloodbank (Username,Type,Avail,Hospital,Division,District) Values(?,?,?,?,?,?)";
+                                PreparedStatement ps = con.prepareStatement(s1);
+                                ps.setString(1, username);
+                                ps.setString(2, bloodtype);
+                                ps.setInt(3, 1);
+                                ps.setString(4, hosd.getText().toString());
+                                ps.setString(5, cbdivd.getValue().toString());
+                                ps.setString(6, cbdis.getValue().toString());
+                                ps.execute();
+                                String s2 = "UPDATE userlist set LastTime='" + dated.getValue().toString() + "' where username='" + username + "'";
+                                ps = con.prepareStatement(s2);
+                                ps.execute();
+                                ps.close();
+                                System.out.println("rokto jog hoise");
+                            }
+                        } catch (Exception ee) {
+                            System.out.println(ee.getMessage());
+
+                        }
+                    }
+
+        } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
         }
 
 
 
-
-    @FXML
+            @FXML
     void donatet(ActionEvent event) {
         claimpane.setVisible(false);
         donatepane1.setVisible(true);

@@ -206,7 +206,6 @@ public class ControlPanelController implements Initializable {
 
        }
 
-
        return list;
    }
           ObservableList<Teams>listt = FXCollections.observableArrayList();

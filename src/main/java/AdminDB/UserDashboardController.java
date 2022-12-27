@@ -331,7 +331,6 @@ public class UserDashboardController implements Initializable {
         col_district.setCellValueFactory(new PropertyValueFactory<disaster, String>("District"));
         col_address.setCellValueFactory(new PropertyValueFactory<disaster, String>("Address"));
         col_id.setCellValueFactory(new PropertyValueFactory<disaster, Integer>("Id"));
-
         //table.setItems(list);
         listF = ConnectionDb.getdiasterlist();
         table.setItems(listF);
@@ -364,6 +363,7 @@ public class UserDashboardController implements Initializable {
             HomeboardController sadmin = fxmlLoader.getController();
             sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
+
 
         }catch (Exception e){
             System.out.println(e.getMessage());
@@ -761,6 +761,11 @@ public class UserDashboardController implements Initializable {
         imageview1.setImage(image5);
         file1 = new File("src/main/Font/search.png");
         Image image6 = new Image(file1.toURI().toString());
+        col_address.setStyle("-fx-text-fill: #400401;-fx-border-color: transparent;-fx-font-weight: bold;-fx-alignment:CENTER-LEFT;");
+        col_district.setStyle("-fx-text-fill:  #400401;-fx-border-color: transparent;-fx-font-weight: bold;-fx-alignment:CENTER;");
+        col_id.setStyle("-fx-text-fill:  #400401;-fx-border-color: transparent;-fx-font-weight: bold; -fx-alignment:CENTER;");
+        col_title.setStyle("-fx-text-fill: #400401;-fx-border-color:transparent; -fx-padding: 10 5 10 5; -fx-font-weight: bold; -fx-alignment:CENTER-LEFT; ");
+        col_type.setStyle("-fx-text-fill: #400401;-fx-alignment:CENTER; -fx-font-weight:bold; -fx-text-size: 14;");
         //search.setImage(image6);
         loadtable();
         /*PauseTransition wait = new PauseTransition(Duration.seconds(1));

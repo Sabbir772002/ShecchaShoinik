@@ -122,8 +122,8 @@ public class Post {
     }
     void loadtabletp() {
 
-        Contact.setStyle("-fx-text-fill: red;-fx-border-color: transparent;-fx-alignment:CENTER;");
-        Name.setStyle("-fx-text-fill: red;-fx-border-color: transparent;-fx-alignment:CENTER;");
+       /* Contact.setStyle("-fx-text-fill: red;-fx-border-color: transparent;-fx-alignment:CENTER;");
+        Name.setStyle("-fx-text-fill: red;-fx-border-color: transparent;-fx-alignment:CENTER;");*/
         loadteams();
         Name.setCellValueFactory(new PropertyValueFactory<Teams,String>("Name"));
         Contact.setCellValueFactory(new PropertyValueFactory<Teams, String>("Phone"));

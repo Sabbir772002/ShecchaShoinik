@@ -75,11 +75,11 @@
          </font>
       </Label>
       <Button fx:id="delete" layoutX="169.0" layoutY="491.0" mnemonicParsing="false" onAction="#Delete" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: red;" text="Delete" visible="false" />
-      <TableView fx:id="pteam" layoutX="412.0" layoutY="245.0" prefHeight="322.0" prefWidth="334.0" styleClass="tcl" stylesheets="@../../Style/style.css">
+      <TableView fx:id="pteam" layoutX="412.0" layoutY="261.0" prefHeight="300.0" prefWidth="340.0" style="-fx-border-radius: 0,0,0,0;" stylesheets="@../Style/style.css">
         <columns>
-          <TableColumn fx:id="Name" prefWidth="163.20001220703125" text="Name" />
-          <TableColumn fx:id="Contact" minWidth="0.0" prefWidth="173.60003662109375" text="Contact" />
-            <TableColumn fx:id="Username" minWidth="0.0" prefWidth="0.0" text="Username" />
+          <TableColumn fx:id="Name" minWidth="0.0" prefWidth="168.800048828125" text="Name" />
+          <TableColumn fx:id="Contact" minWidth="0.0" prefWidth="153.0" text="Contact" />
+            <TableColumn fx:id="Username" minWidth="0.0" prefWidth="10.399999999999977" text="Username" />
         </columns>
       </TableView>
    </children>

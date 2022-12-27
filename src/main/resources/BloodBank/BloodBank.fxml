@@ -42,7 +42,6 @@
                   <Font name="System Bold" size="9.0" />
                </font>
             </Label>
-            <Button layoutX="69.0" layoutY="427.0" mnemonicParsing="false" onAction="#selectforblood" prefHeight="27.0" prefWidth="70.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Select" />
             <Label alignment="CENTER" layoutX="47.0" layoutY="106.0" prefHeight="26.0" prefWidth="144.0" style="-fx-background-color: white; -fx-text-fill: red;" styleClass="bt" stylesheets="@../../Style/style.css" text="Please Choice carefully">
                <font>
                   <Font name="System Bold" size="10.0" />
@@ -74,7 +73,6 @@
             </Label>
             <Button fx:id="donatebt" layoutX="14.0" layoutY="222.0" mnemonicParsing="false" onAction="#donatet" prefHeight="66.0" prefWidth="78.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Donate" />
             <Button fx:id="request" layoutX="125.0" layoutY="222.0" mnemonicParsing="false" onAction="#requestt" prefHeight="66.0" prefWidth="78.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Request" />
-            <Button fx:id="claimbt" layoutX="14.0" layoutY="320.0" mnemonicParsing="false" onAction="#claimt" prefHeight="66.0" prefWidth="78.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Claim" />
             <Label alignment="CENTER" layoutX="45.0" layoutY="76.0" prefHeight="36.0" prefWidth="148.0" style="-fx-text-fill: white;" styleClass="bt" stylesheets="@../../Style/style.css" text="Availability of Blood">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -86,7 +84,7 @@
                </font>
             </Label>
             <Button layoutX="33.0" layoutY="478.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="171.0" style="-fx-background-color: white; -fx-text-fill: #c40a0a;" stylesheets="@../../Style/style.css" text="Know About Donate Blood" />
-            <Button fx:id="donatebtt" layoutX="125.0" layoutY="320.0" mnemonicParsing="false" onAction="#donatort" prefHeight="66.0" prefWidth="78.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Donator" />
+            <Button fx:id="donatebtt" layoutX="67.0" layoutY="316.0" mnemonicParsing="false" onAction="#donatort" prefHeight="66.0" prefWidth="78.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Donator" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="claimpane" layoutX="523.0" layoutY="32.0" prefHeight="544.0" prefWidth="218.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css" visible="false">
