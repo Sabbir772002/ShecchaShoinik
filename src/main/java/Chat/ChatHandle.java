@@ -38,12 +38,12 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class ChatHandle extends Thread implements Initializable {
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-       connectSocket();
-    }
+public class ChatHandle extends Thread {
+//
+//    @Override
+//    public void initialize(URL url, ResourceBundle resourceBundle) {
+//       connectSocket();
+//    }
     Connection con;
     String username = "";
     String role = "";
@@ -165,12 +165,12 @@ public class ChatHandle extends Thread implements Initializable {
     PrintWriter printWriter;
 
 
-    public void initialize() {
+ /*   public void initialize() {
         connectSocket();
         // lblUsername.setText(username);
         inputField.setStyle("-fx-prompt-text-fill: white; -fx-background-color: transparent");
     }
-
+*/
     private void connectSocket() {
         try {
             socket = new Socket("localhost", 5000);
