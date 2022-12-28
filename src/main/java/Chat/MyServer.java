@@ -5,12 +5,59 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.util.ArrayList;
 
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.ArrayList;
+
+/**
+ * @author : Kavishka Prabath
+ * @since : 0.1.0
+ **/
+
+public class MyServer {
+
+    private static ArrayList<UserWrite> clients = new ArrayList<UserWrite>();
+
+    public static void main(String[] args) {
+        ServerSocket serverSocket;
+        Socket socket;
+
+        try {
+            serverSocket = new ServerSocket(5000);
+            while (true){
+                System.out.println("Waiting");
+                socket = serverSocket.accept();
+                System.out.println("Connected");
+                UserWrite thread = new UserWrite(socket,clients);
+                clients.add(thread);
+                thread.start();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 public class MyServer {
     static int i=0;
     public static void main(String []args) {
         try {
-            System.out.println("Server is waiting for client.");
-            ServerSocket serverSocket = new ServerSocket(100);
+            System.out.println("Server wait kortese.");
+            ServerSocket serverSocket = new ServerSocket(1000);
             while (true){
                 Socket sc = serverSocket.accept();
                 Client client = new Client(sc);
@@ -23,4 +70,5 @@ public class MyServer {
         }
     }
 }
+*/
 

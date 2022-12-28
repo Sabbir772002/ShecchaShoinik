@@ -9,11 +9,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
+import java.awt.*;
+import java.net.URI;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,7 +30,22 @@ public class VolunteerNearController implements Initializable {
     Connection con;
     String username="";
     String role="";
+    @FXML
+    void mail(MouseEvent e){
 
+        try {
+            if (Desktop.isDesktopSupported()) {
+                Desktop desktop = Desktop.getDesktop();
+                if (desktop.isSupported(Desktop.Action.MAIL)) {
+                    URI mailto = new URI("mailto:"+Phone1.getText().toString());
+                    desktop.mail(mailto);
+                }
+            }
+        }catch (Exception ee )
+        {
+            System.out.println(ee.getMessage());
+        }
+    }
     public void set(String username, String role) {
         con= ConnectionDb.DBC();
         role=role;

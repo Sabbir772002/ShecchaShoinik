@@ -171,7 +171,7 @@
                   </Label>
                   <VBox layoutX="13.0" layoutY="169.0" prefHeight="430.0" prefWidth="178.0">
                      <children>
-                        <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" prefHeight="22.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Home">
+                        <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" prefHeight="22.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Home" textFill="#fafafa">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -236,7 +236,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="G">
+                        <Button mnemonicParsing="false" onAction="#mailbox" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="G">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -283,7 +283,7 @@
                   <Image url="@../../Font/logotext.png" />
                </image>
             </ImageView>
-            <Button fx:id="bbutton" alignment="BASELINE_LEFT" layoutX="182.0" layoutY="1.0" mnemonicParsing="false" onAction="#BbankClick" prefHeight="30.0" prefWidth="159.0" style="-fx-background-color: black;" text="BLOOD BANK" textFill="#f7f7f7">
+            <Button fx:id="bbutton" alignment="BASELINE_LEFT" layoutX="182.0" layoutY="1.0" mnemonicParsing="false" onAction="#BbankClick" prefHeight="30.0" prefWidth="159.0" style="-fx-background-color: black;" text="BLOOD BANK" textFill="#fa0606">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -320,7 +320,7 @@
    <center>
       <AnchorPane prefHeight="596.0" prefWidth="778.0" style="-fx-cursor: had; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="table" layoutX="14.0" layoutY="55.0" onMouseClicked="#tableclick" prefHeight="532.0" prefWidth="752.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 10;">
+            <TableView fx:id="table" layoutX="14.0" layoutY="55.0" onMouseClicked="#tableclick" prefHeight="532.0" prefWidth="752.0" style="-fx-background-radius: 10;" stylesheets="@../Style/style.css">
               <columns>
                 <TableColumn fx:id="col_title" prefWidth="238.39999771118164" text="Title" />
                 <TableColumn fx:id="col_type" minWidth="0.0" prefWidth="127.199951171875" text="Disaster Type" />

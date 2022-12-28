@@ -13,11 +13,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.File;
+import java.net.URI;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -92,7 +95,20 @@ public class ProfileController {
 
 
     }
+    @FXML
+    void whatsapp(MouseEvent e){
+        System.out.println("whatapp");
+        try {
 
+            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                Desktop.getDesktop().browse(new URI("https://wa.me/88"+Phone.getText().toString()));
+            }
+        }catch (Exception ee) {
+            System.out.println(ee.getMessage());
+        }
+
+
+    }
 
     @FXML
     private Label BG;
@@ -214,7 +230,9 @@ public class ProfileController {
 
         }
         }
-        }
+
+
+}
 /* System.out.println(uname);
             System.out.println(username);*//*
 

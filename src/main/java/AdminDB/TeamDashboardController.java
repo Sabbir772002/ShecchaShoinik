@@ -666,6 +666,11 @@ public class TeamDashboardController implements Initializable {
         }catch (Exception e){
 
         }
+        col_address.setStyle("-fx-text-fill: #400401;-fx-border-color: transparent;-fx-font-weight: bold;-fx-alignment:CENTER-LEFT;");
+        col_district.setStyle("-fx-text-fill:  #400401;-fx-border-color: transparent;-fx-font-weight: bold;-fx-alignment:CENTER;");
+        col_id.setStyle("-fx-text-fill:  #400401;-fx-border-color: transparent;-fx-font-weight: bold; -fx-alignment:CENTER;");
+        col_title.setStyle("-fx-text-fill: #400401;-fx-border-color:transparent; -fx-padding: 10 5 10 5; -fx-font-weight: bold; -fx-alignment:CENTER-LEFT; ");
+        col_type.setStyle("-fx-text-fill: #400401;-fx-alignment:CENTER; -fx-font-weighta: bold; -fx-text-size: 14;");
        // bt1.setStyle("-fx-border-color: white; -fx-background-color:  linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);");
         //loadtable();
 

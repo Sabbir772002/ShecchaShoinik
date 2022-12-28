@@ -5,6 +5,7 @@ module com.example.sheccashoinik {
     requires javafx.graphics;
      requires javafx.web;
     requires org.controlsfx.controls;
+    requires java.desktop;
 
     opens UserProfile to javafx.fxml;
     exports UserProfile;

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -17,14 +18,14 @@
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
-      <TableView fx:id="alluser" layoutX="316.0" layoutY="74.0" onMouseClicked="#tableclickuser" prefHeight="517.0" prefWidth="448.0">
+      <TableView fx:id="alluser" layoutX="316.0" layoutY="74.0" onMouseClicked="#tableclickuser" prefHeight="517.0" prefWidth="448.0" stylesheets="@../Style/style.css">
         <columns>
           <TableColumn fx:id="Name" prefWidth="132.79998779296875" text="Name" />
           <TableColumn fx:id="Username" minWidth="8.0" prefWidth="168.800048828125" text="Username" />
             <TableColumn fx:id="District" minWidth="8.0" prefWidth="144.79998779296875" text="District" />
         </columns>
       </TableView>
-      <TableView fx:id="team" layoutX="230.0" layoutY="91.0" onMouseClicked="#tableclickteam" prefHeight="486.0" prefWidth="533.0" visible="false">
+      <TableView fx:id="team" layoutX="264.0" layoutY="75.0" onMouseClicked="#tableclickteam" prefHeight="518.0" prefWidth="500.0" stylesheets="@../Style/style.css">
          <columns>
             <TableColumn fx:id="Teamname" prefWidth="132.79998779296875" text="Name" />
             <TableColumn fx:id="Teamuser" minWidth="8.0" prefWidth="122.4000244140625" text="Username" />
@@ -32,13 +33,17 @@
             <TableColumn fx:id="TeamType" minWidth="8.0" prefWidth="147.199951171875" text="Type" />
          </columns>
       </TableView>
-      <TableView fx:id="post" layoutX="256.0" layoutY="73.0" onMouseClicked="#tableclickpost" prefHeight="525.0" prefWidth="512.0">
+      <TableView fx:id="post" layoutX="256.0" layoutY="73.0" onMouseClicked="#tableclickpost" prefHeight="525.0" prefWidth="512.0" visible="false">
          <columns>
             <TableColumn fx:id="title" prefWidth="217.59996032714844" text="Title" />
             <TableColumn fx:id="PostDistrict" minWidth="8.0" prefWidth="136.0" text="District" />
             <TableColumn fx:id="PostType" minWidth="0.0" prefWidth="158.4000244140625" text="Type" />
             <TableColumn fx:id="ID" minWidth="0.0" prefWidth="0.0" text="ID" />
          </columns>
+         <stylesheets>
+            <URL value="@../Style/style.css" />
+            <URL value="@../Style/style.css" />
+         </stylesheets>
       </TableView>
    </children>
 </AnchorPane>

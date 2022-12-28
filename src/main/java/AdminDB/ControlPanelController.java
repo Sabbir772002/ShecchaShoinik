@@ -1,6 +1,7 @@
 package AdminDB;
 
 import DB.ConnectionDb;
+import TeamProfile.TeamProfileController;
 import UserProfile.ProfileController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -148,6 +149,21 @@ public class ControlPanelController implements Initializable {
     @FXML
     void tableclickteam(MouseEvent event) {
 
+        String Name2=team.getSelectionModel().getSelectedItem().getName().toString();
+        String user2=team.getSelectionModel().getSelectedItem().getUsername().toString();
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(TeamProfile.TeamProfileController.class.getResource("TeamProfile.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            TeamProfileController sadmin = fxmlLoader.getController();
+            sadmin.set(username,role,Name2,user2,pane);
+            //pane1.setVisible(false);
+            pane.setCenter(ap);
+            //.setCenter(ap);
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
 
 
     }
@@ -205,7 +221,6 @@ public class ControlPanelController implements Initializable {
            System.out.println(e.getMessage());
 
        }
-
 
        return list;
    }
@@ -309,6 +324,11 @@ void loadtablep() {
 
     }   @FXML
     void eventclick(MouseEvent event) {
+
+
+    }
+    @FXML
+   void tablcclickpost(ActionEvent event) {
 
 
     }

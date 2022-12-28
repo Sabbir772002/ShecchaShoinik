@@ -44,7 +44,7 @@
                     <Font name="System Bold" size="18.0" />
                 </font>
             </Label>
-            <Label fx:id="phone" alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="261.0" prefHeight="32.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="01571144383">
+            <Label fx:id="phone" alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="261.0" onMouseClicked="#whatsapp" prefHeight="32.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="01571144383">
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font>
@@ -71,14 +71,13 @@
                     <Font name="System Bold" size="11.0" />
                 </font>
             </Label>
-      <Button layoutX="361.0" layoutY="188.0" mnemonicParsing="false" onAction="#join" prefHeight="26.0" prefWidth="119.0" style="-fx-background-color: green; -fx-background-radius: 10;" text="Join Team" />
-      <Button fx:id="Request" layoutX="246.0" layoutY="188.0" mnemonicParsing="false" onAction="#request" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: green; -fx-background-radius: 10;" text="Request for help" />
+      <Button layoutX="294.0" layoutY="184.0" mnemonicParsing="false" onAction="#join" prefHeight="26.0" prefWidth="119.0" style="-fx-background-color: green; -fx-background-radius: 10;" text="Join Team" />
       <Label layoutX="41.0" layoutY="417.0" prefHeight="31.0" prefWidth="162.0" text="Mail:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="mail" alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="419.0" prefHeight="21.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="Team@shoinik.help">
+      <Label fx:id="mail" alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="419.0" onMouseClicked="#mail" prefHeight="21.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="Team@shoinik.help">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

@@ -637,6 +637,11 @@ public class AdminDashboardController implements Initializable {
         file1 = new File("src/main/Font/search.png");
         Image image6 = new Image(file1.toURI().toString());
         //search.setImage(image6);
+        col_address.setStyle("-fx-text-fill: #400401;-fx-border-color: transparent;-fx-font-weight: bold;-fx-alignment:CENTER-LEFT;");
+        col_district.setStyle("-fx-text-fill:  #400401;-fx-border-color: transparent;-fx-font-weight: bold;-fx-alignment:CENTER;");
+        col_id.setStyle("-fx-text-fill:  #400401;-fx-border-color: transparent;-fx-font-weight: bold; -fx-alignment:CENTER;");
+        col_title.setStyle("-fx-text-fill: #400401;-fx-border-color:transparent; -fx-padding: 10 5 10 5; -fx-font-weight: bold; -fx-alignment:CENTER-LEFT; ");
+        col_type.setStyle("-fx-text-fill: #400401;-fx-alignment:CENTER; -fx-font-weight: bold;");
         loadtable();
         //   choice.setOnAction(this::ChoiceClick);
 
