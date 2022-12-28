@@ -4,6 +4,7 @@ import BloodBank.BloodBankController;
 import Chat.ChatHandle;
 import Chat.ChatPrivateController;
 import Chat.CommunityChatHandelar;
+import Chat.LiveHandeler;
 import DB.ConnectionDb;
 import Event.ViewEvent;
 import Others.HRequest;
@@ -555,10 +556,11 @@ public class UserDashboardController implements Initializable {
             System.out.println("hey ki khobor");
             FXMLLoader fxmlLoader = new FXMLLoader();
            // fxmlLoader.setLocation(Chat.ChatPrivateController.class.getResource("CommunityChat.fxml"));
-            fxmlLoader.setLocation(Chat.ChatHandle.class.getResource("ServerChat.fxml"));
+            fxmlLoader.setLocation(Chat.LiveHandeler.class.getResource("ServerChat.fxml"));
             AnchorPane ap = fxmlLoader.load();
            // CommunityChatHandelar sadmin = fxmlLoader.getController();
-            ChatHandle sadmin = fxmlLoader.getController();
+
+            LiveHandeler sadmin = fxmlLoader.getController();
             sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
             System.out.println("kno holo na");
