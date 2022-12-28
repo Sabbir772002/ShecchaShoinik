@@ -4,11 +4,6 @@ import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 
-/**
- * @author : Kavishka Prabath
- * @since : 0.1.0
- **/
-
 public class UserWrite extends Thread {
 
     private ArrayList<UserWrite> clients;
@@ -25,14 +20,7 @@ public class UserWrite extends Thread {
         this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         this.writer = new PrintWriter(socket.getOutputStream(), true);
     }
-    ArrayList<String> ar=new ArrayList<String>();
-    ArrayList<String> list(){
-        ar.add("Sabbir");
-        ar.add("Sumon");
-        ar.add("Alif");
-        ar.add("Rafi");
-        return ar;
-    }
+
     @Override
     public void run(){
         try {
