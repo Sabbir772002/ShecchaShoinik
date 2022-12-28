@@ -15,23 +15,23 @@
    <children>
       <AnchorPane fx:id="donatorpane" layoutX="514.0" layoutY="33.0" prefHeight="541.0" prefWidth="246.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css">
          <children>
-            <Label alignment="CENTER" layoutX="27.0" prefHeight="36.0" prefWidth="202.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css" text="Available Blood Donator">
+            <Label alignment="CENTER" layoutX="27.0" layoutY="10.0" prefHeight="36.0" prefWidth="202.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css" text="Available Blood Donator">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TableView fx:id="blooddonatorlist" layoutX="9.0" layoutY="74.0" onMouseClicked="#usergo" prefHeight="459.0" prefWidth="238.0">
+            <TableView fx:id="blooddonatorlist" layoutX="9.0" layoutY="86.0" onMouseClicked="#usergo" prefHeight="447.0" prefWidth="238.0">
               <columns>
                 <TableColumn fx:id="colname" prefWidth="236.800048828125" text="DONATOR" />
                 <TableColumn fx:id="colusername" minWidth="0.0" prefWidth="0.7999267578125" text="C2" />
               </columns>
             </TableView>
-            <TextField fx:id="search" layoutX="35.0" layoutY="43.0" onKeyPressed="#keyclick" prefHeight="26.0" prefWidth="186.0" promptText="Search" style="-fx-background-radius: 5;" />
+            <TextField fx:id="search" layoutX="35.0" layoutY="53.0" onKeyPressed="#keyclick" prefHeight="26.0" prefWidth="186.0" promptText="Search" style="-fx-background-radius: 5;" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="14.0" layoutY="31.0" prefHeight="543.0" prefWidth="238.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css">
          <children>
-            <Label alignment="CENTER" layoutX="37.0" layoutY="33.0" prefHeight="36.0" prefWidth="186.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css" text="Please Pick your blood type">
+            <Label alignment="CENTER" layoutX="26.0" layoutY="20.0" prefHeight="36.0" prefWidth="186.0" style="-fx-background-color: red;" styleClass="bt" stylesheets="@../../Style/style.css" text="Please Pick your blood type">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -57,7 +57,7 @@
             <Button fx:id="b1" layoutX="30.0" layoutY="201.0" mnemonicParsing="false" onAction="#bloodselect" prefHeight="26.0" prefWidth="78.0" style="-fx-text-fill: white;" styleClass="btguide" stylesheets="@../../Style/style.css" text="B+" />
             <Button fx:id="bombay" layoutX="131.0" layoutY="354.0" mnemonicParsing="false" onAction="#bloodselect" prefHeight="26.0" prefWidth="78.0" style="-fx-text-fill: white; -fx-background-color: red;" styleClass="bt" stylesheets="@../../Style/style.css" text="Bombay" />
             <Button fx:id="rh" layoutX="30.0" layoutY="354.0" mnemonicParsing="false" onAction="#bloodselect" prefHeight="26.0" prefWidth="78.0" style="-fx-text-fill: white; -fx-background-color: red;" styleClass="bt" stylesheets="@../../Style/style.css" text="RH(null)" />
-            <Label fx:id="bdtype" alignment="CENTER" layoutX="80.0" layoutY="69.0" prefHeight="36.0" prefWidth="78.0" styleClass="bt" stylesheets="@../../Style/style.css" text="A+">
+            <Label fx:id="bdtype" alignment="CENTER" layoutX="80.0" layoutY="62.0" prefHeight="36.0" prefWidth="78.0" styleClass="bt" stylesheets="@../../Style/style.css" text="A+">
                <font>
                   <Font name="Bell MT Bold" size="14.0" />
                </font>

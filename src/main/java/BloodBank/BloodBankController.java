@@ -258,7 +258,6 @@ return list;
         loaddonator();
         colname.setCellValueFactory(new PropertyValueFactory<User,String>("Name"));
         colusername.setCellValueFactory(new PropertyValueFactory<User, String>("Username"));
-
         list =loaddonator();
         blooddonatorlist.setItems(list);
 
@@ -327,15 +326,135 @@ void showDonators(){
             }
         }
         String bloodtype;
-
+int f=0;
         @FXML
         void bloodselect(ActionEvent event) {
+            f=1;
            bloodtype=((Button)event.getSource()).getText();
            // System.out.println(bloodtype);
             bdtype.setText(bloodtype);
             if(((Button) event.getSource()).getText().equals("A+")){
                 a1.setStyle("-fx-background-color: green");
-                a0.setStyle("-fx-background-color: deafault");
+                a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            }else if(((Button) event.getSource()).getText().equals("A-")){
+                a0.setStyle("-fx-background-color: green");
+                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            }else if(((Button) event.getSource()).getText().equals("B+")){
+                b1.setStyle("-fx-background-color: green");
+                a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            }else if(((Button) event.getSource()).getText().equals("B-")){
+                b0.setStyle("-fx-background-color: green");
+                a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            }else if(((Button) event.getSource()).getText().equals("AB-")){
+                ab0.setStyle("-fx-background-color: green");
+                a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            }else if(((Button) event.getSource()).getText().equals("AB+")){
+                ab1.setStyle("-fx-background-color: green");
+                a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            }else if(((Button) event.getSource()).getText().equals("")){
+                ab0.setStyle("-fx-background-color: green");
+                a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            }else if(((Button) event.getSource()).getText().equals("O+")){
+                o1.setStyle("-fx-background-color: green");
+                a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            }else if(((Button) event.getSource()).getText().equals("O-")){
+                o0.setStyle("-fx-background-color: green");
+                a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            }else if(((Button) event.getSource()).getText().equals("Bombay")){
+                bombay.setStyle("-fx-background-color: green");
+                a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            }else if(((Button) event.getSource()).getText().equals("RH(null)")){
+                rh.setStyle("-fx-background-color: green");
+                a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+                o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
             }
             try {
                 //String s="INSERT INTO bloodbank (Username,Type) VALUES(?,?);";
@@ -356,8 +475,7 @@ void showDonators(){
                 System.out.println(e.getMessage());
 
             }
-
-
+            showDonator();
         }
  void bloodselect() {
           // bloodtype=((Button)event.getSource()).getText();
@@ -382,7 +500,7 @@ void showDonators(){
                 System.out.println(e.getMessage());
 
             }
-
+        showDonator();
 
         }
 
@@ -395,15 +513,28 @@ void showDonators(){
 
     @FXML
     void claimt(ActionEvent event) {
-        claimpane.setVisible(true);
-        donatepane1.setVisible(false);
-        donatorpane.setVisible(false);
-        Requestpane.setVisible(false);
+            if(f==0) {
+                //System.out.println("you are not allowed to give blood until 3 months after last time");
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Not allowed to give blood");
+                alert.setHeaderText("You are not allowed to give blood until 3 months after last time!");
+                File file = new File("src/main/Font/icon1.png");
+                Optional<ButtonType> result = alert.showAndWait();
+            }else {
+
+
+                showDonator();
+                claimpane.setVisible(true);
+                donatepane1.setVisible(false);
+                donatorpane.setVisible(false);
+                Requestpane.setVisible(false);
+            }
 
     }
 
     @FXML
     void donate(ActionEvent event) {
+            showDonator();
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         String str = format.format(date);
@@ -478,27 +609,59 @@ void showDonators(){
 
             @FXML
     void donatet(ActionEvent event) {
-        claimpane.setVisible(false);
-        donatepane1.setVisible(true);
-        donatorpane.setVisible(false);
-        Requestpane.setVisible(false);
+                if(f==0) {
+                    //System.out.println("you are not allowed to give blood until 3 months after last time");
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Not allowed to give blood");
+                    alert.setHeaderText("You are not allowed to give blood until 3 months after last time!");
+                    File file = new File("src/main/Font/icon1.png");
+                    Optional<ButtonType> result = alert.showAndWait();
+                }else {
+                    loaddonator();
+                    showDonator();
+                    claimpane.setVisible(false);
+                    donatepane1.setVisible(true);
+                    donatorpane.setVisible(false);
+                    Requestpane.setVisible(false);
+                }
     }
 
     @FXML
     void donatort(ActionEvent event) {
-        claimpane.setVisible(false);
-        donatepane1.setVisible(false);
-        donatorpane.setVisible(true);
-        Requestpane.setVisible(false);
+            if(f==0) {
+        //System.out.println("you are not allowed to give blood until 3 months after last time");
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Not allowed to give blood");
+        alert.setHeaderText("You are not allowed to give blood until 3 months after last time!");
+        File file = new File("src/main/Font/icon1.png");
+        Optional<ButtonType> result = alert.showAndWait();
+    }else {
+
+                showDonator();
+                claimpane.setVisible(false);
+                donatepane1.setVisible(false);
+                donatorpane.setVisible(true);
+                Requestpane.setVisible(false);
+            }
 
     }
 
     @FXML
     void requestt(ActionEvent event) {
-        claimpane.setVisible(false);
-        donatepane1.setVisible(false);
-        donatorpane.setVisible(false);
-        Requestpane.setVisible(true);
+        if(f==0) {
+            //System.out.println("you are not allowed to give blood until 3 months after last time");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Not allowed to give blood");
+            alert.setHeaderText("You are not allowed to give blood until 3 months after last time!");
+            File file = new File("src/main/Font/icon1.png");
+            Optional<ButtonType> result = alert.showAndWait();
+        }else {
+            showDonator();
+            claimpane.setVisible(false);
+            donatepane1.setVisible(false);
+            donatorpane.setVisible(false);
+            Requestpane.setVisible(true);
+        }
 
     }
 
@@ -695,6 +858,7 @@ void showDonators(){
         cbdisr.getSelectionModel().select(0);
         bloodtype="A+";
         con=ConnectionDb.DBC();
+        loaddonator();
         bloodselect();
         showDonator();
 

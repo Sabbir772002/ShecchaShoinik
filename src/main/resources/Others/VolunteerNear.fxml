@@ -85,7 +85,7 @@
                     <Font name="System Bold" size="21.0" />
                 </font>
             </Label>
-            <Label fx:id="Phone1" alignment="CENTER" contentDisplay="RIGHT" layoutX="441.0" layoutY="475.0" prefHeight="27.0" prefWidth="234.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="durbar@mail.com">
+            <Label fx:id="Phone1" alignment="CENTER" contentDisplay="RIGHT" layoutX="441.0" layoutY="475.0" onMouseClicked="#mail" prefHeight="27.0" prefWidth="234.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="durbar@mail.com">
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font>

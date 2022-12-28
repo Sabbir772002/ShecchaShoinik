@@ -9,14 +9,14 @@
        -fx-background-color: linear-gradient(to bottom, #1dbbdd44, #93f9b944);
 */
     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);
-       -fx-background-radius: 7px 7px 0px 0px;
+       -fx-background-radius: 0px 0px 0px 0px;
        -fx-background-insets: 0 11px 0 0;
        -fx-padding: 0 0 5px 0;
    }.table-view .column-header {
         -fx-background-color: transparent;
     }.table-view .table-cell{
          -fx-border-color: transparent;
-         -fx-padding: 2 0 2 10px;
+         -fx-padding: 2 0 2 0px;
      }
      .table-row-cell: hover {
          -fx-background-color: #d6772;
@@ -36,7 +36,7 @@
          -fx-padding: 0.0em;
      }.table-view .table-cell{
           -fx-border-color: transparent;
-          -fx-padding: 2 0 2 10px;
+          -fx-padding: 2 0 2 0px;
       }
       .table-row-cell: hover {
           -fx-background-color: #d67772;

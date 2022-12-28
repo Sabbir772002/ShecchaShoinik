@@ -251,13 +251,13 @@ public class HomeboardController implements Initializable {
                 col_district.setCellValueFactory(new PropertyValueFactory<disaster, String>("District"));
                 col_address.setCellValueFactory(new PropertyValueFactory<disaster, String>("Address"));
                 col_id.setCellValueFactory(new PropertyValueFactory<disaster, Integer>("Id"));
-
                 //table.setItems(list);
                 listF = ConnectionDb.getdiasterlist();
                 table.setItems(listF);
 
 
         }
+
 
 
         @FXML

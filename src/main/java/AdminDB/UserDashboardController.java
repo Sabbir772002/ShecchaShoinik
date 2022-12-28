@@ -1,6 +1,7 @@
 package AdminDB;
-
+import java.awt.Desktop;
 import BloodBank.BloodBankController;
+import Chat.ChatHandle;
 import Chat.ChatPrivateController;
 import Chat.CommunityChatHandelar;
 import DB.ConnectionDb;
@@ -41,6 +42,7 @@ import javafx.util.Duration;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
@@ -66,6 +68,33 @@ public class UserDashboardController implements Initializable {
         Thread t=new AlertThread();
         t.start();
        // loadtable0();
+    }
+    class AlertThread extends Thread{
+        @Override
+        public void run() {
+            while (true) {
+                try {
+                    //  System.out.println("hey ami choltesi");
+                    Thread.sleep(1000);
+                    alertcount();
+                    if(newcount!=oldcount){
+
+                       /* PauseTransition wait = new PauseTransition(Duration.seconds(1));
+                        wait.setOnFinished((e) -> {
+                            alertnum.setText(String.valueOf(newcount));
+                            wait.playFromStart();
+                        });
+                        wait.play();*/
+
+                    }
+                } catch (InterruptedException e) {
+                    System.out.println("interrupted");
+                }
+
+
+            }
+        }
+
     }
     @FXML
     private BorderPane pane1;
@@ -398,6 +427,19 @@ public class UserDashboardController implements Initializable {
     }
 
     @FXML
+    void mailbox(){
+        try {
+
+            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                Desktop.getDesktop().browse(new URI("https://wa.me/880"+"1571144383"));
+            }
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+
+    }
+    @FXML
     void G(ActionEvent event) {
     }
 
@@ -512,9 +554,11 @@ public class UserDashboardController implements Initializable {
         try{
             System.out.println("hey ki khobor");
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(Chat.ChatPrivateController.class.getResource("CommunityChat.fxml"));
+           // fxmlLoader.setLocation(Chat.ChatPrivateController.class.getResource("CommunityChat.fxml"));
+            fxmlLoader.setLocation(Chat.ChatHandle.class.getResource("ServerChat.fxml"));
             AnchorPane ap = fxmlLoader.load();
-            CommunityChatHandelar sadmin = fxmlLoader.getController();
+           // CommunityChatHandelar sadmin = fxmlLoader.getController();
+            ChatHandle sadmin = fxmlLoader.getController();
             sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
             System.out.println("kno holo na");
@@ -1041,33 +1085,6 @@ PauseTransition wait1 = new PauseTransition(Duration.seconds(1));
           System.out.println(e.getMessage());
 
       }
-
-    }
-    class AlertThread extends Thread{
-        @Override
-        public void run() {
-            while (true) {
-                try {
-                  //  System.out.println("hey ami choltesi");
-                    Thread.sleep(1000);
-                    alertcount();
-                    if(newcount!=oldcount){
-
-                       /* PauseTransition wait = new PauseTransition(Duration.seconds(1));
-                        wait.setOnFinished((e) -> {
-                            alertnum.setText(String.valueOf(newcount));
-                            wait.playFromStart();
-                        });
-                        wait.play();*/
-
-                    }
-                } catch (InterruptedException e) {
-                    System.out.println("interrupted");
-                }
-
-
-            }
-        }
 
     }
     @FXML

@@ -30,6 +30,7 @@ public class Client implements Runnable{
         while(true){
             try {
                 String data = reader.readLine();
+
                 data = clientName + ": " + data + "\n";
                 synchronized (clients){
                     for(Client client: clients){

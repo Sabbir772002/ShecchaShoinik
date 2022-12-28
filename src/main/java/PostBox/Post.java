@@ -2,6 +2,7 @@ package PostBox;
 
 import AdminDB.ControlPanelController;
 import DB.ConnectionDb;
+import TeamProfile.TeamProfileController;
 import com.example.sheccashoinik.disaster;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,6 +15,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
@@ -97,7 +99,26 @@ public class Post {
     @FXML
     private TableView<Teams> pteam;
 
+    @FXML
+    void tableclickteam(MouseEvent event) {
+        String Name2=pteam.getSelectionModel().getSelectedItem().getName().toString();
+        String user2=pteam.getSelectionModel().getSelectedItem().getUsername().toString();
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(TeamProfile.TeamProfileController.class.getResource("TeamProfile.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            TeamProfileController sadmin = fxmlLoader.getController();
+            sadmin.set(username,role,Name2,user2,pane1);
+            //pane1.setVisible(false);
+            pane1.setCenter(ap);
+            //.setCenter(ap);
 
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+
+    }
 
     ObservableList<Teams> listt = FXCollections.observableArrayList();
 

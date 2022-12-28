@@ -9,26 +9,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="596.0" prefWidth="776.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Event.ViewEvent">
+<AnchorPane prefHeight="596.0" prefWidth="776.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Event.ViewEvent">
       <children>
-              <Label layoutX="11.0" layoutY="13.0" prefHeight="42.0" prefWidth="147.0" text=" Event">
+              <Label layoutX="11.0" layoutY="13.0" prefHeight="42.0" prefWidth="147.0" text=" Event" textFill="WHITE">
                   <font>
                       <Font name="Arial Bold" size="44.0" />
                   </font>
               </Label>
               <TextField fx:id="search" layoutX="18.0" layoutY="64.19999694824219" onMouseClicked="#serchkey" prefHeight="30.0" prefWidth="309.0" promptText="Search event" />
-              <Label fx:id="Title" alignment="CENTER" layoutX="368.0" layoutY="78.19999694824219" prefHeight="30.0" prefWidth="388.0" text="Seminar on guidelines to winter">
+              <Label fx:id="Title" alignment="CENTER" layoutX="368.0" layoutY="78.19999694824219" prefHeight="30.0" prefWidth="388.0" text="Seminar on guidelines to winter" textFill="WHITE">
                   <font>
                       <Font name="System Bold" size="20.0" />
                   </font>
               </Label>
             <AnchorPane layoutX="-14.0" layoutY="109.19999694824219" prefHeight="482.0" prefWidth="784.0">
                 <children>
-                    <TableView fx:id="eventtable" layoutX="35.0" layoutY="-11.0" onMouseClicked="#eventclick" prefHeight="456.0" prefWidth="306.0">
+                    <TableView fx:id="eventtable" layoutX="35.0" layoutY="-16.0" onMouseClicked="#eventclick" prefHeight="463.0" prefWidth="316.0" stylesheets="@../Style/style.css">
                         <columns>
                             <TableColumn fx:id="title" prefWidth="200.00001907348633" text="Event Name" />
-                            <TableColumn fx:id="time" minWidth="0.0" prefWidth="102.40000915527344" text="Date" />
-                  <TableColumn fx:id="id" minWidth="1.5999816894531023" prefWidth="1.5999816894531023" text="ID" />
+                  <TableColumn fx:id="id" minWidth="0.0" prefWidth="1.5999755859375" text="ID" visible="false" />
+                            <TableColumn fx:id="time" minWidth="0.0" prefWidth="114.39999389648438" text="Date" />
                         </columns>
                     </TableView>
                     <Label alignment="CENTER" layoutX="372.0" layoutY="150.0" prefHeight="30.0" prefWidth="388.0" text="Details">

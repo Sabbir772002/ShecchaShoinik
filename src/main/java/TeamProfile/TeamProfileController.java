@@ -6,12 +6,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.File;
+import java.net.URI;
 import java.sql.*;
 import java.util.Optional;
 
@@ -47,6 +53,9 @@ public class TeamProfileController {
     String role;
     @FXML
     private Button delete;
+    private String name2;
+    private String username1;
+
     @FXML
     void Delete(ActionEvent event) {
         try {
@@ -100,7 +109,27 @@ public class TeamProfileController {
         //t.start();
 
 
+    } public void set(String username, String role,String name2, String username1,BorderPane pane) {
+        if(role.equals("Admin"))delete.setVisible(true);
+
+        con = ConnectionDb.DBC();
+        role = role;
+        this.role = role;
+        this.username = username;
+        this.name2 = name2;
+        this.username1 = username1;
+        this.pane = pane;
+        username2=username;
+        output();
+
+        // alertcount();
+        //alertnum.setText(String.valueOf(newcount));
+        // Thread t=new HelpRequest.AlertThread();
+        //t.start();
+
+
     }
+    String username2="";
     BorderPane pane;
 
     public void set(String username, String role, BorderPane pane) {
@@ -112,17 +141,32 @@ public class TeamProfileController {
         // rolee.setText("@"+role);
         this.role = role;
         this.username = username;
+        username2=username;
         output();
     }
 
 
+   @FXML
+     void mail(MouseEvent e){
 
-
+        try {
+            if (Desktop.isDesktopSupported()) {
+                Desktop desktop = Desktop.getDesktop();
+                if (desktop.isSupported(Desktop.Action.MAIL)) {
+                    URI mailto = new URI("mailto:"+mail.getText().toString());
+                    desktop.mail(mailto);
+                }
+            }
+        }catch (Exception ee )
+        {
+            System.out.println(ee.getMessage());
+        }
+    }
 
     public void output(){
         try{
             Statement stmt=con.createStatement();
-            String sql = "SELECT Name,Username,Phone,Division,District,Mail,License FROM teams Where Username = \'"+username+"\'";
+            String sql = "SELECT Name,Username,Phone,Division,District,Mail,License FROM teams Where Username = \'"+username2+"\'";
             //String sql = "SELECT * FROM `userlist` Where Username = '"+1+"'";
             //System.out.println("'"+user.getText()+"'");
             //SELECT Name,ID FROM `userlist` WHERE Username= "Nuha";
