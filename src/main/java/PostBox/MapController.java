@@ -168,6 +168,11 @@ public class MapController {
         //engine.load(String.valueOf(getClass().getResource("mapsbd.html")));
         engine.loadContent(s);
     }
+    @FXML
+    void reload(ActionEvent event) {
+        WebEngine engine = view.getEngine();
+        engine.loadContent(s);
+    }
 
     @FXML
     void viewmap(ActionEvent e){

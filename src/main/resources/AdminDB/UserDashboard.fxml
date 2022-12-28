@@ -169,9 +169,9 @@
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
-                  <VBox layoutX="13.0" layoutY="169.0" prefHeight="430.0" prefWidth="178.0">
+                  <VBox layoutX="13.0" layoutY="169.0" prefHeight="363.0" prefWidth="178.0">
                      <children>
-                        <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" prefHeight="22.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Home">
+                        <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" prefHeight="22.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Home" textFill="#fafafa">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -220,14 +220,6 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#hrequest" prefHeight="36.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Help Request">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                        </Button>
                         <Button mnemonicParsing="false" onAction="#Event" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Event">
                            <font>
                               <Font name="System Bold" size="13.0" />
@@ -236,7 +228,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="G">
+                        <Button mnemonicParsing="false" onAction="#News" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="News">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -252,14 +244,6 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Log out">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                        </Button>
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="10.0" top="5.0" />
@@ -268,6 +252,11 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </VBox>
+                  <Button layoutX="24.0" layoutY="560.0" mnemonicParsing="false" onAction="#logout" prefHeight="34.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Log out">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
                </children>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
@@ -283,7 +272,7 @@
                   <Image url="@../../Font/logotext.png" />
                </image>
             </ImageView>
-            <Button fx:id="bbutton" alignment="BASELINE_LEFT" layoutX="182.0" layoutY="1.0" mnemonicParsing="false" onAction="#BbankClick" prefHeight="30.0" prefWidth="159.0" style="-fx-background-color: black;" text="BLOOD BANK" textFill="#f7f7f7">
+            <Button fx:id="bbutton" alignment="BASELINE_LEFT" layoutX="182.0" layoutY="1.0" mnemonicParsing="false" onAction="#BbankClick" prefHeight="30.0" prefWidth="159.0" style="-fx-background-color: black;" text="BLOOD BANK" textFill="#fa0606">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -320,10 +309,10 @@
    <center>
       <AnchorPane prefHeight="596.0" prefWidth="778.0" style="-fx-cursor: had; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="table" layoutX="14.0" layoutY="55.0" onMouseClicked="#tableclick" prefHeight="532.0" prefWidth="752.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 10;">
+            <TableView fx:id="table" layoutX="14.0" layoutY="55.0" onMouseClicked="#tableclick" prefHeight="532.0" prefWidth="752.0" style="-fx-background-radius: 10;" stylesheets="@../Style/style.css">
               <columns>
                 <TableColumn fx:id="col_title" prefWidth="238.39999771118164" text="Title" />
-                <TableColumn fx:id="col_type" minWidth="0.0" prefWidth="127.199951171875" text="Diaster Type" />
+                <TableColumn fx:id="col_type" minWidth="0.0" prefWidth="127.199951171875" text="Disaster Type" />
                   <TableColumn fx:id="col_district" minWidth="0.0" prefWidth="174.4000244140625" text="District" />
                   <TableColumn fx:id="col_address" minWidth="0.0" prefWidth="178.39996337890625" text="Address" />
                   <TableColumn fx:id="col_id" minWidth="0.0" prefWidth="182.39996337890625" text="ID" visible="false" />
@@ -331,7 +320,7 @@
             </TableView>
             <TextField fx:id="textfield" layoutX="579.0" layoutY="19.0" onKeyPressed="#keyclick" prefHeight="30.0" prefWidth="186.0" promptText="Search" style="-fx-background-radius: 5;" />
             <Button fx:id="btsearch" layoutX="683.0" layoutY="20.0" mnemonicParsing="false" onAction="#search" prefHeight="28.0" prefWidth="77.0" style="-fx-background-color: white;" />
-            <Label layoutX="21.0" layoutY="14.0" prefHeight="30.0" prefWidth="236.0" text="Lasted Updates" textFill="WHITE">
+            <Label layoutX="21.0" layoutY="14.0" prefHeight="30.0" prefWidth="236.0" text="Latest Updates" textFill="WHITE">
                <font>
                   <Font name="Bell MT Bold" size="28.0" />
                </font>

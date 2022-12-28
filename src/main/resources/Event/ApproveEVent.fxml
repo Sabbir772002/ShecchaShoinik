@@ -5,96 +5,92 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-  <AnchorPane prefHeight="537.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Event.ApproveEVentController">
-      <children>
-              <Label layoutX="11.0" layoutY="13.0" prefHeight="42.0" prefWidth="147.0" text=" Event">
-                  <font>
-                      <Font name="Arial Bold" size="44.0" />
-                  </font>
-              </Label>
-              <TextField layoutX="18.0" layoutY="78.19999694824219" prefHeight="30.0" prefWidth="309.0" promptText="Search event" />
-              <Label alignment="CENTER" layoutX="368.0" layoutY="78.19999694824219" prefHeight="30.0" prefWidth="388.0" text="Seminar on guidelines to winter">
-                  <font>
-                      <Font name="System Bold" size="20.0" />
-                  </font>
-              </Label>
-              <TableView fx:id="time" layoutX="21.0" layoutY="108.19999694824219" prefHeight="479.0" prefWidth="306.0">
-                  <columns>
-                      <TableColumn fx:id="title" prefWidth="200.00001907348633" text="Event Name" />
-                      <TableColumn minWidth="0.0" prefWidth="102.40000915527344" text="Date" />
-                  </columns>
-              </TableView>
-              <Pane layoutX="335.0" layoutY="109.19999694824219" prefHeight="142.0" prefWidth="434.0">
-                  <children>
-                      <ImageView fitHeight="119.0" fitWidth="424.0" layoutX="17.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                          <image>
-                              <Image url="@../../../../../../Pictures/Social%20Work%20Campaign.png" />
-                          </image>
-                      </ImageView>
-                  </children>
-              </Pane>
-              <Label alignment="CENTER" layoutX="358.0" layoutY="259.20001220703125" prefHeight="30.0" prefWidth="388.0" text="Details">
-                  <font>
-                      <Font name="System Bold" size="20.0" />
-                  </font>
-              </Label>
-              <Label layoutX="385.0" layoutY="298.20001220703125" prefHeight="31.0" prefWidth="101.0" text="Time:">
-                  <font>
-                      <Font size="21.0" />
-                  </font>
-              </Label>
-              <Label alignment="CENTER" layoutX="530.0" layoutY="298.20001220703125" prefHeight="31.0" prefWidth="218.0" text="03:40">
-                  <font>
-                      <Font size="21.0" />
-                  </font>
-              </Label>
-              <Label layoutX="385.0" layoutY="338.20001220703125" prefHeight="31.0" prefWidth="101.0" text="District:">
-                  <font>
-                      <Font size="21.0" />
-                  </font>
-              </Label>
-              <Label alignment="CENTER" layoutX="532.0" layoutY="338.20001220703125" prefHeight="31.0" prefWidth="214.0" text="Dhaka">
-                  <font>
-                      <Font size="21.0" />
-                  </font>
-              </Label>
-              <Label layoutX="385.0" layoutY="380.20001220703125" prefHeight="31.0" prefWidth="101.0" text="Division:">
-                  <font>
-                      <Font size="21.0" />
-                  </font>
-              </Label>
-              <Label alignment="CENTER" layoutX="532.0" layoutY="380.20001220703125" prefHeight="31.0" prefWidth="214.0" text="Dhaka">
-                  <font>
-                      <Font size="21.0" />
-                  </font>
-              </Label>
-              <Label layoutX="385.0" layoutY="420.20001220703125" prefHeight="31.0" prefWidth="101.0" text="Address:">
-                  <font>
-                      <Font size="21.0" />
-                  </font>
-              </Label>
-              <Label alignment="CENTER" layoutX="532.0" layoutY="420.20001220703125" prefHeight="31.0" prefWidth="214.0" text="Dhaka">
-                  <font>
-                      <Font size="21.0" />
-                  </font>
-              </Label>
-              <Button layoutX="518.0" layoutY="513.2000122070312" mnemonicParsing="false" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: green;" text="Approve" />
-              <Label layoutX="385.0" layoutY="462.20001220703125" prefHeight="31.0" prefWidth="101.0" text="Location:">
-                  <font>
-                      <Font size="21.0" />
-                  </font>
-              </Label>
-              <Label alignment="CENTER" layoutX="528.0" layoutY="462.20001220703125" prefHeight="31.0" prefWidth="229.0" text="UIU Playground ">
-                  <font>
-                      <Font size="21.0" />
-                  </font>
-              </Label>
-      </children>
-  </AnchorPane>
+<AnchorPane prefHeight="596.0" prefWidth="776.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Event.ApproveEVentController">
+    <children>
+        <Label layoutX="11.0" layoutY="13.0" prefHeight="42.0" prefWidth="147.0" text=" Event">
+            <font>
+                <Font name="Arial Bold" size="44.0" />
+            </font>
+        </Label>
+        <TextField fx:id="search" layoutX="18.0" layoutY="64.19999694824219" onMouseClicked="#serchkey" prefHeight="30.0" prefWidth="309.0" promptText="Search event" />
+        <Label fx:id="Title" alignment="CENTER" layoutX="368.0" layoutY="78.19999694824219" prefHeight="30.0" prefWidth="388.0" text="Seminar on guidelines to winter">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <AnchorPane layoutX="-14.0" layoutY="109.19999694824219" prefHeight="482.0" prefWidth="784.0">
+            <children>
+                <TableView fx:id="eventtable" layoutX="35.0" layoutY="-11.0" onMouseClicked="#eventclick" prefHeight="456.0" prefWidth="306.0">
+                    <columns>
+                        <TableColumn fx:id="title" prefWidth="200.00001907348633" text="Event Name" />
+                        <TableColumn fx:id="time" minWidth="0.0" prefWidth="102.40000915527344" text="Date" />
+                        <TableColumn fx:id="id" minWidth="1.5999816894531023" prefWidth="1.5999816894531023" text="ID" />
+                    </columns>
+                </TableView>
+                <Label alignment="CENTER" layoutX="372.0" layoutY="150.0" prefHeight="30.0" prefWidth="388.0" text="Details">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="399.0" layoutY="189.0" prefHeight="31.0" prefWidth="101.0" text="Date:">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <Label fx:id="date" alignment="CENTER" layoutX="544.0" layoutY="189.0" prefHeight="31.0" prefWidth="218.0" text="03:40">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <Label layoutX="399.0" layoutY="229.0" prefHeight="31.0" prefWidth="101.0" text="District:">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <Label fx:id="district" alignment="CENTER" layoutX="546.0" layoutY="229.0" prefHeight="31.0" prefWidth="214.0" text="Dhaka">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <Label layoutX="399.0" layoutY="271.0" prefHeight="31.0" prefWidth="101.0" text="Division:">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <Label fx:id="division" alignment="CENTER" layoutX="546.0" layoutY="271.0" prefHeight="31.0" prefWidth="214.0" text="Dhaka">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <Label layoutX="399.0" layoutY="311.0" prefHeight="31.0" prefWidth="101.0" text="Address:">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <Label fx:id="address" alignment="CENTER" layoutX="546.0" layoutY="311.0" prefHeight="31.0" prefWidth="214.0" text="Dhaka">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <Button fx:id="team" layoutX="472.0" layoutY="445.0" mnemonicParsing="false" onAction="#addevent" prefHeight="26.0" prefWidth="147.0" style="-fx-background-color: grey;" text="Add Your Event" />
+                <Label layoutX="399.0" layoutY="353.0" prefHeight="31.0" prefWidth="101.0" text="Event By:">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <Label fx:id="author" alignment="CENTER" layoutX="542.0" layoutY="353.0" prefHeight="31.0" prefWidth="229.0" text="UIU Playground ">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <ImageView fx:id="imageview" fitHeight="120.0" fitWidth="281.0" layoutX="435.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="431.0" layoutY="405.0" mnemonicParsing="false" onAction="#Approve" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: green;" text="Approve" />
+            <Button fx:id="decline" layoutX="566.0" layoutY="405.0" mnemonicParsing="false" onAction="#Decline" prefHeight="26.0" prefWidth="110.0" style="-fx-background-color: red;" text="Decline" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

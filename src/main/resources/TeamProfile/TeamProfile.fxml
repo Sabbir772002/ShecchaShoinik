@@ -7,8 +7,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-
-  <AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TeamProfile.TeamProfileController">
+<AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TeamProfile.TeamProfileController">
       <children>
             <Label layoutX="43.0" layoutY="269.0" prefHeight="31.0" prefWidth="98.0" text="Phone:" textFill="WHITE">
                 <font>
@@ -30,7 +29,7 @@
                     <Font name="System Bold" size="21.0" />
                 </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="382.0" prefHeight="21.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="1963890981">
+            <Label fx:id="License" alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="382.0" prefHeight="21.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="1963890981">
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font>
@@ -45,34 +44,44 @@
                     <Font name="System Bold" size="18.0" />
                 </font>
             </Label>
-            <Label fx:id="phone" alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="261.0" prefHeight="32.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="01571144383">
+            <Label fx:id="phone" alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="261.0" onMouseClicked="#whatsapp" prefHeight="32.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="01571144383">
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font>
             </Label>
-            <Label layoutX="41.0" layoutY="416.0" prefHeight="31.0" prefWidth="162.0" text="Volunteer Field:" textFill="WHITE">
+            <Label layoutX="41.0" layoutY="457.0" prefHeight="31.0" prefWidth="162.0" text="Volunteer Field:" textFill="WHITE">
                 <font>
                     <Font name="System Bold" size="21.0" />
                 </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="416.0" prefHeight="26.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="EarthQuake">
+            <Label fx:id="type" alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="459.0" prefHeight="26.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="EarthQuake">
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font>
             </Label>
             <Circle fill="WHITE" layoutX="354.0" layoutY="75.0" radius="54.0" stroke="BLACK" strokeType="INSIDE" />
             <ImageView fitHeight="83.0" fitWidth="82.0" layoutX="320.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" layoutX="232.0" layoutY="129.0" prefHeight="31.0" prefWidth="244.0" text="Team Durbar" textFill="WHITE">
+            <Label fx:id="Name" alignment="CENTER" layoutX="232.0" layoutY="129.0" prefHeight="31.0" prefWidth="244.0" text="Team Durbar" textFill="WHITE">
                 <font>
                     <Font name="System Bold" size="21.0" />
                 </font>
             </Label>
-            <Label alignment="CENTER" layoutX="234.0" layoutY="149.0" prefHeight="26.0" prefWidth="238.0" text="\@durbarbd" textFill="#050505">
+            <Label fx:id="showuser" alignment="CENTER" layoutX="234.0" layoutY="149.0" prefHeight="26.0" prefWidth="238.0" text="\@durbarbd" textFill="#050505">
                 <font>
                     <Font name="System Bold" size="11.0" />
                 </font>
             </Label>
-      <Button fx:id="Join" layoutX="361.0" layoutY="188.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="119.0" style="-fx-background-color: green; -fx-background-radius: 10;" text="Join Team" />
-      <Button fx:id="Request" layoutX="246.0" layoutY="188.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: green; -fx-background-radius: 10;" text="Request for help" />
+      <Button layoutX="294.0" layoutY="184.0" mnemonicParsing="false" onAction="#join" prefHeight="26.0" prefWidth="119.0" style="-fx-background-color: green; -fx-background-radius: 10;" text="Join Team" />
+      <Label layoutX="41.0" layoutY="417.0" prefHeight="31.0" prefWidth="162.0" text="Mail:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="mail" alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="419.0" onMouseClicked="#mail" prefHeight="21.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="Team@shoinik.help">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="delete" layoutX="314.0" layoutY="498.0" mnemonicParsing="false" onAction="#Delete" prefHeight="26.0" prefWidth="119.0" style="-fx-background-color: red; -fx-background-radius: 10;" text="Delete Team" visible="false" />
       </children>
 </AnchorPane>

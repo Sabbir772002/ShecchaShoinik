@@ -382,7 +382,7 @@ public class HelpRequest implements Initializable {
             Event.FXMLScene scene = Event.FXMLScene.load("ViewEvent.fxml");
             Parent root = scene.root;
             Event.ViewEvent admin = (Event.ViewEvent) scene.controller;
-            admin.set(username, role);
+            admin.set(username, role,pane1);
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Event");

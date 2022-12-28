@@ -1,38 +1,31 @@
 package PostBox;
 
-import AdminDB.AdminDashboardController;
-import AdminDB.TeamDashboardController;
-import AdminDB.UserDashboardController;
+import AdminDB.ControlPanelController;
 import DB.ConnectionDb;
-import Sign_in.SigninController;
-import PostBox.MapController;
-import UserProfile.ProfileController;
+import TeamProfile.TeamProfileController;
 import com.example.sheccashoinik.disaster;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.URL;
 import java.sql.*;
-import java.util.Map;
 import java.util.Optional;
-import java.util.ResourceBundle;
 
 public class Post {
     public Post() throws FileNotFoundException {
@@ -53,7 +46,7 @@ public class Post {
     private Label address;
 
     @FXML
-    private Button b;
+    private Button delete;
 
     @FXML
     private Button bbutton;
@@ -76,6 +69,7 @@ public class Post {
     @FXML
     private ImageView imageview;
 
+
     @FXML
     private ImageView imageview1;
 
@@ -96,6 +90,71 @@ public class Post {
 
     @FXML
     private Label type;
+    @FXML
+    private TableColumn<Teams, String> Contact;
+    @FXML
+    private TableColumn<Teams, String> Username;
+    @FXML
+    private TableColumn<Teams, String> Name;
+    @FXML
+    private TableView<Teams> pteam;
+
+    @FXML
+    void tableclickteam(MouseEvent event) {
+        String Name2=pteam.getSelectionModel().getSelectedItem().getName().toString();
+        String user2=pteam.getSelectionModel().getSelectedItem().getUsername().toString();
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(TeamProfile.TeamProfileController.class.getResource("TeamProfile.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            TeamProfileController sadmin = fxmlLoader.getController();
+            sadmin.set(username,role,Name2,user2,pane1);
+            //pane1.setVisible(false);
+            pane1.setCenter(ap);
+            //.setCenter(ap);
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+
+    }
+
+    ObservableList<Teams> listt = FXCollections.observableArrayList();
+
+    ObservableList<Teams> loadteams(){
+        ObservableList<Teams>list = FXCollections.observableArrayList();
+
+        try {
+         //   System.out.println(division);
+
+            PreparedStatement ps = con.prepareStatement("SELECT Name,Username,Phone FROM teams where Division='" + "Rajshahi" + "'");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Teams(rs.getString(1),rs.getString(2),rs.getString(3)));
+            }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+
+        }
+
+
+        return list;
+    }
+    void loadtabletp() {
+
+       /* Contact.setStyle("-fx-text-fill: red;-fx-border-color: transparent;-fx-alignment:CENTER;");
+        Name.setStyle("-fx-text-fill: red;-fx-border-color: transparent;-fx-alignment:CENTER;");*/
+        loadteams();
+        Name.setCellValueFactory(new PropertyValueFactory<Teams,String>("Name"));
+        Contact.setCellValueFactory(new PropertyValueFactory<Teams, String>("Phone"));
+        Username.setCellValueFactory(new PropertyValueFactory<Teams, String>("Username"));
+        listt = loadteams();
+       pteam.setItems(listt);
+
+    }
+
+
 
     @FXML
     private Label user;
@@ -106,7 +165,8 @@ public class Post {
     Blob blob;
     disaster dlist = null;
     public void set(String username, String role, int id) {
-        System.out.println("i am in set");
+        if(role.equals("Admin"))delete.setVisible(true);
+       // System.out.println("i am in set");
         // user.setText(username);
         // rolee.setText("@"+role);
         this.role = role;
@@ -120,8 +180,11 @@ public class Post {
         district.setText(dlist.District);
         addinfo.setText(dlist.getAddInfo());
         poster.setImage(new Image(file.toURI().toString()));
+        loadtabletp();
     }  public void set(String username, String role, int id, BorderPane pane) {
-        System.out.println("i am in set");
+        if(role.equals("Admin"))delete.setVisible(true);
+
+       // System.out.println("i am in set");
         // user.setText(username);
         // rolee.setText("@"+role);
         this.role = role;
@@ -136,6 +199,7 @@ public class Post {
         addinfo.setText(dlist.getAddInfo());
         poster.setImage(new Image(file.toURI().toString()));
         this.pane1=pane;
+        loadtabletp();
     }
 
     void loadbox() {
@@ -224,6 +288,42 @@ public class Post {
         }
     }
 
+    @FXML
+    void Delete(ActionEvent ee)  {
+        try {
+            String st = "Delete from diasterlist WHERE Id=" + id;
+            PreparedStatement preparedStatement = (PreparedStatement) con.prepareStatement(st);
+            preparedStatement.execute();
+            System.out.println("post deleted");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Post deleted Successfully");
+            alert.setHeaderText("Click ok to Back!");
+            File file = new File("src/main/Font/icon1.png");
+            Image image = new Image(file.toURI().toString());
+            stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(image);
+            // alert.initOwner(stage);
+            //alert.setGraphic(new ImageView(image));
+            //user.setImage(image);
+            Optional<ButtonType> result = alert.showAndWait();
+            try {
+                System.out.println("hey ki khobor");
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(AdminDB.ControlPanelController.class.getResource("ControlPanel.fxml"));
+                AnchorPane ap = fxmlLoader.load();
+                ControlPanelController sadmin = fxmlLoader.getController();
+                sadmin.set(username, role, pane1);
+                pane1.setCenter(ap);
+                System.out.println("kno holo na");
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
     @FXML
     void viewmap(ActionEvent e) {
         //System.out.println("ashlam kaj holo na1");

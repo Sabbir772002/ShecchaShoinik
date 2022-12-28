@@ -20,7 +20,7 @@ public class Client implements Runnable{
             reader = new BufferedReader(isr);
             clientName = reader.readLine();
             clients.add(this);
-            System.out.println("Client: " + clientName + " connected.");
+            System.out.println("Client: " + clientName + " on live.");
         } catch (IOException e){
             e.printStackTrace();
         }
@@ -30,6 +30,7 @@ public class Client implements Runnable{
         while(true){
             try {
                 String data = reader.readLine();
+
                 data = clientName + ": " + data + "\n";
                 synchronized (clients){
                     for(Client client: clients){
@@ -41,7 +42,7 @@ public class Client implements Runnable{
                 }
             }
             catch (SocketException e){
-                System.out.println("vul je"+ e.getMessage());
+                System.out.println("vul je "+ e.getMessage());
                 break;
             }
             catch (IOException e) {

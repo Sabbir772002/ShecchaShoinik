@@ -137,7 +137,7 @@ public class SigninController implements Initializable {
     void send(ActionEvent event) {
         try {
             if (role.equals("User")) {
-                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("User2Dashboard.fxml");
+                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("UserDashboard.fxml");
                 //FXMLScene scene = FXMLScene.load("BackgroundDesign.fxml");
                 Parent root = scene.root;
                 UserDashboardController adminController = (UserDashboardController) scene.controller;
@@ -199,22 +199,65 @@ public class SigninController implements Initializable {
             //status = "Success";
             status = "Errorr";
         } else {
-           // System.out.println("Inbox");
-            String sql = "SELECT * FROM userlist Where username = ? and password = ?";
-            try {
-                PreparedStatement preparedStatement = con.prepareStatement(sql);
-                preparedStatement.setString(1, usern);
-                preparedStatement.setString(2, passw);
-                ResultSet resultSet = preparedStatement.executeQuery();
-                if (!resultSet.next()) {
-                   // status = "Success";
-                    status = "Error";
-                } else {
+            if(sign_in_box.getValue().toString().equals("User")) {
 
+                // System.out.println("Inbox");
+                String sql = "SELECT * FROM userlist Where username = ? and password = ?";
+                try {
+                    PreparedStatement preparedStatement = con.prepareStatement(sql);
+                    preparedStatement.setString(1, usern);
+                    preparedStatement.setString(2, passw);
+                    ResultSet resultSet = preparedStatement.executeQuery();
+                    if (!resultSet.next()) {
+                        // status = "Success";
+                        status = "Error";
+                    } else {
+
+                    }
+                } catch (SQLException ex) {
+                    System.err.println(ex.getMessage());
+                    status = "Exception";
                 }
-            } catch (SQLException ex) {
-                System.err.println(ex.getMessage());
-                status = "Exception";
+            }
+           else if(sign_in_box.getValue().toString().equals("Volunteer Leader")) {
+
+                // System.out.println("Inbox");
+                String sql = "SELECT * FROM teams Where username = ? and pass = ?";
+                try {
+                    PreparedStatement preparedStatement = con.prepareStatement(sql);
+                    preparedStatement.setString(1, usern);
+                    preparedStatement.setString(2, passw);
+                    ResultSet resultSet = preparedStatement.executeQuery();
+                    if (!resultSet.next()) {
+                        // status = "Success";
+                        status = "Error";
+                    } else {
+
+                    }
+                } catch (SQLException ex) {
+                    System.err.println(ex.getMessage());
+                    status = "Exception";
+                }
+            }
+            else if(sign_in_box.getValue().toString().equals("Admin")) {
+
+                // System.out.println("Inbox");
+                String sql = "SELECT * FROM Admin Where username = ? and pass = ?";
+                try {
+                    PreparedStatement preparedStatement = con.prepareStatement(sql);
+                    preparedStatement.setString(1, usern);
+                    preparedStatement.setString(2, passw);
+                    ResultSet resultSet = preparedStatement.executeQuery();
+                    if (!resultSet.next()) {
+                        // status = "Success";
+                        status = "Error";
+                    } else {
+
+                    }
+                } catch (SQLException ex) {
+                    System.err.println(ex.getMessage());
+                    status = "Exception";
+                }
             }
         }
 

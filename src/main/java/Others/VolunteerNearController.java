@@ -1,22 +1,58 @@
 package Others;
 
+import BloodBank.User;
+import Chat.userlist;
 import DB.ConnectionDb;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 
+import java.awt.*;
+import java.net.URI;
+import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class VolunteerNearController {
+public class VolunteerNearController implements Initializable {
     Connection con;
     String username="";
     String role="";
+    @FXML
+    void mail(MouseEvent e){
 
+        try {
+            if (Desktop.isDesktopSupported()) {
+                Desktop desktop = Desktop.getDesktop();
+                if (desktop.isSupported(Desktop.Action.MAIL)) {
+                    URI mailto = new URI("mailto:"+Phone1.getText().toString());
+                    desktop.mail(mailto);
+                }
+            }
+        }catch (Exception ee )
+        {
+            System.out.println(ee.getMessage());
+        }
+    }
     public void set(String username, String role) {
         con= ConnectionDb.DBC();
         role=role;
         this.role = role;
         this.username = username;
+        loadduserinfo();
+        loadtable();
 
         // alertcount();
         //alertnum.setText(String.valueOf(newcount));
@@ -25,6 +61,38 @@ public class VolunteerNearController {
 
 
     }
+    BorderPane pane;
+
+    public void set(String username, String role, BorderPane pane) {
+        con=ConnectionDb.DBC();
+        this.pane=pane;
+        // user.setText(username);
+        // rolee.setText("@"+role);
+        this.role = role;
+        this.username = username;
+        loadduserinfo();
+        loadtable();
+    }
+    String division, district;
+    void loadduserinfo(){
+        try {
+            System.out.println(username);
+            PreparedStatement ps = con.prepareStatement("SELECT District,Division FROM userlist where Username='" + username + "'");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                district=rs.getString(1);
+                division=rs.getString(2);
+            }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+
+            }
+
+
+    }
+
+
     @FXML
     private Label District;
 
@@ -54,458 +122,289 @@ public class VolunteerNearController {
 
     @FXML
     private Label showuser;
+    @FXML
+    private TableView<Team> vtable;
+    @FXML
+    private TableColumn<Team, String> col_district;
 
-}
+    @FXML
+    private TableColumn<Team, String> col_name;
+
+    @FXML
+    private TableColumn<Team, String> col_user;
+    @FXML
+    ObservableList<Team> listF;
+
+    ObservableList<Team> getdiasterList() {
+        ObservableList<Team> userlist1 = FXCollections.observableArrayList();
 
 
-/*
-package Others;
-
-import UserProfile.ProfileController;
-import Sign_in.SigninController;
-import com.example.sheccashoinik.Application;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import AdminDB.*;
-import javafx.stage.Stage;
-import DB.ConnectionDb;
-
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.util.Optional;
-import java.util.ResourceBundle;
-
-public class VolunteerNearController implements Initializable {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-    public String username="";
-    public String role="";
-    Connection con;
-    public VolunteerNearController(){
-        con=ConnectionDb.DBC();
+        return userlist1;
     }
 
-
-    public void set(String username,String role) {
-        user.setText(username);
-        rolee.setText("@"+role);
-        this.username = username;
-        this.role = role;
-        System.out.println(username);
-    }
+    int indexM = -1;
     @FXML
-    private TextField address;
-
-
+    private TextField search;;
     @FXML
-    private TextField address1;
+    void keyclick(KeyEvent e) {
+        ObservableList<Team> list1 = FXCollections.observableArrayList();
+        //i++;
 
-    @FXML
-    private Button b;
 
-    @FXML
-    private Button bbutton;
-
-    @FXML
-    private ImageView bimage;
-
-    @FXML
-    private ChoiceBox<String> choice;
-
-    @FXML
-    private TextField diastertitle;
-
-    @FXML
-    private ComboBox<String> division;
-
-    @FXML
-    private ComboBox<String> diaster;
-
-    @FXML
-    private ComboBox<String> district;
-
-    @FXML
-    private ImageView imageview;
-
-    @FXML
-    private ImageView imageview1;
-
-    @FXML
-    private ImageView logoimage;
-
-    @FXML
-    private BorderPane pane1;
-
-    @FXML
-    void BbankClick(MouseEvent event) {
-
-    }
-    @FXML
-    void ChoiceClick(ActionEvent event) {
-
-    }
-
-    @FXML
-    void ChoiceClick(MouseEvent event) {
-
-    }
-    @FXML
-    void select(ActionEvent event) {
-        String divisionname;
-        try{
-            divisionname=division.getSelectionModel().getSelectedItem().toString();
-        }catch(Exception e ){
-            divisionname="";
-        }
-        if(divisionname.equals("Dhaka")){
-            district.getItems().removeAll(district.getItems());
-            String []ditrict={"Dhaka","Gazipur","Faridpur","Gopalganj","Jamalpur","Kishoreganj","Madaripur","Manikganj","Munshiganj","Narayanganj","Narshingdi","Rajbari","Shariatpur","Tangail"};
-            district.getItems().addAll(ditrict);
-        }else if(divisionname.equals("Rajshahi")){
-            district.getItems().removeAll(district.getItems());
-
-            String []ditrict={"Rajshahi","Sirajgonj","Bogra","Chapinawabganj","Joypurhat","Naogaon","Natore","Pabna"};
-            district.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Chattogram")){
-            district.getItems().removeAll(district.getItems());
-
-            String []ditrict={"Chattogram","Cox's Bazar", "Rangamati", "Bandarban", "Khagrachhari", "Feni", "Lakshmipur", "Comilla"," Noakhali", "Brahmanbaria" ,"Chandpur"};
-            district.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Barishal")){
-            district.getItems().removeAll(district.getItems());
-
-            String []ditrict={"Barishal", "Barguna", "Bhola", "Jhalokati", "Pirojpur","Patuakhali"};
-            district.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Sylhet")){
-            district.getItems().removeAll(district.getItems());
-
-            String []ditrict={"Sylhet","Habiganj","Moulvibazar","Sunamganj" };
-            district.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Mymensingh")){
-            district.getItems().removeAll(district.getItems());
-
-            String []ditrict={"Mymensingh","Jamalpur","Netrokona","Sherpur" };
-            district.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Khulna")){
-            district.getItems().removeAll(district.getItems());
-
-            String []ditrict={"Khulna","Bagherhat","Chuadanga","Jessore","Jinaidaha","Magura","Meherpur","Narail","Satkhira" };
-            district.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Rangpur")){
-            district.getItems().removeAll(district.getItems());
-
-            String []ditrict={"Rangpur","Kurigram","Gaibandha","Thakurgaon","Dinajpur","Nilphamari","Panchagarh","Lalmonirhat" };
-            district.getItems().addAll(ditrict);
-        }
-    }
-
-    @FXML
-    void Dashboard(ActionEvent event) {
+        Connection con;
+        //= ConnectionDb.DBC();
+        //ObservableList<diaster>list = FXCollections.observableArrayList();
         try {
-            if (role.equals("User")) {
-                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("UserDashboard.fxml");
-                Parent root = scene.root;
-                UserDashboardController adminController = (UserDashboardController) scene.controller;
-                adminController.set(username, role);
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.setTitle("UserProfile");
-                stage.show();
-            }else if(role.equals("Admin")){
-                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard.fxml");
-                Parent root = scene.root;
-                AdminDashboardController adminController = (AdminDashboardController) scene.controller;
-                adminController.set(username, role);
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.setTitle("UserProfile");
-                stage.show();
 
-               */
-/* AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("AdminDashboard1.fxml");
-                Parent root = scene.root;
-                AdminDashboardController adminController = (AdminDashboardController) scene.controller;
-                adminController.set(username, role);
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.setTitle("AdminDashboard");
-                stage.show();*//*
-
-            }else{
-                AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard.fxml");
-                Parent root = scene.root;
-                TeamDashboardController adminController = (TeamDashboardController) scene.controller;
-                adminController.set(username, role);
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.setTitle("TeamDashboard");
-                stage.show();
-                */
-/*AdminDB.FXMLScene scene = AdminDB.FXMLScene.load("TeamDashboard1.fxml");
-                Parent root = scene.root;
-                TeamDashboardController adminController = (TeamDashboardController) scene.controller;
-                adminController.set(username, role);
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.setTitle("TeamDashboard");
-                stage.show();*//*
-
-            }
-        }catch(IOException e){
-            System.out.println("bhul holo add post er dashboard "+e.getMessage());
-        }
-    }
-
-
-
-    @FXML
-    void Diaster(ActionEvent event) {
-
-    }
-
-    @FXML
-    void F(ActionEvent event) {
-
-    }
-
-    @FXML
-    void G(ActionEvent event) {
-
-    }
-
-    @FXML
-    void H(ActionEvent event) {
-
-    }
-
-    @FXML
-    void VolunteerNear(ActionEvent event) {
-
-    }
-
-    @FXML
-    void addpost(ActionEvent event) {
-
-    }
-
-    @FXML
-    void chat(ActionEvent event) {
-
-    }
-
-    @FXML
-    void logout(ActionEvent event) {
-        try {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Logout Confirmation");
-            alert.setHeaderText("Are you sure you want to log out?");
-            File file = new File("src/main/Font/icon1.png");
-            Image image = new Image(file.toURI().toString());
-            stage = (Stage) alert.getDialogPane().getScene().getWindow();
-            stage.getIcons().add(image);
-            // alert.initOwner(stage);
-            //alert.setGraphic(new ImageView(image));
-            //user.setImage(image);
-            Optional<ButtonType> result=alert.showAndWait();
-            if(alert.getResult().getText().equals("OK")){
-                root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.setTitle("SIGN IN");
-                stage.show();
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    @FXML
-    void chatclick(ActionEvent e){
-
-
-    }
-
-    @FXML
-    void profile(ActionEvent event) {
-
-        try{
-            UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
-            Parent root = scene.root;
-            ProfileController admin= (ProfileController) scene.controller;
-            admin.set(username,role);
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Profile");
-            stage.show();
-        }catch (Exception e){
-            System.out.println("bhul holo add post controller");
-        }
-
-    } @FXML
-    void Choiceclick(ActionEvent event) {
-        if(choice.getValue().toString().equals("Logout")){
+            con = ConnectionDb.DBC();
             try {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Logout Confirmation");
-                alert.setHeaderText("Are you sure you want to log out?");
-                File file = new File("src/main/Font/icon1.png");
-                Image image = new Image(file.toURI().toString());
-                stage = (Stage) alert.getDialogPane().getScene().getWindow();
-                stage.getIcons().add(image);
-                // alert.initOwner(stage);
-                //alert.setGraphic(new ImageView(image));
-                //user.setImage(image);
-                Optional<ButtonType> result=alert.showAndWait();
-                if(alert.getResult().getText().equals("OK")){
-                    root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.setTitle("SIGN IN");
-                    stage.show();
+                loadduserinfo();
+               // System.out.println(district+" "+division);
+                // System.out.println("hlw");
+                PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity FROM Teams where District='" + district + "'");
+                ;
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+
+                    String s1 = rs.getString(1);
+                    String s3 = rs.getString(2);
+                    String s5 = rs.getString(3);
+                    String s6 = rs.getString(4);
+                    String s7 = rs.getString(5);
+                    String s8 = rs.getString(6);
+                    String s9 = String.valueOf(rs.getInt(7));
+                    // System.out.println(s5);
+                    String s0 = s1 + s3 + s5+s6+s7+s8+s9;
+
+                    String s4[] = s0.split(" ");
+
+
+                    String s2 = search.getText().toString() + "";
+                    // System.out.println(s2);
+                    boolean i = false;
+                    for (int j = 0; j < s0.length(); j++) {
+                        for (int p = j + 1; p < s0.length() - 2; p++) {
+                            if (s0.substring(j, p).equalsIgnoreCase(s2)) {
+                                // System.out.println((s[j])+"=="+textfield.getText().toString());
+                                i = true;
+                            }
+                        }
+                    }
+                    s2 += " ";
+                    if (s2.equals("")) {
+                        i = true;
+                        // System.out.println("thik ase");
+                    }
+                    if (s2.equals(" ")) {
+                        i = true;
+                        //System.out.println("thik ase2");
+                    }
+                    if (i) {
+                        list1.add(new Team(s1, s3, s5));
+                    }
+
+
+                }
+                ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity FROM Teams where Division='" + division + "' And District!='"+district +"'");
+                ;
+                rs = ps.executeQuery();
+                while (rs.next()) {
+
+                    String s1 = rs.getString(1);
+                    String s3 = rs.getString(2);
+                    String s5 = rs.getString(3);
+                    String s6 = rs.getString(4);
+                    String s7 = rs.getString(5);
+                    String s8 = rs.getString(6);
+                    String s9 = String.valueOf(rs.getInt(7));
+                    // System.out.println(s5);
+                    String s0 = s1 + s3 + s5 + s6 + s7 + s8 + s9;
+
+
+                    String s2 = search.getText().toString() + "";
+                    // System.out.println(s2);
+                    boolean i = false;
+                    for (int j = 0; j < s0.length(); j++) {
+                        for (int p = j + 1; p < s0.length() - 2; p++) {
+                            if (s0.substring(j, p).equalsIgnoreCase(s2)) {
+                                // System.out.println((s[j])+"=="+textfield.getText().toString());
+                                i = true;
+                            }
+                        }
+                    }
+                    s2 += " ";
+                    if (s2.equals("")) {
+                        i = true;
+                        // System.out.println("thik ase");
+                    }
+                    if (s2.equals(" ")) {
+                        i = true;
+                        //System.out.println("thik ase2");
+                    }
+                    if (i) {
+                        list1.add(new Team(s1, s3, s5));
+                    }
                 }
 
-            } catch (Exception e) {
-                e.printStackTrace();
+                ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity FROM Teams where Division!='" + division + "'");
+                    ;
+                    rs = ps.executeQuery();
+                    while (rs.next()) {
+
+                    String     s1 = rs.getString(1);
+                   String     s3 = rs.getString(2);
+                   String      s5 = rs.getString(3);
+                     String   s6 = rs.getString(4);
+                    String     s7 = rs.getString(5);
+                   String      s8 = rs.getString(6);
+                   String    s9 = String.valueOf(rs.getInt(7));
+
+                    String      s0 = s1 + s3 + s5+s6+s7+s8+s9;
+
+
+
+                       String  s2 = search.getText().toString() + "";
+                        // System.out.println(s2);
+                      boolean i = false;
+                        for (int j = 0; j < s0.length(); j++) {
+                            for (int p = j + 1; p < s0.length() - 2; p++) {
+                                if (s0.substring(j, p).equalsIgnoreCase(s2)) {
+                                    // System.out.println((s[j])+"=="+textfield.getText().toString());
+                                    i = true;
+                                }
+                            }
+                        }
+                        s2 += " ";
+                        if (s2.equals("")) {
+                            i = true;
+                            // System.out.println("thik ase");
+                        }
+                        if (s2.equals(" ")) {
+                            i = true;
+                            //System.out.println("thik ase2");
+                        }
+                        if (i) {
+                            list1.add(new Team(s1, s3, s5));
+                        }
+
+
+                    }
+                    // rs.getString(1)), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7))
+                } catch(Exception i){
+                    System.out.println("error at bank serch user backlist" + i.getMessage());
+                } finally{
+
+                    try {
+                        // con.close();
+                    } catch (Exception ee) {
+                    }
+                }
+                col_name.setCellValueFactory(new PropertyValueFactory<Team, String>("Name"));
+                col_user.setCellValueFactory(new PropertyValueFactory<Team, String>("Username"));
+                col_district.setCellValueFactory(new PropertyValueFactory<Team, String>("District"));
+                vtable.setItems(list1);
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
             }
-        }else {
-            try{
-                  */
-/* root = FXMLLoader.load(ProfileController.class.getResource("Profile.fxml"));
-                   stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                   scene = new Scene(root);
-                   stage.setScene(scene);
-                   stage.setTitle("SIGN IN");
-                   stage.show();*//*
-
-                UserProfile.FXMLScene scene =  UserProfile.FXMLScene.load("Profile.fxml");
-                Parent root = scene.root;
-                ProfileController adminController = (ProfileController) scene.controller;
-                adminController.set(username,role);
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.setTitle("Profile");
-                stage.show();
-
-            }catch (Exception e){
-
-            }
-               */
-/* try {
-                    //  FxmlLoader o = new FxmlLoader();
-                    p = FXMLLoader.load(Profile.ProfileController.class.getResource("Profile.fxml"));
-
-                    pane1.setCenter(p);
-                    stage.setTitle("Profile");
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                   stage.setScene(scene);
-                    stage.setTitle("Profile");
-                    stage.show();
-                    System.out.println("helloApplication");
-                } catch (Exception e) {
-
-                }*//*
-
         }
 
+
+    void loadtable() {
+        col_name.setCellValueFactory(new PropertyValueFactory<Team, String>("Name"));
+        col_district.setCellValueFactory(new PropertyValueFactory<Team, String>("District"));
+        col_user.setCellValueFactory(new PropertyValueFactory<Team, String>("Username"));
+        listF = ConnectionDb.getTeamlist(division,district);
+         vtable.setItems(listF);
+
     }
-    @FXML
-    private Label rolee;
+
+
+
+
 
     @FXML
-    private Label user;
+    void helpclcik(ActionEvent event) {
 
-
-    public void set(String username) {
-        user.setText(username);
-        rolee.setText("@"+role);
-        this.username = username;
-        System.out.println(username);
     }
-    @FXML
-    void Submit(ActionEvent event) {
-        System.out.println("i am at add post");
 
+    @FXML
+    void search(ActionEvent event) {
+
+    }
+
+
+    @FXML
+    void tableclick(MouseEvent e) {
+        String t=vtable.getSelectionModel().getSelectedItem().getUsername();
         try {
-            con=ConnectionDb.DBC();
-            String st = "INSERT INTO diasterlist (Title,Type, Address, Division, District,AddInfo) VALUES (?,?,?,?,?,?)";
-            PreparedStatement preparedStatement = (PreparedStatement) con.prepareStatement(st);
-            preparedStatement.setString(1, diastertitle.getText());
-            preparedStatement.setString(2, diaster.getValue().toString());
-            preparedStatement.setString(3, address.getText());
-            preparedStatement.setString(4, division.getValue().toString());
-            preparedStatement.setString(5, district.getValue().toString());
-            preparedStatement.setString(6, address1.getText().toString());
-            */
-/*preparedStatement.setString(7, "1963890981");
-            preparedStatement.setString(8, cbGender.getValue().toString());
-            preparedStatement.setString(9, cbgroup.getValue().toString());
-            preparedStatement.setString(10, bloodgroup.getValue().toString());
-            preparedStatement.setString(11, phone.getText());
-            preparedStatement.setString(12, mail.getText());*//*
+            PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity,Mail FROM Teams where Username='" + vtable.getSelectionModel().getSelectedItem().getUsername() + "'");
+            ;
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
 
-            preparedStatement.execute();
-            preparedStatement.close();
-            con.close();
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("AddPostConfirmation!");
-            alert.setHeaderText("Your Post Added!\nNow this will be show on Timeline");
-            // alert.setContentText("");
-            File file = new File("src/main/Font/icon1.png");
-            Image image = new Image(file.toURI().toString());
-            stage = (Stage) alert.getDialogPane().getScene().getWindow();
-            stage.getIcons().add(image);
-            Optional<ButtonType> result=alert.showAndWait();
-            System.out.println("THIK ASEY INPUT");
-        } catch (Exception e) {
-            System.out.println("some error at add post/n"+e.getMessage());
+                String s1 = rs.getString(1);
+                String s3 = rs.getString(2);
+                String s5 = rs.getString(3);
+                String s6 = rs.getString(4);
+                String s7 = rs.getString(5);
+                String s8 = rs.getString(6);
+                String s9 = String.valueOf(rs.getInt(7));
+                String s10 = rs.getString(8);
+              Name.setText(s1);
+              showuser.setText("@"+s5);
+              Division.setText(s3);
+              District.setText(s6);
+              field.setText(s7);
+              field1.setText(s9.equals("1")?"True":"False");
+              Phone.setText(s8);
+              Phone1.setText(s10);
 
+            }
+
+
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
         }
-
     }
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        String []division1={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
-        division.getItems().addAll(division1);
-        String []user={"EarthQuake","Blood","Fire","Cyclone","Cidor","Others"};
-        diaster.getItems().addAll(user);
-        String []choiceb={"Profile","Logout"};
-        choice.getItems().addAll(choiceb);
-        File file = new File("src/main/Font/user1.png");
-        Image image = new Image(file.toURI().toString());
-        imageview.setImage(image);
-        File file1 = new File("src/main/Font/1.png");
-        Image image1 = new Image(file1.toURI().toString());
-        bimage.setImage(image1);
-        file1 = new File("src/main/Font/logotext.png");
-        Image image4 = new Image(file1.toURI().toString());
-        logoimage.setImage(image4);
-        file1 = new File("src/main/Font/icon1.png");
-        Image image5 = new Image(file1.toURI().toString());
-        imageview1.setImage(image5);
-        username= Application.oname;
+    void tableclick( ) {
+        String t="TeamDurbar";
+        try {
+            PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity,Mail FROM Teams where Username='" + t + "'");
+            ;
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
 
+                String s1 = rs.getString(1);
+                String s3 = rs.getString(2);
+                String s5 = rs.getString(3);
+                String s6 = rs.getString(4);
+                String s7 = rs.getString(5);
+                String s8 = rs.getString(6);
+                String s9 = String.valueOf(rs.getInt(7));
+                String s10 = rs.getString(8);
+                Name.setText(s1);
+                showuser.setText("@"+s5);
+                Division.setText(s3);
+                District.setText(s6);
+                field.setText(s7);
+                field1.setText(s9.equals("1")?"True":"False");
+                Phone.setText(s8);
+                Phone1.setText(s10);
+
+            }
+
+
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+        @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        con=ConnectionDb.DBC();
+        tableclick();
+      /*  loadduserinfo();
+        loadtable();*/
     }
 }
-*/
+
+
