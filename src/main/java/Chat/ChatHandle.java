@@ -69,7 +69,7 @@ public class ChatHandle extends Thread {
         role = role;
         this.role = role;
         this.username = username;
-      //  loadtable();
+         loadtable();
         this.pane1 = pane;
          connectSocket();
     }
