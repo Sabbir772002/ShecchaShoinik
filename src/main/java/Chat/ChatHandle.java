@@ -2,7 +2,10 @@ package Chat;
 
 import AdminDB.User;
 import DB.ConnectionDb;
+import UserProfile.ProfileController;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,13 +14,12 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -26,13 +28,12 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicReference;
@@ -41,14 +42,12 @@ public class ChatHandle extends Thread implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-connectSocket();
+       connectSocket();
     }
     Connection con;
     String username = "";
     String role = "";
     BorderPane pane1;
-
-    ;
 
     public void set(String username, String role) {
         con = ConnectionDb.DBC();
@@ -56,12 +55,9 @@ connectSocket();
         this.role = role;
         this.username = username;
         connectSocket();
-        //loadtable();
+        loadtable();
         // connect();
-        // alertcount();
-        //alertnum.setText(String.valueOf(newcount));
-        // Thread t=new HelpRequest.AlertThread();
-        //t.start();
+
 
 
     }
@@ -75,19 +71,8 @@ connectSocket();
         this.username = username;
       //  loadtable();
         this.pane1 = pane;
-        // alertcount();
-        //alertnum.setText(String.valueOf(newcount));
-        // Thread t=new HelpRequest.AlertThread();
-        //t.start();
-        //connect();
-connectSocket();
+         connectSocket();
     }
-
-        @FXML
-        private TableColumn<?, ?> colname;
-
-        @FXML
-        private TableColumn<?, ?> coluser;
 
         @FXML
         private HBox hboxmessage;
@@ -105,28 +90,71 @@ connectSocket();
         private Label user21;
 
         @FXML
-        private TableView<?> usertable;
+        private TableView<userlist> usertable;
 
         @FXML
         private VBox vboxmessage;
 
-        @FXML
-        void search(KeyEvent event) {
 
+
+
+    @FXML
+    private TextArea showArea;
+    @FXML
+    private TableColumn<userlist, String> colname;
+    @FXML
+    private TableColumn<userlist, String> coluser;
+
+    ObservableList<userlist> listF;
+    int indexM = -1;
+    boolean isConnected = false;
+    BufferedReader reader;
+    String inputName;
+    BufferedWriter writer;
+    Socket sc;
+    @FXML
+    ObservableList<userlist> list;
+
+
+
+    @FXML
+    void tableclick(MouseEvent event) {
+        String Name2 = ((userlist)this.usertable.getSelectionModel().getSelectedItem()).getName().toString();
+        String user2 = ((userlist)this.usertable.getSelectionModel().getSelectedItem()).getUsername().toString();
+
+        try {
+            System.out.println("hey ki khobor");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(ProfileController.class.getResource("Profile.fxml"));
+            AnchorPane ap = (AnchorPane)fxmlLoader.load();
+            ProfileController sadmin = (ProfileController)fxmlLoader.getController();
+            sadmin.set(this.username, this.role, Name2, user2, this.pane1);
+            this.pane1.setCenter(ap);
+            System.out.println("kno holo na");
+        } catch (Exception var7) {
+            System.out.println(var7.getMessage());
         }
 
+    }
 
-        @FXML
-        void tableclick(MouseEvent event) {
+    ObservableList<userlist> getdiasterList() {
+        ObservableList<userlist> userlist1 = FXCollections.observableArrayList();
+        return userlist1;
+    }
 
-        }
+    void loadtable() {
+        this.colname.setCellValueFactory(new PropertyValueFactory("Name"));
+        this.coluser.setCellValueFactory(new PropertyValueFactory("Username"));
+        this.listF = ConnectionDb.getuserlist();
+        this.usertable.setItems(this.listF);
+    }
     private ArrayList<ChatHandle> clients;
 
     private Socket socket;
 
     public BufferedReader in;
 
-    public PrintWriter writer;
+    //public PrintWriter writer;
 
     public Label lblUsername;
     public ImageView btnBackToLogin;
@@ -137,13 +165,11 @@ connectSocket();
     PrintWriter printWriter;
 
 
-/*
     public void initialize() {
         connectSocket();
-       // lblUsername.setText(username);
+        // lblUsername.setText(username);
         inputField.setStyle("-fx-prompt-text-fill: white; -fx-background-color: transparent");
     }
-*/
 
     private void connectSocket() {
         try {
@@ -152,14 +178,15 @@ connectSocket();
 
             bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             printWriter = new PrintWriter(socket.getOutputStream(), true);
-
             this.start();
 
         } catch (IOException e) {
-
+            System.out.println(e.getMessage());
         }
     }
 
+
+    @Override
     public void run() {
         try {
             while (true) {
@@ -216,24 +243,8 @@ connectSocket();
     }
 
 
-    private void enableMove(Scene scene, Stage stage) {
-        AtomicReference<Double> xOffset = new AtomicReference<>((double) 0);
-        AtomicReference<Double> yOffset = new AtomicReference<>((double) 0);
-        scene.setOnMousePressed(event -> {
-            xOffset.set(stage.getX() - event.getScreenX());
-            yOffset.set(stage.getY() - event.getScreenY());
-        });
-        //Lambda mouse event handler
-        scene.setOnMouseDragged(event -> {
-            stage.setX(event.getScreenX() + xOffset.get());
-            stage.setY(event.getScreenY() + yOffset.get());
-        });
-    }
-
-    public void sendMessageOnAction(MouseEvent mouseEvent) {
-    }
      @FXML
-    public void send(ActionEvent e) {
+     public void send(ActionEvent e) {
         String msg = inputField.getText();
         printWriter.println(username + ":  " + msg + "  ");
 //        txtClientPane.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
@@ -260,10 +271,61 @@ connectSocket();
     }
 
     public void sendMessageByKeyOnAction(KeyEvent keyEvent) {
-        if (keyEvent.getCode().toString().equals("ENTER")) {
+    }
+    @FXML
+    void search(KeyEvent e) {
+        ObservableList<userlist> list1 = FXCollections.observableArrayList();
 
+        try {
+            PreparedStatement ps = this.con.prepareStatement("SELECT Name,District,Username,Division,BG,Gender,Phone,Volunteer FROM userlist");
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                String s1 = rs.getString(1);
+                String s3 = rs.getString(2);
+                String s5 = rs.getString(3);
+                String s6 = rs.getString(4);
+                String s7 = rs.getString(5);
+                String s8 = rs.getString(6);
+                String s9 = rs.getString(7);
+                String s10 = rs.getString(8);
+                String s0 = s1 + s3 + s5 + s6 + s7 + s8 + s9 + s10;
+                String s2 = "" + this.search.getText().toString();
+                boolean i = false;
+
+                for(int j = 0; j < s0.length(); ++j) {
+                    for(int p = j + 1; p < s0.length() - 2; ++p) {
+                        if (s0.substring(j, p).equalsIgnoreCase(s2)) {
+                            i = true;
+                        }
+                    }
+                }
+
+                s2 = s2 + " ";
+                if (s2.equals("")) {
+                    i = true;
+                }
+
+                if (s2.equals(" ")) {
+                    i = true;
+                }
+
+                if (i) {
+                    list1.add(new userlist(s1, s5));
+                }
+            }
+        } catch (Exception var21) {
+            System.out.println("error at cmchat serch user" + var21.getMessage());
+        } finally {
+            ;
         }
+
+        this.colname.setCellValueFactory(new PropertyValueFactory("Name"));
+        this.coluser.setCellValueFactory(new PropertyValueFactory("Username"));
+        this.usertable.setItems(list1);
     }
-    }
+}
+
+
 
 

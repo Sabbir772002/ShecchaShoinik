@@ -183,7 +183,7 @@ public class BloodBankController implements Initializable
                         boolean i = false;
                         for (int j = 0; j < s0.length(); j++) {
                             for (int p = j + 1; p < s0.length() - 2; p++) {
-                      if (s0.substring(j, p).equalsIgnoreCase(s2)) {
+                                if (s0.substring(j, p).equalsIgnoreCase(s2)) {
                                     // System.out.println((s[j])+"=="+textfield.getText().toString());
                                     i = true;
                                 }
@@ -209,7 +209,7 @@ public class BloodBankController implements Initializable
             } finally {
 
                 try {
-                   // con.close();
+                    // con.close();
                 } catch (Exception ee) {
                 }
             }
@@ -228,7 +228,7 @@ public class BloodBankController implements Initializable
         String s = "Select Name,Username,LastTime from userlist";
         try
         {
-           // System.out.println("hlw");
+            // System.out.println("hlw");
             PreparedStatement ps=con.prepareStatement(s);
             ResultSet rs=ps.executeQuery();
             while(rs.next()){
@@ -238,7 +238,7 @@ public class BloodBankController implements Initializable
                 String s5=rs.getString(3);
                 System.out.println(s5);
                 if(check((s5))||s5.equals(null)) {
-                   // list.add(new User(rs.getString(1), rs.getString(2)));
+                    // list.add(new User(rs.getString(1), rs.getString(2)));
                     list.add(new User(s1, s2));
                 }
 
@@ -251,7 +251,7 @@ public class BloodBankController implements Initializable
         }
 
 
-return list;
+        return list;
 
     }
     void showDonator(){
@@ -264,7 +264,7 @@ return list;
 
 
     }
-void showDonators(){
+    void showDonators(){
         loaddonator();
         colname.setCellValueFactory(new PropertyValueFactory<User,String>("Name"));
         colusername.setCellValueFactory(new PropertyValueFactory<User, String>("Username"));
@@ -288,7 +288,7 @@ void showDonators(){
 
     }
 
-        boolean check(String d) throws ParseException {
+    boolean check(String d) throws ParseException {
            /* String Date1=  "20/12/2022";
             String Date2=  "24/07/2022";*/
            /* Date d1 = null;
@@ -308,233 +308,233 @@ void showDonators(){
              return false;
          }*/
 
-            long millis=System.currentTimeMillis();
+        long millis=System.currentTimeMillis();
 
-            // creating a new object of the class Date
-            java.sql.Date date = new java.sql.Date(millis);
-            LocalDate startDate = LocalDate.parse(d);
+        // creating a new object of the class Date
+        java.sql.Date date = new java.sql.Date(millis);
+        LocalDate startDate = LocalDate.parse(d);
 
-            // End date
-            LocalDate endDate = LocalDate.parse(date.toString());
-            //System.out.println("Hey"+date.toString());
-            Period period = Period.between(startDate, endDate);
-            if(period.getMonths()>=3||period.getYears()>0){
+        // End date
+        LocalDate endDate = LocalDate.parse(date.toString());
+        //System.out.println("Hey"+date.toString());
+        Period period = Period.between(startDate, endDate);
+        if(period.getMonths()>=3||period.getYears()>0){
 
-                return true;
-            }else{
-                return false;
-            }
+            return true;
+        }else{
+            return false;
         }
-        String bloodtype;
-int f=0;
-        @FXML
-        void bloodselect(ActionEvent event) {
-            f=1;
-           bloodtype=((Button)event.getSource()).getText();
-           // System.out.println(bloodtype);
-            bdtype.setText(bloodtype);
-            if(((Button) event.getSource()).getText().equals("A+")){
-                a1.setStyle("-fx-background-color: green");
-                a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-            }else if(((Button) event.getSource()).getText().equals("A-")){
-                a0.setStyle("-fx-background-color: green");
-                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-            }else if(((Button) event.getSource()).getText().equals("B+")){
-                b1.setStyle("-fx-background-color: green");
-                a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-            }else if(((Button) event.getSource()).getText().equals("B-")){
-                b0.setStyle("-fx-background-color: green");
-                a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-            }else if(((Button) event.getSource()).getText().equals("AB-")){
-                ab0.setStyle("-fx-background-color: green");
-                a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-            }else if(((Button) event.getSource()).getText().equals("AB+")){
-                ab1.setStyle("-fx-background-color: green");
-                a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-            }else if(((Button) event.getSource()).getText().equals("")){
-                ab0.setStyle("-fx-background-color: green");
-                a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-            }else if(((Button) event.getSource()).getText().equals("O+")){
-                o1.setStyle("-fx-background-color: green");
-                a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-            }else if(((Button) event.getSource()).getText().equals("O-")){
-                o0.setStyle("-fx-background-color: green");
-                a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-            }else if(((Button) event.getSource()).getText().equals("Bombay")){
-                bombay.setStyle("-fx-background-color: green");
-                a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-            }else if(((Button) event.getSource()).getText().equals("RH(null)")){
-                rh.setStyle("-fx-background-color: green");
-                a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-                o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
-            }
-            try {
-                //String s="INSERT INTO bloodbank (Username,Type) VALUES(?,?);";
-                String s1="select Type from bloodbank where Type='"+bloodtype+"' and Avail=true";
-                PreparedStatement ps= con.prepareStatement(s1);
-                //ps.setString()
-                ResultSet rs = ps.executeQuery();
-                //ps.executeQuery();
-                int i=0;
-                while(rs.next()) {
-                    rs.getString(1);
-                    i++;
-                }
-                rs.close();
-                BloodAvailableno.setText(i+" BAG");
-                System.out.println("ekhane asse");
-            }catch (Exception e ){
-                System.out.println(e.getMessage());
-
-            }
-            showDonator();
+    }
+    String bloodtype;
+    int f=0;
+    @FXML
+    void bloodselect(ActionEvent event) {
+        f=1;
+        bloodtype=((Button)event.getSource()).getText();
+        // System.out.println(bloodtype);
+        bdtype.setText(bloodtype);
+        if(((Button) event.getSource()).getText().equals("A+")){
+            a1.setStyle("-fx-background-color: green");
+            a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+        }else if(((Button) event.getSource()).getText().equals("A-")){
+            a0.setStyle("-fx-background-color: green");
+            a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+        }else if(((Button) event.getSource()).getText().equals("B+")){
+            b1.setStyle("-fx-background-color: green");
+            a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+        }else if(((Button) event.getSource()).getText().equals("B-")){
+            b0.setStyle("-fx-background-color: green");
+            a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+        }else if(((Button) event.getSource()).getText().equals("AB-")){
+            ab0.setStyle("-fx-background-color: green");
+            a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+        }else if(((Button) event.getSource()).getText().equals("AB+")){
+            ab1.setStyle("-fx-background-color: green");
+            a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+        }else if(((Button) event.getSource()).getText().equals("")){
+            ab0.setStyle("-fx-background-color: green");
+            a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+        }else if(((Button) event.getSource()).getText().equals("O+")){
+            o1.setStyle("-fx-background-color: green");
+            a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+        }else if(((Button) event.getSource()).getText().equals("O-")){
+            o0.setStyle("-fx-background-color: green");
+            a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+        }else if(((Button) event.getSource()).getText().equals("Bombay")){
+            bombay.setStyle("-fx-background-color: green");
+            a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            rh.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+        }else if(((Button) event.getSource()).getText().equals("RH(null)")){
+            rh.setStyle("-fx-background-color: green");
+            a0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            ab0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            ab1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            b0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            b1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            o0.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            a1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            bombay.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
+            o1.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%)");
         }
- void bloodselect() {
-          // bloodtype=((Button)event.getSource()).getText();
-           // System.out.println(bloodtype);
-            bdtype.setText(bloodtype);
-            try {
-                //String s="INSERT INTO bloodbank (Username,Type) VALUES(?,?);";
-                String s1="select Type from bloodbank where Type='"+bloodtype+"' and Avail=true";
-                PreparedStatement ps= con.prepareStatement(s1);
-                //ps.setString()
-                ResultSet rs = ps.executeQuery();
-                //ps.executeQuery();
-                int i=0;
-                while(rs.next()) {
-                    rs.getString(1);
-                    i++;
-                }
-                rs.close();
-                BloodAvailableno.setText(i+" BAG");
-                System.out.println("ekhane asse");
-            }catch (Exception e ){
-                System.out.println(e.getMessage());
-
+        try {
+            //String s="INSERT INTO bloodbank (Username,Type) VALUES(?,?);";
+            String s1="select Type from bloodbank where Type='"+bloodtype+"' and Avail=true";
+            PreparedStatement ps= con.prepareStatement(s1);
+            //ps.setString()
+            ResultSet rs = ps.executeQuery();
+            //ps.executeQuery();
+            int i=0;
+            while(rs.next()) {
+                rs.getString(1);
+                i++;
             }
+            rs.close();
+            BloodAvailableno.setText(i+" BAG");
+            System.out.println("ekhane asse");
+        }catch (Exception e ){
+            System.out.println(e.getMessage());
+
+        }
+        showDonator();
+    }
+    void bloodselect() {
+        // bloodtype=((Button)event.getSource()).getText();
+        // System.out.println(bloodtype);
+        bdtype.setText(bloodtype);
+        try {
+            //String s="INSERT INTO bloodbank (Username,Type) VALUES(?,?);";
+            String s1="select Type from bloodbank where Type='"+bloodtype+"' and Avail=true";
+            PreparedStatement ps= con.prepareStatement(s1);
+            //ps.setString()
+            ResultSet rs = ps.executeQuery();
+            //ps.executeQuery();
+            int i=0;
+            while(rs.next()) {
+                rs.getString(1);
+                i++;
+            }
+            rs.close();
+            BloodAvailableno.setText(i+" BAG");
+            System.out.println("ekhane asse");
+        }catch (Exception e ){
+            System.out.println(e.getMessage());
+
+        }
         showDonator();
 
-        }
+    }
 
-        @FXML
-        void claim(ActionEvent event) {
+    @FXML
+    void claim(ActionEvent event) {
 
-        }
+    }
 
 
 
     @FXML
     void claimt(ActionEvent event) {
-            if(f==0) {
-                //System.out.println("you are not allowed to give blood until 3 months after last time");
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Not allowed to give blood");
-                alert.setHeaderText("You are not allowed to give blood until 3 months after last time!");
-                File file = new File("src/main/Font/icon1.png");
-                Optional<ButtonType> result = alert.showAndWait();
-            }else {
+        if(f==0) {
+            //System.out.println("you are not allowed to give blood until 3 months after last time");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Not allowed to give blood");
+            alert.setHeaderText("You are not allowed to give blood until 3 months after last time!");
+            File file = new File("src/main/Font/icon1.png");
+            Optional<ButtonType> result = alert.showAndWait();
+        }else {
 
 
-                showDonator();
-                claimpane.setVisible(true);
-                donatepane1.setVisible(false);
-                donatorpane.setVisible(false);
-                Requestpane.setVisible(false);
-            }
+            showDonator();
+            claimpane.setVisible(true);
+            donatepane1.setVisible(false);
+            donatorpane.setVisible(false);
+            Requestpane.setVisible(false);
+        }
 
     }
 
     @FXML
     void donate(ActionEvent event) {
-            showDonator();
+        showDonator();
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         String str = format.format(date);
@@ -543,106 +543,106 @@ int f=0;
 
             con = ConnectionDb.DBC();
             String s = "Select LastTime from userlist where username='" + username +"'";
-                PreparedStatement ps1 = con.prepareStatement(s);
-                ResultSet rs = ps1.executeQuery();
-                String s0 = "";
-                while (rs.next()) {
+            PreparedStatement ps1 = con.prepareStatement(s);
+            ResultSet rs = ps1.executeQuery();
+            String s0 = "";
+            while (rs.next()) {
                 s0 = rs.getString(1);
-                }
-                    if (!check(s0)){
-                        //System.out.println("you are not allowed to give blood until 3 months after last time");
+            }
+            if (!check(s0)){
+                //System.out.println("you are not allowed to give blood until 3 months after last time");
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Not allowed to give blood");
+                alert.setHeaderText("You are not allowed to give blood until 3 months after last time!");
+                File file = new File("src/main/Font/icon1.png");
+                Optional<ButtonType> result = alert.showAndWait();
+                return;
+            }else{
+                try {
+                    if (bloodtype.isEmpty()) {
                         Alert alert = new Alert(Alert.AlertType.WARNING);
-                        alert.setTitle("Not allowed to give blood");
-                        alert.setHeaderText("You are not allowed to give blood until 3 months after last time!");
+                        alert.setTitle("Blood Type Warning!");
+                        alert.setHeaderText("Please Select Your BloodGroup First!");
+                        // alert.setContentText("");
                         File file = new File("src/main/Font/icon1.png");
                         Optional<ButtonType> result = alert.showAndWait();
-                        return;
-                    }else{
-                        try {
-                            if (bloodtype.isEmpty()) {
-                                Alert alert = new Alert(Alert.AlertType.WARNING);
-                                alert.setTitle("Blood Type Warning!");
-                                alert.setHeaderText("Please Select Your BloodGroup First!");
-                                // alert.setContentText("");
-                                File file = new File("src/main/Font/icon1.png");
-                                Optional<ButtonType> result = alert.showAndWait();
 
-                            }else if (dated.getValue()==null|| cbdis.getValue().isEmpty()||cbdivd.getValue().isEmpty()||hosd.getText().isEmpty()) {
-                                Alert alert = new Alert(Alert.AlertType.WARNING);
-                                alert.setTitle("Something missing!");
-                                alert.setHeaderText("Some info missing, Please try again with proper information");
-                                // alert.setContentText("");
-                                File file = new File("src/main/Font/icon1.png");
-                                Optional<ButtonType> result = alert.showAndWait();
-                            } else {
-                                //String s="INSERT INTO bloodbank (Username,Type) VALUES(?,?);";
-                                String s1 = "Insert into bloodbank (Username,Type,Avail,Hospital,Division,District) Values(?,?,?,?,?,?)";
-                                PreparedStatement ps = con.prepareStatement(s1);
-                                ps.setString(1, username);
-                                ps.setString(2, bloodtype);
-                                ps.setInt(3, 1);
-                                ps.setString(4, hosd.getText().toString());
-                                ps.setString(5, cbdivd.getValue().toString());
-                                ps.setString(6, cbdis.getValue().toString());
-                                ps.execute();
-                                String s2 = "UPDATE userlist set LastTime='" + dated.getValue().toString() + "' where username='" + username + "'";
-                                ps = con.prepareStatement(s2);
-                                ps.execute();
-                                ps.close();
-                                System.out.println("rokto jog hoise");
-                            }
-                        } catch (Exception ee) {
-                            System.out.println(ee.getMessage());
-
-                        }
+                    }else if (dated.getValue()==null|| cbdis.getValue().isEmpty()||cbdivd.getValue().isEmpty()||hosd.getText().isEmpty()) {
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("Something missing!");
+                        alert.setHeaderText("Some info missing, Please try again with proper information");
+                        // alert.setContentText("");
+                        File file = new File("src/main/Font/icon1.png");
+                        Optional<ButtonType> result = alert.showAndWait();
+                    } else {
+                        //String s="INSERT INTO bloodbank (Username,Type) VALUES(?,?);";
+                        String s1 = "Insert into bloodbank (Username,Type,Avail,Hospital,Division,District) Values(?,?,?,?,?,?)";
+                        PreparedStatement ps = con.prepareStatement(s1);
+                        ps.setString(1, username);
+                        ps.setString(2, bloodtype);
+                        ps.setInt(3, 1);
+                        ps.setString(4, hosd.getText().toString());
+                        ps.setString(5, cbdivd.getValue().toString());
+                        ps.setString(6, cbdis.getValue().toString());
+                        ps.execute();
+                        String s2 = "UPDATE userlist set LastTime='" + dated.getValue().toString() + "' where username='" + username + "'";
+                        ps = con.prepareStatement(s2);
+                        ps.execute();
+                        ps.close();
+                        System.out.println("rokto jog hoise");
                     }
+                } catch (Exception ee) {
+                    System.out.println(ee.getMessage());
+
+                }
+            }
 
         } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }catch (Exception e) {
+            throw new RuntimeException(e);
+        }catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
-        }
+    }
 
 
 
-            @FXML
+    @FXML
     void donatet(ActionEvent event) {
-                if(f==0) {
-                    //System.out.println("you are not allowed to give blood until 3 months after last time");
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle("Not allowed to give blood");
-                    alert.setHeaderText("You are not allowed to give blood until 3 months after last time!");
-                    File file = new File("src/main/Font/icon1.png");
-                    Optional<ButtonType> result = alert.showAndWait();
-                }else {
-                    loaddonator();
-                    showDonator();
-                    claimpane.setVisible(false);
-                    donatepane1.setVisible(true);
-                    donatorpane.setVisible(false);
-                    Requestpane.setVisible(false);
-                }
+        if(f==0) {
+            //System.out.println("you are not allowed to give blood until 3 months after last time");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Not allowed to give blood");
+            alert.setHeaderText("You are not allowed to give blood until 3 months after last time!");
+            File file = new File("src/main/Font/icon1.png");
+            Optional<ButtonType> result = alert.showAndWait();
+        }else {
+            loaddonator();
+            showDonator();
+            claimpane.setVisible(false);
+            donatepane1.setVisible(true);
+            donatorpane.setVisible(false);
+            Requestpane.setVisible(false);
+        }
     }
 
     @FXML
     void donatort(ActionEvent event) {
-            if(f==0) {
-        //System.out.println("you are not allowed to give blood until 3 months after last time");
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Not allowed to give blood");
-        alert.setHeaderText("You are not allowed to give blood until 3 months after last time!");
-        File file = new File("src/main/Font/icon1.png");
-        Optional<ButtonType> result = alert.showAndWait();
-    }else {
+        if(f==0) {
+            //System.out.println("you are not allowed to give blood until 3 months after last time");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Not allowed to give blood");
+            alert.setHeaderText("You are not allowed to give blood until 3 months after last time!");
+            File file = new File("src/main/Font/icon1.png");
+            Optional<ButtonType> result = alert.showAndWait();
+        }else {
 
-                showDonator();
-                claimpane.setVisible(false);
-                donatepane1.setVisible(false);
-                donatorpane.setVisible(true);
-                Requestpane.setVisible(false);
-            }
+            showDonator();
+            claimpane.setVisible(false);
+            donatepane1.setVisible(false);
+            donatorpane.setVisible(true);
+            Requestpane.setVisible(false);
+        }
 
     }
 
@@ -668,15 +668,15 @@ int f=0;
 
 
 
-        @FXML
-        void selectforblood(ActionEvent event) {
+    @FXML
+    void selectforblood(ActionEvent event) {
 
-        }
+    }
 
-        @FXML
-        void type(ActionEvent event) {
+    @FXML
+    void type(ActionEvent event) {
 
-        }
+    }
     @FXML
     void selectc(ActionEvent event) {
         String divisionname;
@@ -732,114 +732,114 @@ int f=0;
             cbdisc.getItems().addAll(ditrict);
         }
     }@FXML
-    void selectr(ActionEvent event) {
-        String divisionname;
-        try{
-            divisionname=cbdivr.getSelectionModel().getSelectedItem().toString();
-        }catch(Exception e ){
-            divisionname="";
-        }
-        if(divisionname.equals("Dhaka")){
-            cbdisr.getItems().removeAll(cbdisr.getItems());
-            String []ditrict={"Dhaka","Gazipur","Faridpur","Gopalganj","Jamalpur","Kishoreganj","Madaripur","Manikganj","Munshiganj","Narayanganj","Narshingdi","Rajbari","Shariatpur","Tangail"};
-            cbdis.getItems().addAll(ditrict);
-        }else if(divisionname.equals("Rajshahi")){
-            cbdisr.getItems().removeAll(cbdisr.getItems());
-
-            String []ditrict={"Rajshahi","Sirajgonj","Bogra","Chapinawabganj","Joypurhat","Naogaon","Natore","Pabna"};
-            cbdisr.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Chattogram")){
-            cbdisr.getItems().removeAll(cbdisr.getItems());
-
-            String []ditrict={"Chattogram","Cox's Bazar", "Rangamati", "Bandarban", "Khagrachhari", "Feni", "Lakshmipur", "Comilla"," Noakhali", "Brahmanbaria" ,"Chandpur"};
-            cbdisr.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Barishal")){
-            cbdisr.getItems().removeAll(cbdisr.getItems());
-
-            String []ditrict={"Barishal", "Barguna", "Bhola", "Jhalokati", "Pirojpur","Patuakhali"};
-            cbdisr.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Sylhet")){
-            cbdisr.getItems().removeAll(cbdisr.getItems());
-
-            String []ditrict={"Sylhet","Habiganj","Moulvibazar","Sunamganj" };
-            cbdisr.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Mymensingh")){
-            cbdisr.getItems().removeAll(cbdisr.getItems());
-
-            String []ditrict={"Mymensingh","Jamalpur","Netrokona","Sherpur" };
-            cbdisr.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Khulna")){
-            cbdisr.getItems().removeAll(cbdisr.getItems());
-
-            String []ditrict={"Khulna","Bagherhat","Chuadanga","Jessore","Jinaidaha","Magura","Meherpur","Narail","Satkhira" };
-            cbdisr.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Rangpur")){
-            cbdisr.getItems().removeAll(cbdisr.getItems());
-
-            String []ditrict={"Rangpur","Kurigram","Gaibandha","Thakurgaon","Dinajpur","Nilphamari","Panchagarh","Lalmonirhat" };
-            cbdisr.getItems().addAll(ditrict);
-        }
-    }@FXML
-    void selectd(ActionEvent event) {
-        String divisionname;
-        try{
-            divisionname=cbdivd.getSelectionModel().getSelectedItem().toString();
-        }catch(Exception e ){
-            divisionname="";
-        }
-        if(divisionname.equals("Dhaka")){
-            cbdis.getItems().removeAll(cbdis.getItems());
-            String []ditrict={"Dhaka","Gazipur","Faridpur","Gopalganj","Jamalpur","Kishoreganj","Madaripur","Manikganj","Munshiganj","Narayanganj","Narshingdi","Rajbari","Shariatpur","Tangail"};
-            cbdis.getItems().addAll(ditrict);
-        }else if(divisionname.equals("Rajshahi")){
-            cbdis.getItems().removeAll(cbdis.getItems());
-
-            String []ditrict={"Rajshahi","Sirajgonj","Bogra","Chapinawabganj","Joypurhat","Naogaon","Natore","Pabna"};
-            cbdis.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Chattogram")){
-            cbdis.getItems().removeAll(cbdis.getItems());
-
-            String []ditrict={"Chattogram","Cox's Bazar", "Rangamati", "Bandarban", "Khagrachhari", "Feni", "Lakshmipur", "Comilla"," Noakhali", "Brahmanbaria" ,"Chandpur"};
-            cbdis.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Barishal")){
-            cbdis.getItems().removeAll(cbdis.getItems());
-
-            String []ditrict={"Barishal", "Barguna", "Bhola", "Jhalokati", "Pirojpur","Patuakhali"};
-            cbdis.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Sylhet")){
-            cbdis.getItems().removeAll(cbdis.getItems());
-
-            String []ditrict={"Sylhet","Habiganj","Moulvibazar","Sunamganj" };
-            cbdis.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Mymensingh")){
-            cbdis.getItems().removeAll(cbdis.getItems());
-
-            String []ditrict={"Mymensingh","Jamalpur","Netrokona","Sherpur" };
-            cbdis.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Khulna")){
-            cbdis.getItems().removeAll(cbdis.getItems());
-
-            String []ditrict={"Khulna","Bagherhat","Chuadanga","Jessore","Jinaidaha","Magura","Meherpur","Narail","Satkhira" };
-            cbdis.getItems().addAll(ditrict);
-        }
-        else if(divisionname.equals("Rangpur")){
-            cbdis.getItems().removeAll(cbdis.getItems());
-
-            String []ditrict={"Rangpur","Kurigram","Gaibandha","Thakurgaon","Dinajpur","Nilphamari","Panchagarh","Lalmonirhat" };
-            cbdis.getItems().addAll(ditrict);
-        }
+void selectr(ActionEvent event) {
+    String divisionname;
+    try{
+        divisionname=cbdivr.getSelectionModel().getSelectedItem().toString();
+    }catch(Exception e ){
+        divisionname="";
     }
+    if(divisionname.equals("Dhaka")){
+        cbdisr.getItems().removeAll(cbdisr.getItems());
+        String []ditrict={"Dhaka","Gazipur","Faridpur","Gopalganj","Jamalpur","Kishoreganj","Madaripur","Manikganj","Munshiganj","Narayanganj","Narshingdi","Rajbari","Shariatpur","Tangail"};
+        cbdis.getItems().addAll(ditrict);
+    }else if(divisionname.equals("Rajshahi")){
+        cbdisr.getItems().removeAll(cbdisr.getItems());
+
+        String []ditrict={"Rajshahi","Sirajgonj","Bogra","Chapinawabganj","Joypurhat","Naogaon","Natore","Pabna"};
+        cbdisr.getItems().addAll(ditrict);
+    }
+    else if(divisionname.equals("Chattogram")){
+        cbdisr.getItems().removeAll(cbdisr.getItems());
+
+        String []ditrict={"Chattogram","Cox's Bazar", "Rangamati", "Bandarban", "Khagrachhari", "Feni", "Lakshmipur", "Comilla"," Noakhali", "Brahmanbaria" ,"Chandpur"};
+        cbdisr.getItems().addAll(ditrict);
+    }
+    else if(divisionname.equals("Barishal")){
+        cbdisr.getItems().removeAll(cbdisr.getItems());
+
+        String []ditrict={"Barishal", "Barguna", "Bhola", "Jhalokati", "Pirojpur","Patuakhali"};
+        cbdisr.getItems().addAll(ditrict);
+    }
+    else if(divisionname.equals("Sylhet")){
+        cbdisr.getItems().removeAll(cbdisr.getItems());
+
+        String []ditrict={"Sylhet","Habiganj","Moulvibazar","Sunamganj" };
+        cbdisr.getItems().addAll(ditrict);
+    }
+    else if(divisionname.equals("Mymensingh")){
+        cbdisr.getItems().removeAll(cbdisr.getItems());
+
+        String []ditrict={"Mymensingh","Jamalpur","Netrokona","Sherpur" };
+        cbdisr.getItems().addAll(ditrict);
+    }
+    else if(divisionname.equals("Khulna")){
+        cbdisr.getItems().removeAll(cbdisr.getItems());
+
+        String []ditrict={"Khulna","Bagherhat","Chuadanga","Jessore","Jinaidaha","Magura","Meherpur","Narail","Satkhira" };
+        cbdisr.getItems().addAll(ditrict);
+    }
+    else if(divisionname.equals("Rangpur")){
+        cbdisr.getItems().removeAll(cbdisr.getItems());
+
+        String []ditrict={"Rangpur","Kurigram","Gaibandha","Thakurgaon","Dinajpur","Nilphamari","Panchagarh","Lalmonirhat" };
+        cbdisr.getItems().addAll(ditrict);
+    }
+}@FXML
+void selectd(ActionEvent event) {
+    String divisionname;
+    try{
+        divisionname=cbdivd.getSelectionModel().getSelectedItem().toString();
+    }catch(Exception e ){
+        divisionname="";
+    }
+    if(divisionname.equals("Dhaka")){
+        cbdis.getItems().removeAll(cbdis.getItems());
+        String []ditrict={"Dhaka","Gazipur","Faridpur","Gopalganj","Jamalpur","Kishoreganj","Madaripur","Manikganj","Munshiganj","Narayanganj","Narshingdi","Rajbari","Shariatpur","Tangail"};
+        cbdis.getItems().addAll(ditrict);
+    }else if(divisionname.equals("Rajshahi")){
+        cbdis.getItems().removeAll(cbdis.getItems());
+
+        String []ditrict={"Rajshahi","Sirajgonj","Bogra","Chapinawabganj","Joypurhat","Naogaon","Natore","Pabna"};
+        cbdis.getItems().addAll(ditrict);
+    }
+    else if(divisionname.equals("Chattogram")){
+        cbdis.getItems().removeAll(cbdis.getItems());
+
+        String []ditrict={"Chattogram","Cox's Bazar", "Rangamati", "Bandarban", "Khagrachhari", "Feni", "Lakshmipur", "Comilla"," Noakhali", "Brahmanbaria" ,"Chandpur"};
+        cbdis.getItems().addAll(ditrict);
+    }
+    else if(divisionname.equals("Barishal")){
+        cbdis.getItems().removeAll(cbdis.getItems());
+
+        String []ditrict={"Barishal", "Barguna", "Bhola", "Jhalokati", "Pirojpur","Patuakhali"};
+        cbdis.getItems().addAll(ditrict);
+    }
+    else if(divisionname.equals("Sylhet")){
+        cbdis.getItems().removeAll(cbdis.getItems());
+
+        String []ditrict={"Sylhet","Habiganj","Moulvibazar","Sunamganj" };
+        cbdis.getItems().addAll(ditrict);
+    }
+    else if(divisionname.equals("Mymensingh")){
+        cbdis.getItems().removeAll(cbdis.getItems());
+
+        String []ditrict={"Mymensingh","Jamalpur","Netrokona","Sherpur" };
+        cbdis.getItems().addAll(ditrict);
+    }
+    else if(divisionname.equals("Khulna")){
+        cbdis.getItems().removeAll(cbdis.getItems());
+
+        String []ditrict={"Khulna","Bagherhat","Chuadanga","Jessore","Jinaidaha","Magura","Meherpur","Narail","Satkhira" };
+        cbdis.getItems().addAll(ditrict);
+    }
+    else if(divisionname.equals("Rangpur")){
+        cbdis.getItems().removeAll(cbdis.getItems());
+
+        String []ditrict={"Rangpur","Kurigram","Gaibandha","Thakurgaon","Dinajpur","Nilphamari","Panchagarh","Lalmonirhat" };
+        cbdis.getItems().addAll(ditrict);
+    }
+}
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -850,9 +850,9 @@ int f=0;
         cbdivd.getSelectionModel().select(0);
 
         String []ditrict={"Dhaka","Gazipur","Faridpur","Gopalganj","Jamalpur","Kishoreganj","Madaripur","Manikganj","Munshiganj","Narayanganj","Narshingdi","Rajbari","Shariatpur","Tangail"};
-         cbdis.getItems().addAll(ditrict);
-         cbdisc.getItems().addAll(ditrict);
-         cbdisr.getItems().addAll(ditrict);
+        cbdis.getItems().addAll(ditrict);
+        cbdisc.getItems().addAll(ditrict);
+        cbdisr.getItems().addAll(ditrict);
         cbdis.getSelectionModel().select(0);
         cbdisc.getSelectionModel().select(0);
         cbdisr.getSelectionModel().select(0);
