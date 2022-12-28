@@ -322,4 +322,9 @@ void loadtablep() {
 
 
     }
+    @FXML
+   void tablcclickpost(ActionEvent event) {
+
+
+    }
 }
