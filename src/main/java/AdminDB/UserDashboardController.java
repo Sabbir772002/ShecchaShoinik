@@ -556,7 +556,7 @@ public class UserDashboardController implements Initializable {
             System.out.println("hey ki khobor");
             FXMLLoader fxmlLoader = new FXMLLoader();
            // fxmlLoader.setLocation(Chat.ChatPrivateController.class.getResource("CommunityChat.fxml"));
-            fxmlLoader.setLocation(Chat.LiveHandeler.class.getResource("ServerChat.fxml"));
+            fxmlLoader.setLocation(Chat.LiveHandeler.class.getResource("ServerLive.fxml"));
             AnchorPane ap = fxmlLoader.load();
            // CommunityChatHandelar sadmin = fxmlLoader.getController();
 
