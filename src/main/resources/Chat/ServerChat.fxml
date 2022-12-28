@@ -32,7 +32,7 @@
                   </HBox>
                </content>
             </ScrollPane>
-            <TextField fx:id="inputField" layoutX="21.0" layoutY="501.0" prefHeight="27.0" prefWidth="336.0" promptText="Write your message here...." styleClass="tt" stylesheets="@../../Style/style.css" />
+            <TextField fx:id="inputField" layoutX="21.0" layoutY="501.0" onKeyPressed="#keys" prefHeight="27.0" prefWidth="336.0" promptText="Write your message here...." styleClass="tt" stylesheets="@../../Style/style.css" />
             <Button layoutX="369.0" layoutY="501.0" mnemonicParsing="false" onAction="#send" prefHeight="27.0" prefWidth="63.0" style="-fx-background-color: green;" styleClass="tt" stylesheets="@../../Style/style.css" text="Send" />
             <Label fx:id="user2" alignment="CENTER" layoutX="21.0" layoutY="71.0" prefHeight="20.0" prefWidth="154.0" style="-fx-background-color: grey;" styleClass="tt" stylesheets="@../../Style/style.css" text="Live Community Chat" textFill="WHITE">
                <font>

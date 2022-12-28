@@ -16,7 +16,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -31,10 +33,12 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.net.Socket;
 import java.net.URL;
+import java.security.Key;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -164,12 +168,23 @@ public class ChatHandle extends Thread {
         try {
             socket = new Socket("localhost", 5000);
             System.out.println("Connect With Server");
-
             bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             printWriter = new PrintWriter(socket.getOutputStream(), true);
             this.start();
 
-        } catch (IOException e) {
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Network Error");
+            alert.setHeaderText("Server not Connected! Please check your connection\n" +
+                    "or reload this page again!");
+            File file = new File("src/main/Font/icon1.png");
+            Image image = new Image(file.toURI().toString());
+          Stage  stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(image);
+            // alert.initOwner(stage);
+            //alert.setGraphic(new ImageView(image));
+            //user.setImage(image);
+            Optional<ButtonType> result = alert.showAndWait();
             System.out.println(e.getMessage());
         }
     }
@@ -234,32 +249,41 @@ public class ChatHandle extends Thread {
 
      @FXML
      public void send(ActionEvent e) {
-        String msg = inputField.getText();
-        printWriter.println(username + ":  " + msg + "  ");
+         String msg = inputField.getText();
+         if (msg == null || msg.length() == 0 || msg.isEmpty()) {
+             return;
+         } else {
+             printWriter.println(username + ":  " + msg + "  ");
 //        txtClientPane.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
 
-        HBox hBox = new HBox();
-        hBox.setAlignment(Pos.CENTER_RIGHT);
-        hBox.setPadding(new Insets(5, 5, 5, 10));
-        Text text = new Text(msg);
-        TextFlow textFlow = new TextFlow(text);
-        textFlow.setStyle("-fx-color:rgb(239,242,255);"
-                + "-fx-background-color: rgb(246,137,32);" +
-                "-fx-background-radius: 20px; -fx-font-size: 15px");
-        textFlow.setPadding(new Insets(5, 10, 5, 10));
-        text.setFill(Color.color(0.934, 0.945, 0.996));
-        hBox.getChildren().add(textFlow);
-        vboxmessage.getChildren().add(hBox);
-        printWriter.flush();
+             HBox hBox = new HBox();
+             hBox.setAlignment(Pos.CENTER_RIGHT);
+             hBox.setPadding(new Insets(5, 5, 5, 10));
+             Text text = new Text(msg);
+             TextFlow textFlow = new TextFlow(text);
+             textFlow.setStyle("-fx-color:rgb(239,242,255);"
+                     + "-fx-background-color: rgb(246,137,32);" +
+                     "-fx-background-radius: 20px; -fx-font-size: 15px");
+             textFlow.setPadding(new Insets(5, 10, 5, 10));
+             text.setFill(Color.color(0.934, 0.945, 0.996));
+             hBox.getChildren().add(textFlow);
+             vboxmessage.getChildren().add(hBox);
+             printWriter.flush();
 
 //        txtClientPane.appendText("Me: " + msg + "\n");
-        inputField.setText("");
-        if (msg.equalsIgnoreCase("BYE") || (msg.equalsIgnoreCase("logout"))) {
-            System.exit(0);
-        }
-    }
+             inputField.setText("");
+             if (msg.equalsIgnoreCase("BYE") || (msg.equalsIgnoreCase("logout"))) {
+                 System.exit(0);
+             }
+         }
+     }
 
-    public void sendMessageByKeyOnAction(KeyEvent keyEvent) {
+    public void keys(KeyEvent keyEvent) {
+        if(keyEvent.getCode()== KeyCode.ENTER){
+            System.out.println("hello");
+        ActionEvent e=null;
+        send(e);
+        }
     }
     @FXML
     void search(KeyEvent e) {
