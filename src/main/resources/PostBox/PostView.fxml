@@ -22,7 +22,7 @@
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Text>
-      <Button fx:id="mapclick" layoutX="169.0" layoutY="478.0" mnemonicParsing="false" onAction="#viewmap" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: green;" text="View in Map" />
+      <Button fx:id="mapclick" layoutX="169.0" layoutY="464.0" mnemonicParsing="false" onAction="#viewmap" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: green;" text="View in Map" />
       <Label layoutX="69.0" layoutY="145.0" prefHeight="31.0" prefWidth="99.0" text="Addres:" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
@@ -74,12 +74,12 @@
             <Font name="Bell MT Bold" size="17.0" />
          </font>
       </Label>
-      <Button fx:id="delete" layoutX="169.0" layoutY="491.0" mnemonicParsing="false" onAction="#Delete" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: red;" text="Delete" visible="false" />
-      <TableView fx:id="pteam" layoutX="412.0" layoutY="261.0" onMouseClicked="#tableclickteam" prefHeight="300.0" prefWidth="340.0" style="-fx-border-radius: 0,0,0,0;" stylesheets="@../Style/style.css">
+      <Button fx:id="delete" layoutX="169.0" layoutY="501.0" mnemonicParsing="false" onAction="#Delete" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: red;" text="Delete" visible="false" />
+      <TableView fx:id="pteam" layoutX="412.0" layoutY="257.0" onMouseClicked="#tableclickteam" prefHeight="304.0" prefWidth="334.0" style="-fx-border-radius: 0,0,0,0;" stylesheets="@../Style/style.css">
         <columns>
-          <TableColumn fx:id="Name" minWidth="0.0" prefWidth="168.800048828125" text="Name" />
-          <TableColumn fx:id="Contact" minWidth="0.0" prefWidth="153.0" text="Contact" />
-            <TableColumn fx:id="Username" minWidth="0.0" prefWidth="10.399999999999977" text="Username" />
+          <TableColumn fx:id="Name" minWidth="0.0" prefWidth="183.20001220703125" text="Name" />
+            <TableColumn fx:id="Username" minWidth="0.0" prefWidth="0.0" text="Username" visible="false" />
+          <TableColumn fx:id="Contact" minWidth="0.0" prefWidth="143.0" text="Contact" />
         </columns>
       </TableView>
    </children>

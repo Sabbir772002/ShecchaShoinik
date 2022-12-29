@@ -54,10 +54,10 @@ public class ProfileController {
             sname=user2;
             pfield.setText("Chat");
         }
-        System.out.println("akhono thik");
+        System.out.println(user2);
         tname=user2;
         output();
-        System.out.println(user2);
+        System.out.println(username);
     }
     public void set(String username, String role,BorderPane pane) {
         if(role.equals("Admin"))delete.setVisible(true);
@@ -204,11 +204,7 @@ public class ProfileController {
         try {
             Statement stmt = con.createStatement();
             System.out.println(tname+" ase na kn");
-            String sql = "SELECT Name,Username,Phone,ID,Division,District,Volunteer,BG FROM userlist Where Username = \'" + tname.toString() + "\'";
-            //String sql = "SELECT * FROM `userlist` Where Username = '"+1+"'";
-            //System.out.println("'"+user.getText()+"'");
-            //SELECT Name,ID FROM `userlist` WHERE Username= "Nuha";
-            //String s1="select * from teacher where Subject='PHYSICS'";
+            String sql = "SELECT Name,Username,Phone,ID,Division,District,Volunteer,BG FROM userlist Where Username = \'" + tname + "\'";
             ResultSet rs = stmt.executeQuery(sql);
             if (rs.next()) {
                 Name.setText(rs.getString(1));

@@ -38,7 +38,6 @@ public class ViewEvent implements Initializable {
     FileOutputStream fos = new FileOutputStream(file);
     byte pic[];
     Blob blob;
-
     public ViewEvent() throws FileNotFoundException {
         eventclick11();
     }

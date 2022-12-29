@@ -62,6 +62,23 @@ public class VolunteerNearController implements Initializable {
 
     }
     BorderPane pane;
+    @FXML
+    void join(ActionEvent event) {
+        try{
+            System.out.println(username2);
+            PreparedStatement preparedStatement;
+            con= ConnectionDb.DBC();
+            String st = "update Volunteer set Teams=? WHERE Username ='"+username+"'";
+            preparedStatement = (PreparedStatement) con.prepareStatement(st);
+            preparedStatement.setString(1, username2);
+            preparedStatement.execute();
+            preparedStatement.close();
+            con.close();
+        }catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
 
     public void set(String username, String role, BorderPane pane) {
         con=ConnectionDb.DBC();
@@ -132,6 +149,7 @@ public class VolunteerNearController implements Initializable {
 
     @FXML
     private TableColumn<Team, String> col_user;
+    String username2="TeamDurbar";
     @FXML
     ObservableList<Team> listF;
 
@@ -337,6 +355,7 @@ public class VolunteerNearController implements Initializable {
     void tableclick(MouseEvent e) {
         String t=vtable.getSelectionModel().getSelectedItem().getUsername();
         try {
+            con=ConnectionDb.DBC();
             PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity,Mail FROM Teams where Username='" + vtable.getSelectionModel().getSelectedItem().getUsername() + "'");
             ;
             ResultSet rs = ps.executeQuery();
@@ -350,6 +369,7 @@ public class VolunteerNearController implements Initializable {
                 String s8 = rs.getString(6);
                 String s9 = String.valueOf(rs.getInt(7));
                 String s10 = rs.getString(8);
+                username2=s5;
               Name.setText(s1);
               showuser.setText("@"+s5);
               Division.setText(s3);

@@ -4,6 +4,7 @@ import AdminProfile.AdminProfileController;
 import AdminProfile.ControlPanelController;
 import BloodBank.BloodBankController;
 import Chat.CommunityChatHandelar;
+import Chat.LiveHandeler;
 import DB.ConnectionDb;
 import Event.ApproveEVentController;
 import Event.ViewEvent;
@@ -914,10 +915,11 @@ public class AdminDashboardController implements Initializable {
         try {
             System.out.println("hey ki khobor");
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(Chat.ChatPrivateController.class.getResource("CommunityChat.fxml"));
+            fxmlLoader.setLocation(Chat.LiveHandeler.class.getResource("ServerLive.fxml"));
             AnchorPane ap = fxmlLoader.load();
-            CommunityChatHandelar sadmin = fxmlLoader.getController();
-            sadmin.set(username, role, pane1);
+            // CommunityChatHandelar sadmin = fxmlLoader.getController();
+            LiveHandeler sadmin = fxmlLoader.getController();
+            sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
             System.out.println("kno holo na");
 
