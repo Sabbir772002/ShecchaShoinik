@@ -94,9 +94,11 @@ public class TeamProfileController {
 
 
     }
+    @FXML
+    Button joint;
     public void set(String username, String role) {
         if(role.equals("Admin"))delete.setVisible(true);
-
+        if(role.equals("User")){joint.setVisible(true);}else{joint.setVisible(false);}
         con = ConnectionDb.DBC();
         role = role;
         this.role = role;
@@ -111,7 +113,6 @@ public class TeamProfileController {
 
     } public void set(String username, String role,String name2, String username1,BorderPane pane) {
         if(role.equals("Admin"))delete.setVisible(true);
-
         con = ConnectionDb.DBC();
         role = role;
         this.role = role;
@@ -163,6 +164,11 @@ public class TeamProfileController {
         }
     }
 
+    @FXML
+    void whatsapp(){
+
+
+    }
     public void output(){
         try{
             Statement stmt=con.createStatement();
@@ -202,16 +208,22 @@ public class TeamProfileController {
             System.err.println(ex.getMessage());
         }
     }
-
-    @FXML
-    void request(ActionEvent event) {
-
-
-    }
     @FXML
     void join(ActionEvent event) {
+     try{
+         System.out.println(username2);
+         PreparedStatement preparedStatement;
+         con= ConnectionDb.DBC();
+         String st = "update Volunteer set Teams=? WHERE Username ='"+username+"'";
+         preparedStatement = (PreparedStatement) con.prepareStatement(st);
+         preparedStatement.setString(1, username2);
 
-
+         preparedStatement.execute();
+         preparedStatement.close();
+         con.close();
+     }catch (SQLException e) {
+         System.out.println(e.getMessage());
+     }
 
     }
     @FXML
@@ -224,7 +236,7 @@ public class TeamProfileController {
         PreparedStatement preparedStatement;
         try {
             con= ConnectionDb.DBC();
-            String st = "update userlist set Name=?,Phone=?,Division=?,District=?,Mail=? WHERE Username ='"+username+"'";
+            String st = "update Teams set Name=?,Phone=?,Division=?,District=?,Mail=? WHERE Username ='"+username+"'";
             preparedStatement = (PreparedStatement) con.prepareStatement(st);
             preparedStatement.setString(1, name.getText());
             preparedStatement.setString(2, phone.getText());

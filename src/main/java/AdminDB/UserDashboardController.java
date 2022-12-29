@@ -7,6 +7,7 @@ import Chat.CommunityChatHandelar;
 import Chat.LiveHandeler;
 import DB.ConnectionDb;
 import Event.ViewEvent;
+import News.NewsView;
 import Others.HRequest;
 import Others.HelpRequest;
 import Others.VolunteerNearController;
@@ -441,7 +442,24 @@ public class UserDashboardController implements Initializable {
 
     }
     @FXML
-    void G(ActionEvent event) {
+    void News(ActionEvent event) {
+
+        try{
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(News.NewsView.class.getResource("NewsView.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            News.NewsView sadmin = fxmlLoader.getController();
+             sadmin.set(username,role,pane1);
+            pane1.setCenter(ap);
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+
+
+
     }
 
     @FXML
@@ -563,11 +581,12 @@ public class UserDashboardController implements Initializable {
             LiveHandeler sadmin = fxmlLoader.getController();
             sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
-            System.out.println("kno holo na");
 
         }catch (Exception e){
+
             System.out.println(e.getMessage());
         }
+
 
     }
 

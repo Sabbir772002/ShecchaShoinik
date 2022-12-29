@@ -160,7 +160,7 @@ public class ChatPrivateController implements Initializable{
             pane.setCenter(pane1);
 
         } catch (Exception e) {
-            System.out.println("error on tabble click " + e.getMessage());
+            System.out.println("error on tabble click on chat private " + e.getMessage());
         }
 
     }
@@ -187,7 +187,6 @@ public class ChatPrivateController implements Initializable{
         listF = ConnectionDb.getuserlist();
         usertable.setItems(listF);
         refresh();
-
     }
 
 
@@ -243,10 +242,10 @@ public class ChatPrivateController implements Initializable{
                 String s = resultSet.getString(3);
                 // String s=writebox.getText().toString();
                 char []c=s.toCharArray();
-                for(int i=0;i<c.length;i++){
+              /*  for(int i=0;i<c.length;i++){
                     c[i]=(char)(c[i]-10);
 
-                }
+                }*/
                 s=new String(c);
                 msgbox.appendText(s/*resultSet.getString(3)*/);
                 msgbox.appendText("\n");
@@ -309,9 +308,9 @@ public class ChatPrivateController implements Initializable{
         try {
             String s=username+": "+writebox.getText().toString();
             char []c=s.toCharArray();
-            for(int i=0;i<c.length;i++){
+            /*for(int i=0;i<c.length;i++){
                 c[i]=(char)(c[i]+10);
-            }
+            }*/
             s=new String(c);
             con=ConnectionDb.DBC();
         String st = "INSERT INTO privatechat (Sender, Reciver, Msg) VALUES (?,?,?)";
@@ -330,7 +329,7 @@ public class ChatPrivateController implements Initializable{
         msgbox.appendText(username+" :"+writebox.getText());
         msgbox.appendText("\n");
         writebox.setText("");
-
+            System.out.println("send message");
 
     }catch (Exception ie){
 
@@ -393,11 +392,18 @@ public class ChatPrivateController implements Initializable{
                     list1.add(new userlist(s1, s5));
                 }
             }
-               ps = con.prepareStatement("SELECT Name,District,Username,Division,Phone,Type FROM Teams");
+        }catch (Exception ee){
+            System.out.println("load problem on user");
 
-                rs = ps.executeQuery();
+        }
+        try {
+            //System.out.println("in team");
+
+               PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,Phone,Type FROM Teams");
+
+                ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
-
+                  //  System.out.println("in team");
                     String     s1 = rs.getString(1);
                     String     s3 = rs.getString(2);
                     String      s5 = rs.getString(3);
@@ -407,9 +413,6 @@ public class ChatPrivateController implements Initializable{
 
 
                     String      s0 = s1 + s3 + s5+s6+s7+s8;
-
-
-
                     String  s2 = search.getText().toString() + "";
                     // System.out.println(s2);
                     boolean i = false;
@@ -431,6 +434,7 @@ public class ChatPrivateController implements Initializable{
                         //System.out.println("thik ase2");
                     }
                     if (i) {
+                        //we can create another parameter for team or user
                         list1.add(new userlist(s1, s5));
                     }
 
