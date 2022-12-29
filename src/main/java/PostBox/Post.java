@@ -213,7 +213,6 @@ public class Post {
             int i = 0;
             int j = 1;
             while (rs.next()) {
-                System.out.println("thik ase");
                 //String Title,Type, Address, Division, District, Id,AddInfo
                 dlist = new disaster((rs.getString(1)), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), id, rs.getString(6));
 
