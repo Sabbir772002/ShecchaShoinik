@@ -19,15 +19,13 @@ public class WriteThread extends Thread {
     @Override
     public void run() {
         while (true) {
-            System.out.println("1bar");
+           // System.out.println("1bar");
             try {
                // System.out.println("likhtesi");
-                String data = reader.readLine() + "\n";
-                String[] sentences =data.split(":");
-
+                String data = reader.readLine()+"\n";
+               //String[] sentences =data.split(":");
                 showArea.appendText(data);
 
-                //  reader.
             } catch (SocketException e) {
                 showArea.appendText("Connection lost!\n");
                 break;

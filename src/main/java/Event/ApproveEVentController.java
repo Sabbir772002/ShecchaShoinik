@@ -31,8 +31,10 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -50,13 +52,15 @@ public class ApproveEVentController implements Initializable{
      int Id=0;
 
         @FXML
-        void eventclick(MouseEvent e){
+        void eventclick(MouseEvent e)throws Exception {
+            File file = new File("image2.png");
+            FileOutputStream fos = new FileOutputStream(file);
+            byte pic[];
+            Blob blob;
             Id=Integer.parseInt(eventtable.getSelectionModel().getSelectedItem().getId());
-
             try {
-                PreparedStatement ps = con.prepareStatement("SELECT Title,Date,Division,District,Address,Author FROM Event where Id="+Id+";");
+                PreparedStatement ps = con.prepareStatement("SELECT Title,Date,Division,District,Address,Author,Image FROM Event where Id="+Id+" order by id desc;");
                 ResultSet rs = ps.executeQuery();
-                System.out.println("loadevent");
                 if(rs.next()) {
                     Title.setText(rs.getString(1));
                     date.setText(rs.getString(2));
@@ -64,8 +68,15 @@ public class ApproveEVentController implements Initializable{
                     district.setText(rs.getString(4));
                     address.setText(rs.getString(5));
                     author.setText(rs.getString(6));
+                    blob = rs.getBlob(7);
+                    pic = blob.getBytes(1, (int) blob.length());
+                    fos.write(pic);
+                    imageview.setFitWidth(365);
+                    imageview.setFitHeight(180);
+                    imageview.setImage(new Image(file.toURI().toString()));
                 }
-
+                 file.delete();
+                fos.close();
             }catch (Exception ee){
                 System.out.println(ee.getMessage());
             }
@@ -73,6 +84,38 @@ public class ApproveEVentController implements Initializable{
         }
 
         void eventclick(){
+            File file = new File("image2.png");
+            try {
+                FileOutputStream fos = new FileOutputStream(file);
+
+            byte pic[];
+            Blob blob;
+                PreparedStatement ps = con.prepareStatement("SELECT Title,Date,Division,District,Address,Author,Image FROM Event where Id="+3+" order by id desc;");
+                ResultSet rs = ps.executeQuery();
+                if(rs.next()) {
+                    Title.setText(rs.getString(1));
+                    date.setText(rs.getString(2));
+                    division.setText(rs.getString(3));
+                    district.setText(rs.getString(4));
+                    address.setText(rs.getString(5));
+                    author.setText(rs.getString(6));
+                    blob = rs.getBlob(7);
+                    pic = blob.getBytes(1, (int) blob.length());
+                    fos.write(pic);
+                    imageview.setFitWidth(365);
+                    imageview.setFitHeight(180);
+                    imageview.setImage(new Image(file.toURI().toString()));
+                }
+                 file.delete();
+                fos.close();
+            }catch (Exception ee){
+                System.out.println(ee.getMessage());
+            }
+
+        }
+
+
+       /* void eventclick(){
             // int id=Integer.parseInt(eventtable.getSelectionModel().getSelectedItem().getId());
 
             try {
@@ -92,7 +135,7 @@ public class ApproveEVentController implements Initializable{
                 System.out.println(ee.getMessage());
             }
 
-        }
+        }*/
 
 
 
@@ -127,7 +170,6 @@ public class ApproveEVentController implements Initializable{
             this.pane = pane;
             this.username = username;
             this.role = role;
-            System.out.println("i am in set");
             // user.setText(username);
             // rolee.setText("@"+role);
 
@@ -177,7 +219,7 @@ public class ApproveEVentController implements Initializable{
             ObservableList<EventView>list = FXCollections.observableArrayList();
 
             try {
-                PreparedStatement ps = con.prepareStatement("SELECT Title,Date,Id FROM Event");
+                PreparedStatement ps = con.prepareStatement("SELECT Title,Date,Id FROM Event order by Id desc");
                 ResultSet rs = ps.executeQuery();
                 System.out.println("loadpost");
                 while (rs.next()) {

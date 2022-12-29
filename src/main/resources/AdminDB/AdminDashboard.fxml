@@ -309,7 +309,7 @@
    <center>
       <AnchorPane prefHeight="601.0" prefWidth="586.0" style="-fx-cursor: had; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="table" layoutX="17.0" layoutY="61.0" onMouseClicked="#tableclick" prefHeight="526.0" prefWidth="731.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-background-radius: 10;">
+            <TableView fx:id="table" layoutX="17.0" layoutY="61.0" onMouseClicked="#tableclick" prefHeight="526.0" prefWidth="731.0" style="-fx-background-radius: 10;" stylesheets="@../Style/style.css">
               <columns>
                 <TableColumn fx:id="col_title" prefWidth="229.59994888305664" text="Title" />
                 <TableColumn fx:id="col_type" minWidth="0.0" prefWidth="136.80006408691406" text="Disaster Type" />

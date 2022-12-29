@@ -5,9 +5,12 @@ module com.example.sheccashoinik {
     requires javafx.graphics;
      requires javafx.web;
     requires org.controlsfx.controls;
+    requires java.desktop;
 
     opens UserProfile to javafx.fxml;
     exports UserProfile;
+    opens News to javafx.fxml;
+    exports News;
 
     opens com.example.sheccashoinik to javafx.fxml;
     exports com.example.sheccashoinik;

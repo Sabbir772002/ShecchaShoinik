@@ -34,7 +34,6 @@ import java.util.ResourceBundle;
 
 public class HomeboardController implements Initializable {
 
-
         @FXML
         private Button btsearch;
         @FXML
@@ -252,13 +251,13 @@ public class HomeboardController implements Initializable {
                 col_district.setCellValueFactory(new PropertyValueFactory<disaster, String>("District"));
                 col_address.setCellValueFactory(new PropertyValueFactory<disaster, String>("Address"));
                 col_id.setCellValueFactory(new PropertyValueFactory<disaster, Integer>("Id"));
-
                 //table.setItems(list);
                 listF = ConnectionDb.getdiasterlist();
                 table.setItems(listF);
 
 
         }
+
 
 
         @FXML
@@ -338,7 +337,14 @@ public class HomeboardController implements Initializable {
        // rolee.setText("@" + role);
         this.role = role;
         this.username = username;
-       // alertcount();
+       // table.setStyle("-fx-background-color: red");
+        col_address.setStyle("-fx-text-fill: #400401;-fx-border-color: transparent;-fx-font-weight: bold;-fx-alignment:CENTER-LEFT;");
+        col_district.setStyle("-fx-text-fill:  #400401;-fx-border-color: transparent;-fx-font-weight: bold;-fx-alignment:CENTER;");
+        col_id.setStyle("-fx-text-fill:  #400401;-fx-border-color: transparent;-fx-font-weight: bold; -fx-alignment:CENTER;");
+        col_title.setStyle("-fx-text-fill: #400401;-fx-border-color:transparent; -fx-padding: 10 5 10 5; -fx-font-weight: bold; -fx-alignment:CENTER-LEFT; ");
+        col_type.setStyle("-fx-text-fill: #400401;-fx-alignment:CENTER; -fx-font-weight: Bold; -fx-text-size: 14;");
+
+        // alertcount();
        // alertnum.setText(String.valueOf(newcount));
         //Thread t=new UserDashboardController.AlertThread();
         //t.start();

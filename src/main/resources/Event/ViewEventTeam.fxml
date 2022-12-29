@@ -15,11 +15,11 @@
             <Font name="Arial Bold" size="44.0" />
          </font>
       </Label>
-      <TextField layoutX="21.0" layoutY="65.0" prefHeight="26.0" prefWidth="438.0" promptText="Search event" />
-      <TableView fx:id="eventtable" layoutX="21.0" layoutY="91.0" prefHeight="468.0" prefWidth="438.0">
+      <TextField layoutX="22.0" layoutY="65.0" prefHeight="26.0" prefWidth="437.0" promptText="Search event" />
+      <TableView fx:id="eventtable" layoutX="21.0" layoutY="91.0" prefHeight="468.0" prefWidth="450.0" stylesheets="@../Style/style.css">
         <columns>
           <TableColumn fx:id="title" prefWidth="261.5999755859375" text="Event Name" />
-          <TableColumn fx:id="time" minWidth="0.0" prefWidth="216.800048828125" text="Date" />
+          <TableColumn fx:id="time" minWidth="0.0" prefWidth="176.0" text="Date" />
         </columns>
       </TableView>
       <Button layoutX="574.0" layoutY="274.0" mnemonicParsing="false" onAction="#addevent" prefHeight="52.0" prefWidth="127.0" text="Add your event">

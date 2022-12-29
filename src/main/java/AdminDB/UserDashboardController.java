@@ -1,10 +1,13 @@
 package AdminDB;
-
+import java.awt.Desktop;
 import BloodBank.BloodBankController;
+import Chat.ChatHandle;
 import Chat.ChatPrivateController;
 import Chat.CommunityChatHandelar;
+import Chat.LiveHandeler;
 import DB.ConnectionDb;
 import Event.ViewEvent;
+import News.NewsView;
 import Others.HRequest;
 import Others.HelpRequest;
 import Others.VolunteerNearController;
@@ -41,6 +44,7 @@ import javafx.util.Duration;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
@@ -66,6 +70,33 @@ public class UserDashboardController implements Initializable {
         Thread t=new AlertThread();
         t.start();
        // loadtable0();
+    }
+    class AlertThread extends Thread{
+        @Override
+        public void run() {
+            while (true) {
+                try {
+                    //  System.out.println("hey ami choltesi");
+                    Thread.sleep(1000);
+                    alertcount();
+                    if(newcount!=oldcount){
+
+                       /* PauseTransition wait = new PauseTransition(Duration.seconds(1));
+                        wait.setOnFinished((e) -> {
+                            alertnum.setText(String.valueOf(newcount));
+                            wait.playFromStart();
+                        });
+                        wait.play();*/
+
+                    }
+                } catch (InterruptedException e) {
+                    System.out.println("interrupted");
+                }
+
+
+            }
+        }
+
     }
     @FXML
     private BorderPane pane1;
@@ -331,7 +362,6 @@ public class UserDashboardController implements Initializable {
         col_district.setCellValueFactory(new PropertyValueFactory<disaster, String>("District"));
         col_address.setCellValueFactory(new PropertyValueFactory<disaster, String>("Address"));
         col_id.setCellValueFactory(new PropertyValueFactory<disaster, Integer>("Id"));
-
         //table.setItems(list);
         listF = ConnectionDb.getdiasterlist();
         table.setItems(listF);
@@ -364,6 +394,7 @@ public class UserDashboardController implements Initializable {
             HomeboardController sadmin = fxmlLoader.getController();
             sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
+
 
         }catch (Exception e){
             System.out.println(e.getMessage());
@@ -398,7 +429,37 @@ public class UserDashboardController implements Initializable {
     }
 
     @FXML
-    void G(ActionEvent event) {
+    void mailbox(){
+        try {
+
+            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                Desktop.getDesktop().browse(new URI("https://wa.me/880"+"1571144383"));
+            }
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+
+    }
+    @FXML
+    void News(ActionEvent event) {
+
+        try{
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(News.NewsView.class.getResource("NewsView.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            News.NewsView sadmin = fxmlLoader.getController();
+             sadmin.set(username,role,pane1);
+            pane1.setCenter(ap);
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+
+
+
     }
 
     @FXML
@@ -512,16 +573,20 @@ public class UserDashboardController implements Initializable {
         try{
             System.out.println("hey ki khobor");
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(Chat.ChatPrivateController.class.getResource("CommunityChat.fxml"));
+           // fxmlLoader.setLocation(Chat.ChatPrivateController.class.getResource("CommunityChat.fxml"));
+            fxmlLoader.setLocation(Chat.LiveHandeler.class.getResource("ServerLive.fxml"));
             AnchorPane ap = fxmlLoader.load();
-            CommunityChatHandelar sadmin = fxmlLoader.getController();
+           // CommunityChatHandelar sadmin = fxmlLoader.getController();
+
+            LiveHandeler sadmin = fxmlLoader.getController();
             sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
-            System.out.println("kno holo na");
 
         }catch (Exception e){
+
             System.out.println(e.getMessage());
         }
+
 
     }
 
@@ -761,6 +826,11 @@ public class UserDashboardController implements Initializable {
         imageview1.setImage(image5);
         file1 = new File("src/main/Font/search.png");
         Image image6 = new Image(file1.toURI().toString());
+        col_address.setStyle("-fx-text-fill: #400401;-fx-border-color: transparent;-fx-font-weight: bold;-fx-alignment:CENTER-LEFT;");
+        col_district.setStyle("-fx-text-fill:  #400401;-fx-border-color: transparent;-fx-font-weight: bold;-fx-alignment:CENTER;");
+        col_id.setStyle("-fx-text-fill:  #400401;-fx-border-color: transparent;-fx-font-weight: bold; -fx-alignment:CENTER;");
+        col_title.setStyle("-fx-text-fill: #400401;-fx-border-color:transparent; -fx-padding: 10 5 10 5; -fx-font-weight: bold; -fx-alignment:CENTER-LEFT; ");
+        col_type.setStyle("-fx-text-fill: #400401;-fx-alignment:CENTER; -fx-font-weight:bold; -fx-text-size: 14;");
         //search.setImage(image6);
         loadtable();
         /*PauseTransition wait = new PauseTransition(Duration.seconds(1));
@@ -1036,33 +1106,6 @@ PauseTransition wait1 = new PauseTransition(Duration.seconds(1));
           System.out.println(e.getMessage());
 
       }
-
-    }
-    class AlertThread extends Thread{
-        @Override
-        public void run() {
-            while (true) {
-                try {
-                  //  System.out.println("hey ami choltesi");
-                    Thread.sleep(1000);
-                    alertcount();
-                    if(newcount!=oldcount){
-
-                       /* PauseTransition wait = new PauseTransition(Duration.seconds(1));
-                        wait.setOnFinished((e) -> {
-                            alertnum.setText(String.valueOf(newcount));
-                            wait.playFromStart();
-                        });
-                        wait.play();*/
-
-                    }
-                } catch (InterruptedException e) {
-                    System.out.println("interrupted");
-                }
-
-
-            }
-        }
 
     }
     @FXML

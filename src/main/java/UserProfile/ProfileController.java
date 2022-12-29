@@ -13,11 +13,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.File;
+import java.net.URI;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -51,10 +54,10 @@ public class ProfileController {
             sname=user2;
             pfield.setText("Chat");
         }
-        System.out.println("akhono thik");
+        System.out.println(user2);
         tname=user2;
         output();
-        System.out.println(user2);
+        System.out.println(username);
     }
     public void set(String username, String role,BorderPane pane) {
         if(role.equals("Admin"))delete.setVisible(true);
@@ -92,7 +95,20 @@ public class ProfileController {
 
 
     }
+    @FXML
+    void whatsapp(MouseEvent e){
+        System.out.println("whatapp");
+        try {
 
+            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                Desktop.getDesktop().browse(new URI("https://wa.me/88"+Phone.getText().toString()));
+            }
+        }catch (Exception ee) {
+            System.out.println(ee.getMessage());
+        }
+
+
+    }
 
     @FXML
     private Label BG;
@@ -188,11 +204,7 @@ public class ProfileController {
         try {
             Statement stmt = con.createStatement();
             System.out.println(tname+" ase na kn");
-            String sql = "SELECT Name,Username,Phone,ID,Division,District,Volunteer,BG FROM userlist Where Username = \'" + tname.toString() + "\'";
-            //String sql = "SELECT * FROM `userlist` Where Username = '"+1+"'";
-            //System.out.println("'"+user.getText()+"'");
-            //SELECT Name,ID FROM `userlist` WHERE Username= "Nuha";
-            //String s1="select * from teacher where Subject='PHYSICS'";
+            String sql = "SELECT Name,Username,Phone,ID,Division,District,Volunteer,BG FROM userlist Where Username = \'" + tname + "\'";
             ResultSet rs = stmt.executeQuery(sql);
             if (rs.next()) {
                 Name.setText(rs.getString(1));
@@ -214,7 +226,9 @@ public class ProfileController {
 
         }
         }
-        }
+
+
+}
 /* System.out.println(uname);
             System.out.println(username);*//*
 

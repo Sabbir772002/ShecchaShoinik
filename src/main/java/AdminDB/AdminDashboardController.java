@@ -4,6 +4,7 @@ import AdminProfile.AdminProfileController;
 import AdminProfile.ControlPanelController;
 import BloodBank.BloodBankController;
 import Chat.CommunityChatHandelar;
+import Chat.LiveHandeler;
 import DB.ConnectionDb;
 import Event.ApproveEVentController;
 import Event.ViewEvent;
@@ -637,6 +638,11 @@ public class AdminDashboardController implements Initializable {
         file1 = new File("src/main/Font/search.png");
         Image image6 = new Image(file1.toURI().toString());
         //search.setImage(image6);
+        col_address.setStyle("-fx-text-fill: #400401;-fx-border-color: transparent;-fx-font-weight: bold;-fx-alignment:CENTER-LEFT;");
+        col_district.setStyle("-fx-text-fill:  #400401;-fx-border-color: transparent;-fx-font-weight: bold;-fx-alignment:CENTER;");
+        col_id.setStyle("-fx-text-fill:  #400401;-fx-border-color: transparent;-fx-font-weight: bold; -fx-alignment:CENTER;");
+        col_title.setStyle("-fx-text-fill: #400401;-fx-border-color:transparent; -fx-padding: 10 5 10 5; -fx-font-weight: bold; -fx-alignment:CENTER-LEFT; ");
+        col_type.setStyle("-fx-text-fill: #400401;-fx-alignment:CENTER; -fx-font-weight: bold;");
         loadtable();
         //   choice.setOnAction(this::ChoiceClick);
 
@@ -909,10 +915,11 @@ public class AdminDashboardController implements Initializable {
         try {
             System.out.println("hey ki khobor");
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(Chat.ChatPrivateController.class.getResource("CommunityChat.fxml"));
+            fxmlLoader.setLocation(Chat.LiveHandeler.class.getResource("ServerLive.fxml"));
             AnchorPane ap = fxmlLoader.load();
-            CommunityChatHandelar sadmin = fxmlLoader.getController();
-            sadmin.set(username, role, pane1);
+            // CommunityChatHandelar sadmin = fxmlLoader.getController();
+            LiveHandeler sadmin = fxmlLoader.getController();
+            sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
             System.out.println("kno holo na");
 

@@ -9,11 +9,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
+import java.awt.*;
+import java.net.URI;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,7 +30,22 @@ public class VolunteerNearController implements Initializable {
     Connection con;
     String username="";
     String role="";
+    @FXML
+    void mail(MouseEvent e){
 
+        try {
+            if (Desktop.isDesktopSupported()) {
+                Desktop desktop = Desktop.getDesktop();
+                if (desktop.isSupported(Desktop.Action.MAIL)) {
+                    URI mailto = new URI("mailto:"+Phone1.getText().toString());
+                    desktop.mail(mailto);
+                }
+            }
+        }catch (Exception ee )
+        {
+            System.out.println(ee.getMessage());
+        }
+    }
     public void set(String username, String role) {
         con= ConnectionDb.DBC();
         role=role;
@@ -42,6 +62,23 @@ public class VolunteerNearController implements Initializable {
 
     }
     BorderPane pane;
+    @FXML
+    void join(ActionEvent event) {
+        try{
+            System.out.println(username2);
+            PreparedStatement preparedStatement;
+            con= ConnectionDb.DBC();
+            String st = "update Volunteer set Teams=? WHERE Username ='"+username+"'";
+            preparedStatement = (PreparedStatement) con.prepareStatement(st);
+            preparedStatement.setString(1, username2);
+            preparedStatement.execute();
+            preparedStatement.close();
+            con.close();
+        }catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
 
     public void set(String username, String role, BorderPane pane) {
         con=ConnectionDb.DBC();
@@ -112,6 +149,7 @@ public class VolunteerNearController implements Initializable {
 
     @FXML
     private TableColumn<Team, String> col_user;
+    String username2="TeamDurbar";
     @FXML
     ObservableList<Team> listF;
 
@@ -317,6 +355,7 @@ public class VolunteerNearController implements Initializable {
     void tableclick(MouseEvent e) {
         String t=vtable.getSelectionModel().getSelectedItem().getUsername();
         try {
+            con=ConnectionDb.DBC();
             PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity,Mail FROM Teams where Username='" + vtable.getSelectionModel().getSelectedItem().getUsername() + "'");
             ;
             ResultSet rs = ps.executeQuery();
@@ -330,6 +369,7 @@ public class VolunteerNearController implements Initializable {
                 String s8 = rs.getString(6);
                 String s9 = String.valueOf(rs.getInt(7));
                 String s10 = rs.getString(8);
+                username2=s5;
               Name.setText(s1);
               showuser.setText("@"+s5);
               Division.setText(s3);
