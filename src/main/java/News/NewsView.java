@@ -124,7 +124,7 @@ public class NewsView implements Initializable {
                 "</html>";
         WebEngine engine = view.getEngine();
         //engine.load(String.valueOf(getClass().getResource("mapsbd.html")));
-        engine.loadContent(s);
+        engine.load("https://en.prothomalo.com/topic/Natural-disaster");
        /* try {
 
             FXMLLoader fxmlLoader = new FXMLLoader();

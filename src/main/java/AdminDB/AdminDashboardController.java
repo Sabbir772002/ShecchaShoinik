@@ -196,9 +196,8 @@ public class AdminDashboardController implements Initializable {
     void TeamApprove(ActionEvent event) {
         try {
 
-            System.out.println("hey ki khobor");
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(Others.TeamApproveController.class.getResource("TeamApprove.fxml"));
+            fxmlLoader.setLocation(Others.TeamApproveController.class.getResource("TeamApprovee.fxml"));
             AnchorPane ap = fxmlLoader.load();
             TeamApproveController sadmin = fxmlLoader.getController();
             sadmin.set(username, role);

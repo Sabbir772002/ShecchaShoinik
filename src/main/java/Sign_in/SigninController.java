@@ -1,10 +1,8 @@
 package Sign_in;
 
 import AdminDB.*;
-import AdminDB.FXMLScene;
 import DB.ConnectionDb;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -222,7 +220,7 @@ public class SigninController implements Initializable {
            else if(sign_in_box.getValue().toString().equals("Team Leader")) {
 
                 // System.out.println("Inbox");
-                String sql = "SELECT * FROM teams Where username = ? and pass = ?";
+                String sql = "SELECT * FROM teams Where username = ? and pass = ? and approve=1";
                 try {
                     PreparedStatement preparedStatement = con.prepareStatement(sql);
                     preparedStatement.setString(1, usern);
@@ -302,8 +300,25 @@ public class SigninController implements Initializable {
     @FXML
     private AnchorPane enter;
 
+            @FXML
+            void forget(ActionEvent event) {
+                try {
 
-    @FXML
+                    root = FXMLLoader.load(ForgetController.class.getResource("ForgetPass.fxml"));
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.setTitle("Forget Your Password");
+                    stage.show();
+                }catch (Exception e) {
+
+
+                    System.out.println(e.getMessage());
+                }
+
+
+            }
+                @FXML
     public void enter1(KeyEvent e)
     {
         if(e.getCode().toString().equals("ENTER")|| e.getCode() == KeyCode.ENTER)
