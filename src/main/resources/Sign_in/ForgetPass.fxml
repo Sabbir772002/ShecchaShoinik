@@ -34,6 +34,7 @@
             </Label>
             <Label fx:id="selectl" layoutX="87.0" layoutY="88.0" prefHeight="14.0" prefWidth="92.0" text="*Have to select one" textFill="RED" visible="false">
                <font>
+
                   <Font size="9.0" />
                </font>
             </Label>
