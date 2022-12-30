@@ -18,7 +18,7 @@
       <children>
           <ScrollPane layoutX="40.0" layoutY="97.0" prefHeight="387.0" prefWidth="438.0" style="-fx-background-radius: 5;" styleClass="tt" stylesheets="@../../Style/style.css">
               <content>
-                  <TextArea fx:id="msgbox" editable="false" prefHeight="373.0" prefWidth="438.0" styleClass="bt" stylesheets="@../../Style/style.css" />
+                  <TextArea fx:id="msgbox" editable="false" prefHeight="373.0" prefWidth="438.0" style="-fx-text-fill: black;" stylesheets="@../../Style/style.css" />
               </content>
           </ScrollPane>
           <TextField fx:id="writebox" layoutX="38.0" layoutY="501.0" prefHeight="27.0" prefWidth="318.0" promptText="Write your message here...." styleClass="tt" stylesheets="@../../Style/style.css" />

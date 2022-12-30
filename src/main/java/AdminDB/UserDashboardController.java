@@ -7,6 +7,7 @@ import Chat.CommunityChatHandelar;
 import Chat.LiveHandeler;
 import DB.ConnectionDb;
 import Event.ViewEvent;
+import News.NewsBox;
 import News.NewsView;
 import Others.HRequest;
 import Others.HelpRequest;
@@ -50,7 +51,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import org.controlsfx.control.*;
+
 
 public class UserDashboardController implements Initializable {
     Connection con=ConnectionDb.DBC();
@@ -456,11 +457,10 @@ public class UserDashboardController implements Initializable {
     void News(ActionEvent event) {
 
         try{
-
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(News.NewsView.class.getResource("NewsView.fxml"));
+            fxmlLoader.setLocation(NewsBox.class.getResource("NewsBox.fxml"));
             AnchorPane ap = fxmlLoader.load();
-            News.NewsView sadmin = fxmlLoader.getController();
+            NewsBox sadmin = fxmlLoader.getController();
              sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
 
