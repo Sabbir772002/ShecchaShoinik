@@ -26,6 +26,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.sql.*;
 import java.util.Optional;
+import java.util.jar.Attributes;
 
 public class Post {
     public Post() throws FileNotFoundException {
@@ -112,7 +113,6 @@ public class Post {
             //pane1.setVisible(false);
             pane1.setCenter(ap);
             //.setCenter(ap);
-
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -127,8 +127,9 @@ public class Post {
 
         try {
          //   System.out.println(division);
+           // System.out.println("here is " + id);
 
-            PreparedStatement ps = con.prepareStatement("SELECT Name,Username,Phone FROM teams where Division='" + "Rajshahi" + "'");
+            PreparedStatement ps = con.prepareStatement("SELECT TeamN,TeamU,Phone FROM  pteams where id='" + id+ "'");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new Teams(rs.getString(1),rs.getString(2),rs.getString(3)));
@@ -145,7 +146,6 @@ public class Post {
 
        /* Contact.setStyle("-fx-text-fill: red;-fx-border-color: transparent;-fx-alignment:CENTER;");
         Name.setStyle("-fx-text-fill: red;-fx-border-color: transparent;-fx-alignment:CENTER;");*/
-        loadteams();
         Name.setCellValueFactory(new PropertyValueFactory<Teams,String>("Name"));
         Contact.setCellValueFactory(new PropertyValueFactory<Teams, String>("Phone"));
         Username.setCellValueFactory(new PropertyValueFactory<Teams, String>("Username"));
@@ -155,10 +155,11 @@ public class Post {
     }
 
 
-
+    @FXML
+    Button gob;
     @FXML
     private Label user;
-    String post[] = new String[6];
+    String name="";
     File file = new File("im.png");
     FileOutputStream fos = new FileOutputStream(file);
     byte pic[];
@@ -172,7 +173,6 @@ public class Post {
         this.role = role;
         this.username = username;
         this.id = id;
-        loadbox();
         title.setText(dlist.getTitle());
         type.setText(dlist.getType());
         address.setText(dlist.getAddress());
@@ -180,11 +180,32 @@ public class Post {
         district.setText(dlist.District);
         addinfo.setText(dlist.getAddInfo());
         poster.setImage(new Image(file.toURI().toString()));
-        loadtabletp();
-    }  public void set(String username, String role, int id, BorderPane pane) {
-        if(role.equals("Admin"))delete.setVisible(true);
+        if(role.equals("Team Leader")){gob.setVisible(true);}else{
+            gob.setVisible(false);
+        }
+        try {
+            con=ConnectionDb.DBC();
+            String st="Select Name from teams where username='"+username+"'";
+            PreparedStatement ps=con.prepareStatement(st);
+            ResultSet rs=ps.executeQuery();
+            if(rs.next()){
+                name=rs.getString(1);
+            }
 
-       // System.out.println("i am in set");
+        }catch (Exception e) {
+
+            System.out.println(e.getMessage());
+        }
+        loadbox();
+        loadtabletp();
+    }
+    String Phone="";
+    public void set(String username, String role, int id, BorderPane pane) {
+        if (role.equals("Admin")) {
+            delete.setVisible(true);
+        }
+
+        //System.out.println("i am in set");
         // user.setText(username);
         // rolee.setText("@"+role);
         this.role = role;
@@ -198,8 +219,109 @@ public class Post {
         district.setText(dlist.District);
         addinfo.setText(dlist.getAddInfo());
         poster.setImage(new Image(file.toURI().toString()));
-        this.pane1=pane;
+        this.pane1 = pane;
+        //System.out.println(role);
+        if (!role.equals("User") && !role.equals("Admin")) {
+            gob.setVisible(true);
+        } else {
+            gob.setVisible(false);
+        }
+        try {
+            con = ConnectionDb.DBC();
+            // System.out.println(username);
+            String st = "Select Name,Phone from teams where username='" + username + "'";
+            PreparedStatement ps = con.prepareStatement(st);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                //  System.out.println("hello");
+                name = rs.getString(1);
+                Phone = rs.getString(2);
+            }
+
+
+        } catch (Exception e) {
+
+            System.out.println(e.getMessage());
+        }
+        // System.out.println(id+" "+username);
+        String st = "select TeamN from pteams where id=" + id + " and TeamU='" + username + "' and Done=0";
+        try {
+            PreparedStatement p = con.prepareStatement(st);
+            ResultSet rs = p.executeQuery();
+            if (rs.next()) {
+                gob.setText("Mark Done!");
+            }
+        } catch (Exception e) {
+
+            System.out.println(e.getMessage());
+        }
+
+            String s="select TeamN from pteams where id="+id+" and TeamU='"+username+"' and Done=1";
+            try{
+                PreparedStatement p=con.prepareStatement(s);
+                ResultSet rs = p.executeQuery();
+                if(rs.next()){
+                    gob.setText("Disaster End!");
+                    gob.setStyle("-fx-background-color:black; fx-text-fill:white;");
+
+                }
+            }catch (Exception e){
+
+                System.out.println(e.getMessage());
+            }
         loadtabletp();
+    }
+
+    @FXML
+    public void go(){
+        con=ConnectionDb.DBC();
+
+        if(gob.getText().equals("GO Here")) {
+            String sql = "Insert into pteams (TeamN,TeamU,Phone,Id) Values(?,?,?,?)";
+            try {
+                PreparedStatement preparedStatement = con.prepareStatement(sql);
+                preparedStatement.setString(1, name);
+                preparedStatement.setString(2, username);
+                preparedStatement.setString(3, Phone);
+                preparedStatement.setInt(4, id);
+                preparedStatement.executeUpdate();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Status Update!");
+                alert.setHeaderText("Status Update Successfully!");
+                File file = new File("src/main/Font/icon1.png");
+                Image image = new Image(file.toURI().toString());
+                stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(image);
+                Optional<ButtonType> result = alert.showAndWait();
+                gob.setText("Mark Done!");
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }else {
+            try {
+                String st="Update pteams set done=1 where TeamU='" + username+"' and id='" + id+"'";
+                PreparedStatement preparedStatement = con.prepareStatement(st);
+                preparedStatement.executeUpdate();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Done Status Update!");
+                alert.setHeaderText("Work Done Update Successfully!");
+                File file = new File("src/main/Font/icon1.png");
+                Image image = new Image(file.toURI().toString());
+                stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(image);
+                Optional<ButtonType> result = alert.showAndWait();
+                gob.setText("Disaster End!");
+                gob.setStyle("-fx-background-color:black; fx-text-fill:white;");
+            }catch (Exception e) {
+
+                System.out.println(e.getMessage());
+            }
+
+        }
+        loadteams();
+       loadtabletp();
+
     }
 
     void loadbox() {
@@ -306,14 +428,14 @@ public class Post {
             //user.setImage(image);
             Optional<ButtonType> result = alert.showAndWait();
             try {
-                System.out.println("hey ki khobor");
+                //System.out.println("hey ki khobor");
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(AdminDB.ControlPanelController.class.getResource("ControlPanel.fxml"));
                 AnchorPane ap = fxmlLoader.load();
                 ControlPanelController sadmin = fxmlLoader.getController();
                 sadmin.set(username, role, pane1);
                 pane1.setCenter(ap);
-                System.out.println("kno holo na");
+               // System.out.println("kno holo na");
 
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -334,7 +456,7 @@ public class Post {
              PostBox.MapController sadmin = fxmlLoader.getController();
             sadmin.set(username, role,id);
             pane1.setCenter(ap);
-            System.out.println("kno holo na");
+          //  System.out.println("kno holo na");
 
         } catch (Exception ee) {
             System.out.println(ee.getMessage());

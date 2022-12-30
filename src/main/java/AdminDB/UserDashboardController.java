@@ -66,6 +66,17 @@ public class UserDashboardController implements Initializable {
         this.role = role;
         this.username = username;
         alertcount();
+        try {
+            System.out.println("hey ki khobor");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(AdminDB.HomeboardController.class.getResource("HomeBoard.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            HomeboardController sadmin = fxmlLoader.getController();
+            sadmin.set(username, role, pane1);
+            pane1.setCenter(ap);
+        }catch (Exception e){
+
+        }
         alertnum.setText(String.valueOf(newcount));
         Thread t=new AlertThread();
         t.start();

@@ -102,6 +102,17 @@ public class AdminDashboardController implements Initializable {
         this.role = role;
         this.username = username;
         con = ConnectionDb.DBC();
+            try{
+                System.out.println("hey ki khobor");
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(AdminDB.HomeboardController.class.getResource("HomeBoard.fxml"));
+                AnchorPane ap = fxmlLoader.load();
+                HomeboardController sadmin = fxmlLoader.getController();
+                sadmin.set(username, role, pane1);
+                pane1.setCenter(ap);
+            }catch (Exception e){
+
+            }
         alertcount();
         alertnum.setText(String.valueOf(newcount));
         Thread t = new AlertThread();

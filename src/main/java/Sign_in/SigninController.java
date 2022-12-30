@@ -219,7 +219,7 @@ public class SigninController implements Initializable {
                     status = "Exception";
                 }
             }
-           else if(sign_in_box.getValue().toString().equals("Volunteer Leader")) {
+           else if(sign_in_box.getValue().toString().equals("Team Leader")) {
 
                 // System.out.println("Inbox");
                 String sql = "SELECT * FROM teams Where username = ? and pass = ?";
@@ -287,7 +287,7 @@ public class SigninController implements Initializable {
        private ImageView loginimage1;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String items[]={"User","Volunteer Leader","Admin"};
+        String items[]={"User","Team Leader","Admin"};
         sign_in_box.getItems().addAll(items);
         sign_in_box.getSelectionModel().select(0);
         File file = new File("src/main/Font/user5.png");
