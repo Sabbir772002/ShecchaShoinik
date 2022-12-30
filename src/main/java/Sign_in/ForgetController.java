@@ -100,7 +100,6 @@ public class ForgetController implements Initializable {
                     if (!resultSet.next()) {
                         f = 0;
                     } else {
-
                     }
                 } catch (SQLException ex) {
                     System.err.println(ex.getMessage());
