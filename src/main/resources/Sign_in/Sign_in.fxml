@@ -67,7 +67,7 @@
                   <Image url="@../../Font/signup.png" />
                </image>
             </ImageView>
-            <Button layoutX="99.0" layoutY="274.0" mnemonicParsing="false" onAction="#forget" prefHeight="26.0" prefWidth="132.0" style="-fx-background-color: black; -fx-background-radius: 5,5,5,5;" text="Forget Password" textAlignment="CENTER" textFill="#e7331f8c" />
+            <Button layoutX="99.0" layoutY="267.0" mnemonicParsing="false" onAction="#forget" prefHeight="14.0" prefWidth="132.0" style="-fx-background-color: transparent; -fx-background-radius: 5,5,5,5;" text="Forget Password?" textAlignment="CENTER" textFill="#ffffff8c" underline="true" />
          </children>
       </AnchorPane>
    </children>
