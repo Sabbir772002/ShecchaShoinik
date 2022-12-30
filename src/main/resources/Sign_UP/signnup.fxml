@@ -10,16 +10,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="510.0" prefWidth="777.0" style="-fx-background-color: linear-gradient(to right top, #371d05, #4e340a, #604f0a, #6b6d10, #6c8d22);;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Post.Signnup">
+<AnchorPane prefHeight="510.0" prefWidth="777.0" style="-fx-background-color: linear-gradient(to right top, #371d05, #4e340a, #604f0a, #6b6d10, #6c8d22);;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_UP.TeamSignUp">
    <children>
       <AnchorPane layoutX="304.0" prefHeight="532.0" prefWidth="474.0" style="-fx-background-color: linear-gradient(to right bottom, #370505, #4e2732, #614957, #746c76, #8f8f8f);;">
          <children>
-            <Text fill="WHITE" layoutX="58.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose your role" wrappingWidth="224.5367431640625">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Text>
-            <ComboBox layoutX="214.0" layoutY="49.0" prefWidth="150.0" promptText="USER" />
             <TextField alignment="TOP_LEFT" layoutX="58.0" layoutY="100.0" prefHeight="26.0" prefWidth="268.0" promptText="Name" />
             <TextField layoutX="58.0" layoutY="139.0" prefHeight="26.0" prefWidth="268.0" />
             <TextField layoutX="58.0" layoutY="175.0" />
@@ -40,6 +34,11 @@
                   <Font size="14.0" />
                </font>
             </Button>
+            <Text fill="WHITE" fontSmoothingType="LCD" layoutX="-206.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="By creating team you are going to lead a group of people those a have great heart." wrappingWidth="474.39999999999986">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
          </children></AnchorPane>
       <ImageView fitHeight="65.0" fitWidth="104.0" layoutX="30.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
          <image>

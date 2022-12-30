@@ -47,6 +47,8 @@ public class VolunteerNearController implements Initializable {
         }
     }
     public void set(String username, String role) {
+        if(!role.equals("User")){joinb.setVisible(false);}else{joinb.setVisible(true);}
+
         con= ConnectionDb.DBC();
         role=role;
         this.role = role;
@@ -79,8 +81,13 @@ public class VolunteerNearController implements Initializable {
         }
 
     }
+    @FXML
+    Button joinb;
 
     public void set(String username, String role, BorderPane pane) {
+        if(!role.equals("User")){
+            joinb.setVisible(false);
+        }
         con=ConnectionDb.DBC();
         this.pane=pane;
         // user.setText(username);

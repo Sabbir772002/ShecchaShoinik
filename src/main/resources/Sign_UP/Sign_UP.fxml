@@ -20,23 +20,37 @@
                   <Font name="Bell MT Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="name" layoutX="195.0" layoutY="106.0" prefHeight="26.0" prefWidth="328.0" promptText="Name" />
-            <TextField fx:id="mail" layoutX="195.0" layoutY="142.0" prefHeight="26.0" prefWidth="328.0" promptText="Mail" />
-            <TextField fx:id="username" layoutX="195.0" layoutY="181.0" prefHeight="26.0" prefWidth="137.0" promptText="Username" />
-            <TextField fx:id="password" layoutX="194.0" layoutY="219.0" prefHeight="26.0" prefWidth="138.0" promptText="Password" />
+            <TextField fx:id="name" layoutX="195.0" layoutY="106.0" prefHeight="26.0" prefWidth="328.0" promptText="Name">
+               <font>
+                  <Font name="Bell MT Bold" size="15.0" />
+               </font></TextField>
+            <TextField fx:id="mail" layoutX="195.0" layoutY="142.0" prefHeight="26.0" prefWidth="328.0" promptText="Mail">
+               <font>
+                  <Font name="Bell MT Bold" size="15.0" />
+               </font></TextField>
+            <TextField fx:id="username" layoutX="195.0" layoutY="181.0" prefHeight="26.0" prefWidth="137.0" promptText="Username">
+               <font>
+                  <Font name="Bell MT Bold" size="15.0" />
+               </font></TextField>
+            <TextField fx:id="password" layoutX="194.0" layoutY="219.0" prefHeight="26.0" prefWidth="138.0" promptText="Password">
+               <font>
+                  <Font name="Bell MT Bold" size="15.0" />
+               </font></TextField>
             <DatePicker fx:id="dob" layoutX="193.0" layoutY="257.0" prefHeight="26.0" prefWidth="138.0" promptText="07/02/1995" />
             <ComboBox fx:id="cbGender" layoutX="194.0" layoutY="293.0" prefHeight="26.0" prefWidth="138.0" promptText="Male" />
-            <TextField fx:id="phone" layoutX="192.0" layoutY="334.0" prefHeight="26.0" prefWidth="143.0" promptText="01571144383" />
+            <TextField fx:id="phone" layoutX="192.0" layoutY="334.0" prefHeight="26.0" prefWidth="143.0" promptText="01571144383">
+               <font>
+                  <Font name="Bell MT Bold" size="15.0" />
+               </font></TextField>
             <ComboBox fx:id="cbdivision" layoutX="191.0" layoutY="370.0" onAction="#Select" prefHeight="26.0" prefWidth="143.0" promptText="Division" />
             <ComboBox fx:id="cbdistrict" layoutX="359.0" layoutY="370.0" prefHeight="26.0" prefWidth="143.0" promptText="District" />
             <ComboBox fx:id="bloodgroup" layoutX="192.0" layoutY="409.0" prefHeight="26.0" prefWidth="143.0" promptText="Blood group" />
-            <Text fill="WHITE" layoutX="80.0" layoutY="495.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Interested volunteering field:">
+            <Text fill="WHITE" layoutX="70.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID:" wrappingWidth="92.51220703125">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="Bell MT Bold" size="15.0" />
                </font>
             </Text>
-            <ComboBox fx:id="cbgroup" layoutX="347.0" layoutY="474.0" prefHeight="26.0" prefWidth="175.0" promptText="Earthquake" />
-            <Button fx:id="sign" alignment="CENTER_RIGHT" contentDisplay="CENTER" defaultButton="true" layoutX="251.0" layoutY="538.0" mnemonicParsing="false" onAction="#Sign_up" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: #0A3CCF; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="#f0f2f1" AnchorPane.leftAnchor="251.0">
+            <Button fx:id="sign" alignment="CENTER_RIGHT" contentDisplay="CENTER" defaultButton="true" layoutX="255.0" layoutY="566.0" mnemonicParsing="false" onAction="#Sign_up" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: #0A3CCF; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="#f0f2f1" AnchorPane.leftAnchor="255.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -46,12 +60,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="71.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password: ">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="73.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DOB:">
+            <Text fill="WHITE" layoutX="70.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password: ">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -61,12 +70,12 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="79.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact no.:">
+            <Text fill="WHITE" layoutX="70.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact no.:" wrappingWidth="92.51220703125">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="74.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location:">
+            <Text fill="WHITE" layoutX="71.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location:" wrappingWidth="75.0732421875">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -86,6 +95,26 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Text>
+            <Text fill="WHITE" layoutX="72.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DOB:">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="Nid" layoutX="191.0" layoutY="447.0" prefHeight="26.0" prefWidth="143.0" promptText="1963890981">
+               <font>
+                  <Font name="Bell MT Bold" size="15.0" />
+               </font>
+            </TextField>
+            <Text fill="WHITE" layoutX="70.0" layoutY="503.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About You:" wrappingWidth="92.51220703125">
+               <font>
+                  <Font name="Bell MT Bold" size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="Extra" alignment="TOP_LEFT" layoutX="192.0" layoutY="485.0" prefHeight="54.0" prefWidth="348.0" promptText="01571144383">
+               <font>
+                  <Font name="Bell MT Bold" size="15.0" />
+               </font>
+            </TextField>
          </children>
       </AnchorPane>
       <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="104.0" layoutY="396.0" mnemonicParsing="false" onAction="#Signin" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: linear-gradient(to right, #360033, #0b8793); -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN IN" textFill="#f0f2f1">
