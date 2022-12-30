@@ -2,10 +2,12 @@ package AdminDB;
 
 import BloodBank.BloodBankController;
 import Chat.CommunityChatHandelar;
+import Chat.LiveHandeler;
 import DB.ConnectionDb;
 import Event.ViewEvent;
 import Others.*;
 import PostBox.AddPostController;
+import PostBox.Post;
 import Sign_in.SigninController;
 import TeamProfile.TeamProfileController;
 import UserProfile.ProfileController;
@@ -18,6 +20,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -474,9 +477,10 @@ public class TeamDashboardController implements Initializable {
         try {
             System.out.println("hey ki khobor");
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(Chat.ChatPrivateController.class.getResource("CommunityChat.fxml"));
+            fxmlLoader.setLocation(Chat.LiveHandeler.class.getResource("ServerLive.fxml"));
             AnchorPane ap = fxmlLoader.load();
-            CommunityChatHandelar sadmin = fxmlLoader.getController();
+            // CommunityChatHandelar sadmin = fxmlLoader.getController();
+            LiveHandeler sadmin = fxmlLoader.getController();
             sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
             System.out.println("kno holo na");
@@ -655,7 +659,7 @@ public class TeamDashboardController implements Initializable {
         imageview1.setImage(image5);
         file1 = new File("src/main/Font/search.png");
         Image image6 = new Image(file1.toURI().toString());
-        try {
+    /*    try {
             System.out.println("hey ki khobor");
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(AdminDB.HomeboardController.class.getResource("HomeBoard.fxml"));
@@ -665,7 +669,7 @@ public class TeamDashboardController implements Initializable {
             pane1.setCenter(ap);
         }catch (Exception e){
 
-        }
+        }*/
         col_address.setStyle("-fx-text-fill: #400401;-fx-border-color: transparent;-fx-font-weight: bold;-fx-alignment:CENTER-LEFT;");
         col_district.setStyle("-fx-text-fill:  #400401;-fx-border-color: transparent;-fx-font-weight: bold;-fx-alignment:CENTER;");
         col_id.setStyle("-fx-text-fill:  #400401;-fx-border-color: transparent;-fx-font-weight: bold; -fx-alignment:CENTER;");
@@ -683,10 +687,22 @@ public class TeamDashboardController implements Initializable {
         this.role = role;
         this.username = username;
         con=ConnectionDb.DBC();
+        try {
+            System.out.println("hey ki khobor");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(AdminDB.HomeboardController.class.getResource("HomeBoard.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            HomeboardController sadmin = fxmlLoader.getController();
+            sadmin.set(username, role, pane1);
+            pane1.setCenter(ap);
+        }catch (Exception e){
+
+        }
         alertcount();
         alertnum.setText(String.valueOf(newcount));
         Thread t=new AlertThread();
         t.start();
+
     }
     @FXML
     private Button alertbutton;
@@ -829,10 +845,12 @@ public class TeamDashboardController implements Initializable {
         void tableclick(MouseEvent event) {
             System.out.println(table.getSelectionModel().getSelectedItem().getId());
             try {
-                PostBox.FXMLScene scene = PostBox.FXMLScene.load("PostView.fxml");
-                Parent root = scene.root;
-                PostBox.Post admin = (PostBox.Post) scene.controller;
-                admin.set(username, role, table.getSelectionModel().getSelectedItem().getId());
+               FXMLLoader fx=new FXMLLoader();
+               fx.setLocation(PostBox.Post.class.getResource("PostView.fxml"));
+               AnchorPane p=fx.load();
+                PostBox.Post admin=fx.getController();
+                admin.set(username, role, table.getSelectionModel().getSelectedItem().getId(),pane1);
+                pane1.setCenter(p);
                 Connection con = ConnectionDb.DBC();
                 try {
                     String sql = "SELECT * FROM notify Where username = ? and Postid = ?";

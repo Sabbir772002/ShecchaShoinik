@@ -94,9 +94,16 @@ public class TeamProfileController {
 
 
     }
+    @FXML
+    Button joint;
+    @FXML
+    Button ap;
+    @FXML
+    Button dlt;
+
     public void set(String username, String role) {
         if(role.equals("Admin"))delete.setVisible(true);
-
+        if(role.equals("User")){joint.setVisible(true);}else{joint.setVisible(false);}
         con = ConnectionDb.DBC();
         role = role;
         this.role = role;
@@ -111,7 +118,27 @@ public class TeamProfileController {
 
     } public void set(String username, String role,String name2, String username1,BorderPane pane) {
         if(role.equals("Admin"))delete.setVisible(true);
+        if(role.equals("User")){joint.setVisible(true);}else{joint.setVisible(false);}
+        con = ConnectionDb.DBC();
+        role = role;
+        this.role = role;
+        this.username = username;
+        this.name2 = name2;
+        this.username1 = username1;
+        this.pane = pane;
+        username2=username;
+        output();
 
+        // alertcount();
+        //alertnum.setText(String.valueOf(newcount));
+        // Thread t=new HelpRequest.AlertThread();
+        //t.start();
+
+
+    }
+    public void set(String username, String role,String name2, String username1,BorderPane pane,String team) {
+        if(role.equals("Admin")){ap.setVisible(true);dlt.setVisible(true);}
+        if(role.equals("User")){joint.setVisible(true);}else{joint.setVisible(false);}
         con = ConnectionDb.DBC();
         role = role;
         this.role = role;
@@ -135,6 +162,7 @@ public class TeamProfileController {
     public void set(String username, String role, BorderPane pane) {
         if(role.equals("Admin"))delete.setVisible(true);
 
+
         con= ConnectionDb.DBC();
         this.pane=pane;
         // user.setText(username);
@@ -145,7 +173,54 @@ public class TeamProfileController {
         output();
     }
 
+    @FXML
+    void deletet() {
+        try {
+            con = ConnectionDb.DBC();
+            String st = "Delete from teams WHERE Username='" + username1 + "'";
+            PreparedStatement preparedStatement = (PreparedStatement) con.prepareStatement(st);
+            preparedStatement.execute();
+            System.out.println("Team deleted");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Team deleted Successfully");
+            alert.setHeaderText("Click ok to Back!");
+            File file = new File("src/main/Font/icon1.png");
+            Image image = new Image(file.toURI().toString());
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(image);
+            // alert.initOwner(stage);
+            //alert.setGraphic(new ImageView(image));
+            //user.setImage(image);
+            Optional<ButtonType> result = alert.showAndWait();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
 
+        }
+    }
+@FXML
+void apteam(){
+   try {
+       con = ConnectionDb.DBC();
+       String st = "Delete from teams WHERE Username='" + username1 + "'";
+       PreparedStatement preparedStatement = (PreparedStatement) con.prepareStatement(st);
+       preparedStatement.execute();
+       System.out.println("Team deleted");
+       Alert alert = new Alert(Alert.AlertType.INFORMATION);
+       alert.setTitle("Team deleted Successfully");
+       alert.setHeaderText("Click ok to Back!");
+       File file = new File("src/main/Font/icon1.png");
+       Image image = new Image(file.toURI().toString());
+       Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+       stage.getIcons().add(image);
+       // alert.initOwner(stage);
+       //alert.setGraphic(new ImageView(image));
+       //user.setImage(image);
+       Optional<ButtonType> result = alert.showAndWait();
+   }catch (Exception e) {
+       System.out.println(e.getMessage());
+   }
+
+}
    @FXML
      void mail(MouseEvent e){
 
@@ -163,6 +238,11 @@ public class TeamProfileController {
         }
     }
 
+    @FXML
+    void whatsapp(){
+
+
+    }
     public void output(){
         try{
             Statement stmt=con.createStatement();
@@ -202,16 +282,22 @@ public class TeamProfileController {
             System.err.println(ex.getMessage());
         }
     }
-
-    @FXML
-    void request(ActionEvent event) {
-
-
-    }
     @FXML
     void join(ActionEvent event) {
+     try{
+         System.out.println(username2);
+         PreparedStatement preparedStatement;
+         con= ConnectionDb.DBC();
+         String st = "update Volunteer set Teams=? WHERE Username ='"+username+"'";
+         preparedStatement = (PreparedStatement) con.prepareStatement(st);
+         preparedStatement.setString(1, username2);
 
-
+         preparedStatement.execute();
+         preparedStatement.close();
+         con.close();
+     }catch (SQLException e) {
+         System.out.println(e.getMessage());
+     }
 
     }
     @FXML
@@ -224,7 +310,7 @@ public class TeamProfileController {
         PreparedStatement preparedStatement;
         try {
             con= ConnectionDb.DBC();
-            String st = "update userlist set Name=?,Phone=?,Division=?,District=?,Mail=? WHERE Username ='"+username+"'";
+            String st = "update Teams set Name=?,Phone=?,Division=?,District=?,Mail=? WHERE Username ='"+username+"'";
             preparedStatement = (PreparedStatement) con.prepareStatement(st);
             preparedStatement.setString(1, name.getText());
             preparedStatement.setString(2, phone.getText());

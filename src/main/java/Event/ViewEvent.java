@@ -13,12 +13,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.AccessibleAction;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.net.URL;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,14 +34,58 @@ public class ViewEvent implements Initializable {
     Connection con;
     String username,role;
 
-    @FXML
-     void eventclick(MouseEvent e){
-        int id=Integer.parseInt(eventtable.getSelectionModel().getSelectedItem().getId());
+    File file = new File("image2.png");
+    FileOutputStream fos = new FileOutputStream(file);
+    byte pic[];
+    Blob blob;
+    public ViewEvent() throws FileNotFoundException {
+        eventclick11();
+    }
+    int Id=0;
+    void eventclick11(){
+        System.out.println("here i am");
+        File file = new File("image2.png");
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
 
+            byte pic[];
+            Blob blob;
+            PreparedStatement ps = con.prepareStatement("SELECT Title,Date,Division,District,Address,Author,Image FROM Event where Id="+3+" order by id desc;");
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()) {
+                Title.setText(rs.getString(1));
+                date.setText(rs.getString(2));
+                division.setText(rs.getString(3));
+                district.setText(rs.getString(4));
+                address.setText(rs.getString(5));
+                author.setText(rs.getString(6));
+                blob = rs.getBlob(7);
+                pic = blob.getBytes(1, (int) blob.length());
+                fos.write(pic);
+                imageview.setFitWidth(365);
+                imageview.setFitHeight(180);
+                imageview.setImage(new Image(file.toURI().toString()));
+            }
+            file.delete();
+            fos.close();
+        }catch (Exception ee){
+            System.out.println(ee.getMessage());
+        }
+
+    }
+
+
+
+    @FXML
+     void eventclick(MouseEvent e)throws FileNotFoundException {
+        int id=Integer.parseInt(eventtable.getSelectionModel().getSelectedItem().getId());
+        File file = new File("image2.png");
+        FileOutputStream fos = new FileOutputStream(file);
+        byte pic[];
+        Blob blob;
             try {
-                PreparedStatement ps = con.prepareStatement("SELECT Title,Date,Division,District,Address,Author FROM Event where Id="+id+";");
+                PreparedStatement ps = con.prepareStatement("SELECT Title,Date,Division,District,Address,Author,Image FROM Event where Id="+id+";");
                 ResultSet rs = ps.executeQuery();
-                System.out.println("loadevent");
                 if(rs.next()) {
                        Title.setText(rs.getString(1));
                        date.setText(rs.getString(2));
@@ -44,7 +93,16 @@ public class ViewEvent implements Initializable {
                        district.setText(rs.getString(4));
                        address.setText(rs.getString(5));
                        author.setText(rs.getString(6));
+                       blob = rs.getBlob(7);
+                       pic = blob.getBytes(1, (int) blob.length());
+                       fos.write(pic);
+                       imageview.setFitWidth(365);
+                       imageview.setFitHeight(223);
+                       imageview.setImage(new Image(file.toURI().toString()));
                 }
+                file.delete();
+                fos.close();
+
 
         }catch (Exception ee){
             System.out.println(ee.getMessage());
@@ -52,7 +110,7 @@ public class ViewEvent implements Initializable {
 
             }
 
- void eventclick(){
+ void eventclick1(){
        // int id=Integer.parseInt(eventtable.getSelectionModel().getSelectedItem().getId());
 
             try {
@@ -107,7 +165,7 @@ public class ViewEvent implements Initializable {
         this.pane = pane;
         this.username = username;
         this.role = role;
-        System.out.println("i am in set");
+        eventclick11();
         // user.setText(username);
         // rolee.setText("@"+role);
 
@@ -188,7 +246,6 @@ public class ViewEvent implements Initializable {
 
         con=ConnectionDb.DBC();
         loadtable();
-         eventclick();
     }
 
 }

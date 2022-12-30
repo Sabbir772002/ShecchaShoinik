@@ -37,7 +37,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import org.controlsfx.control.*;
 
 public class HelpRequest implements Initializable {
     Connection con=ConnectionDb.DBC();
@@ -755,8 +754,8 @@ public class HelpRequest implements Initializable {
                 PauseTransition wait1 = new PauseTransition(Duration.seconds(1));
                 wait1.setOnFinished((e) -> {
                     //  alertnum.setText(String.valueOf(newcount));
-                    Notifications.create().title("New Disaster Posted!").text("Please check home page!").position(Pos.TOP_LEFT).showInformation();
-
+                   // Notifications.create().title("New Disaster Posted!").text("Please check home page!").position(Pos.TOP_LEFT).showInformation();
+//
                     wait1.playFromStart();
                 });
                 wait1.play();

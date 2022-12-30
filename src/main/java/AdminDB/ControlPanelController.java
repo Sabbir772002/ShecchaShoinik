@@ -323,8 +323,21 @@ void loadtablep() {
 
     }
     @FXML
-   void tablcclickpost(ActionEvent event) {
+   void tablcclickpost(MouseEvent event) {
+            //String Name2=alluser.getSelectionModel().getSelectedItem().getName().toString();
+            int id= Integer.parseInt(post.getSelectionModel().getSelectedItem().getID());
+            try{
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(PostBox.Post.class.getResource("PostView.fxml"));
+                AnchorPane ap = fxmlLoader.load();
+               PostBox.Post sadmin = fxmlLoader.getController();
+                sadmin.set(username,role,id,pane);
+                //pane1.setVisible(false);
+                pane.setCenter(ap);
+                //.setCenter(ap);
 
-
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
     }
 }

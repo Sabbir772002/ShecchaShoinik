@@ -59,7 +59,7 @@ public class VolunteerList {
 
         try {
 
-            PreparedStatement ps = con.prepareStatement("SELECT Name,Username,Mail,Phone FROM Volunteer where Teams='" + Username + "'");
+            PreparedStatement ps = con.prepareStatement("SELECT Name,Username,Mail,Phone FROM Volunteer where Teams='" + Username + "' And Approve=1");
             ResultSet rs = ps.executeQuery();
            // System.out.println("Loading team members");
             while (rs.next()) {

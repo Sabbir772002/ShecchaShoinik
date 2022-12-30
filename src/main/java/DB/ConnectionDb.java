@@ -23,7 +23,7 @@ public class ConnectionDb {
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/sheccashoinik","root","");
             return con;
         } catch (Exception e) {
-            System.err.println("Connection paitese na vai");
+            System.err.println("Connection paitese na vai"+e.getMessage());
            return null;
         }
 

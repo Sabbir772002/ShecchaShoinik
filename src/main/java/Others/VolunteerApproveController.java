@@ -10,12 +10,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.sql.*;
+import java.util.Optional;
 
 public class VolunteerApproveController {
     private Stage stage;
@@ -68,10 +71,29 @@ public class VolunteerApproveController {
 
     @FXML
     private Label showuser;
+    String user="";
 
     @FXML
     void Approve(ActionEvent event) {
+        try {
+            con=ConnectionDb.DBC();
+            PreparedStatement ps = con.prepareStatement("Update volunteer set Approve=1 where Username='"+user+"'");
+            ps.executeUpdate();
+            ps.close();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("User Approved!");
+            alert.setHeaderText("User Approve Succesfully!");
+            // alert.setContentText("");
+            File file = new File("src/main/Font/icon1.png");
+            Image image = new Image(file.toURI().toString());
+            stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(image);
+            Optional<ButtonType> result=alert.showAndWait();
+            loadtable();
+        }catch(Exception e){
+            System.out.println(e.getMessage());
 
+        }
     }
 
     public void set(String username, String role, BorderPane pane) {
@@ -90,7 +112,7 @@ public class VolunteerApproveController {
     ObservableList<User> loadusers(){
         ObservableList<User>list = FXCollections.observableArrayList();
         try {
-            PreparedStatement ps = con.prepareStatement("SELECT Name,Username FROM userlist");
+            PreparedStatement ps = con.prepareStatement("SELECT Name,Username FROM volunteer where Teams='"+username+"' And approve=0");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new User(rs.getString(1),rs.getString(2)));
@@ -134,6 +156,7 @@ public class VolunteerApproveController {
                 BG.setText(rs.getString(8));
 
             }
+            user=showuser.getText().toString();
             rs.close();
             stmt.close();
             con.close();

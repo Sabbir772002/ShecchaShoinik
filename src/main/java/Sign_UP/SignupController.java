@@ -120,6 +120,7 @@ public class SignupController implements Initializable {
                 } else {
                     try {
                         String st = "INSERT INTO userlist (Name,Username,Password,Division,District,DOB,ID,Gender,Volunteer,BG,Phone,Mail) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                        String st1 = "INSERT INTO volunteer (Name,Username,Password,Division,District,DOB,ID,Gender,Volunteer,BG,Phone,Mail) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
                         preparedStatement = (PreparedStatement) connection.prepareStatement(st);
                         preparedStatement.setString(1, name.getText());
                         preparedStatement.setString(2, username.getText());
@@ -135,21 +136,31 @@ public class SignupController implements Initializable {
                         preparedStatement.setString(12, mail.getText());
                         preparedStatement.execute();
                         preparedStatement.close();
+                        PreparedStatement preparedStatement1  = (PreparedStatement) connection.prepareStatement(st1);
+                        preparedStatement1.setString(1, name.getText());
+                        preparedStatement1.setString(2, username.getText());
+                        preparedStatement1.setString(3, password.getText());
+                        preparedStatement1.setString(4, cbdivision.getValue().toString());
+                        preparedStatement1.setString(5, cbdistrict.getValue().toString());
+                        preparedStatement1.setString(6, dob.getValue().toString());
+                        preparedStatement1.setString(7, "1963890981");
+                        preparedStatement1.setString(8, cbGender.getValue().toString());
+                        preparedStatement1.setString(9, cbgroup.getValue().toString());
+                        preparedStatement1.setString(10, bloodgroup.getValue().toString());
+                        preparedStatement1.setString(11, phone.getText());
+                        preparedStatement1.setString(12, mail.getText());
+                        preparedStatement1.execute();
+                        preparedStatement1.close();
                         connection.close();
-                        System.out.println("THIK ASE INPUT");
-               /* try{
-                    Dashboard.FXMLScene scene =  Dashboard.FXMLScene.load("Profile.fxml");
-                    Parent root = scene.root;
-                    SigninController admin= (SigninController) scene.controller;
-                    admin.set(username.getText().toString());
-                    stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-                    stage.setScene(new Scene(root));
-                    stage.setTitle("Post Diaster");
-                    stage.show();
-                }catch (Exception e){
-                    System.out.println("vul hoilo profile button profile controller");
-                }*/
-
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                        alert.setTitle("Sign Up Confarmation!");
+                        alert.setHeaderText("Sign Up Sucessfully!\nPlease Login to continue");
+                        // alert.setContentText("");
+                        File file = new File("src/main/Font/icon1.png");
+                        Image image = new Image(file.toURI().toString());
+                        stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                        stage.getIcons().add(image);
+                        Optional<ButtonType> result=alert.showAndWait();
                         root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
                         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         scene = new Scene(root);
