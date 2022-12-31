@@ -225,7 +225,6 @@ public class ProfileController implements Initializable {
     public void output() {
         try {
             Statement stmt = con.createStatement();
-            System.out.println(tname+" ase na kn");
             String sql = "SELECT Name,Username,Phone,ID,Division,District,Extra,Mail,BG FROM userlist Where Username = \'" + tname + "\'";
             ResultSet rs = stmt.executeQuery(sql);
             if (rs.next()) {
@@ -237,8 +236,7 @@ public class ProfileController implements Initializable {
                 Division.setText(rs.getString(5));
                 field.setText(rs.getString(7));
                 BG.setText(rs.getString(9));
-               maill.setText(rs.getString(8));
-
+                maill.setText(rs.getString(8));
 
             }
             rs.close();
@@ -249,9 +247,8 @@ public class ProfileController implements Initializable {
 
         }
         }
-
-@FXML
-Button  maili;
+        @FXML
+    Button  maili;
     @FXML
     Button whats;
     @Override

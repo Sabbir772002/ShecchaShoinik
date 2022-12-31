@@ -51,6 +51,7 @@
                   <Font name="Bell MT Bold" size="18.0" />
                </font>
             </Label>
+            <Button fx:id="bsign" layoutX="253.0" layoutY="433.0" mnemonicParsing="false" onAction="#Sign_up" prefHeight="26.0" prefWidth="28.0" style="-fx-background-color: tranesparent;" />
          </children>
       </AnchorPane>
       <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="104.0" layoutY="396.0" mnemonicParsing="false" onAction="#Signin" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: linear-gradient(to right, #360033, #0b8793); -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN IN" textFill="#f0f2f1">

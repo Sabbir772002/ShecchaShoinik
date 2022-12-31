@@ -217,21 +217,23 @@ public TeamSignUp(){
 
                 }
                 }
-
+@FXML
+Button bsign;
 @Override
 public void initialize(URL url, ResourceBundle resourceBundle) {
-        String []division={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
+       String []division={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
         cbdivision.getItems().addAll(division);
-        cbdivision.getSelectionModel().select(0);
-    String []ditrict={"Dhaka","Gazipur","Faridpur","Gopalganj","Jamalpur","Kishoreganj","Madaripur","Manikganj","Munshiganj","Narayanganj","Narshingdi","Rajbari","Shariatpur","Tangail"};
-    cbdistrict.getItems().addAll(ditrict);
-    cbdistrict.getSelectionModel().select(0);
+        //cbdivision.getSelectionModel().select(0);
+      String []ditrict={"Dhaka","Gazipur","Faridpur","Gopalganj","Jamalpur","Kishoreganj","Madaripur","Manikganj","Munshiganj","Narayanganj","Narshingdi","Rajbari","Shariatpur","Tangail"};
+   cbdistrict.getItems().addAll(ditrict);
+   // cbdistrict.getSelectionModel().select(0);
         String []user2={"EarthQuake","Storm Surge","Wildfire","Cyclone","Flood","Drought","Tsunami","Typhoon","LandSlide","Epidemic","Structural Collapse","Transport Disasters","Mining Accidents","Explosions and Fires","Others"};
         cbgroup.getItems().addAll(user2);
     ImageView i=new ImageView(new Image(new File("src/main/Font/add1.png").toURI().toString()));
-        i.setFitHeight(27);
-        i.setFitWidth(27);
-        sign.setGraphic(i);
+        i.setFitHeight(24);
+        i.setFitWidth(24);
+        bsign.setGraphic(i);
+
         }
         }
 
