@@ -77,7 +77,7 @@ public class ConnectionDb {
         ObservableList<Team>list = FXCollections.observableArrayList();
         try {
 
-            PreparedStatement ps =  con.prepareStatement("SELECT Name,District,Username FROM Teams where District='"+District+"' and approve=1");;
+            PreparedStatement ps =  con.prepareStatement("SELECT Name,District,Username FROM Teams where District='"+District+"' And Approve=1");;
             ResultSet rs = ps.executeQuery();
 
             while(rs.next()){
@@ -85,7 +85,7 @@ public class ConnectionDb {
                 list.add(new Team(rs.getString(1), rs.getString(2),rs.getString(3))); //rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7)));
             }
             rs.close();
-            PreparedStatement ps1 =  con.prepareStatement("SELECT Name,District,Username FROM Teams where Division='"+Division+"' And District!='"+District+" and approve=1");;
+            PreparedStatement ps1 =  con.prepareStatement("SELECT Name,District,Username FROM Teams where Division='"+Division+"' And District!='"+District+"' And Approve=1");
             ResultSet rs1 = ps1.executeQuery();
 
             while(rs1.next()){
@@ -94,7 +94,7 @@ public class ConnectionDb {
                 list.add(new Team(rs1.getString(1), rs1.getString(2),rs1.getString(3))); //rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7)));
             }
             rs1.close();
-            PreparedStatement ps2 =  con.prepareStatement("SELECT Name,District,Username FROM Teams where Division!='"+Division+"' approve");;
+            PreparedStatement ps2 =  con.prepareStatement("SELECT Name,District,Username FROM Teams where Division!='"+Division+"' And Approve=1");;
             ResultSet rs2 = ps2.executeQuery();
            // System.out.println(Division);
             while(rs2.next()){
@@ -124,7 +124,7 @@ public static ObservableList<Team> getTeamlist(String Division, String District,
         Connection con =DBC();
         ObservableList<Team>list = FXCollections.observableArrayList();
       try{
-            PreparedStatement ps1 =  con.prepareStatement("SELECT Name,District,Username FROM Teams where Division='"+Division+"' approve=1");;
+            PreparedStatement ps1 =  con.prepareStatement("SELECT Name,District,Username FROM Teams where Division='"+Division+"' and approve=1");;
             ResultSet rs1 = ps1.executeQuery();
 
             while(rs1.next()){
@@ -133,7 +133,7 @@ public static ObservableList<Team> getTeamlist(String Division, String District,
                 list.add(new Team(rs1.getString(1), rs1.getString(2),rs1.getString(3))); //rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7)));
             }
             rs1.close();
-            PreparedStatement ps2 =  con.prepareStatement("SELECT Name,District,Username FROM Teams where Division!='"+Division+"' approve");;
+            PreparedStatement ps2 =  con.prepareStatement("SELECT Name,District,Username FROM Teams where Division!='"+Division+"' and approve=1");;
             ResultSet rs2 = ps2.executeQuery();
            // System.out.println(Division);
             while(rs2.next()){
