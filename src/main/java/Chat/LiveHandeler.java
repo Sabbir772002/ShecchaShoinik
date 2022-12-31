@@ -15,6 +15,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -35,7 +36,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
-public class LiveHandeler extends Thread {
+public class LiveHandeler extends Thread implements Initializable {
     Connection con;
     String username="";
     String role="";
@@ -371,7 +372,16 @@ public class LiveHandeler extends Thread {
         coluser.setCellValueFactory(new PropertyValueFactory<userlist, String>("Username"));
         usertable.setItems(list1);
     }
+   @FXML
+   ImageView groupimage;
+    @FXML
+    ImageView privateimage;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        groupimage.setImage(new Image(new File("src/main/Font/group.png").toURI().toString()));
+        privateimage.setImage(new Image(new File("src/main/Font/logooo.png").toURI().toString()));
 
+    }
 }
 
 

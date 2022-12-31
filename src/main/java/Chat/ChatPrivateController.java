@@ -336,9 +336,16 @@ public class ChatPrivateController implements Initializable{
             System.out.println("from send privatechat "+ie.getMessage());
     }
 }
+@FXML
+ImageView privateimage;
+    @FXML
+    ImageView person;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        person.setImage(new Image(new File("src/main/Font/group.png").toURI().toString()));
+        privateimage.setImage(new Image(new File("src/main/Font/account-circle-fill.png.png").toURI().toString()));
+
         //refresh();
         loadtable();
     }

@@ -89,6 +89,10 @@ public class ForgetController implements Initializable {
             }
 
               }
+              @FXML
+              Label s1;   @FXML
+              Label s2;   @FXML
+              Label s3;
 
         @FXML
         void forget(ActionEvent event) {
@@ -96,9 +100,29 @@ public class ForgetController implements Initializable {
              c=n;
             System.out.println(n);
             System.out.println(c);
-            int f = 1;
+            int f = 1,t=1;
             con = ConnectionDb.DBC();
-            if (sign_in_box.getValue().toString().equals("User")) {
+            if(username.getText().isEmpty() || mail.getText().isEmpty() || sign_in_box.getValue()==null){
+                if(username.getText().isEmpty()){
+                    s2.setVisible(true);
+                }
+                if(mail.getText().isEmpty()){
+                    s3.setVisible(true);
+                }
+                if(sign_in_box.getValue()==null) {
+                    s1.setVisible(true);
+
+                }
+                f=0;
+                t=0;
+                /* Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Info Missing");
+                alert.setHeaderText("");
+                alert.setContentText("Please input data properly!");
+                alert.showAndWait();*/
+
+            }
+            else if (sign_in_box.getValue().toString().equals("User")) {
 
                 // System.out.println("Inbox");
                 String sql = "SELECT * FROM userlist Where username = ? and Mail = ?";
@@ -202,7 +226,7 @@ public class ForgetController implements Initializable {
                     mex.printStackTrace();
                 }
 
-            }else {
+            }else if(t==1) {
 
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setHeaderText("Send code failed");

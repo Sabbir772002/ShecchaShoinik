@@ -16,11 +16,11 @@
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <ComboBox fx:id="sign_in_box" layoutX="88.0" layoutY="62.0" prefHeight="26.0" prefWidth="150.0" promptText="Role" />
+            <ComboBox fx:id="sign_in_box" layoutX="88.0" layoutY="46.0" prefHeight="26.0" prefWidth="150.0" promptText="Role" />
            
-            <Button alignment="CENTER" defaultButton="true" layoutX="97.0" layoutY="216.0" mnemonicParsing="false" onAction="#signin" prefHeight="14.0" prefWidth="132.0" style="-fx-background-color: green; -fx-background-radius: 5,5,5,5; -fx-cursor: hand;" text="Sign in">
+            <Button alignment="CENTER" defaultButton="true" layoutX="97.0" layoutY="236.0" mnemonicParsing="false" onAction="#signin" prefHeight="29.0" prefWidth="132.0" style="-fx-background-color: green; -fx-background-radius: 5,5,5,5; -fx-cursor: hand;" text="Sign in">
                <font>
-                  <Font size="14.0" />
+                  <Font name="Bell MT Bold" size="14.0" />
                </font></Button>
             <Label fx:id="userl" layoutX="87.0" layoutY="129.0" prefHeight="10.0" prefWidth="62.0" text="*Field Required" textFill="RED" visible="false">
                <font>
@@ -38,16 +38,20 @@
                   <Font size="9.0" />
                </font>
             </Label>
-            <Button fx:id="forgetb" layoutX="97.0" layoutY="183.0" mnemonicParsing="false" onAction="#forget" prefHeight="26.0" prefWidth="132.0" style="-fx-background-color: black; -fx-background-radius: 5,5,5,5;" text="Send Code" textAlignment="CENTER" textFill="#ffffff8c" />
-            <TextField fx:id="mail" layoutX="41.0" layoutY="143.0" prefHeight="26.0" prefWidth="252.0" promptText="Mail" />
-            <TextField fx:id="code" layoutX="88.0" layoutY="106.0" prefHeight="26.0" prefWidth="158.0" promptText="Code" visible="false" />
-            <TextField fx:id="pass" layoutX="88.0" layoutY="143.0" prefHeight="26.0" prefWidth="158.0" promptText="New Password" visible="false" />
+            <Button fx:id="forgetb" layoutX="97.0" layoutY="197.0" mnemonicParsing="false" onAction="#forget" prefHeight="29.6" prefWidth="132.0" style="-fx-background-color: green; -fx-background-radius: 5,5,5,5;" text="Send Code" textAlignment="CENTER" textFill="#0000008c">
+               <font>
+                  <Font name="Bell MT Bold" size="14.0" />
+               </font></Button>
+            <TextField fx:id="mail" layoutX="39.0" layoutY="141.0" prefHeight="37.0" prefWidth="252.0" promptText="Mail" styleClass="vi" stylesheets="@../../Style/style.css" />
             <Button fx:id="changeb" alignment="CENTER" defaultButton="true" layoutX="97.0" layoutY="181.0" mnemonicParsing="false" onAction="#change" opacity="0.61" prefHeight="14.0" prefWidth="132.0" style="-fx-background-color: green; -fx-background-radius: 5,5,5,5; -fx-cursor: hand;" text="Change Password" textFill="WHITE" visible="false">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <TextField fx:id="username" layoutX="41.0" layoutY="106.0" prefHeight="26.0" prefWidth="252.0" promptText="Username" />
+            <TextField fx:id="username" layoutX="39.0" layoutY="89.0" prefHeight="37.0" prefWidth="252.0" promptText="Username" styleClass="vi" stylesheets="@../../Style/style.css" />
+            <Label fx:id="s1" layoutX="83.0" layoutY="72.0" prefHeight="18.0" prefWidth="132.0" text="*must select one" textFill="RED" visible="false" />
+            <Label fx:id="s2" layoutX="41.0" layoutY="123.0" prefHeight="18.0" prefWidth="132.0" text="*must provide username" textFill="RED" visible="false" />
+            <Label fx:id="s3" layoutX="41.0" layoutY="173.0" prefHeight="18.0" prefWidth="132.0" text="*must provide email" textFill="RED" visible="false" />
          </children>
       </AnchorPane>
    </children>
