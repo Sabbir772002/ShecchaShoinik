@@ -33,8 +33,9 @@ public class VolunteerNearController implements Initializable {
     Connection con;
     String username="";
     String role="";
+
     @FXML
-    void mail(MouseEvent e){
+    void mail(ActionEvent e){
 
         try {
             if (Desktop.isDesktopSupported()) {
@@ -48,6 +49,19 @@ public class VolunteerNearController implements Initializable {
         {
             System.out.println(ee.getMessage());
         }
+    }  @FXML
+    void whatsapp(ActionEvent e){
+
+        try {
+
+            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                Desktop.getDesktop().browse(new URI("https://wa.me/88"+Phone.getText().toString()));
+            }
+        }catch (Exception ee) {
+            System.out.println(ee.getMessage());
+        }
+
+
     }
     public void set(String username, String role) {
         if(!role.equals("User")){joinb.setVisible(false);}else{joinb.setVisible(true);}
