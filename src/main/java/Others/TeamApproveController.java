@@ -45,7 +45,7 @@ public class TeamApproveController{
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                division=rs.getString(2);
+                division=rs.getString(1);
             }
         }catch(Exception e){
             System.out.println(e.getMessage());

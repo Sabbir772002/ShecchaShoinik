@@ -186,7 +186,7 @@ public class VolunteerNearController implements Initializable {
                 loadduserinfo();
                // System.out.println(district+" "+division);
                 // System.out.println("hlw");
-                PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity FROM Teams where District='" + district + "'");
+                PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity FROM Teams where District='" + district + "' and approve=1");
                 ;
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
@@ -230,7 +230,7 @@ public class VolunteerNearController implements Initializable {
 
 
                 }
-                ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity FROM Teams where Division='" + division + "' And District!='"+district +"'");
+                ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity FROM Teams where Division='" + division + "' And District!='"+district +"' and approve=1");
                 ;
                 rs = ps.executeQuery();
                 while (rs.next()) {
@@ -271,7 +271,7 @@ public class VolunteerNearController implements Initializable {
                     }
                 }
 
-                ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity FROM Teams where Division!='" + division + "'");
+                ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity FROM Teams where Division!='" + division + "' and approve=1");
                     ;
                     rs = ps.executeQuery();
                     while (rs.next()) {
@@ -338,7 +338,7 @@ public class VolunteerNearController implements Initializable {
         col_name.setCellValueFactory(new PropertyValueFactory<Team, String>("Name"));
         col_district.setCellValueFactory(new PropertyValueFactory<Team, String>("District"));
         col_user.setCellValueFactory(new PropertyValueFactory<Team, String>("Username"));
-        listF = ConnectionDb.getTeamlist(division,district);
+        listF = ConnectionDb.getTeamlist(division,district,role);
          vtable.setItems(listF);
 
     }
