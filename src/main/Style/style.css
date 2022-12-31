@@ -68,3 +68,16 @@
        -fx-background-insets: 0, 0 0 1 0;
        -fx-padding: 0.0em;
    }
+.vi{
+
+-fx-background-color: transparent;
+-fx-border-color: gray;
+-fx-border-style: solid;
+-fx-border-radius: 4,4,4,4;
+-fx-background-radius: 5;
+-fx-font-size: 18;
+-fx-font-weight: xbold;
+-fx-font-family: "Bell MT";
+-fx-text-fill: #ffffff;
+
+}

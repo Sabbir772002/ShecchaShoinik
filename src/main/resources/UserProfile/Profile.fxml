@@ -34,27 +34,27 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Label fx:id="BG" alignment="CENTER" contentDisplay="RIGHT" layoutX="257.0" layoutY="409.0" prefHeight="29.0" prefWidth="78.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="B+">
+                  <Label fx:id="BG" alignment="CENTER" contentDisplay="RIGHT" layoutX="257.0" layoutY="409.0" prefHeight="29.0" prefWidth="78.0" styleClass="vi" stylesheets="@../../Style/style.css" text="B+">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="NID" alignment="CENTER" contentDisplay="RIGHT" layoutX="257.0" layoutY="329.0" prefHeight="29.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="1963890981">
+                  <Label fx:id="NID" alignment="CENTER" contentDisplay="RIGHT" layoutX="257.0" layoutY="329.0" prefHeight="29.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="1963890981">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="District" alignment="CENTER" contentDisplay="RIGHT" layoutX="257.0" layoutY="291.0" prefHeight="27.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Gazipur">
+                  <Label fx:id="District" alignment="CENTER" contentDisplay="RIGHT" layoutX="257.0" layoutY="286.0" prefHeight="29.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="Gazipur">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Division" alignment="CENTER" contentDisplay="RIGHT" layoutX="257.0" layoutY="244.0" prefHeight="33.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Dhaka">
+                  <Label fx:id="Division" alignment="CENTER" contentDisplay="RIGHT" layoutX="257.0" layoutY="244.0" prefHeight="29.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="Dhaka">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Phone" alignment="CENTER" contentDisplay="RIGHT" layoutX="257.0" layoutY="201.0" onMouseClicked="#whatsapp" prefHeight="32.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="01571144383">
+                  <Label fx:id="Phone" alignment="CENTER" contentDisplay="RIGHT" layoutX="257.0" layoutY="201.0" onMouseClicked="#whatsapp" prefHeight="29.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="01571144383">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -64,7 +64,7 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Label fx:id="field" alignment="CENTER" contentDisplay="RIGHT" layoutX="257.0" layoutY="370.0" prefHeight="19.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="EarthQuake">
+                  <Label fx:id="field" alignment="CENTER" contentDisplay="RIGHT" layoutX="257.0" layoutY="370.0" prefHeight="29.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="EarthQuake">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -81,7 +81,7 @@
                         <Font name="System Bold" size="11.0" />
                      </font>
                   </Label>
-                  <Button fx:id="pfield" layoutX="331.0" layoutY="167.0" mnemonicParsing="false" onAction="#paction" prefHeight="27.0" prefWidth="113.0" style="-fx-background-color: green;" styleClass="bt" stylesheets="@../../Style/style.css" text="Edit Profile" />
+                  <Button fx:id="pfield" layoutX="331.0" layoutY="167.0" mnemonicParsing="false" onAction="#paction" prefHeight="18.0" prefWidth="114.0" style="-fx-background-color: green; -fx-background-radius: 8;" stylesheets="@../../Style/style.css" text="Edit Profile" />
       <Button fx:id="delete" layoutX="312.0" layoutY="483.0" mnemonicParsing="false" onAction="#Delete" prefHeight="27.0" prefWidth="113.0" style="-fx-background-color: red;" styleClass="bt" stylesheets="@../../Style/style.css" text="Delete User" visible="false" />
 <!--
                   <Button fx:id="editprofilebt" layoutX="331.0" layoutY="451.0" mnemonicParsing="false" onAction="#Editprofile" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: pink;" styleClass="bt" stylesheets="@../../style.css" text="Edit Profile" />

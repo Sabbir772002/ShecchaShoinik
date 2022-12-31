@@ -25,7 +25,7 @@ public class Application extends javafx.application.Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("ShecchaShoinik");
         stage.setScene(scene);
-        File file = new File("src/main/Font/icon1.png");
+        File file = new File("src/main/Font/logooo.png");
         Image image = new Image(file.toURI().toString());
         stage.getIcons().add(image);
         stage.show();
