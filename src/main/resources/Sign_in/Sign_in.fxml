@@ -21,8 +21,8 @@
             </Label>
             <ComboBox fx:id="sign_in_box" layoutX="90.0" layoutY="62.0" prefHeight="26.0" prefWidth="150.0" promptText="Role" />
            
-            <TextField fx:id="username" layoutX="90.0" layoutY="106.0" prefHeight="26.0" prefWidth="150.0" promptText="Username" />
-            <PasswordField fx:id="password" layoutX="90.0" layoutY="142.0" prefHeight="26.0" prefWidth="150.0" promptText="Password" />
+            <TextField fx:id="username" layoutX="90.0" layoutY="95.0" prefHeight="26.0" prefWidth="150.0" promptText="Username" styleClass="vi" stylesheets="@../../Style/style.css" />
+            <PasswordField fx:id="password" layoutX="90.0" layoutY="142.0" prefHeight="32.0" prefWidth="150.0" promptText="Password" styleClass="vi" stylesheets="@../../Style/style.css" />
             <Button fx:id="sb" alignment="CENTER" layoutX="99.0" layoutY="188.0" mnemonicParsing="false" onAction="#sign_in" prefHeight="26.0" prefWidth="132.0" style="-fx-background-color: green; -fx-cursor: hand; -fx-background-radius: 5,5,5,5;" text="SIGN IN" textFill="#fffafa">
                <font>
                   <Font size="14.0" />
@@ -32,12 +32,12 @@
                <font>
                   <Font size="14.0" />
                </font></Button>
-            <ImageView fx:id="user" fitHeight="26.0" fitWidth="32.0" layoutX="42.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="user" fitHeight="26.0" fitWidth="32.0" layoutX="42.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Font/user.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="pass" fitHeight="26.0" fitWidth="32.0" layoutX="42.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="pass" fitHeight="26.0" fitWidth="32.0" layoutX="42.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Font/lock-outline.png" />
                </image>

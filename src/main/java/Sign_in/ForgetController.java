@@ -1,4 +1,5 @@
 package Sign_in;
+import java.io.File;
 import java.lang.Math;
 import DB.ConnectionDb;
 import javafx.event.ActionEvent;
@@ -9,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.w3c.dom.ls.LSOutput;
@@ -122,14 +124,14 @@ public class ForgetController implements Initializable {
             con = ConnectionDb.DBC();
             Username=username.getText().toString();
             role=sign_in_box.getValue().toString();
-            if(username.getText().isEmpty() || mail.getText().isEmpty() || sign_in_box.getValue()==null){
+            if(username.getText().isEmpty() || mail.getText().isEmpty() || sign_in_box.getSelectionModel().isEmpty()){
                 if(username.getText().isEmpty()){
                     s2.setVisible(true);
                 }
                 if(mail.getText().isEmpty()){
                     s3.setVisible(true);
                 }
-                if(sign_in_box.getValue()==null) {
+                if(sign_in_box.getSelectionModel().isEmpty()) {
                     s1.setVisible(true);
 
                 }
@@ -224,6 +226,9 @@ public class ForgetController implements Initializable {
                     Transport.send(message);
                     System.out.println("Sent message successfully....");
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    Image image = new Image(new File("src/main/Font/logooo.png").toURI().toString());
+                    Stage   stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(image);
                     alert.setHeaderText("Send code Sucessfully");
                     alert.setContentText("Code sent succesfully! Please Check your Mail.");
                     alert.showAndWait();
@@ -244,6 +249,10 @@ public class ForgetController implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setHeaderText("Send code failed");
                 alert.setContentText("Please try again! \nYour Given information not matched!");
+                Image image = new Image(new File("src/main/Font/logooo.png").toURI().toString());
+             Stage   stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(image);
+
                 alert.showAndWait();
             }
         }
