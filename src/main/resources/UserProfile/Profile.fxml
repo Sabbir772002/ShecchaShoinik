@@ -9,62 +9,62 @@
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="776.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%)" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserProfile.ProfileController">
        <children>
-                  <Label layoutX="83.0" layoutY="201.0" prefHeight="31.0" prefWidth="95.0" text="Phone:" textFill="WHITE">
+                  <Label layoutX="84.0" layoutY="208.0" prefHeight="31.0" prefWidth="95.0" text="Phone:" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Label layoutX="83.0" layoutY="289.0" prefHeight="31.0" prefWidth="90.0" text="District:" textFill="WHITE">
+                  <Label layoutX="84.0" layoutY="335.0" prefHeight="31.0" prefWidth="90.0" text="District:" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Label layoutX="83.0" layoutY="245.0" prefHeight="29.0" prefWidth="94.0" text="Division:" textFill="WHITE">
+                  <Label layoutX="82.0" layoutY="297.0" prefHeight="29.0" prefWidth="94.0" text="Division:" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Label layoutX="83.0" layoutY="328.0" prefHeight="31.0" prefWidth="162.0" text="NID:" textFill="WHITE">
+                  <Label layoutX="83.0" layoutY="379.0" prefHeight="31.0" prefWidth="162.0" text="NID:" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Label layoutX="85.0" layoutY="408.0" prefHeight="31.0" prefWidth="176.0" text="Blood Group:" textFill="WHITE">
+                  <Label layoutX="86.0" layoutY="419.0" prefHeight="31.0" prefWidth="176.0" text="Blood Group:" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Label fx:id="BG" alignment="CENTER" contentDisplay="RIGHT" layoutX="257.0" layoutY="409.0" prefHeight="29.0" prefWidth="78.0" styleClass="vi" stylesheets="@../../Style/style.css" text="B+">
+                  <Label fx:id="BG" alignment="CENTER" contentDisplay="RIGHT" layoutX="261.0" layoutY="420.0" prefHeight="29.0" prefWidth="78.0" styleClass="vi" stylesheets="@../../Style/style.css" text="B+">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="NID" alignment="CENTER" contentDisplay="RIGHT" layoutX="257.0" layoutY="329.0" prefHeight="29.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="1963890981">
+                  <Label fx:id="NID" alignment="CENTER" contentDisplay="RIGHT" layoutX="261.0" layoutY="380.0" prefHeight="29.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="1963890981">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="District" alignment="CENTER" contentDisplay="RIGHT" layoutX="257.0" layoutY="286.0" prefHeight="29.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="Gazipur">
+                  <Label fx:id="District" alignment="CENTER" contentDisplay="RIGHT" layoutX="261.0" layoutY="336.0" prefHeight="31.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="Gazipur">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Division" alignment="CENTER" contentDisplay="RIGHT" layoutX="257.0" layoutY="244.0" prefHeight="29.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="Dhaka">
+                  <Label fx:id="Division" alignment="CENTER" contentDisplay="RIGHT" layoutX="261.0" layoutY="298.0" prefHeight="29.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="Dhaka">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Phone" alignment="CENTER" contentDisplay="RIGHT" layoutX="257.0" layoutY="201.0" onMouseClicked="#whatsapp" prefHeight="29.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="01571144383">
+                  <Label fx:id="Phone" alignment="CENTER" contentDisplay="RIGHT" layoutX="261.0" layoutY="209.0" onMouseClicked="#whatsapp" prefHeight="29.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="01571144383">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="83.0" layoutY="368.0" prefHeight="31.0" prefWidth="162.0" text="Volunteer Field:" textFill="WHITE">
+                  <Label layoutX="83.0" layoutY="467.0" prefHeight="31.0" prefWidth="162.0" text="Extra Info:" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Label fx:id="field" alignment="CENTER" contentDisplay="RIGHT" layoutX="257.0" layoutY="370.0" prefHeight="29.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="EarthQuake">
+                  <Label fx:id="field" alignment="CENTER" contentDisplay="RIGHT" layoutX="261.0" layoutY="468.0" prefHeight="93.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="EarthQuake" wrapText="true">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -83,6 +83,18 @@
                   </Label>
                   <Button fx:id="pfield" layoutX="331.0" layoutY="167.0" mnemonicParsing="false" onAction="#paction" prefHeight="18.0" prefWidth="114.0" style="-fx-background-color: green; -fx-background-radius: 8;" stylesheets="@../../Style/style.css" text="Edit Profile" />
       <Button fx:id="delete" layoutX="312.0" layoutY="483.0" mnemonicParsing="false" onAction="#Delete" prefHeight="27.0" prefWidth="113.0" style="-fx-background-color: red;" styleClass="bt" stylesheets="@../../Style/style.css" text="Delete User" visible="false" />
+      <Label fx:id="maill" alignment="CENTER" contentDisplay="RIGHT" layoutX="261.0" layoutY="255.0" onMouseClicked="#whatsapp" prefHeight="29.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="happynewyear2gmail.com">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="81.0" layoutY="254.0" prefHeight="31.0" prefWidth="95.0" text="Mail:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="whats" layoutX="555.0" layoutY="211.0" mnemonicParsing="false" onAction="#whatsapp" style="-fx-background-color: tranesparent;" />
+      <Button fx:id="maili" layoutX="555.0" layoutY="257.0" mnemonicParsing="false" onAction="#mail" style="-fx-background-color: tranesparent;" />
 <!--
                   <Button fx:id="editprofilebt" layoutX="331.0" layoutY="451.0" mnemonicParsing="false" onAction="#Editprofile" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: pink;" styleClass="bt" stylesheets="@../../style.css" text="Edit Profile" />
 -->

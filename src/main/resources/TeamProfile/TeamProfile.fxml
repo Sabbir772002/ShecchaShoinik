@@ -29,32 +29,32 @@
                     <Font name="System Bold" size="21.0" />
                 </font>
             </Label>
-            <Label fx:id="License" alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="382.0" prefHeight="21.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="1963890981">
+            <Label fx:id="License" alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="382.0" prefHeight="21.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="1963890981">
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font>
             </Label>
-            <Label fx:id="district" alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="346.0" prefHeight="26.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="Gazipur">
+            <Label fx:id="district" alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="346.0" prefHeight="26.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="Gazipur">
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font>
             </Label>
-            <Label fx:id="division" alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="305.0" prefHeight="31.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="Dhaka">
+            <Label fx:id="division" alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="305.0" prefHeight="31.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="Dhaka">
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font>
             </Label>
-            <Label fx:id="phone" alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="261.0" onMouseClicked="#whatsapp" prefHeight="32.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="01571144383">
+            <Label fx:id="phone" alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="261.0" onMouseClicked="#whatsapp" prefHeight="32.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="01571144383">
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font>
             </Label>
-            <Label layoutX="41.0" layoutY="457.0" prefHeight="31.0" prefWidth="162.0" text="Volunteer Field:" textFill="WHITE">
+            <Label layoutX="41.0" layoutY="417.0" prefHeight="31.0" prefWidth="162.0" text="Volunteer Field:" textFill="WHITE">
                 <font>
                     <Font name="System Bold" size="21.0" />
                 </font>
             </Label>
-            <Label fx:id="type" alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="459.0" prefHeight="26.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="EarthQuake">
+            <Label fx:id="type" alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="420.0" prefHeight="26.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="EarthQuake">
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font>
@@ -72,12 +72,12 @@
                 </font>
             </Label>
       <Button fx:id="joint" layoutX="314.0" layoutY="185.0" mnemonicParsing="false" onAction="#join" prefHeight="26.0" prefWidth="119.0" style="-fx-background-color: green; -fx-background-radius: 10;" text="Join Team" visible="false" />
-      <Label layoutX="41.0" layoutY="417.0" prefHeight="31.0" prefWidth="162.0" text="Mail:" textFill="WHITE">
+      <Label layoutX="41.0" layoutY="221.0" prefHeight="31.0" prefWidth="162.0" text="Mail:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="mail" alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="419.0" onMouseClicked="#mail" prefHeight="21.0" prefWidth="283.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-alignment: right;" text="Team@shoinik.help">
+      <Label fx:id="mail" alignment="CENTER" contentDisplay="RIGHT" layoutX="255.0" layoutY="223.0" onMouseClicked="#mail" prefHeight="31.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="Team@shoinik.help">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -85,5 +85,7 @@
       <Button fx:id="delete" layoutX="314.0" layoutY="498.0" mnemonicParsing="false" onAction="#Delete" prefHeight="26.0" prefWidth="119.0" style="-fx-background-color: red; -fx-background-radius: 10;" text="Delete Team" visible="false" />
       <Button fx:id="ap" layoutX="309.0" layoutY="169.0" mnemonicParsing="false" onAction="#apteam" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: green; -fx-background-radius: 10;" text="Approve Team" visible="false" />
       <Button fx:id="dlt" layoutX="310.0" layoutY="198.0" mnemonicParsing="false" onAction="#deletet" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: red; -fx-background-radius: 10;" text="Delete" visible="false" />
+      <Button fx:id="whats" layoutX="544.0" layoutY="265.0" mnemonicParsing="false" onAction="#whatsapp" prefHeight="26.0" prefWidth="24.0" style="-fx-background-color: tranesparent;" />
+      <Button fx:id="mailc" layoutX="544.0" layoutY="223.0" mnemonicParsing="false" onAction="#mailcc" prefHeight="26.0" prefWidth="24.0" style="-fx-background-color: tranesparent;" />
       </children>
 </AnchorPane>
