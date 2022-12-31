@@ -28,14 +28,14 @@
                     <Font name="System Bold" size="21.0" />
                 </font>
             </Label>
-            <Label fx:id="District" alignment="CENTER" contentDisplay="RIGHT" layoutX="497.0" layoutY="241.0" prefHeight="30.0" prefWidth="158.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Rajshahi">
+            <Label fx:id="District" alignment="CENTER" contentDisplay="RIGHT" layoutX="489.0" layoutY="240.0" prefHeight="30.0" prefWidth="158.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Rajshahi">
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font>
             </Label>
             <Label fx:id="Division" alignment="CENTER" contentDisplay="RIGHT" layoutX="496.0" layoutY="203.0" prefHeight="30.0" prefWidth="159.0" style="-fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 4,4,4,4;" text="Sirajgong" textFill="WHITE">
                 <font>
-                    <Font name="System Bold" size="18.0" />
+                    <Font name="Bell MT Bold" size="18.0" />
                 </font>
             </Label>
             <Label fx:id="Phone" alignment="CENTER" contentDisplay="RIGHT" layoutX="480.0" layoutY="436.0" prefHeight="26.0" prefWidth="155.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="01571144383">

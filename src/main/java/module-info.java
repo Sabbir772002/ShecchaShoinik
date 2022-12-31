@@ -7,6 +7,7 @@ module com.example.sheccashoinik {
     requires java.desktop;
     requires java.mail;
 
+
     opens UserProfile to javafx.fxml;
     exports UserProfile;
      opens News to javafx.fxml;
