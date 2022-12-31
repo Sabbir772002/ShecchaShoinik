@@ -154,6 +154,7 @@ public static ObservableList<Team> getTeamlist(String Division, String District,
             } catch (Exception e) {
             }
         }
+
         return list;
     }
 
