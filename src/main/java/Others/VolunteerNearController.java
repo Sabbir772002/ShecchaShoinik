@@ -13,11 +13,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
 import java.awt.*;
+import java.io.File;
 import java.net.URI;
 import java.net.URL;
 import java.sql.Connection;
@@ -425,10 +428,21 @@ public class VolunteerNearController implements Initializable {
             throw new RuntimeException(ex);
         }
     }
+    @FXML
+    Button mailc;
+    @FXML
+    Button whats;
         @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        con=ConnectionDb.DBC();
-        tableclick();
+            ImageView i=new ImageView(new javafx.scene.image.Image(new File("src/main/Font/new.png").toURI().toString()));
+            i.setFitHeight(20);
+            mailc.setGraphic(i);
+            ImageView i1=new ImageView(new Image(new File("src/main/Font/whats/100.png").toURI().toString()));
+            i.setFitWidth(20); i1.setFitHeight(20);
+            i1.setFitWidth(20);
+            whats.setGraphic(i1);
+            con=ConnectionDb.DBC();
+            tableclick();
       /*  loadduserinfo();
         loadtable();*/
     }

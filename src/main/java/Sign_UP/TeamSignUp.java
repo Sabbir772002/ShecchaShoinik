@@ -228,7 +228,7 @@ public void initialize(URL url, ResourceBundle resourceBundle) {
     cbdistrict.getSelectionModel().select(0);
         String []user2={"EarthQuake","Storm Surge","Wildfire","Cyclone","Flood","Drought","Tsunami","Typhoon","LandSlide","Epidemic","Structural Collapse","Transport Disasters","Mining Accidents","Explosions and Fires","Others"};
         cbgroup.getItems().addAll(user2);
-        ImageView i=new ImageView(new Image(new File("src/main/Font/add1.png").toURI().toString()));
+    ImageView i=new ImageView(new Image(new File("src/main/Font/add1.png").toURI().toString()));
         i.setFitHeight(27);
         i.setFitWidth(27);
         sign.setGraphic(i);
