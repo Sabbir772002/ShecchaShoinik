@@ -64,11 +64,11 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <ImageView fitHeight="98.0" fitWidth="106.0" layoutX="111.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="logoo" fitHeight="98.0" fitWidth="106.0" layoutX="111.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Font/logooo.png" />
          </image></ImageView>
-      <ImageView fitHeight="70.0" fitWidth="582.0" layoutX="-186.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="nameee" fitHeight="70.0" fitWidth="582.0" layoutX="-186.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Font/nameee.png" />
          </image>

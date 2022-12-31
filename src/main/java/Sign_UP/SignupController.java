@@ -242,6 +242,10 @@ public class SignupController implements Initializable {
     private Button sign;
     @FXML
     Button nsign;
+    @FXML
+    ImageView logo;
+    @FXML
+    ImageView nameee;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String []user={"User","Volunteer Team"};
@@ -257,5 +261,8 @@ public class SignupController implements Initializable {
         i.setFitHeight(24);
         i.setFitWidth(24);
         nsign.setGraphic(i);
+        logo.setImage(new Image(new File("src/main/Font/logooo.png").toURI().toString()));
+        nameee.setImage(new Image(new File("src/main/Font/nameee.png").toURI().toString()));
+
     }
 }
