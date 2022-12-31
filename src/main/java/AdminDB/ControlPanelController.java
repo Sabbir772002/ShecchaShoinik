@@ -317,12 +317,8 @@ void loadtablep() {
 //        loadusers();
 //        loadtable();
     }
-    @FXML
-    void tablcclickpost(MouseEvent event) {
 
-
-
-    }   @FXML
+      @FXML
     void eventclick(MouseEvent event) {
 
 
