@@ -6,11 +6,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane prefHeight="592.0" prefWidth="788.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="News.NewsView">
+<AnchorPane prefHeight="592.0" prefWidth="788.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="News.NewsBox">
    <children>
       <AnchorPane layoutX="-1.0" layoutY="-2.0" prefHeight="596.0" prefWidth="778.0" style="-fx-background-color: black; -fx-background-radius: 5;">
          <children>
-            <WebView fx:id="web" layoutY="45.0" prefHeight="556.0" prefWidth="788.0" />
+            <WebView fx:id="view" layoutY="45.0" prefHeight="556.0" prefWidth="788.0" />
          </children>
       </AnchorPane>
       <HBox layoutY="2.0" prefHeight="38.0" prefWidth="788.0" style="-fx-background-color: gray;">

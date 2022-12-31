@@ -15,6 +15,9 @@ public class Team {
         this.Name = Name;
         this.District = district;
        this.Username = username;
+    }public Team(String Name,String username) {
+        this.Name = Name;
+       this.Username = username;
     }
 
     String Name;
