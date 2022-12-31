@@ -23,12 +23,12 @@
            
             <TextField fx:id="username" layoutX="90.0" layoutY="106.0" prefHeight="26.0" prefWidth="150.0" promptText="Username" />
             <PasswordField fx:id="password" layoutX="90.0" layoutY="142.0" prefHeight="26.0" prefWidth="150.0" promptText="Password" />
-            <Button alignment="CENTER" layoutX="99.0" layoutY="188.0" mnemonicParsing="false" onAction="#sign_in" prefHeight="26.0" prefWidth="132.0" style="-fx-background-color: green; -fx-cursor: hand; -fx-background-radius: 5,5,5,5;" text="SIGN IN" textFill="#fffafa">
+            <Button fx:id="sb" alignment="CENTER" layoutX="99.0" layoutY="188.0" mnemonicParsing="false" onAction="#sign_in" prefHeight="26.0" prefWidth="132.0" style="-fx-background-color: green; -fx-cursor: hand; -fx-background-radius: 5,5,5,5;" text="SIGN IN" textFill="#fffafa">
                <font>
                   <Font size="14.0" />
                </font></Button>
             <Label layoutX="99.0" layoutY="218.0" prefHeight="18.0" prefWidth="132.0" text="Don't have an account?" textFill="WHITE" />
-            <Button alignment="CENTER" defaultButton="true" layoutX="99.0" layoutY="237.0" mnemonicParsing="false" onAction="#sign_up" prefHeight="26.0" prefWidth="132.0" style="-fx-background-color: green; -fx-background-radius: 5,5,5,5; -fx-cursor: hand;" text="SIGN UP" textFill="WHITE">
+            <Button fx:id="sib" alignment="CENTER" defaultButton="true" layoutX="99.0" layoutY="237.0" mnemonicParsing="false" onAction="#sign_up" prefHeight="26.0" prefWidth="132.0" style="-fx-background-color: green; -fx-background-radius: 5,5,5,5; -fx-cursor: hand;" text="SIGN UP" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font></Button>

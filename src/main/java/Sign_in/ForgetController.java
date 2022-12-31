@@ -68,6 +68,16 @@ public class ForgetController implements Initializable {
                      alert.setContentText("Your Password Changed Succesfully!\n" +
                              "Please login to use!\n");
                      alert.showAndWait();
+                     try {
+                         Parent root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
+                         Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                         Scene scene = new Scene(root);
+                         stage.setScene(scene);
+                         stage.setTitle("SIGN IN");
+                         stage.show();
+                     } catch (Exception en) {
+                         System.out.println(en.getMessage());
+                     }
 
 
                  }else{

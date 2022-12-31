@@ -282,6 +282,11 @@ public class SigninController implements Initializable {
        @FXML
        private ImageView loginimage;
        @FXML
+       Button sb;
+
+       @FXML
+       Button sib;
+       @FXML
        private ImageView loginimage1;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -296,6 +301,11 @@ public class SigninController implements Initializable {
         pass.setImage(image);
         loginimage.setImage(new Image(new File("src/main/Font/login.png").toURI().toString()));
         loginimage1.setImage(new Image(new File("src/main/Font/add1.png").toURI().toString()));
+        sb.setGraphic(loginimage);
+        sib.setGraphic(loginimage1);
+        loginimage.setLayoutX(107);
+       // sb.setContentDisplay(ContentDisplay.LEFT);
+
     }
     @FXML
     private AnchorPane enter;

@@ -42,7 +42,7 @@
             <Circle fill="#d11ba7" layoutX="657.0" layoutY="44.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
             <ImageView fitHeight="48.0" fitWidth="50.0" layoutX="633.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Font/account-circle-fill%20(1).png" />
+                  <Image url="@../../Font/logooo.png" />
                </image>
             </ImageView>
             <VBox layoutX="557.0" layoutY="130.0" prefHeight="398.0" prefWidth="198.0" styleClass="bt" stylesheets="@../../Style/style.css">
