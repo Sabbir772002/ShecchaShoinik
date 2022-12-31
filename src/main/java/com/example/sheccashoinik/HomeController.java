@@ -477,8 +477,10 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ImageView imageView = new ImageView(new Image(new File("src/main/Font/login0.png").toURI().toString()));
-        imageView.setFitWidth(35);
         imageView.setFitHeight(31);
+        imageView.setLayoutX(240);
+        imageView.setLayoutY(569);
+        imageView.setFitWidth(35);
         Signinb.setGraphic(imageView);
         sliderThread.start();
        // loginimage.setImage(new Image(new File("src/main/Font/mlogin0.png").toURI().toString()));
