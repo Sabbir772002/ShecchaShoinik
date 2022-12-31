@@ -35,6 +35,29 @@ public class TeamApproveController{
         con=ConnectionDb.DBC();
         loadtable();
     }
+
+
+    String division, district;
+    void loadduserinfo(){
+        try {
+            System.out.println(username);
+            PreparedStatement ps = con.prepareStatement("SELECT Division FROM admin where Username='" + username + "'");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                division=rs.getString(2);
+            }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+
+        }
+
+
+
+
+    }
+
+
     @FXML
     ImageView imageview;
 
@@ -123,9 +146,10 @@ public class TeamApproveController{
     ObservableList<Team> list = FXCollections.observableArrayList();
 
     ObservableList<Team> loadTeam(){
+        loadduserinfo();
         ObservableList<Team>list = FXCollections.observableArrayList();
         try {
-            PreparedStatement ps = con.prepareStatement("SELECT Name,Username FROM Teams where approve=0");
+            PreparedStatement ps = con.prepareStatement("SELECT Name,Username FROM Teams where approve=0 and Division='"+division);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new Team(rs.getString(1),rs.getString(2)));
@@ -144,7 +168,7 @@ public class TeamApproveController{
         Username.setCellValueFactory(new PropertyValueFactory<Team, String>("Username"));
         list = loadTeam();
         allteam.setItems(list);
-        load("Teamdurbar");
+        load("NULL");
 
     }
 

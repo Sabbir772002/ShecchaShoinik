@@ -363,7 +363,7 @@ public class VolunteerNearController implements Initializable {
         String t=vtable.getSelectionModel().getSelectedItem().getUsername();
         try {
             con=ConnectionDb.DBC();
-            PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity,Mail FROM Teams where Username='" + vtable.getSelectionModel().getSelectedItem().getUsername() + "'");
+            PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity,Mail FROM Teams where Username='" +t+ "'");
             ;
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
