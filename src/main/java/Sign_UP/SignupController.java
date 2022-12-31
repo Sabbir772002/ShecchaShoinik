@@ -89,7 +89,7 @@ public class SignupController implements Initializable {
     @FXML
     void Sign_up(ActionEvent event) {
        // System.out.println("bhai aita ki hoilo");
-        if(name.getText().isEmpty() || username.getText().isEmpty() || password.getText().isEmpty()||dob.getValue()==null|| cbdivision.getSelectionModel().isEmpty() ||cbdistrict.getSelectionModel().isEmpty() ||cbGender.getSelectionModel().isEmpty() || bloodgroup.getSelectionModel().isEmpty() || phone.getText().isEmpty() || mail.getText().isEmpty()){
+        if(name.getText().isEmpty() || username.getText().isEmpty() || password.getText().isEmpty()||dob.getValue()==null|| cbdivision.getSelectionModel().isEmpty() ||cbdistrict.getSelectionModel().isEmpty() ||cbGender.getSelectionModel().isEmpty() || bloodgroup.getSelectionModel().isEmpty() || phone.getText().isEmpty() ||Nid.getText().isEmpty() || mail.getText().isEmpty()){
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Sign up Error!");
@@ -240,6 +240,8 @@ public class SignupController implements Initializable {
     }
     @FXML
     private Button sign;
+    @FXML
+    Button nsign;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String []user={"User","Volunteer Team"};
@@ -252,8 +254,8 @@ public class SignupController implements Initializable {
         String []user3={"A+","A-","B+","B-","AB+","AB-","O+","O-"};
         bloodgroup.getItems().addAll(user3);
         ImageView i=new ImageView(new Image(new File("src/main/Font/add1.png").toURI().toString()));
-        i.setFitHeight(27);
-        i.setFitWidth(27);
-        sign.setGraphic(i);
+        i.setFitHeight(24);
+        i.setFitWidth(24);
+        nsign.setGraphic(i);
     }
 }

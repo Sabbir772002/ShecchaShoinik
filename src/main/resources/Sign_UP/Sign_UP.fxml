@@ -15,7 +15,7 @@
    <children>
       <AnchorPane layoutX="327.0" layoutY="-4.0" prefHeight="620.0" prefWidth="582.0" style="-fx-background-color: linear-gradient(to right, #360033, #0b8793); -fx-background-radius: 10;" AnchorPane.leftAnchor="327.0">
          <children>
-            <Label alignment="CENTER" layoutX="169.0" layoutY="27.0" prefHeight="54.0" prefWidth="322.0" text="Fill UP this from carefully" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="169.0" layoutY="27.0" prefHeight="54.0" prefWidth="322.0" text="Fill up this from carefully" textFill="WHITE">
                <font>
                   <Font name="Bell MT Bold" size="18.0" />
                </font>
@@ -47,57 +47,57 @@
             <ComboBox fx:id="bloodgroup" layoutX="192.0" layoutY="409.0" prefHeight="26.0" prefWidth="143.0" promptText="Blood group" />
             <Text fill="WHITE" layoutX="70.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID:" wrappingWidth="92.51220703125">
                <font>
-                  <Font name="Bell MT Bold" size="15.0" />
+                  <Font name="Bell MT" size="15.0" />
                </font>
             </Text>
-            <Button fx:id="sign" alignment="CENTER_RIGHT" contentDisplay="CENTER" defaultButton="true" layoutX="255.0" layoutY="566.0" mnemonicParsing="false" onAction="#Sign_up" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: #0A3CCF; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="#f0f2f1" AnchorPane.leftAnchor="255.0">
+            <Button fx:id="sign" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="290.0" layoutY="564.0" mnemonicParsing="false" onAction="#Sign_up" prefHeight="35.0" prefWidth="138.0" style="-fx-background-color: #0A3CCF; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="#f0f2f1" AnchorPane.leftAnchor="290.0">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Bell MT Bold" size="18.0" />
                </font>
             </Button>
             <Text fill="WHITE" layoutX="70.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username: ">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="Bell MT" size="15.0" />
                </font>
             </Text>
             <Text fill="WHITE" layoutX="70.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password: ">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="Bell MT Bold" size="15.0" />
                </font>
             </Text>
             <Text fill="WHITE" layoutX="70.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="Bell MT Bold" size="15.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="70.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact no.:" wrappingWidth="92.51220703125">
+            <Text fill="WHITE" layoutX="70.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact no:" wrappingWidth="92.51220703125">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="Bell MT Bold" size="15.0" />
                </font>
             </Text>
             <Text fill="WHITE" layoutX="71.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location:" wrappingWidth="75.0732421875">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="Bell MT Bold" size="15.0" />
                </font>
             </Text>
             <Text fill="WHITE" layoutX="70.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blood group:">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="Bell MT Bold" size="15.0" />
                </font>
             </Text>
             <Text fill="WHITE" layoutX="70.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="Bell MT Bold" size="15.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="73.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name: ">
+            <Text fill="WHITE" layoutX="70.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name: " wrappingWidth="55.29052734375">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="Bell MT" size="15.0" />
                </font>
             </Text>
             <Text fill="WHITE" layoutX="72.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DOB:">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="Bell MT" size="15.0" />
                </font>
             </Text>
             <TextField fx:id="Nid" layoutX="191.0" layoutY="447.0" prefHeight="26.0" prefWidth="143.0" promptText="1963890981">
@@ -105,16 +105,17 @@
                   <Font name="Bell MT Bold" size="15.0" />
                </font>
             </TextField>
-            <Text fill="WHITE" layoutX="70.0" layoutY="503.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About You:" wrappingWidth="92.51220703125">
-               <font>
-                  <Font name="Bell MT Bold" size="15.0" />
-               </font>
-            </Text>
             <TextField fx:id="Extra" alignment="TOP_LEFT" layoutX="192.0" layoutY="485.0" prefHeight="54.0" prefWidth="348.0" promptText="01571144383">
                <font>
                   <Font name="Bell MT Bold" size="15.0" />
                </font>
             </TextField>
+            <Button fx:id="nsign" layoutX="290.0" layoutY="567.5" mnemonicParsing="false" onAction="#Sign_up" prefHeight="26.0" prefWidth="28.0" style="-fx-background-color: tranesparent;" />
+            <Text fill="WHITE" layoutX="70.0" layoutY="499.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Extra info:" wrappingWidth="92.51220703125">
+               <font>
+                  <Font name="Bell MT Bold" size="15.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
       <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="104.0" layoutY="396.0" mnemonicParsing="false" onAction="#Signin" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: linear-gradient(to right, #360033, #0b8793); -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN IN" textFill="#f0f2f1">
