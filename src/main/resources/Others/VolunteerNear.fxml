@@ -28,7 +28,7 @@
                     <Font name="System Bold" size="21.0" />
                 </font>
             </Label>
-            <Label fx:id="District" alignment="CENTER" contentDisplay="RIGHT" layoutX="489.0" layoutY="240.0" prefHeight="30.0" prefWidth="158.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Rajshahi">
+            <Label fx:id="District" alignment="CENTER" contentDisplay="RIGHT" layoutX="497.0" layoutY="241.0" prefHeight="30.0" prefWidth="158.0" styleClass="vi" stylesheets="@../../Style/style.css" text="Rajshahi">
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font>
@@ -38,7 +38,7 @@
                     <Font name="Bell MT Bold" size="18.0" />
                 </font>
             </Label>
-            <Label fx:id="Phone" alignment="CENTER" contentDisplay="RIGHT" layoutX="480.0" layoutY="436.0" prefHeight="26.0" prefWidth="155.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="01571144383">
+            <Label fx:id="Phone" alignment="CENTER" contentDisplay="RIGHT" layoutX="498.0" layoutY="435.0" prefHeight="26.0" prefWidth="155.0" styleClass="vi" stylesheets="@../../Style/style.css" text="01571144383">
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font>
@@ -48,44 +48,44 @@
                     <Font name="System Bold" size="21.0" />
                 </font>
             </Label>
-            <Label fx:id="field" alignment="CENTER" contentDisplay="RIGHT" layoutX="496.0" layoutY="282.0" prefHeight="27.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="EarthQuake">
+            <Label fx:id="field" alignment="CENTER" contentDisplay="RIGHT" layoutX="496.0" layoutY="282.0" prefHeight="27.0" prefWidth="159.0" styleClass="vi" stylesheets="@../../Style/style.css" text="EarthQuake">
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font>
             </Label>
-            <Circle fill="WHITE" layoutX="535.0" layoutY="60.0" radius="46.0" stroke="BLACK" strokeType="INSIDE" />
-            <ImageView fitHeight="76.0" fitWidth="88.0" layoutX="491.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="Name" alignment="CENTER" layoutX="447.0" layoutY="109.0" prefHeight="31.0" prefWidth="186.0" text="Team Durbar" textFill="WHITE">
+            <Circle fill="WHITE" layoutX="576.0" layoutY="60.0" radius="46.0" stroke="BLACK" strokeType="INSIDE" />
+            <ImageView fitHeight="76.0" fitWidth="88.0" layoutX="532.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="Name" alignment="CENTER" layoutX="483.0" layoutY="113.0" prefHeight="31.0" prefWidth="186.0" text="Team Durbar" textFill="WHITE">
                 <font>
                     <Font name="System Bold" size="21.0" />
                 </font>
             </Label>
-            <Label fx:id="showuser" alignment="CENTER" layoutX="476.0" layoutY="127.0" prefHeight="26.0" prefWidth="127.0" text="\@durbar" textFill="#050505">
+            <Label fx:id="showuser" alignment="CENTER" layoutX="511.0" layoutY="131.0" prefHeight="26.0" prefWidth="127.0" text="\@durbar" textFill="#050505">
                 <font>
                     <Font name="System Bold" size="11.0" />
                 </font>
             </Label>
-            <Label layoutX="505.0" layoutY="153.0" prefHeight="31.0" prefWidth="70.0" text="About" textFill="WHITE">
+            <Label layoutX="540.0" layoutY="155.0" prefHeight="31.0" prefWidth="70.0" text="About" textFill="WHITE">
                 <font>
                     <Font name="System Bold" size="21.0" />
                 </font>
             </Label>
-            <Label fx:id="field1" alignment="CENTER" contentDisplay="RIGHT" layoutX="496.0" layoutY="323.0" prefHeight="27.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="True">
+            <Label fx:id="field1" alignment="CENTER" contentDisplay="RIGHT" layoutX="496.0" layoutY="323.0" prefHeight="27.0" prefWidth="159.0" styleClass="vi" stylesheets="@../../Style/style.css" text="True">
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font>
             </Label>
-            <Button fx:id="joinb" layoutX="494.0" layoutY="538.0" mnemonicParsing="false" onAction="#join" prefHeight="26.0" prefWidth="128.0" style="-fx-background-radius: 10;" text="Join Team">
+            <Button fx:id="joinb" layoutX="519.0" layoutY="537.0" mnemonicParsing="false" onAction="#join" opacity="0.76" prefHeight="26.0" prefWidth="128.0" style="-fx-background-radius: 10; -fx-background-color: green;" text="Join Team">
                 <font>
                     <Font name="System Bold" size="11.0" />
                 </font>
             </Button>
-            <Label layoutX="517.0" layoutY="392.0" prefHeight="31.0" prefWidth="82.0" text="Contact" textFill="WHITE">
+            <Label layoutX="535.0" layoutY="393.0" prefHeight="31.0" prefWidth="82.0" text="Contact" textFill="WHITE">
                 <font>
                     <Font name="System Bold" size="21.0" />
                 </font>
             </Label>
-            <Label fx:id="Phone1" alignment="CENTER" contentDisplay="RIGHT" layoutX="441.0" layoutY="475.0" onMouseClicked="#mail" prefHeight="27.0" prefWidth="234.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="durbar@mail.com">
+            <Label fx:id="Phone1" alignment="CENTER" contentDisplay="RIGHT" layoutX="466.0" layoutY="475.0" onMouseClicked="#mail" prefHeight="27.0" prefWidth="234.0" styleClass="vi" stylesheets="@../../Style/style.css" text="durbar@mail.com">
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font>
@@ -118,6 +118,8 @@
                     <Image url="@../../Font/search.png" />
                 </image>
             </ImageView>
+      <Button fx:id="whats" layoutX="675.0" layoutY="436.0" mnemonicParsing="false" style="-fx-background-color: tranesparent;" text="Button" textFill="WHITE" />
+      <Button fx:id="mailc" layoutX="712.0" layoutY="476.0" mnemonicParsing="false" style="-fx-background-color: tranesparent;" text="Button" textFill="WHITE" />
         </children>
 
 

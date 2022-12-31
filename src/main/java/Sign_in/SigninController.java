@@ -302,6 +302,9 @@ public class SigninController implements Initializable {
         loginimage.setImage(new Image(new File("src/main/Font/login.png").toURI().toString()));
         loginimage1.setImage(new Image(new File("src/main/Font/add1.png").toURI().toString()));
         sb.setGraphic(loginimage);
+        loginimage.setFitWidth(27);
+        loginimage.setFitHeight(22);
+        loginimage1.setFitHeight(22);
         sib.setGraphic(loginimage1);
         loginimage.setLayoutX(107);
        // sb.setContentDisplay(ContentDisplay.LEFT);

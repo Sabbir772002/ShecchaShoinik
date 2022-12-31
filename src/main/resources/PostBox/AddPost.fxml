@@ -29,7 +29,7 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <ComboBox fx:id="division" layoutX="257.0" layoutY="218.0" onAction="#select" prefHeight="26.0" prefWidth="148.0" promptText="Dhaka" />
+      <ComboBox fx:id="division" layoutX="257.0" layoutY="218.0" onAction="#select" prefHeight="26.0" prefWidth="148.0" promptText="Dhaka" styleClass="vi" />
       <Label layoutX="89.0" layoutY="215.0" prefHeight="31.0" prefWidth="94.0" text="Division:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
@@ -41,7 +41,7 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <ComboBox fx:id="diaster" layoutX="257.0" layoutY="299.0" prefHeight="26.0" prefWidth="148.0" promptText="EarthQuake" />
+      <ComboBox fx:id="diaster" layoutX="257.0" layoutY="294.0" prefHeight="26.0" prefWidth="148.0" promptText="EarthQuake" stylesheets="@../../Style/style.css" />
       <Label layoutX="88.0" layoutY="337.0" prefHeight="31.0" prefWidth="176.0" text="Additional Info:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
@@ -52,14 +52,14 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Button fx:id="imageup" layoutX="257.0" layoutY="383.0" mnemonicParsing="false" onAction="#upimage" prefHeight="26.0" prefWidth="137.0" text="Upload image" />
-      <Button layoutX="278.0" layoutY="449.0" mnemonicParsing="false" onAction="#Submit" prefHeight="30.0" prefWidth="188.0" style="-fx-background-color: pink; -fx-background-radius: 10;" styleClass="bt" stylesheets="@../../Style/style.css" text="Submit Post">
+      <Button fx:id="imageup" layoutX="257.0" layoutY="383.0" mnemonicParsing="false" onAction="#upimage" prefHeight="26.0" prefWidth="137.0" styleClass="vi" stylesheets="@../../Style/style.css" text="Upload image" />
+      <Button layoutX="261.0" layoutY="450.0" mnemonicParsing="false" onAction="#Submit" prefHeight="30.0" prefWidth="188.0" style="-fx-background-radius: 10;" styleClass="bt" stylesheets="@../../Style/style.css" text="Submit Post">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <TextField fx:id="diastertitle" layoutX="91.0" layoutY="84.0" prefHeight="26.0" prefWidth="528.0" styleClass="tt" stylesheets="@../../Style/style.css" />
-      <TextField fx:id="address" layoutX="257.0" layoutY="176.0" prefHeight="26.0" prefWidth="362.0" styleClass="tt" stylesheets="@../../Style/style.css" />
-      <TextField fx:id="address1" layoutX="257.0" layoutY="339.0" prefHeight="26.0" prefWidth="362.0" styleClass="tt" stylesheets="@../../Style/style.css" />
+      <TextField fx:id="diastertitle" layoutX="91.0" layoutY="84.0" prefHeight="26.0" prefWidth="528.0" styleClass="vi" stylesheets="@../../Style/style.css" />
+      <TextField fx:id="address" layoutX="257.0" layoutY="176.0" prefHeight="26.0" prefWidth="362.0" styleClass="vi" stylesheets="@../../Style/style.css" />
+      <TextField fx:id="address1" layoutX="257.0" layoutY="339.0" prefHeight="26.0" prefWidth="362.0" styleClass="vi" stylesheets="@../../Style/style.css" />
    </children>
 </AnchorPane>
