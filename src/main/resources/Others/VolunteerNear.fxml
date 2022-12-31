@@ -118,8 +118,8 @@
                     <Image url="@../../Font/search.png" />
                 </image>
             </ImageView>
-      <Button fx:id="whats" layoutX="675.0" layoutY="436.0" mnemonicParsing="false" style="-fx-background-color: tranesparent;" text="Button" textFill="WHITE" />
-      <Button fx:id="mailc" layoutX="712.0" layoutY="476.0" mnemonicParsing="false" style="-fx-background-color: tranesparent;" text="Button" textFill="WHITE" />
+      <Button fx:id="whats" layoutX="675.0" layoutY="436.0" mnemonicParsing="false" style="-fx-background-color: tranesparent;" textFill="WHITE" />
+      <Button fx:id="mailc" layoutX="712.0" layoutY="476.0" mnemonicParsing="false" style="-fx-background-color: tranesparent;" textFill="WHITE" />
         </children>
 
 
