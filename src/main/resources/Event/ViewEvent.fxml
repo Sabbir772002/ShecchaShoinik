@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="596.0" prefWidth="776.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Event.ViewEvent">
+<AnchorPane prefHeight="596.0" prefWidth="776.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Event.ViewEvent">
       <children>
               <Label layoutX="11.0" layoutY="13.0" prefHeight="52.0" prefWidth="147.0" text=" Event" textFill="WHITE">
                   <font>
@@ -35,58 +35,58 @@
             <URL value="@../Style/style.css" />
          </stylesheets>
               </TableView>
-              <Label alignment="CENTER" layoutX="221.0" layoutY="350.20001220703125" prefHeight="30.0" prefWidth="388.0" text="Details:">
+              <Label alignment="CENTER" layoutX="221.0" layoutY="350.20001220703125" prefHeight="30.0" prefWidth="388.0" text="Details:" textFill="WHITE">
                   <font>
                       <Font name="System Bold" size="20.0" />
                   </font>
               </Label>
-              <Label layoutX="385.0" layoutY="390.20001220703125" prefHeight="31.0" prefWidth="101.0" text="Date:">
+              <Label layoutX="385.0" layoutY="390.20001220703125" prefHeight="31.0" prefWidth="101.0" text="Date:" textFill="WHITE">
                   <font>
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Label fx:id="date" alignment="CENTER" layoutX="530.0" layoutY="390.20001220703125" prefHeight="31.0" prefWidth="218.0" text="03:40">
+              <Label fx:id="date" alignment="CENTER" layoutX="530.0" layoutY="390.20001220703125" prefHeight="31.0" prefWidth="218.0" text="03:40" textFill="WHITE">
                   <font>
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Label layoutX="385.0" layoutY="422.20001220703125" prefHeight="31.0" prefWidth="101.0" text="District:">
+              <Label layoutX="385.0" layoutY="422.20001220703125" prefHeight="31.0" prefWidth="101.0" text="District:" textFill="WHITE">
                   <font>
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Label fx:id="district" alignment="CENTER" layoutX="532.0" layoutY="422.20001220703125" prefHeight="31.0" prefWidth="214.0" text="Dhaka">
+              <Label fx:id="district" alignment="CENTER" layoutX="532.0" layoutY="422.20001220703125" prefHeight="31.0" prefWidth="214.0" text="Dhaka" textFill="WHITE">
                   <font>
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Label layoutX="385.0" layoutY="454.20001220703125" prefHeight="31.0" prefWidth="101.0" text="Division:">
+              <Label layoutX="385.0" layoutY="454.20001220703125" prefHeight="31.0" prefWidth="101.0" text="Division:" textFill="WHITE">
                   <font>
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Label fx:id="division" alignment="CENTER" layoutX="532.0" layoutY="454.20001220703125" prefHeight="31.0" prefWidth="214.0" text="Dhaka">
+              <Label fx:id="division" alignment="CENTER" layoutX="532.0" layoutY="454.20001220703125" prefHeight="31.0" prefWidth="214.0" text="Dhaka" textFill="WHITE">
                   <font>
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Label layoutX="385.0" layoutY="479.20001220703125" prefHeight="31.0" prefWidth="101.0" text="Address:">
+              <Label layoutX="385.0" layoutY="479.20001220703125" prefHeight="31.0" prefWidth="101.0" text="Address:" textFill="WHITE">
                   <font>
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Label fx:id="address" alignment="CENTER" layoutX="532.0" layoutY="479.20001220703125" prefHeight="31.0" prefWidth="214.0" text="Dhaka">
+              <Label fx:id="address" alignment="CENTER" layoutX="532.0" layoutY="479.20001220703125" prefHeight="31.0" prefWidth="214.0" text="Dhaka" textFill="WHITE">
                   <font>
                       <Font size="21.0" />
                   </font>
               </Label>
               <Button fx:id="team" layoutX="481.0" layoutY="549.0" mnemonicParsing="false" onAction="#addevent" prefHeight="30.0" prefWidth="147.0" style="-fx-background-color: green;" text="Add Your Event" visible="false" />
-              <Label layoutX="385.0" layoutY="511.20001220703125" prefHeight="31.0" prefWidth="101.0" text="Event By:">
+              <Label layoutX="385.0" layoutY="511.20001220703125" prefHeight="31.0" prefWidth="101.0" text="Event By:" textFill="WHITE">
                   <font>
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Label fx:id="author" alignment="CENTER" layoutX="540.0" layoutY="511.20001220703125" prefHeight="31.0" prefWidth="229.0" text="UIU Playground ">
+              <Label fx:id="author" alignment="CENTER" layoutX="540.0" layoutY="511.20001220703125" prefHeight="31.0" prefWidth="229.0" text="UIU Playground " textFill="WHITE">
                   <font>
                       <Font size="21.0" />
                   </font>
