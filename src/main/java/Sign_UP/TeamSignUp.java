@@ -2,7 +2,7 @@ package Sign_UP;
 
 import DB.ConnectionDb;
 import Sign_in.SigninController;
-import com.sun.mail.imap.IMAPNestedMessage;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -105,9 +105,9 @@ public TeamSignUp(){
                         preparedStatement.execute();
                         preparedStatement.close();
                         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                        alert.setTitle("Sign Up Confarmation!");
-                        alert.setHeaderText("Sign Up Sucessfully!\nPlease wait for admin contact to continue!\n" +
-                                "We will notity you when your team Approved.");
+                        alert.setTitle("Sign Up Confirmation!");
+                        alert.setHeaderText("Sign Up Successfully!\nPlease wait for admin contact to continue!\n" +
+                                "We will notify you when your team Approved.");
                         // alert.setContentText("");
                         File file = new File("src/main/Font/icon1.png");
                         Image image = new Image(file.toURI().toString());
