@@ -204,15 +204,15 @@ public class Post {
         if (role.equals("Admin")) {
             delete.setVisible(true);
         }
-
         //System.out.println("i am in set");
         // user.setText(username);
-        // rolee.setText("@"+role);
+        // rolee.setText("u@"+role);
         this.role = role;
         this.username = username;
         this.id = id;
         loadbox();
         title.setText(dlist.getTitle());
+        user.setText(username);
         type.setText(dlist.getType());
         address.setText(dlist.getAddress());
         division.setText(dlist.Division);

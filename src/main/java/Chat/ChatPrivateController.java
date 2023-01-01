@@ -304,13 +304,13 @@ public class ChatPrivateController implements Initializable{
             ResultSet resultSet = preparedStatement.executeQuery();
             while(resultSet.next()) {
                 String s = resultSet.getString(3);
-                // String s=writebox.getText().toString();
+               /* // String s=writebox.getText().toString();
                 char []c=s.toCharArray();
-              /*  for(int i=0;i<c.length;i++){
+              *//*  for(int i=0;i<c.length;i++){
                     c[i]=(char)(c[i]-10);
 
-                }*/
-                s=new String(c);
+                }*//*
+                s=new String(c);*/
                 msgbox.appendText(s/*resultSet.getString(3)*/);
                 msgbox.appendText("\n");
             }
@@ -352,11 +352,6 @@ public class ChatPrivateController implements Initializable{
             while(resultSet.next()) {
                 String s = resultSet.getString(3);
                // String s=writebox.getText().toString();
-                char []c=s.toCharArray();
-                for(int i=0;i<c.length;i++){
-                    c[i]=(char)(c[i]-10);
-                }
-                s=new String(c);
                 msgbox.appendText(s/*resultSet.getString(3)*/);
                 msgbox.appendText("\n");
             }
