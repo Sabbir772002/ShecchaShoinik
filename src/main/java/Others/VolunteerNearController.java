@@ -87,7 +87,7 @@ public class VolunteerNearController implements Initializable {
             System.out.println(username2);
             PreparedStatement preparedStatement;
             con= ConnectionDb.DBC();
-            String st = "update Volunteer set Teams=? WHERE Username ='"+username+"'";
+            String st = "update Volunteer set Teams=?, approve=0 WHERE Username ='"+username+"'";
             preparedStatement = (PreparedStatement) con.prepareStatement(st);
             preparedStatement.setString(1, username2);
             preparedStatement.execute();
