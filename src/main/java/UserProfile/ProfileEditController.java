@@ -8,12 +8,15 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.sql.*;
 import java.util.Optional;
 
@@ -50,7 +53,7 @@ public class ProfileEditController {
         role=role;
         this.role = role;
         this.username = username;
-      output();
+        output();
 
         // alertcount();
         //alertnum.setText(String.valueOf(newcount));
@@ -122,8 +125,12 @@ public class ProfileEditController {
             System.out.println(ee.getMessage());
         }
     }
+    @FXML
+    Circle image;
     public void output(){
-            try{
+        File file = new File("src/main/Font/Image/pp.png");
+
+        try{
                 Statement stmt=con.createStatement();
                 String sql = "SELECT Name,Username,Phone,Division,District,Mail FROM userlist Where Username = \'"+username+"\'";
                 //String sql = "SELECT * FROM `userlist` Where Username = '"+1+"'";
@@ -139,10 +146,25 @@ public class ProfileEditController {
                     district.setText(rs.getString(5));
                     mail.setText(rs.getString(6));
 
+
                 }
+                FileOutputStream fos = new FileOutputStream(file);
+                byte b[];
+                Blob blob;
+
+                PreparedStatement ps = con.prepareStatement("select Image from pp where Username='"+username+"'");
+                ResultSet rs1 = ps.executeQuery();
+
+                while (rs1.next()) {
+                    blob = rs1.getBlob("Image");
+                    b = blob.getBytes(1, (int) blob.length());
+                    fos.write(b);
+                }
+                image.setFill(new ImagePattern(new Image(file.toURI().toString())));
+                ps.close();
+                fos.close();
                 rs.close();
                 stmt.close();
-                con.close();
                 name.setText(Name.getText().toString());
                 String uname = showuser.getText().toString();
            /* System.out.println(uname);
@@ -154,7 +176,7 @@ public class ProfileEditController {
 
                 }
                 showuser.setText("@"+showuser.getText().toString());
-            } catch (SQLException ex) {
+            } catch (Exception ex) {
                 System.out.println("onk error");
                 System.err.println(ex.getMessage());
             }

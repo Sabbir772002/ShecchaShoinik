@@ -7,16 +7,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="554.0" prefWidth="572.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_in.ForgetController">
+<AnchorPane prefHeight="554.0" prefWidth="694.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_in.ForgetController">
    <children>
-      <AnchorPane layoutX="111.0" layoutY="122.0" prefHeight="338.0" prefWidth="349.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);; -fx-background-radius: 20,20,20,20;">
+      <AnchorPane layoutX="172.0" layoutY="123.0" prefHeight="338.0" prefWidth="349.0" style="-fx-background-color: white; -fx-background-radius: 20,20,20,20;">
          <children>
             <Label alignment="CENTER" layoutX="93.0" layoutY="14.0" prefHeight="32.0" prefWidth="143.0" text="You are" textFill="#c7c7c7">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <ComboBox fx:id="sign_in_box" layoutX="88.0" layoutY="46.0" prefHeight="26.0" prefWidth="150.0" promptText="Role" />
+            <ComboBox fx:id="sign_in_box" layoutX="88.0" layoutY="46.0" prefHeight="26.0" prefWidth="150.0" promptText="User" />
            
             <Button alignment="CENTER" defaultButton="true" layoutX="101.0" layoutY="239.0" mnemonicParsing="false" onAction="#signin" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: green; -fx-background-radius: 5,5,5,5; -fx-cursor: hand;" text="Sign in">
                <font>

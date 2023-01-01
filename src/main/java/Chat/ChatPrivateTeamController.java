@@ -1,21 +1,13 @@
 package Chat;
 
-import AdminDB.AdminDashboardController;
-import AdminDB.TeamDashboardController;
-import AdminDB.UserDashboardController;
 import DB.ConnectionDb;
-import Others.TaskCompletedController;
-import PostBox.AddPostController;
-import Sign_in.SigninController;
 import UserProfile.ProfileController;
-import UserProfile.ProfileEditController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -32,18 +24,14 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.net.URL;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
-import static java.lang.Thread.sleep;
-
-public class ChatPrivateController implements Initializable{
+public class ChatPrivateTeamController implements Initializable{
     Connection con;
     private Stage stage;
     private Scene scene;
@@ -67,7 +55,7 @@ public class ChatPrivateController implements Initializable{
        // rolee.setText("@" + role);
         this.role = role;
         this.username = username;
-        loadimage();
+      //  loadimage();
         loadtable();
         refresh();
 //        if(username.equals("Sabbir")){
@@ -88,7 +76,7 @@ public class ChatPrivateController implements Initializable{
         this.name2 = name2;
         Name2.setText(name2);
         refresh();
-        loadimage();
+
         loadtable();
         /*Thread chatwriter = new PrivateThread(msgbox,username,user2);
         chatwriter.start();*/
@@ -108,7 +96,7 @@ public class ChatPrivateController implements Initializable{
         this.role2=role2;
         f=1;
         refresh();
-        loadimage();
+      //  loadimage();
         loadtable();
 
         /*Thread chatwriter = new PrivateThread(msgbox,username,user2);
@@ -118,36 +106,6 @@ public class ChatPrivateController implements Initializable{
 
     @FXML
     Circle image;
-    void loadimage(){
-
-        try {
-                File file = new File("src/main/Font/Image/pp.png");
-
-                FileOutputStream fos = new FileOutputStream(file);
-                byte b[];
-                Blob blob;
-                System.out.println(user2);
-
-                PreparedStatement ps = con.prepareStatement("select Image from pp where Username='" + user2 + "'");
-                ResultSet rs1 = ps.executeQuery();
-
-                while (rs1.next()) {
-                    blob = rs1.getBlob("Image");
-                    b = blob.getBytes(1, (int) blob.length());
-                    fos.write(b);
-                }
-                ps.close();
-                fos.close();
-                image.setFill(new ImagePattern(new Image(file.toURI().toString())));
-                System.out.println("Imgae Rerived successfully to " + file.getPath() + "  path");
-
-
-            }catch(Exception e){
-
-                System.out.println(e.getMessage());
-            }
-
-    }
     @FXML
     private Button b;
 
@@ -191,7 +149,7 @@ public class ChatPrivateController implements Initializable{
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(UserProfile.ProfileController.class.getResource("Profile.fxml"));
+            fxmlLoader.setLocation(ProfileController.class.getResource("Profile.fxml"));
             AnchorPane ap = fxmlLoader.load();
            ProfileController sadmin = fxmlLoader.getController();
             sadmin.set(username, role,name2,user2,pane);
@@ -211,7 +169,7 @@ public class ChatPrivateController implements Initializable{
             String user2 = usertable.getSelectionModel().getSelectedItem().getUsername().toString();
             FXMLLoader fxmlLoader=new FXMLLoader();
 
-            fxmlLoader.setLocation(Chat.ChatPrivateController.class.getResource("ChatPrivate.fxml"));
+            fxmlLoader.setLocation(ChatPrivateController.class.getResource("ChatPrivate.fxml"));
             AnchorPane pane1=fxmlLoader.load();
             ChatPrivateController adminController=fxmlLoader.getController();
             adminController.set(username, role, Name2, user2, pane);
@@ -251,7 +209,7 @@ public class ChatPrivateController implements Initializable{
 
 
 
-    public ChatPrivateController(){
+    public ChatPrivateTeamController(){
 
         con = ConnectionDb.DBC();
        // loadtable();
@@ -421,7 +379,7 @@ ImageView privateimage;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadimage();
+
       //  person.setImage(new Image(new File("src/main/Font/group.png").toURI().toString()));
         privateimage.setImage(new Image(new File("src/main/Font/account-circle-fill.png.png").toURI().toString()));
 

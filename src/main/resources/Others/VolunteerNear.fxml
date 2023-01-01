@@ -75,7 +75,7 @@
                     <Font name="System Bold" size="18.0" />
                 </font>
             </Label>
-            <Button fx:id="joinb" layoutX="519.0" layoutY="537.0" mnemonicParsing="false" onAction="#join" opacity="0.76" prefHeight="26.0" prefWidth="128.0" style="-fx-background-radius: 10; -fx-background-color: green;" text="Join Team">
+            <Button fx:id="joinb" layoutX="519.0" layoutY="550.0" mnemonicParsing="false" onAction="#join" prefHeight="26.0" prefWidth="128.0" style="-fx-background-radius: 10; -fx-background-color: green;" text="Join Team">
                 <font>
                     <Font name="System Bold" size="11.0" />
                 </font>
@@ -120,6 +120,11 @@
             </ImageView>
       <Button fx:id="whats" layoutX="663.0" layoutY="436.0" mnemonicParsing="false" onAction="#whatsapp" prefHeight="26.0" prefWidth="28.0" style="-fx-background-color: tranesparent;" textFill="WHITE" />
       <Button fx:id="mailc" layoutX="706.0" layoutY="475.0" mnemonicParsing="false" onAction="#mail" prefHeight="26.0" prefWidth="28.0" style="-fx-background-color: tranesparent;" textFill="WHITE" />
+      <Button fx:id="chatb" layoutX="519.0" layoutY="518.0" mnemonicParsing="false" onAction="#chat" prefHeight="6.0" prefWidth="128.0" style="-fx-background-radius: 10; -fx-background-color: green;" text="Chat">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
         </children>
 
 

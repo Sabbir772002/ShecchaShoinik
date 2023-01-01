@@ -155,7 +155,7 @@ public class SignupController implements Initializable {
                     alert.setTitle("Sign up Error!");
                     alert.setHeaderText("Username already taken!\nPlease use another one.");
                     // alert.setContentText("");
-                    File file = new File("src/main/Font/icon1.png");
+                    File file = new File("src/main/Font/logooo.png");
                     Image image = new Image(file.toURI().toString());
                     stage = (Stage) alert.getDialogPane().getScene().getWindow();
                     stage.getIcons().add(image);

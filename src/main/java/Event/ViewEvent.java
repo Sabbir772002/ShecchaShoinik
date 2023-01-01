@@ -159,7 +159,7 @@ public class ViewEvent implements Initializable {
     Button team;
 
     public void set(String username, String role, BorderPane pane) {
-        if(role=="Volunteer Leader") team.setVisible(true);
+        if(role=="Team Leader") team.setVisible(true);
         if(role=="User") team.setVisible(false);
         con= ConnectionDb.DBC();
         this.pane = pane;
