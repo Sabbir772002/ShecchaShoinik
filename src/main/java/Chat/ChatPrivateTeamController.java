@@ -155,7 +155,7 @@ public class ChatPrivateTeamController implements Initializable{
             sadmin.set(username, role,name2,user2,pane);
             pane.setCenter(ap);
         } catch (Exception e) {
-            System.out.println("vul hoilo Admin Dashbaord profile button profile controller");
+            System.out.println("bhool hoilo Admin Dashbaord profile button profile controller");
         }
 
     }
@@ -176,7 +176,7 @@ public class ChatPrivateTeamController implements Initializable{
             pane.setCenter(pane1);
 
         } catch (Exception e) {
-            System.out.println("error on tabble click on chat private " + e.getMessage());
+            System.out.println("error on table click on chat private " + e.getMessage());
         }
 
     }
@@ -323,7 +323,7 @@ public class ChatPrivateTeamController implements Initializable{
 
 
         } catch (Exception ex) {
-            System.out.println("sudu vul");
+            System.out.println("shudu vul");
             System.out.println(ex.getMessage());
 
         }
