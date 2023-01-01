@@ -651,7 +651,7 @@ public class UserDashboardController implements Initializable {
             fxmlLoader.setLocation(BloodBankController.class.getResource("BloodBank.fxml"));
             AnchorPane ap = fxmlLoader.load();
             BloodBankController sadmin = fxmlLoader.getController();
-            sadmin.set(username,role);
+            sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
 
         }catch (Exception e){
@@ -659,7 +659,6 @@ public class UserDashboardController implements Initializable {
         }
 
     }
-
 
     @FXML
     void profile(ActionEvent event) {

@@ -90,10 +90,10 @@ public class HomeController implements Initializable {
     }
     String images[]={
             //"src/main/Font/Hand.png",
-            "src/main/Font/1.jpg",
-            "src/main/Font/2.jpg",
+            "src/main/Font/whats/Untitled-2.png",
+            "src/main/Font/whats/Untitled-2.png",
            // "src/main/Font/2.png",
-            "src/main/Font/3.jpg",
+            "src/main/Font/whats/Untitled-2.png",
             "src/main/Font/4.jpg",
             "src/main/Font/5.jpg",
             "src/main/Font/6.jpg",
@@ -486,19 +486,19 @@ public class HomeController implements Initializable {
        // loginimage.setImage(new Image(new File("src/main/Font/mlogin0.png").toURI().toString()));
         File file = new File("src/main/Font/logo.png");
         Image image0 = new Image(file.toURI().toString());
-        file = new File("src/main/Font/icon1.png");
+        file = new File("src/main/Font/logooo.png");
         image0 = new Image(file.toURI().toString());
         logo.setImage(image0);
         file = new File("src/main/Font/blacklogo.png");
         image0 = new Image(file.toURI().toString());
         logo1.setImage(image0);
-        image.setImage(new Image(new File(images[0]).toURI().toString()));
+     /*   image.setImage(new Image(new File(images[0]).toURI().toString()));
         image2.setImage(new Image(new File(images[1]).toURI().toString()));
         image3.setImage(new Image(new File(images[2]).toURI().toString()));
         image4.setImage(new Image(new File(images[3]).toURI().toString()));
         image5.setImage(new Image(new File(images[4]).toURI().toString()));
         image6.setImage(new Image(new File(images[5]).toURI().toString()));
-        //image7.setImage(new Image(new File(images[6]).toURI().toString()));
+        //image7.setImage(new Image(new File(images[6]).toURI().toString()));*/
         //front.setImage(new Image(new File("src/main/Font/front.png").toURI().toString()));
         //back.setImage(new Image(new File("src/main/Font/back.png").toURI().toString()));
         //  translate(1,pane1,800);

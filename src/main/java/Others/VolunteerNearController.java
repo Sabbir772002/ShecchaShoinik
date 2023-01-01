@@ -120,6 +120,8 @@ public class VolunteerNearController implements Initializable {
     }
     @FXML
     Button chatb;
+    @FXML
+    ImageView imagev;
 
     @FXML
     void chat(ActionEvent event) {
@@ -495,6 +497,8 @@ public class VolunteerNearController implements Initializable {
             i.setFitWidth(20); i1.setFitHeight(20);
             i1.setFitWidth(20);
             whats.setGraphic(i1);
+            imagev.setImage(new Image(new File("src/main/Font/icons/volunteerNear.png").toURI().toString()));
+
             con=ConnectionDb.DBC();
             tableclick();
       /*  loadduserinfo();

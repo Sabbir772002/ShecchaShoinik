@@ -60,16 +60,18 @@ public class TeamDashboardController implements Initializable {
     @FXML
     private ImageView imageview;
     @FXML
-    private ImageView bimage;
+    Button bbutton;
+
+
     @FXML
     void BbankClick(ActionEvent event) {
         try{
-            System.out.println("hey ki khobor");
+            //System.out.println("hey ki khobor");
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(BloodBankController.class.getResource("BloodBank.fxml"));
             AnchorPane ap = fxmlLoader.load();
             BloodBankController sadmin = fxmlLoader.getController();
-            sadmin.set(username,role);
+            sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
             System.out.println("kno holo na");
 
@@ -84,8 +86,7 @@ public class TeamDashboardController implements Initializable {
     @FXML
     private Button bt1;
 
-    @FXML
-    private Button bbutton;
+
 
    /* @FXML
     private ChoiceBox<?> choice;
@@ -674,7 +675,10 @@ public class TeamDashboardController implements Initializable {
         imageview.setImage(image);
         File file1 = new File("src/main/Font/1.png");
         Image image1 = new Image(file1.toURI().toString());
-        bimage.setImage(image1);
+        ImageView i=new ImageView(image1);
+        i.setFitWidth(26);
+        i.setFitHeight(26);
+       bbutton.setGraphic(i);
          file1 = new File("src/main/Font/logotext.png");
         Image image4 = new Image(file1.toURI().toString());
         logoimage.setImage(image4);

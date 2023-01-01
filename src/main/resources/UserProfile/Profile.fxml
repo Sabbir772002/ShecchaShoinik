@@ -64,7 +64,7 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Label fx:id="field" alignment="CENTER" contentDisplay="RIGHT" layoutX="261.0" layoutY="468.0" prefHeight="93.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="EarthQuake" wrapText="true">
+                  <Label fx:id="field" alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="261.0" layoutY="471.0" prefHeight="77.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="EarthQuake" wrapText="true">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -82,7 +82,7 @@
                      </font>
                   </Label>
                   <Button fx:id="pfield" layoutX="331.0" layoutY="167.0" mnemonicParsing="false" onAction="#paction" prefHeight="18.0" prefWidth="114.0" style="-fx-background-color: green; -fx-background-radius: 8;" stylesheets="@../../Style/style.css" text="Edit Profile" />
-      <Button fx:id="delete" layoutX="312.0" layoutY="483.0" mnemonicParsing="false" onAction="#Delete" prefHeight="27.0" prefWidth="113.0" style="-fx-background-color: red;" styleClass="bt" stylesheets="@../../Style/style.css" text="Delete User" visible="false" />
+      <Button fx:id="delete" layoutX="328.0" layoutY="554.0" mnemonicParsing="false" onAction="#Delete" prefHeight="27.0" prefWidth="113.0" style="-fx-background-color: red;" styleClass="bt" stylesheets="@../../Style/style.css" text="Delete User" visible="false" />
       <Label fx:id="maill" alignment="CENTER" contentDisplay="RIGHT" layoutX="261.0" layoutY="255.0" prefHeight="29.0" prefWidth="283.0" styleClass="vi" stylesheets="@../../Style/style.css" text="happynewyear2gmail.com">
          <font>
             <Font name="System Bold" size="18.0" />

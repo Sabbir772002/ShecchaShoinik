@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chat.ChatPrivateController">
+<AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chat.ChatPrivateController">
       <children>
           <ScrollPane layoutX="40.0" layoutY="97.0" prefHeight="387.0" prefWidth="438.0" style="-fx-background-radius: 5;" styleClass="tt" stylesheets="@../../Style/style.css">
               <content>
@@ -23,13 +23,13 @@
           </ScrollPane>
           <TextField fx:id="writebox" layoutX="38.0" layoutY="501.0" prefHeight="27.0" prefWidth="318.0" promptText="Write your message here...." styleClass="tt" stylesheets="@../../Style/style.css" />
           <Button layoutX="361.0" layoutY="501.0" mnemonicParsing="false" onAction="#send" prefHeight="27.0" prefWidth="58.0" style="-fx-background-color: green;" styleClass="tt" stylesheets="@../../Style/style.css" text="Send" />
-          <Circle fx:id="image" fill="#d11ba7" layoutX="114.0" layoutY="38.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
+          <Circle fx:id="image" fill="WHITE" layoutX="114.0" layoutY="38.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
           <Label fx:id="user21" alignment="CENTER" layoutX="580.0" layoutY="71.0" prefHeight="20.0" prefWidth="154.0" style="-fx-background-color: grey;" styleClass="tt" stylesheets="@../../Style/style.css" text="Available for Chat" textFill="WHITE">
               <font>
                   <Font name="System Bold" size="14.0" />
               </font>
           </Label>
-          <Circle fill="#d11ba7" layoutX="657.0" layoutY="44.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
+          <Circle fill="WHITE" layoutX="657.0" layoutY="44.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
           <ImageView fx:id="privateimage" fitHeight="48.0" fitWidth="50.0" layoutX="633.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
               <image>
                   <Image url="@../../Font/group.png" />

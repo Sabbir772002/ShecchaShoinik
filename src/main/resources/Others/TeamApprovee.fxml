@@ -4,36 +4,37 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Others.TeamApproveController">
+<AnchorPane prefHeight="601.0" prefWidth="762.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Others.TeamApproveController">
    <children>
-      <AnchorPane layoutX="338.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="448.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%)">
+      <AnchorPane layoutX="330.0" layoutY="3.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="448.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);">
          <children>
             <Label layoutX="28.0" layoutY="232.0" prefHeight="31.0" prefWidth="95.0" text="Phone:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="26.0" layoutY="318.0" prefHeight="31.0" prefWidth="90.0" text="District:" textFill="WHITE">
+            <Label layoutX="28.0" layoutY="318.0" prefHeight="31.0" prefWidth="95.0" text="District:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="24.0" layoutY="277.0" prefHeight="29.0" prefWidth="94.0" text="Division:" textFill="WHITE">
+            <Label layoutX="28.0" layoutY="277.0" prefHeight="31.0" prefWidth="95.0" text="Division:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="29.0" layoutY="360.0" prefHeight="31.0" prefWidth="78.0" text="License:" textFill="WHITE">
+            <Label layoutX="28.0" layoutY="360.0" prefHeight="31.0" prefWidth="83.0" text="License:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="32.0" layoutY="405.0" prefHeight="31.0" prefWidth="78.0" text="Field:" textFill="WHITE">
+            <Label layoutX="28.0" layoutY="405.0" prefHeight="31.0" prefWidth="83.0" text="Field:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
@@ -63,9 +64,12 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Circle fill="WHITE" layoutX="224.0" layoutY="68.0" radius="54.0" stroke="BLACK" strokeType="INSIDE" />
-            <ImageView fitHeight="83.0" fitWidth="108.0" layoutX="170.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="Name" alignment="CENTER" layoutX="110.0" layoutY="122.0" prefHeight="31.0" prefWidth="244.0" text="Team Durbar" textFill="WHITE">
+            <Circle layoutX="224.0" layoutY="68.0" radius="54.0" stroke="BLACK" strokeType="INSIDE" />
+            <ImageView fitHeight="83.0" fitWidth="108.0" layoutX="183.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Font/icons/teamApprove.png" />
+               </image></ImageView>
+            <Label fx:id="Name" alignment="CENTER" layoutX="102.0" layoutY="122.0" prefHeight="31.0" prefWidth="244.0" text="Team Durbar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
@@ -75,7 +79,7 @@
                   <Font name="System Bold" size="11.0" />
                </font>
             </Label>
-            <Button layoutX="200.0" layoutY="483.0" mnemonicParsing="false" onAction="#Approve" prefHeight="27.0" prefWidth="113.0" style="-fx-background-color: green;" styleClass="bt" stylesheets="@../../Style/style.css" text="Approve" />
+            <Button layoutX="187.0" layoutY="465.0" mnemonicParsing="false" onAction="#Approve" prefHeight="27.0" prefWidth="113.0" style="-fx-background-color: green;" styleClass="bt" stylesheets="@../../Style/style.css" text="Approve" />
             <Label layoutX="28.0" layoutY="192.0" prefHeight="31.0" prefWidth="95.0" text="Mail:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="21.0" />
@@ -86,7 +90,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button layoutX="200.0" layoutY="518.0" mnemonicParsing="false" onAction="#Delete" prefHeight="27.0" prefWidth="113.0" style="-fx-background-color: red;" styleClass="bt" stylesheets="@../../Style/style.css" text="Decline/Delete" />
+            <Button layoutX="187.0" layoutY="506.0" mnemonicParsing="false" onAction="#Delete" prefHeight="27.0" prefWidth="113.0" style="-fx-background-color: red;" styleClass="bt" stylesheets="@../../Style/style.css" text="Decline/Delete" />
          </children>
       </AnchorPane>
       <TableView fx:id="allteam" layoutX="14.0" layoutY="72.0" onMouseClicked="#click" prefHeight="514.0" prefWidth="276.0">

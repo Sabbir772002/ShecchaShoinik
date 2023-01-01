@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="630.0" prefWidth="758.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Event.EventForm">
+<AnchorPane prefHeight="630.0" prefWidth="758.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Event.EventForm">
    <children>
             <Label layoutX="48.0" layoutY="8.0" prefHeight="43.0" prefWidth="238.0" text="Event Title" textFill="WHITE">
                <font>
@@ -36,7 +36,7 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <ComboBox fx:id="district" layoutX="220.0" layoutY="245.0" opacity="0.58" prefHeight="26.0" prefWidth="148.0" styleClass="vi" stylesheets="@../../Style/style.css" />
+            <ComboBox fx:id="district" layoutX="220.0" layoutY="245.0" opacity="0.58" prefHeight="26.0" prefWidth="148.0" style="-fx-background-color: white;" styleClass="vi" stylesheets="@../../Style/style.css" />
             <Label layoutX="61.0" layoutY="298.0" prefHeight="34.0" prefWidth="158.0" text="Date &amp; Time:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="21.0" />

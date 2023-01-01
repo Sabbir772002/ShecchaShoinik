@@ -281,13 +281,6 @@
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
-               <graphic>
-                  <ImageView fx:id="bimage" fitHeight="24.0" fitWidth="33.0" onDragDetected="#BbankClick" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Font/1.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
             </Button>
             <Button fx:id="b" alignment="BASELINE_LEFT" layoutX="918.0" layoutY="2.0" mnemonicParsing="false" onAction="#Choiceclick" prefHeight="34.0" prefWidth="93.0" style="-fx-background-color: white;" textFill="#f7f7f7">
                <font>
