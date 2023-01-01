@@ -1,11 +1,13 @@
 .bt{
--fx-border-color: #521839;
+/*-fx-border-color: #521839;*/
 /*-fx-background-color:  linear-gradient(from 0% 0% to 100% 100%,#ED213A 0%, #93291E 100%);*/
- -fx-background-color:   #4f0202;
+/* -fx-background-color:   #4f0202;*/
+-fx-background-color:black;
 -fx-background-radius: 10px;
 -fx-border-radius: 10px;
  -fx-text-fill: #E8E8E6;
  -fx-cursor: hand;
+ -fx-opacity: 0.90;
 
 
 }

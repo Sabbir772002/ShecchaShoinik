@@ -5,6 +5,7 @@ import Chat.CommunityChatHandelar;
 import Chat.LiveHandeler;
 import DB.ConnectionDb;
 import Event.ViewEvent;
+import News.NewsBox;
 import Others.*;
 import PostBox.AddPostController;
 import PostBox.Post;
@@ -194,6 +195,22 @@ public class TeamDashboardController implements Initializable {
 
     }
     @FXML
+    void News(ActionEvent event) {
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(NewsBox.class.getResource("NewsBox.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            NewsBox sadmin = fxmlLoader.getController();
+            sadmin.set(username, role, pane1);
+            pane1.setCenter(ap);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+        @FXML
     void Event(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();

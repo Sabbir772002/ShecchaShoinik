@@ -219,6 +219,10 @@ public TeamSignUp(){
                 }
 @FXML
 Button bsign;
+    @FXML
+    ImageView logoo;
+    @FXML
+    ImageView nameee;
 @Override
 public void initialize(URL url, ResourceBundle resourceBundle) {
        String []division={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
@@ -233,7 +237,10 @@ public void initialize(URL url, ResourceBundle resourceBundle) {
         i.setFitHeight(24);
         i.setFitWidth(24);
         bsign.setGraphic(i);
+      logoo.setImage(new Image(new File("src/main/Font/logooo.png").toURI().toString()));
+      nameee.setImage(new Image(new File("src/main/Font/nameee.png").toURI().toString()));
 
-        }
+
+}
         }
 

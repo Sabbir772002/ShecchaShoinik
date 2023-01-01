@@ -296,7 +296,7 @@ public class SigninController implements Initializable {
         File file = new File("src/main/Font/user5.png");
         Image image = new Image(file.toURI().toString());
         user.setImage(image);
-        file = new File("src/main/Font/pass.png");
+        file = new File("src/main/Font/icons/lock.png");
         image = new Image(file.toURI().toString());
         pass.setImage(image);
         loginimage.setImage(new Image(new File("src/main/Font/login.png").toURI().toString()));

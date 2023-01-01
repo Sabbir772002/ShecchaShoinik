@@ -8,6 +8,7 @@ import Chat.LiveHandeler;
 import DB.ConnectionDb;
 import Event.ApproveEVentController;
 import Event.ViewEvent;
+import News.NewsBox;
 import Others.HRequest;
 import Others.TeamApproveController;
 import Others.VolunteerNearController;
@@ -94,7 +95,21 @@ public class AdminDashboardController implements Initializable {
     private Parent root;
     public String username = "";
     public String role = "";
+    @FXML
+    void News(ActionEvent event) {
 
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(NewsBox.class.getResource("NewsBox.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            NewsBox sadmin = fxmlLoader.getController();
+            sadmin.set(username, role, pane1);
+            pane1.setCenter(ap);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     public void set(String username, String role) {
         user.setText(username);
