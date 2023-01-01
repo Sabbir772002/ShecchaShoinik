@@ -687,7 +687,6 @@ public class UserDashboardController implements Initializable {
             ProfileController sadmin = fxmlLoader.getController();
             sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
-            System.out.println("kno holo na");
 
         }catch (Exception e){
             System.out.println(e.getMessage());
