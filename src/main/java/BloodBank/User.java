@@ -10,7 +10,6 @@ public class User {
     }
     public User(String name){
 
-
         this.Name=name;
     }
 
