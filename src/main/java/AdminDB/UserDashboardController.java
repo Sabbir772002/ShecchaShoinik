@@ -542,7 +542,7 @@ public class UserDashboardController implements Initializable {
             fxmlLoader.setLocation(Others.VolunteerNearController.class.getResource("VolunteerNear.fxml"));
             AnchorPane ap = fxmlLoader.load();
             VolunteerNearController sadmin = fxmlLoader.getController();
-            sadmin.set(username,role);
+            sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
             System.out.println("kno holo na");
 

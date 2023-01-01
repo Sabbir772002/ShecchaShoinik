@@ -80,7 +80,7 @@
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Button fx:id="team" layoutX="481.0" layoutY="527.2000122070312" mnemonicParsing="false" onAction="#addevent" prefHeight="26.0" prefWidth="147.0" style="-fx-background-color: green;" text="Add Your Event" visible="false" />
+              <Button fx:id="team" layoutX="481.0" layoutY="549.0" mnemonicParsing="false" onAction="#addevent" prefHeight="30.0" prefWidth="147.0" style="-fx-background-color: green;" text="Add Your Event" visible="false" />
               <Label layoutX="385.0" layoutY="511.20001220703125" prefHeight="31.0" prefWidth="101.0" text="Event By:">
                   <font>
                       <Font size="21.0" />

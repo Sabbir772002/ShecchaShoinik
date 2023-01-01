@@ -1,12 +1,15 @@
 package Others;
 
 import BloodBank.User;
+import Chat.ChatPrivateController;
+import Chat.ChatPrivateTeamController;
 import Chat.userlist;
 import DB.ConnectionDb;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
@@ -17,7 +20,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 import java.awt.*;
 import java.io.File;
@@ -27,6 +32,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class VolunteerNearController implements Initializable {
@@ -93,11 +99,45 @@ public class VolunteerNearController implements Initializable {
             preparedStatement.execute();
             preparedStatement.close();
             con.close();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Team join Request sent!");
+            alert.setHeaderText("After approve by team leader, \nyou will be member of that team!");
+            File file = new File("src/main/Font/logooo.png");
+            Image image = new Image(file.toURI().toString());
+           Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(image);
+            //choice.getSelectionModel().select(null);
+
+            // alert.initOwner(stage);
+            //alert.setGraphic(new ImageView(image));
+            //user.setImage(image);
+            Optional<ButtonType> result = alert.showAndWait();
+
         }catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
     }
+    @FXML
+    Button chatb;
+
+    @FXML
+    void chat(ActionEvent event) {
+
+        try{
+            FXMLLoader fxmlLoader=new FXMLLoader();
+            fxmlLoader.setLocation(Chat.ChatPrivateController.class.getResource("ChatPrivateTeam.fxml"));
+            AnchorPane ap=fxmlLoader.load();
+            ChatPrivateTeamController padmin=fxmlLoader.getController();
+            padmin.set(username,role,Name.getText().toString(),username2,pane,"Team Leader");
+            pane.setCenter(ap);
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+
+    }
+
     @FXML
     Button joinb;
 
