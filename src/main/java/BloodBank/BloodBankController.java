@@ -38,6 +38,7 @@ public class BloodBankController implements Initializable
     String role="";
     @FXML
     Button controlb;
+    int f=0;
 
     public void set(String username, String role) {
         con = ConnectionDb.DBC();
@@ -46,6 +47,22 @@ public class BloodBankController implements Initializable
         this.username = username;
         if(role.equals("Team Leader")&& (username.equals("Rajshahi")||username.equals("Dhaka"))){
             controlb.setVisible(true);
+        }
+        try{
+            String s = "Select BG from userlist where username='"+username+"'";
+               // System.out.println("loadteam hoi na");
+                PreparedStatement ps = con.prepareStatement(s);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    f=1;
+                    String s1 = rs.getString(1);
+
+                }
+                ps.close();
+
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
         showDonator();
        showbank();
@@ -420,7 +437,7 @@ void add(ActionEvent event) {
         }
     }
     String bloodtype;
-    int f=0;
+    int fl=0;
     @FXML
     void bloodselect(ActionEvent event) {
         f=1;

@@ -106,9 +106,28 @@ public class TeamApproveController{
     }
     @FXML
     void Delete(){
+        try {
+            con=ConnectionDb.DBC();
+            PreparedStatement ps = con.prepareStatement("Delete from teams where Username='"+user+"'");
+            ps.executeUpdate();
+            ps.close();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Team Deleted!");
+            alert.setHeaderText("Team Deleted Succesfully!");
+            // alert.setContentText("");
+            File file = new File("src/main/Font/logoo.png");
+            Image image = new Image(file.toURI().toString());
+            stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(image);
+            Optional<ButtonType> result=alert.showAndWait();
+            loadtable();
+        }catch(Exception e){
+            System.out.println(e.getMessage());
 
-
+        }
     }
+
+
     @FXML
     void Approve(ActionEvent event) {
         try {
@@ -168,7 +187,7 @@ public class TeamApproveController{
         Username.setCellValueFactory(new PropertyValueFactory<Team, String>("Username"));
         list = loadTeam();
         allteam.setItems(list);
-        load("NULL");
+        load(list.get(0).Username);
 
     }
 

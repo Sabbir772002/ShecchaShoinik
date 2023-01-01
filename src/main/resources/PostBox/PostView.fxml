@@ -17,7 +17,7 @@
             <Image url="@../../Font/2.jpg" />
          </image>
       </ImageView>
-      <Text fx:id="title" fill="WHITE" fontSmoothingType="LCD" layoutX="66.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white;" text="Disaster hazard at uiu" wrappingWidth="429.2371063232422">
+      <Text fx:id="title" fill="WHITE" fontSmoothingType="LCD" layoutX="55.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white;" text="Disaster hazard at uiu" wrappingWidth="429.2371063232422">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
@@ -68,7 +68,7 @@
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="68.0" layoutY="57.0" prefHeight="18.0" prefWidth="98.0" text="\@Sabbir" textFill="WHITE" />
+      <Label fx:id="user" layoutX="55.0" layoutY="42.0" prefHeight="18.0" prefWidth="98.0" text="\@Sabbir" textFill="WHITE" />
       <Label fx:id="addinfo" alignment="TOP_LEFT" layoutX="71.0" layoutY="334.0" prefHeight="98.0" prefWidth="304.0" style="-fx-background-radius: 5; -fx-padding: 5;" styleClass="vi" stylesheets="@../../Style/style.css" text="There is a car accident with 3 buses" textFill="#fff7f7" wrapText="true">
          <font>
             <Font name="Bell MT Bold" size="17.0" />
