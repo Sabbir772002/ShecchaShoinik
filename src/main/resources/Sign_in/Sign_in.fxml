@@ -19,7 +19,7 @@
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <ComboBox fx:id="sign_in_box" layoutX="90.0" layoutY="42.0" prefHeight="26.0" prefWidth="150.0" promptText="Role" style="-fx-text-fill: white;" styleClass="vi" stylesheets="@../../Style/style.css" />
+            <ComboBox fx:id="sign_in_box" layoutX="90.0" layoutY="42.0" opacity="0.74" prefHeight="0.0" prefWidth="150.0" promptText="Role" style="-fx-text-fill: white; -fx-background-color: gray;" styleClass="vi" stylesheets="@../../Style/style.css" />
            
             <TextField fx:id="username" layoutX="90.0" layoutY="84.0" prefHeight="32.0" prefWidth="150.0" promptText="Username" styleClass="vi" stylesheets="@../../Style/style.css" />
             <PasswordField fx:id="password" layoutX="90.0" layoutY="131.0" prefHeight="32.0" prefWidth="150.0" promptText="Password" styleClass="vi" stylesheets="@../../Style/style.css" />

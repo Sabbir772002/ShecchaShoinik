@@ -48,34 +48,34 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="address" alignment="CENTER" layoutX="166.0" layoutY="122.0" prefHeight="70.0" prefWidth="204.0" style="-fx-background-radius: 5; -fx-border-color: white; -fx-padding: 5;" text="Kuril Road" textFill="WHITE" wrapText="true">
+      <Label fx:id="address" alignment="TOP_LEFT" layoutX="166.0" layoutY="122.0" prefHeight="70.0" prefWidth="204.0" style="-fx-border-color: white; -fx-padding: 5;" styleClass="vi" stylesheets="@../../Style/style.css" text="Kuril Road" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="district" alignment="CENTER" layoutX="167.0" layoutY="198.0" prefHeight="26.0" prefWidth="204.0" style="-fx-background-radius: 5;" text="Gazipur" textFill="WHITE">
+      <Label fx:id="district" alignment="CENTER" layoutX="167.0" layoutY="198.0" prefHeight="26.0" prefWidth="204.0" style="-fx-background-radius: 5;" styleClass="vi" stylesheets="@../../Style/style.css" text="Gazipur" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="type" alignment="CENTER" contentDisplay="TOP" layoutX="169.0" layoutY="263.0" prefHeight="26.0" prefWidth="202.0" style="-fx-background-color: null; -fx-background-radius: 5;" text="EarthQuake" textFill="WHITE">
+      <Label fx:id="type" alignment="CENTER" contentDisplay="TOP" layoutX="169.0" layoutY="263.0" prefHeight="26.0" prefWidth="202.0" style="-fx-background-color: null; -fx-background-radius: 5;" styleClass="vi" stylesheets="@../../Style/style.css" text="EarthQuake" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="division" layoutX="168.0" layoutY="229.0" prefHeight="28.0" prefWidth="202.0" style="-fx-alignment: Center; -fx-background-radius: 5;" text="Dhaka" textFill="WHITE">
+      <Label fx:id="division" layoutX="168.0" layoutY="229.0" prefHeight="28.0" prefWidth="202.0" style="-fx-alignment: Center; -fx-background-radius: 5;" styleClass="vi" stylesheets="@../../Style/style.css" text="Dhaka" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
       <Label layoutX="68.0" layoutY="57.0" prefHeight="18.0" prefWidth="98.0" text="\@Sabbir" textFill="WHITE" />
-      <Label fx:id="addinfo" alignment="CENTER" layoutX="71.0" layoutY="334.0" prefHeight="98.0" prefWidth="304.0" style="-fx-background-color: null; -fx-background-radius: 5; -fx-border-color: white; -fx-padding: 5;" text="There is a car accident with 3 buses" textFill="#fff7f7" wrapText="true">
+      <Label fx:id="addinfo" alignment="TOP_LEFT" layoutX="71.0" layoutY="334.0" prefHeight="98.0" prefWidth="304.0" style="-fx-background-radius: 5; -fx-padding: 5;" styleClass="vi" stylesheets="@../../Style/style.css" text="There is a car accident with 3 buses" textFill="#fff7f7" wrapText="true">
          <font>
             <Font name="Bell MT Bold" size="17.0" />
          </font>
       </Label>
       <Button fx:id="delete" layoutX="169.0" layoutY="501.0" mnemonicParsing="false" onAction="#Delete" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: red;" text="Delete" visible="false" />
-      <TableView fx:id="pteam" layoutX="412.0" layoutY="257.0" onMouseClicked="#tableclickteam" prefHeight="338.0" prefWidth="334.0" style="-fx-border-radius: 0,0,0,0;" stylesheets="@../Style/style.css">
+      <TableView fx:id="pteam" layoutX="412.0" layoutY="257.0" onMouseClicked="#tableclickteam" prefHeight="338.0" prefWidth="334.0" style="-fx-border-radius: 0,0,0,0;" styleClass="column-header" stylesheets="@../Style/style.css">
         <columns>
           <TableColumn fx:id="Name" minWidth="0.0" prefWidth="183.20001220703125" text="Name" />
             <TableColumn fx:id="Username" minWidth="0.0" prefWidth="0.0" text="Username" visible="false" />

@@ -41,9 +41,9 @@
                <font>
                   <Font name="Bell MT Bold" size="15.0" />
                </font></TextField>
-            <ComboBox fx:id="cbdivision" layoutX="133.0" layoutY="293.0" onAction="#Select" prefHeight="35.0" prefWidth="180.0" promptText="Division" styleClass="vi" stylesheets="@../../Style/style.css" />
-            <ComboBox fx:id="cbdistrict" layoutX="331.0" layoutY="293.0" prefHeight="37.0" prefWidth="186.0" promptText="District" styleClass="vi" stylesheets="@../../Style/style.css" />
-            <ComboBox fx:id="bloodgroup" layoutX="133.0" layoutY="342.0" prefHeight="37.0" prefWidth="180.0" promptText="Blood group" styleClass="vi" stylesheets="@../../Style/style.css" />
+            <ComboBox fx:id="cbdivision" layoutX="133.0" layoutY="293.0" onAction="#Select" opacity="0.58" prefHeight="35.0" prefWidth="180.0" promptText="Division" style="-fx-background-color: white;" styleClass="vi" stylesheets="@../../Style/style.css" />
+            <ComboBox fx:id="cbdistrict" layoutX="331.0" layoutY="293.0" opacity="0.58" prefHeight="37.0" prefWidth="186.0" promptText="District" style="-fx-background-color: white;" styleClass="vi" stylesheets="@../../Style/style.css" />
+            <ComboBox fx:id="bloodgroup" layoutX="133.0" layoutY="342.0" opacity="0.58" prefHeight="37.0" prefWidth="180.0" promptText="Blood group" style="-fx-background-color: white;" styleClass="vi" stylesheets="@../../Style/style.css" />
             <Button fx:id="sign" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="273.0" layoutY="545.0" mnemonicParsing="false" onAction="#Sign_up" prefHeight="35.0" prefWidth="138.0" style="-fx-background-color: #0A3CCF; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="#f0f2f1" AnchorPane.leftAnchor="273.0">
                <font>
                   <Font name="Bell MT Bold" size="18.0" />

@@ -38,10 +38,10 @@
                <font>
                   <Font name="Bell MT Bold" size="15.0" />
                </font></TextField>
-            <ComboBox fx:id="cbdivision" layoutX="142.0" layoutY="343.0" onAction="#Select" prefHeight="26.0" prefWidth="158.0" promptText="Division" />
-            <ComboBox fx:id="cbdistrict" layoutX="325.0" layoutY="343.0" prefHeight="26.0" prefWidth="143.0" promptText="District" />
-            <ComboBox fx:id="cbgroup" layoutX="142.0" layoutY="383.0" prefHeight="26.0" prefWidth="158.0" promptText="Earthquake" />
-            <Button fx:id="sign" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="253.0" layoutY="429.0" mnemonicParsing="false" onAction="#Sign_up" prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: #0A3CCF; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="#f0f2f1" AnchorPane.leftAnchor="253.0">
+            <ComboBox fx:id="cbdivision" layoutX="142.0" layoutY="343.0" onAction="#Select" opacity="0.58" prefHeight="26.0" prefWidth="158.0" promptText="Division" style="-fx-background-color: white;" styleClass="vi" stylesheets="@../../Style/style.css" />
+            <ComboBox fx:id="cbdistrict" layoutX="325.0" layoutY="343.0" opacity="0.58" prefHeight="26.0" prefWidth="143.0" promptText="District" style="-fx-background-color: white;" styleClass="vi" stylesheets="@../../Style/style.css" />
+            <ComboBox fx:id="cbgroup" layoutX="142.0" layoutY="391.0" opacity="0.58" prefHeight="26.0" prefWidth="158.0" promptText="Earthquake" style="-fx-background-color: white;" styleClass="vi" stylesheets="@../../Style/style.css" />
+            <Button fx:id="sign" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="253.0" layoutY="446.0" mnemonicParsing="false" onAction="#Sign_up" prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: #0A3CCF; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="#f0f2f1" AnchorPane.leftAnchor="253.0">
                <font>
                   <Font size="18.0" />
                </font>

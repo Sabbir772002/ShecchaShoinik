@@ -20,7 +20,7 @@
             <Font name="Bell MT" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="652.0" layoutY="14.0" mnemonicParsing="false" onAction="#reload" prefHeight="34.0" prefWidth="99.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" text="Reload" textFill="WHITE">
+      <Button layoutX="652.0" layoutY="14.0" mnemonicParsing="false" onAction="#reload" prefHeight="34.0" prefWidth="99.0" styleClass="vi" stylesheets="@../../Style/style.css" text="Reload" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="17.0" />
          </font>
