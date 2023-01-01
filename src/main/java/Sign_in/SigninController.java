@@ -63,6 +63,7 @@ public class SigninController implements Initializable {
 
     @FXML
     void sign_in(ActionEvent event) {
+        con=ConnectionDb.DBC();
    Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             if (logIn().compareTo("Success")==0) {

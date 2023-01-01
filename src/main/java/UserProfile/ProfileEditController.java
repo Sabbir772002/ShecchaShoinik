@@ -3,13 +3,17 @@ package UserProfile;
 import DB.ConnectionDb;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.sql.*;
 import java.util.Optional;
 
@@ -56,9 +60,68 @@ public class ProfileEditController {
 
     }
 
+    @FXML
+    private Button imageup;
 
 
 
+    String imagef = "src/main/Font/icons/profile.png";
+    @FXML
+    void upimage(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+
+        //final Button openButton = new Button("Choose Background Image");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Select Image", "*.jpg", "*.png","*.jpeg"));
+        // fileChooser.setInitialDirectory(new File("C:\\Users\\USER\\Pictures"));e
+        Node node=(Node)event.getSource();
+       Stage stage = (Stage)node.getScene().getWindow();
+        File file = fileChooser.showOpenDialog(stage);
+        System.out.println(imagef);
+        if (file != null) {
+            System.out.println(file);
+            imagef = file.getAbsolutePath();
+            System.out.println(imagef);
+            String s[] = imagef.split("\\\\");
+            //System.out.println(imagef);
+            //  System.out.println(s[s.length - 1]);
+            imageup.setText(s[s.length - 1]);
+            // File f= new File("src/main/file.image");
+
+            // openFile(file);
+            // where my problem is
+
+        }
+
+
+    }
+    @FXML
+    void upload( ActionEvent e) {
+        File file1=new File(imagef);
+        try {
+            Connection connection=ConnectionDb.DBC();
+            FileInputStream fis = new FileInputStream(file1);
+            String s = "Update pp set Image=? where Username=?";
+            PreparedStatement preparedStatement2 = (PreparedStatement) connection.prepareStatement(s);
+            preparedStatement2.setBinaryStream(1, fis, (int) file1.length());
+            preparedStatement2.setString(2, username);
+            preparedStatement2.execute();
+            preparedStatement2.close();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Profile Picture Updated!");
+            alert.setHeaderText("Profile Chaneged Succesfully!");
+            // alert.setContentText("");
+            File file = new File("src/main/Font/logooo.png");
+            Image image = new Image(file.toURI().toString());
+           Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(image);
+            Optional<ButtonType> result=alert.showAndWait();
+
+
+        } catch (Exception ee) {
+
+            System.out.println(ee.getMessage());
+        }
+    }
     public void output(){
             try{
                 Statement stmt=con.createStatement();

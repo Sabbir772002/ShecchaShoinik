@@ -18,17 +18,17 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.awt.*;
 import java.beans.BeanProperty;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.net.URI;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -221,9 +221,12 @@ public class ProfileController implements Initializable {
 
     }
     public String uname;
+    File file = new File("src/main/Font/Image/pp.png");
 
     public void output() {
         try {
+            image.setFill(new ImagePattern(new Image(new File("src/main/Font/icon.png").toURI().toString())));
+
             Statement stmt = con.createStatement();
             String sql = "SELECT Name,Username,Phone,ID,Division,District,Extra,Mail,BG FROM userlist Where Username = \'" + tname + "\'";
             ResultSet rs = stmt.executeQuery(sql);
@@ -237,20 +240,46 @@ public class ProfileController implements Initializable {
                 field.setText(rs.getString(7));
                 BG.setText(rs.getString(9));
                 maill.setText(rs.getString(8));
+                FileOutputStream fos = new FileOutputStream(file);
+                byte b[];
+                Blob blob;
+                System.out.println(tname);
+
+                PreparedStatement ps = con.prepareStatement("select Image from pp where Username='"+tname+"'");
+                ResultSet rs1 = ps.executeQuery();
+
+                while (rs1.next()) {
+                    blob = rs1.getBlob("Image");
+                    b = blob.getBytes(1, (int) blob.length());
+                    fos.write(b);
+                }
+                ps.close();
+                fos.close();
+               //System.out.println("Imgae Rerived successfully to " + file.getPath() + "  path");
+             //  if(file.) {
+                  // System.out.println("hello");
+                   image.setFill(new ImagePattern(new Image(file.toURI().toString())));
+              // }
+
+
 
             }
+
+
             rs.close();
             stmt.close();
             con.close();
             uname = showuser.getText().toString();
         }catch (Exception e){
-
+            System.out.println(e.getMessage());
         }
         }
         @FXML
     Button  maili;
     @FXML
     Button whats;
+    @FXML
+    Circle image;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ImageView i=new ImageView(new javafx.scene.image.Image(new File("src/main/Font/new.png").toURI().toString()));

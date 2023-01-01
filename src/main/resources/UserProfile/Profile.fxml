@@ -69,8 +69,8 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Circle fill="WHITE" layoutX="388.0" layoutY="69.0" radius="54.0" stroke="BLACK" strokeType="INSIDE" />
-                  <ImageView fitHeight="83.0" fitWidth="82.0" layoutX="347.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" />
+                  <Circle fx:id="image" layoutX="388.0" layoutY="69.0" radius="54.0" stroke="BLACK" strokeType="INSIDE" />
+                  <ImageView fitHeight="83.0" fitWidth="82.0" layoutX="489.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" />
                   <Label fx:id="Name" alignment="CENTER" layoutX="266.0" layoutY="123.0" prefHeight="31.0" prefWidth="244.0" text="Sabbir Hossain" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="21.0" />

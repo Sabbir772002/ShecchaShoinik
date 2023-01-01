@@ -12,8 +12,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import java.io.File;
+import java.io.FileInputStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -81,11 +83,49 @@ public class SignupController implements Initializable {
         }
 
     }
-    @FXML
-    TextField Nid;
 
     @FXML
+    TextField Nid;
+ 
+    @FXML
     TextField Extra;
+
+
+    String imagef = "src/main/Font/icons/profile.png";
+    Image image1;
+    @FXML
+    private Button imageup;
+
+
+    @FXML
+    void upimage(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+
+        //final Button openButton = new Button("Choose Background Image");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Select Image", "*.jpg", "*.png","*.jpeg"));
+        // fileChooser.setInitialDirectory(new File("C:\\Users\\USER\\Pictures"));
+        File file = fileChooser.showOpenDialog(stage);
+        System.out.println(imagef);
+        if (file != null) {
+            System.out.println(file);
+            imagef = file.getAbsolutePath();
+            System.out.println(imagef);
+            String s[] = imagef.split("\\\\");
+            //System.out.println(imagef);
+            //  System.out.println(s[s.length - 1]);
+            imageup.setText(s[s.length - 1]);
+            // File f= new File("src/main/file.image");
+
+            // openFile(file);
+            // where my problem is
+            image1 = new Image(file.toURI().toString());
+
+
+        }
+
+
+    }
+
     @FXML
     void Sign_up(ActionEvent event) {
        // System.out.println("bhai aita ki hoilo");
@@ -97,10 +137,11 @@ public class SignupController implements Initializable {
            // alert.setContentText("");
             File file = new File("src/main/Font/icon1.png");
             Image image = new Image(file.toURI().toString());
-            stage = (Stage) alert.getDialogPane().getScene().getWindow();
             stage.getIcons().add(image);
             Optional<ButtonType> result=alert.showAndWait();
         }else {
+            File file1 = new File(imagef);
+
             // Connection con;
             // con=DB.ConnectionDb.DBC();
             String sql = "SELECT * FROM userlist Where username = ?";
@@ -136,8 +177,6 @@ public class SignupController implements Initializable {
                         preparedStatement.setString(10, bloodgroup.getValue().toString());
                         preparedStatement.setString(11, phone.getText());
                         preparedStatement.setString(12, mail.getText());
-                        preparedStatement.executeUpdate();
-                        preparedStatement.close();
                         PreparedStatement preparedStatement1 = (PreparedStatement) connection.prepareStatement(st1);
                         preparedStatement1.setString(1, name.getText());
                         preparedStatement1.setString(2, username.getText());
@@ -151,8 +190,17 @@ public class SignupController implements Initializable {
                         preparedStatement1.setString(10, bloodgroup.getValue().toString());
                         preparedStatement1.setString(11, phone.getText());
                         preparedStatement1.setString(12, mail.getText());
+                        FileInputStream fis = new FileInputStream(file1);
+                        String s="Insert into pp (Username,Image) values(?,?);";
+                        PreparedStatement preparedStatement2=(PreparedStatement)connection.prepareStatement(s);
+                        preparedStatement2.setString(1, username.getText().toString());
+                        preparedStatement2.setBinaryStream(2, fis, (int) file1.length());
+                        preparedStatement2.execute();
+                        preparedStatement2.close();
                         preparedStatement1.executeUpdate();
                         preparedStatement1.close();
+                        preparedStatement.executeUpdate();
+                        preparedStatement.close();
                         connection.close();
                         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                         alert.setTitle("Sign Up Confarmation!");

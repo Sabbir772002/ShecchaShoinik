@@ -26,11 +26,15 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -63,6 +67,7 @@ public class ChatPrivateController implements Initializable{
        // rolee.setText("@" + role);
         this.role = role;
         this.username = username;
+        loadimage();
         loadtable();
         refresh();
 //        if(username.equals("Sabbir")){
@@ -83,12 +88,46 @@ public class ChatPrivateController implements Initializable{
         this.name2 = name2;
         Name2.setText(name2);
         refresh();
+        loadimage();
         loadtable();
         /*Thread chatwriter = new PrivateThread(msgbox,username,user2);
         chatwriter.start();*/
 
     }
+    @FXML
+    Circle image;
+    void loadimage(){
 
+        try{
+            File file = new File("src/main/Font/Image/pp.png");
+
+            FileOutputStream fos = new FileOutputStream(file);
+            byte b[];
+            Blob blob;
+            System.out.println(user2);
+
+            PreparedStatement ps = con.prepareStatement("select Image from pp where Username='"+user2+"'");
+            ResultSet rs1 = ps.executeQuery();
+
+            while (rs1.next()) {
+                blob = rs1.getBlob("Image");
+                b = blob.getBytes(1, (int) blob.length());
+                fos.write(b);
+            }
+            ps.close();
+            fos.close();
+            System.out.println("Imgae Rerived successfully to " + file.getPath() + "  path");
+            image.setFill(new ImagePattern(new Image(file.toURI().toString())));
+
+
+
+
+
+        }catch(Exception e){
+
+            System.out.println(e.getMessage());
+        }
+    }
     @FXML
     private Button b;
 
@@ -291,7 +330,7 @@ public class ChatPrivateController implements Initializable{
             }
             //sleep(1000);
             resultSet.close();
-            con.close();
+
 
         } catch (Exception ex) {
             System.out.println("sudu vul");
@@ -343,7 +382,8 @@ ImageView privateimage;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        person.setImage(new Image(new File("src/main/Font/group.png").toURI().toString()));
+        loadimage();
+      //  person.setImage(new Image(new File("src/main/Font/group.png").toURI().toString()));
         privateimage.setImage(new Image(new File("src/main/Font/account-circle-fill.png.png").toURI().toString()));
 
         //refresh();
