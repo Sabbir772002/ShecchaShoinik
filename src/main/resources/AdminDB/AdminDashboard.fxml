@@ -164,7 +164,7 @@
                         <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="user" alignment="CENTER" layoutX="-5.0" layoutY="117.0" prefHeight="52.0" prefWidth="204.0" style="-fx-cursor: had;" text="Rajshahi" textFill="WHITE" AnchorPane.leftAnchor="-5.0">
+                  <Label fx:id="user" alignment="CENTER" layoutX="-5.0" layoutY="117.0" prefHeight="52.0" prefWidth="204.0" style="-fx-cursor: had;" text="Rajshahi" AnchorPane.leftAnchor="-5.0">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
