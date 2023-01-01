@@ -136,6 +136,7 @@ public class SignupController implements Initializable {
             alert.setHeaderText("Something went wrong!\nPlease try again with proper info.");
            // alert.setContentText("");
             File file = new File("src/main/Font/icon1.png");
+            stage=(Stage) alert.getDialogPane().getScene().getWindow();
             Image image = new Image(file.toURI().toString());
             stage.getIcons().add(image);
             Optional<ButtonType> result=alert.showAndWait();
