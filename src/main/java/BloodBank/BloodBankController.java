@@ -48,8 +48,35 @@ public class BloodBankController implements Initializable
             controlb.setVisible(true);
         }
         showDonator();
+       showbank();
 
     }
+    ObservableList listt = FXCollections.observableArrayList();
+    ObservableList loadteam() {
+        ObservableList listt = FXCollections.observableArrayList();
+        con = ConnectionDb.DBC();
+        String s = "Select Name from banklist";
+        try {
+// System.out.println("hlw");
+            System.out.println("loadteam hoi na");
+            PreparedStatement ps = con.prepareStatement(s);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                String s1 = rs.getString(1);
+                listt.add(new User(s1));
+
+            }
+            ps.close();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+
+        return listt;
+    }
+
+
     @FXML
     private Label BloodAvailableno;
 
@@ -150,32 +177,41 @@ public class BloodBankController implements Initializable
     @FXML
     TableColumn<User,String> bankname;
     @FXML
+    TableColumn<User,String> usernamet;
+    @FXML
+    void teamgo(MouseEvent e){
+
+
+    }
+    @FXML
     void give(ActionEvent event) {
 
     }
     void showbank(){
         loaddonator();
         bankname.setCellValueFactory(new PropertyValueFactory<User,String>("Name"));
-        listt =loadteam();
-        banklist.setItems(listt);
+        usernamet.setCellValueFactory(new PropertyValueFactory<User,String>("Username"));
+        listtt =loadteamp();
+        banklist.setItems(listtt);
 
     }
 @FXML
 void add(ActionEvent event) {
 
 }
-    ObservableList<User> listt = FXCollections.observableArrayList();
-    ObservableList<User> loadteam() {
-        ObservableList<User> listt = FXCollections.observableArrayList();
+    ObservableList<User> listtt = FXCollections.observableArrayList();
+    ObservableList<User> loadteamp() {
+        ObservableList<User> listp = FXCollections.observableArrayList();
         con = ConnectionDb.DBC();
-        String s = "Select Name from banklist";
+        String s = "Select Name,Username from banklist";
         try {
-            // System.out.println("hlw");
+            System.out.println("loadteamp");
             PreparedStatement ps = con.prepareStatement(s);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 String s1 = rs.getString(1);
-                listt.add(new User(s1));
+                String s2 = rs.getString(3);
+                listp.add(new User(s1,s2));
 
             }
             ps.close();
@@ -185,7 +221,7 @@ void add(ActionEvent event) {
         }
 
 
-        return listt;
+        return listp;
 }
     @FXML
     private TextField reason;
