@@ -5,7 +5,6 @@ module com.example.sheccashoinik {
     requires javafx.graphics;
      requires javafx.web;
     requires java.desktop;
-    requires java.mail;
     requires mail;
 
 
