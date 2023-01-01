@@ -404,6 +404,8 @@ public class AdminDashboardController implements Initializable {
                 stage.setScene(scene);
                 stage.setTitle("SIGN IN");
                 stage.show();
+                choice.getSelectionModel().select(null);
+
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -422,11 +424,14 @@ public class AdminDashboardController implements Initializable {
                 Image image = new Image(file.toURI().toString());
                 stage = (Stage) alert.getDialogPane().getScene().getWindow();
                 stage.getIcons().add(image);
+                choice.getSelectionModel().select(null);
+
                 // alert.initOwner(stage);
                 //alert.setGraphic(new ImageView(image));
                 //user.setImage(image);
                 Optional<ButtonType> result = alert.showAndWait();
                 if (alert.getResult().getText().equals("OK")) {
+                    choice.getSelectionModel().select(null);
                     root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     scene = new Scene(root);

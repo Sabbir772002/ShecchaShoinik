@@ -570,6 +570,8 @@ public class TeamDashboardController implements Initializable {
                 stage.setScene(scene);
                 stage.setTitle("SIGN IN");
                 stage.show();
+                choice.getSelectionModel().select(null);
+
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -591,6 +593,8 @@ public class TeamDashboardController implements Initializable {
                 //alert.setGraphic(new ImageView(image));
                 //user.setImage(image);
                 Optional<ButtonType> result=alert.showAndWait();
+                choice.getSelectionModel().select(null);
+
                 if(alert.getResult().getText().equals("OK")){
                     root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -598,6 +602,7 @@ public class TeamDashboardController implements Initializable {
                     stage.setScene(scene);
                     stage.setTitle("SIGN IN");
                     stage.show();
+
                 }
 
             } catch (Exception e) {
@@ -611,6 +616,8 @@ public class TeamDashboardController implements Initializable {
                    TeamProfileController sadmin = fxmlLoader.getController();
                    sadmin.set(username,role,pane1);
                    pane1.setCenter(ap);
+                   choice.getSelectionModel().select(null);
+
 
                }catch (Exception e){
 

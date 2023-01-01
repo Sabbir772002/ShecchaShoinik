@@ -697,6 +697,7 @@ public class UserDashboardController implements Initializable {
     @FXML
     void ChoiceClick(MouseEvent event) {
         if (choice.getValue().toString().equals("Logout")) {
+            choice.getSelectionModel().select(null);
             try {
                 root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -704,6 +705,8 @@ public class UserDashboardController implements Initializable {
                 stage.setScene(scene);
                 stage.setTitle("SIGN IN");
                 stage.show();
+                choice.getSelectionModel().select(null);
+
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -721,7 +724,7 @@ public class UserDashboardController implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Logout Confirmation");
                 alert.setHeaderText("Are you sure you want to log out?");
-                File file = new File("src/main/Font/icon1.png");
+                File file = new File("src/main/Font/logooo.png");
                 Image image = new Image(file.toURI().toString());
                 stage = (Stage) alert.getDialogPane().getScene().getWindow();
                 stage.getIcons().add(image);
@@ -738,7 +741,7 @@ public class UserDashboardController implements Initializable {
                     stage.show();
                 }
                 //choice.getSelectionModel().
-
+                choice.getSelectionModel().select(null);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -751,6 +754,8 @@ public class UserDashboardController implements Initializable {
                 ProfileController sadmin = fxmlLoader.getController();
                 sadmin.set(username,role,pane1);
                 pane1.setCenter(ap);
+                choice.getSelectionModel().select(null);
+
                 //System.out.println("kno holo na");
 
             }catch (Exception e){
