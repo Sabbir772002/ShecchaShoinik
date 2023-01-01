@@ -100,7 +100,6 @@ public class SignupController implements Initializable {
     @FXML
     void upimage(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
-
         //final Button openButton = new Button("Choose Background Image");
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Select Image", "*.jpg", "*.png","*.jpeg"));
         // fileChooser.setInitialDirectory(new File("C:\\Users\\USER\\Pictures"));
