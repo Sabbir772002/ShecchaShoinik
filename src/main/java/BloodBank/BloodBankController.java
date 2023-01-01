@@ -1,5 +1,7 @@
 package BloodBank;
 
+import Chat.ChatPrivateController;
+import Chat.ChatPrivateTeamController;
 import Chat.userlist;
 import DB.ConnectionDb;
 import Others.Team;
@@ -8,6 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -15,6 +18,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import java.io.File;
 import java.net.URL;
@@ -39,13 +43,17 @@ public class BloodBankController implements Initializable
     @FXML
     Button controlb;
     int f=0;
+    BorderPane pane;
 
-    public void set(String username, String role) {
+
+    public void set(String username, String role, BorderPane pane) {
+        this.pane=pane;
         con = ConnectionDb.DBC();
         role = role;
+        String s1="";
         this.role = role;
         this.username = username;
-        if(role.equals("Team Leader")&& (username.equals("Rajshahi")||username.equals("Dhaka"))){
+        if(role.equals("Team Leader") /*&&(username.equals("Rajshahi")||username.equals("Dhaka")|| username.equals("Mymensingh")|| username.equals("Chattogram")|| username.equals("Barishal")|| username.equals("Rangpur")|| username.equals("Sylhet")|| username.equals("Khulna"))*/){
             controlb.setVisible(true);
         }
         try{
@@ -55,10 +63,13 @@ public class BloodBankController implements Initializable
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
                     f=1;
-                    String s1 = rs.getString(1);
+                    s1 = rs.getString(1);
 
                 }
+                bloodtype=s1;
+                bdtype.setText(bloodtype);
                 ps.close();
+            System.out.println(s1);
 
 
         }catch (Exception e){
@@ -75,7 +86,7 @@ public class BloodBankController implements Initializable
         String s = "Select Name from banklist";
         try {
 // System.out.println("hlw");
-            System.out.println("loadteam hoi na");
+          //  System.out.println("loadteam hoi na");
             PreparedStatement ps = con.prepareStatement(s);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -196,11 +207,6 @@ public class BloodBankController implements Initializable
     @FXML
     TableColumn<User,String> usernamet;
     @FXML
-    void teamgo(MouseEvent e){
-
-
-    }
-    @FXML
     void give(ActionEvent event) {
 
     }
@@ -222,12 +228,14 @@ void add(ActionEvent event) {
         con = ConnectionDb.DBC();
         String s = "Select Name,Username from banklist";
         try {
-            System.out.println("loadteamp");
+           // System.out.println("loadteamp");
+
             PreparedStatement ps = con.prepareStatement(s);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 String s1 = rs.getString(1);
-                String s2 = rs.getString(3);
+                String s2 = rs.getString(2);
+                System.out.println(s1+s2);
                 listp.add(new User(s1,s2));
 
             }
@@ -272,7 +280,7 @@ void add(ActionEvent event) {
         try {
 
             con = ConnectionDb.DBC();
-            String s = "Select Name,Username,LastTime from userlist";
+            String s = "Select Name,Username,LastTime from userlist where  BG='"+bloodtype+"'";
             try {
                 // System.out.println("hlw");
                 PreparedStatement ps = con.prepareStatement(s);
@@ -336,7 +344,7 @@ void add(ActionEvent event) {
     ObservableList<User> loaddonator() {
         ObservableList<User> list = FXCollections.observableArrayList();
         con=ConnectionDb.DBC();
-        String s = "Select Name,Username,LastTime from userlist";
+        String s = "Select Name,Username,LastTime from userlist where BG='"+bloodtype+"'";
         try
         {
             // System.out.println("hlw");
@@ -347,7 +355,7 @@ void add(ActionEvent event) {
                 String s1=rs.getString(1);
                 String s2=rs.getString(2);
                 String s5=rs.getString(3);
-                System.out.println(s5);
+               // System.out.println(s5);
                 if(check((s5))||s5.equals(null)) {
                     // list.add(new User(rs.getString(1), rs.getString(2)));
                     list.add(new User(s1, s2));
@@ -363,6 +371,43 @@ void add(ActionEvent event) {
 
 
         return list;
+
+    }
+    @FXML
+    void usergo(MouseEvent event) {
+       /* String Name2=usertable.getSelectionModel().getSelectedItem().getName().toString();
+        String user2=usertable.getSelectionModel().getSelectedItem().getUsername().toString();*/
+        try {
+           String Name2 =blooddonatorlist.getSelectionModel().getSelectedItem().getName().toString();
+            String user2 = blooddonatorlist.getSelectionModel().getSelectedItem().getUsername().toString();
+            FXMLLoader fxmlLoader=new FXMLLoader();
+            fxmlLoader.setLocation(Chat.ChatPrivateController.class.getResource("ChatPrivate.fxml"));
+            AnchorPane pane1=fxmlLoader.load();
+            ChatPrivateController adminController=fxmlLoader.getController();
+            adminController.set(username, role, Name2, user2, pane);
+            pane.setCenter(pane1);
+
+        } catch (Exception e) {
+            System.out.println("error on tabble click on chat private " + e.getMessage());
+        }
+
+    } @FXML
+    void teamgo(MouseEvent event) {
+       /* String Name2=usertable.getSelectionModel().getSelectedItem().getName().toString();
+        String user2=usertable.getSelectionModel().getSelectedItem().getUsername().toString();*/
+        try {
+            String Name2 =banklist.getSelectionModel().getSelectedItem().getName().toString();
+            String user2 = banklist.getSelectionModel().getSelectedItem().getUsername().toString();
+            FXMLLoader fxmlLoader=new FXMLLoader();
+            fxmlLoader.setLocation(Chat.ChatPrivateTeamController.class.getResource("ChatPrivateTeam.fxml"));
+            AnchorPane pane1=fxmlLoader.load();
+            ChatPrivateTeamController adminController=fxmlLoader.getController();
+            adminController.set(username, role, Name2, user2, pane);
+            pane.setCenter(pane1);
+
+        } catch (Exception e) {
+            System.out.println("error on tabble click on chat private " + e.getMessage());
+        }
 
     }
     void showDonator(){
@@ -394,10 +439,6 @@ void add(ActionEvent event) {
 
 
 
-    @FXML
-    void usergo(MouseEvent event) {
-
-    }
 
     boolean check(String d) throws ParseException {
            /* String Date1=  "20/12/2022";
