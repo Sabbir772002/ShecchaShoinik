@@ -647,14 +647,12 @@ public class UserDashboardController implements Initializable {
             System.out.println("vul hoilo profile button Userdashboard controller " + e.getMessage());
         }*/
         try{
-            System.out.println("hey ki khobor");
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(BloodBankController.class.getResource("BloodBank.fxml"));
             AnchorPane ap = fxmlLoader.load();
             BloodBankController sadmin = fxmlLoader.getController();
             sadmin.set(username,role);
             pane1.setCenter(ap);
-            System.out.println("kno holo na");
 
         }catch (Exception e){
             System.out.println(e.getMessage());

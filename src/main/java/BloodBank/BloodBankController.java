@@ -47,6 +47,7 @@ public class BloodBankController implements Initializable
         if(username.equals("Rajshahi")|| username.equals("Dhaka")){
 
             ctbb.setVisible(true);
+
         }
 
     }
