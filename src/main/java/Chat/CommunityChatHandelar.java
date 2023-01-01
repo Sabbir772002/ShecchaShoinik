@@ -12,6 +12,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -34,7 +36,13 @@ public class CommunityChatHandelar implements Initializable {
     @FXML
     BorderPane pane1;
 
-  ;
+     @FXML
+     ImageView tableimage;
+
+     @FXML
+     ImageView groupimage;
+
+
 
     public void set(String username, String role) {
         con= ConnectionDb.DBC();
@@ -304,8 +312,11 @@ public class CommunityChatHandelar implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        groupimage.setImage(new Image(new File("src/main/Font/group.png").toURI().toString()));
+        tableimage.setImage(new Image(new File("src/main/Font/logooo.png").toURI().toString()));
         connect();
     }
+
     @FXML  ObservableList<userlist> list= FXCollections.observableArrayList();
     @FXML
     TextField search;

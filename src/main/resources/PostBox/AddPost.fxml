@@ -14,7 +14,7 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="272.0" layoutY="138.0" prefHeight="31.0" prefWidth="268.0" text="Details About Disaster" textFill="WHITE">
+      <Label layoutX="297.0" layoutY="142.0" prefHeight="31.0" prefWidth="268.0" text="Details About Disaster" textFill="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
@@ -24,42 +24,42 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="88.0" layoutY="254.0" prefHeight="31.0" prefWidth="90.0" text="District:" textFill="WHITE">
+      <Label layoutX="88.0" layoutY="266.0" prefHeight="31.0" prefWidth="90.0" text="District:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <ComboBox fx:id="division" layoutX="257.0" layoutY="218.0" onAction="#select" prefHeight="26.0" prefWidth="148.0" promptText="Dhaka" />
+      <ComboBox fx:id="division" layoutX="257.0" layoutY="218.0" onAction="#select" opacity="0.58" prefHeight="26.0" prefWidth="200.0" promptText="Dhaka" style="-fx-background-color: white;" styleClass="vi" stylesheets="@../../Style/style.css" />
       <Label layoutX="89.0" layoutY="215.0" prefHeight="31.0" prefWidth="94.0" text="Division:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <ComboBox fx:id="district" layoutX="257.0" layoutY="256.0" prefHeight="26.0" prefWidth="148.0" />
-      <Label layoutX="88.0" layoutY="297.0" prefHeight="31.0" prefWidth="162.0" text="Disaster Type:" textFill="WHITE">
+      <ComboBox fx:id="district" layoutX="257.0" layoutY="264.0" opacity="0.58" prefHeight="26.0" prefWidth="200.0" style="-fx-background-color: white;" styleClass="vi" stylesheets="@../../Style/style.css" />
+      <Label layoutX="88.0" layoutY="312.0" prefHeight="31.0" prefWidth="162.0" text="Disaster Type:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <ComboBox fx:id="diaster" layoutX="257.0" layoutY="299.0" prefHeight="26.0" prefWidth="148.0" promptText="EarthQuake" />
-      <Label layoutX="88.0" layoutY="337.0" prefHeight="31.0" prefWidth="176.0" text="Additional Info:" textFill="WHITE">
+      <ComboBox fx:id="diaster" layoutX="257.0" layoutY="309.0" opacity="0.58" prefHeight="37.0" prefWidth="200.0" promptText="EarthQuake" style="-fx-background-color: white;" styleClass="vi" stylesheets="@../../Style/style.css" />
+      <Label layoutX="89.0" layoutY="359.0" prefHeight="31.0" prefWidth="176.0" text="Additional Info:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="88.0" layoutY="380.0" prefHeight="31.0" prefWidth="135.0" text="Add image:" textFill="WHITE">
+      <Label layoutX="89.0" layoutY="406.0" prefHeight="31.0" prefWidth="135.0" text="Add image:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Button fx:id="imageup" layoutX="257.0" layoutY="383.0" mnemonicParsing="false" onAction="#upimage" prefHeight="26.0" prefWidth="137.0" text="Upload image" />
-      <Button layoutX="278.0" layoutY="449.0" mnemonicParsing="false" onAction="#Submit" prefHeight="30.0" prefWidth="188.0" style="-fx-background-color: pink; -fx-background-radius: 10;" styleClass="bt" stylesheets="@../../Style/style.css" text="Submit Post">
+      <Button fx:id="imageup" layoutX="257.0" layoutY="404.0" mnemonicParsing="false" onAction="#upimage" prefHeight="26.0" prefWidth="137.0" styleClass="vi" stylesheets="@../../Style/style.css" text="Upload image" />
+      <Button layoutX="257.0" layoutY="470.0" mnemonicParsing="false" onAction="#Submit" prefHeight="30.0" prefWidth="138.0" style="-fx-background-radius: 10; -fx-background-color: green;" styleClass="bt" stylesheets="@../../Style/style.css" text="Submit Post" textFill="#f7f5f5">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <TextField fx:id="diastertitle" layoutX="91.0" layoutY="84.0" prefHeight="26.0" prefWidth="528.0" styleClass="tt" stylesheets="@../../Style/style.css" />
-      <TextField fx:id="address" layoutX="257.0" layoutY="176.0" prefHeight="26.0" prefWidth="362.0" styleClass="tt" stylesheets="@../../Style/style.css" />
-      <TextField fx:id="address1" layoutX="257.0" layoutY="339.0" prefHeight="26.0" prefWidth="362.0" styleClass="tt" stylesheets="@../../Style/style.css" />
+      <TextField fx:id="diastertitle" layoutX="91.0" layoutY="84.0" prefHeight="26.0" prefWidth="528.0" promptText="Disaster Hazard at uiu" styleClass="vi" stylesheets="@../../Style/style.css" />
+      <TextField fx:id="address" layoutX="257.0" layoutY="176.0" prefHeight="26.0" prefWidth="362.0" promptText="Satarkul, Badda" styleClass="vi" stylesheets="@../../Style/style.css" />
+      <TextField fx:id="address1" layoutX="257.0" layoutY="357.0" prefHeight="26.0" prefWidth="362.0" promptText="Need urgent help" styleClass="vi" stylesheets="@../../Style/style.css" />
    </children>
 </AnchorPane>

@@ -36,15 +36,47 @@ public class BloodBankController implements Initializable
     Connection con;
     String username="";
     String role="";
+    @FXML
+    Button controlb;
 
     public void set(String username, String role) {
         con = ConnectionDb.DBC();
         role = role;
         this.role = role;
         this.username = username;
+        if(role.equals("Team Leader")&& (username.equals("Rajshahi")||username.equals("Dhaka"))){
+            controlb.setVisible(true);
+        }
         showDonator();
+       showbank();
 
     }
+    ObservableList listt = FXCollections.observableArrayList();
+    ObservableList loadteam() {
+        ObservableList listt = FXCollections.observableArrayList();
+        con = ConnectionDb.DBC();
+        String s = "Select Name from banklist";
+        try {
+// System.out.println("hlw");
+            System.out.println("loadteam hoi na");
+            PreparedStatement ps = con.prepareStatement(s);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                String s1 = rs.getString(1);
+                listt.add(new User(s1));
+
+            }
+            ps.close();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+
+        return listt;
+    }
+
+
     @FXML
     private Label BloodAvailableno;
 
@@ -140,7 +172,57 @@ public class BloodBankController implements Initializable
 
     @FXML
     private Button o1;
+    @FXML
+    public  TableView<User>  banklist;
+    @FXML
+    TableColumn<User,String> bankname;
+    @FXML
+    TableColumn<User,String> usernamet;
+    @FXML
+    void teamgo(MouseEvent e){
 
+
+    }
+    @FXML
+    void give(ActionEvent event) {
+
+    }
+    void showbank(){
+        loaddonator();
+        bankname.setCellValueFactory(new PropertyValueFactory<User,String>("Name"));
+        usernamet.setCellValueFactory(new PropertyValueFactory<User,String>("Username"));
+        listtt =loadteamp();
+        banklist.setItems(listtt);
+
+    }
+@FXML
+void add(ActionEvent event) {
+
+}
+    ObservableList<User> listtt = FXCollections.observableArrayList();
+    ObservableList<User> loadteamp() {
+        ObservableList<User> listp = FXCollections.observableArrayList();
+        con = ConnectionDb.DBC();
+        String s = "Select Name,Username from banklist";
+        try {
+            System.out.println("loadteamp");
+            PreparedStatement ps = con.prepareStatement(s);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                String s1 = rs.getString(1);
+                String s2 = rs.getString(3);
+                listp.add(new User(s1,s2));
+
+            }
+            ps.close();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+
+        return listp;
+}
     @FXML
     private TextField reason;
 
@@ -150,7 +232,19 @@ public class BloodBankController implements Initializable
     @FXML
     private Button rh;
     @FXML
-    private TextField  search;;
+    private TextField  search;
+    @FXML
+    private AnchorPane panep;
+    @FXML
+    void control(ActionEvent e) {
+        panep.setVisible(true);
+        donatepane1.setVisible(false);
+        donatorpane.setVisible(false);
+        Requestpane.setVisible(false);
+
+
+                        }
+
     @FXML
     void keyclick(KeyEvent e) {
         ObservableList<User> list1 = FXCollections.observableArrayList();

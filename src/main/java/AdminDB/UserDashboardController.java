@@ -7,6 +7,7 @@ import Chat.CommunityChatHandelar;
 import Chat.LiveHandeler;
 import DB.ConnectionDb;
 import Event.ViewEvent;
+import News.NewsBox;
 import News.NewsView;
 import Others.HRequest;
 import Others.HelpRequest;
@@ -50,7 +51,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import org.controlsfx.control.*;
+
 
 public class UserDashboardController implements Initializable {
     Connection con=ConnectionDb.DBC();
@@ -66,6 +67,17 @@ public class UserDashboardController implements Initializable {
         this.role = role;
         this.username = username;
         alertcount();
+        try {
+            System.out.println("hey ki khobor");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(AdminDB.HomeboardController.class.getResource("HomeBoard.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            HomeboardController sadmin = fxmlLoader.getController();
+            sadmin.set(username, role, pane1);
+            pane1.setCenter(ap);
+        }catch (Exception e){
+
+        }
         alertnum.setText(String.valueOf(newcount));
         Thread t=new AlertThread();
         t.start();
@@ -445,11 +457,10 @@ public class UserDashboardController implements Initializable {
     void News(ActionEvent event) {
 
         try{
-
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(News.NewsView.class.getResource("NewsView.fxml"));
+            fxmlLoader.setLocation(NewsBox.class.getResource("NewsBox.fxml"));
             AnchorPane ap = fxmlLoader.load();
-            News.NewsView sadmin = fxmlLoader.getController();
+            NewsBox sadmin = fxmlLoader.getController();
              sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
 
@@ -531,7 +542,7 @@ public class UserDashboardController implements Initializable {
             fxmlLoader.setLocation(Others.VolunteerNearController.class.getResource("VolunteerNear.fxml"));
             AnchorPane ap = fxmlLoader.load();
             VolunteerNearController sadmin = fxmlLoader.getController();
-            sadmin.set(username,role);
+            sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
             System.out.println("kno holo na");
 
@@ -636,14 +647,12 @@ public class UserDashboardController implements Initializable {
             System.out.println("vul hoilo profile button Userdashboard controller " + e.getMessage());
         }*/
         try{
-            System.out.println("hey ki khobor");
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(BloodBankController.class.getResource("BloodBank.fxml"));
             AnchorPane ap = fxmlLoader.load();
             BloodBankController sadmin = fxmlLoader.getController();
             sadmin.set(username,role);
             pane1.setCenter(ap);
-            System.out.println("kno holo na");
 
         }catch (Exception e){
             System.out.println(e.getMessage());
@@ -676,7 +685,6 @@ public class UserDashboardController implements Initializable {
             ProfileController sadmin = fxmlLoader.getController();
             sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
-            System.out.println("kno holo na");
 
         }catch (Exception e){
             System.out.println(e.getMessage());
@@ -687,6 +695,7 @@ public class UserDashboardController implements Initializable {
     @FXML
     void ChoiceClick(MouseEvent event) {
         if (choice.getValue().toString().equals("Logout")) {
+            choice.getSelectionModel().select(null);
             try {
                 root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -694,6 +703,8 @@ public class UserDashboardController implements Initializable {
                 stage.setScene(scene);
                 stage.setTitle("SIGN IN");
                 stage.show();
+                choice.getSelectionModel().select(null);
+
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -711,7 +722,7 @@ public class UserDashboardController implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Logout Confirmation");
                 alert.setHeaderText("Are you sure you want to log out?");
-                File file = new File("src/main/Font/icon1.png");
+                File file = new File("src/main/Font/logooo.png");
                 Image image = new Image(file.toURI().toString());
                 stage = (Stage) alert.getDialogPane().getScene().getWindow();
                 stage.getIcons().add(image);
@@ -728,7 +739,7 @@ public class UserDashboardController implements Initializable {
                     stage.show();
                 }
                 //choice.getSelectionModel().
-
+                choice.getSelectionModel().select(null);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -741,6 +752,8 @@ public class UserDashboardController implements Initializable {
                 ProfileController sadmin = fxmlLoader.getController();
                 sadmin.set(username,role,pane1);
                 pane1.setCenter(ap);
+                choice.getSelectionModel().select(null);
+
                 //System.out.println("kno holo na");
 
             }catch (Exception e){

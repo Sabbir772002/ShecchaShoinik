@@ -1,10 +1,8 @@
 package Sign_in;
 
 import AdminDB.*;
-import AdminDB.FXMLScene;
 import DB.ConnectionDb;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -65,6 +63,7 @@ public class SigninController implements Initializable {
 
     @FXML
     void sign_in(ActionEvent event) {
+        con=ConnectionDb.DBC();
    Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             if (logIn().compareTo("Success")==0) {
@@ -219,10 +218,10 @@ public class SigninController implements Initializable {
                     status = "Exception";
                 }
             }
-           else if(sign_in_box.getValue().toString().equals("Volunteer Leader")) {
+           else if(sign_in_box.getValue().toString().equals("Team Leader")) {
 
                 // System.out.println("Inbox");
-                String sql = "SELECT * FROM teams Where username = ? and pass = ?";
+                String sql = "SELECT * FROM teams Where username = ? and pass = ? and approve=1";
                 try {
                     PreparedStatement preparedStatement = con.prepareStatement(sql);
                     preparedStatement.setString(1, usern);
@@ -284,26 +283,56 @@ public class SigninController implements Initializable {
        @FXML
        private ImageView loginimage;
        @FXML
+       Button sb;
+
+       @FXML
+       Button sib;
+       @FXML
        private ImageView loginimage1;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String items[]={"User","Volunteer Leader","Admin"};
+        String items[]={"User","Team Leader","Admin"};
         sign_in_box.getItems().addAll(items);
         sign_in_box.getSelectionModel().select(0);
         File file = new File("src/main/Font/user5.png");
         Image image = new Image(file.toURI().toString());
         user.setImage(image);
-        file = new File("src/main/Font/pass.png");
+        file = new File("src/main/Font/icons/lock.png");
         image = new Image(file.toURI().toString());
         pass.setImage(image);
         loginimage.setImage(new Image(new File("src/main/Font/login.png").toURI().toString()));
         loginimage1.setImage(new Image(new File("src/main/Font/add1.png").toURI().toString()));
+        sb.setGraphic(loginimage);
+        loginimage.setFitWidth(27);
+        loginimage.setFitHeight(22);
+        loginimage1.setFitHeight(22);
+        sib.setGraphic(loginimage1);
+        loginimage.setLayoutX(107);
+       // sb.setContentDisplay(ContentDisplay.LEFT);
+
     }
     @FXML
     private AnchorPane enter;
 
+            @FXML
+            void forget(ActionEvent event) {
+                try {
 
-    @FXML
+                    root = FXMLLoader.load(ForgetController.class.getResource("ForgetPass.fxml"));
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.setTitle("Forget Your Password");
+                    stage.show();
+                }catch (Exception e) {
+
+
+                    System.out.println(e.getMessage());
+                }
+
+
+            }
+                @FXML
     public void enter1(KeyEvent e)
     {
         if(e.getCode().toString().equals("ENTER")|| e.getCode() == KeyCode.ENTER)

@@ -8,26 +8,31 @@ import DB.ConnectionDb;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.awt.*;
+import java.beans.BeanProperty;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.net.URI;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.net.URL;
+import java.sql.*;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
-public class ProfileController {
+public class ProfileController implements Initializable {
     Connection con;
     String username="";
     String role="";
@@ -37,6 +42,8 @@ public class ProfileController {
     @FXML
     private Button delete;
     String tname="";
+    @FXML
+    Label maill;
 
     public void set(String username, String role, String name2, String user2,BorderPane pane) {
         if(role.equals("Admin"))delete.setVisible(true);
@@ -96,8 +103,23 @@ public class ProfileController {
 
     }
     @FXML
-    void whatsapp(MouseEvent e){
-        System.out.println("whatapp");
+    void mail(ActionEvent e){
+
+        try {
+            if (Desktop.isDesktopSupported()) {
+                Desktop desktop = Desktop.getDesktop();
+                if (desktop.isSupported(Desktop.Action.MAIL)) {
+                    URI mailto = new URI("mailto:"+maill.getText().toString());
+                  desktop.mail(mailto);
+                }
+            }
+        }catch (Exception ee )
+        {
+            System.out.println(ee.getMessage());
+        }
+    }  @FXML
+    void whatsapp(ActionEvent e){
+
         try {
 
             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
@@ -199,12 +221,14 @@ public class ProfileController {
 
     }
     public String uname;
+    File file = new File("src/main/Font/Image/pp.png");
 
     public void output() {
         try {
+            image.setFill(new ImagePattern(new Image(new File("src/main/Font/icon.png").toURI().toString())));
+
             Statement stmt = con.createStatement();
-            System.out.println(tname+" ase na kn");
-            String sql = "SELECT Name,Username,Phone,ID,Division,District,Volunteer,BG FROM userlist Where Username = \'" + tname + "\'";
+            String sql = "SELECT Name,Username,Phone,ID,Division,District,Extra,Mail,BG FROM userlist Where Username = \'" + tname + "\'";
             ResultSet rs = stmt.executeQuery(sql);
             if (rs.next()) {
                 Name.setText(rs.getString(1));
@@ -214,20 +238,58 @@ public class ProfileController {
                 District.setText(rs.getString(6));
                 Division.setText(rs.getString(5));
                 field.setText(rs.getString(7));
-                BG.setText(rs.getString(8));
+                BG.setText(rs.getString(9));
+                maill.setText(rs.getString(8));
+                FileOutputStream fos = new FileOutputStream(file);
+                byte b[];
+                Blob blob;
+                System.out.println(tname);
+
+                PreparedStatement ps = con.prepareStatement("select Image from pp where Username='"+tname+"'");
+                ResultSet rs1 = ps.executeQuery();
+
+                while (rs1.next()) {
+                    blob = rs1.getBlob("Image");
+                    b = blob.getBytes(1, (int) blob.length());
+                    fos.write(b);
+                }
+                ps.close();
+                fos.close();
+               //System.out.println("Imgae Rerived successfully to " + file.getPath() + "  path");
+             //  if(file.) {
+                  // System.out.println("hello");
+                   image.setFill(new ImagePattern(new Image(file.toURI().toString())));
+              // }
+
 
 
             }
+
+
             rs.close();
             stmt.close();
             con.close();
             uname = showuser.getText().toString();
         }catch (Exception e){
-
+            System.out.println(e.getMessage());
         }
         }
-
-
+        @FXML
+    Button  maili;
+    @FXML
+    Button whats;
+    @FXML
+    Circle image;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ImageView i=new ImageView(new javafx.scene.image.Image(new File("src/main/Font/new.png").toURI().toString()));
+        i.setFitHeight(20);
+        maili.setGraphic(i);
+        ImageView i1=new ImageView(new Image(new File("src/main/Font/whats/100.png").toURI().toString()));
+        i.setFitWidth(20); i1.setFitHeight(20);
+        i1.setFitWidth(20);
+        whats.setGraphic(i1);
+    }
 }
 /* System.out.println(uname);
             System.out.println(username);*//*

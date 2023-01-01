@@ -1,15 +1,18 @@
 package TeamProfile;
 
 import DB.ConnectionDb;
+import com.sun.mail.imap.IMAPNestedMessage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -18,10 +21,12 @@ import javafx.stage.Stage;
 import java.awt.*;
 import java.io.File;
 import java.net.URI;
+import java.net.URL;
 import java.sql.*;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
-public class TeamProfileController {
+public class TeamProfileController implements Initializable {
     Connection con;
 
     @FXML
@@ -96,6 +101,11 @@ public class TeamProfileController {
     }
     @FXML
     Button joint;
+    @FXML
+    Button ap;
+    @FXML
+    Button dlt;
+
     public void set(String username, String role) {
         if(role.equals("Admin"))delete.setVisible(true);
         if(role.equals("User")){joint.setVisible(true);}else{joint.setVisible(false);}
@@ -113,6 +123,27 @@ public class TeamProfileController {
 
     } public void set(String username, String role,String name2, String username1,BorderPane pane) {
         if(role.equals("Admin"))delete.setVisible(true);
+        if(role.equals("User")){joint.setVisible(true);}else{joint.setVisible(false);}
+        con = ConnectionDb.DBC();
+        role = role;
+        this.role = role;
+        this.username = username;
+        this.name2 = name2;
+        this.username1 = username1;
+        this.pane = pane;
+        username2=username;
+        output();
+
+        // alertcount();
+        //alertnum.setText(String.valueOf(newcount));
+        // Thread t=new HelpRequest.AlertThread();
+        //t.start();
+
+
+    }
+    public void set(String username, String role,String name2, String username1,BorderPane pane,String team) {
+        if(role.equals("Admin")){ap.setVisible(true);dlt.setVisible(true);}
+        if(role.equals("User")){joint.setVisible(true);}else{joint.setVisible(false);}
         con = ConnectionDb.DBC();
         role = role;
         this.role = role;
@@ -136,6 +167,7 @@ public class TeamProfileController {
     public void set(String username, String role, BorderPane pane) {
         if(role.equals("Admin"))delete.setVisible(true);
 
+
         con= ConnectionDb.DBC();
         this.pane=pane;
         // user.setText(username);
@@ -146,7 +178,82 @@ public class TeamProfileController {
         output();
     }
 
+    @FXML
+    void deletet() {
+        try {
+            con = ConnectionDb.DBC();
+            String st = "Delete from teams WHERE Username='" + username1 + "'";
+            PreparedStatement preparedStatement = (PreparedStatement) con.prepareStatement(st);
+            preparedStatement.execute();
+            System.out.println("Team deleted");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Team deleted Successfully");
+            alert.setHeaderText("Click ok to Back!");
+            File file = new File("src/main/Font/icon1.png");
+            Image image = new Image(file.toURI().toString());
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(image);
+            // alert.initOwner(stage);
+            //alert.setGraphic(new ImageView(image));
+            //user.setImage(image);
+            Optional<ButtonType> result = alert.showAndWait();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
 
+        }
+    }
+@FXML
+void apteam(){
+   try {
+       con = ConnectionDb.DBC();
+       String st = "Delete from teams WHERE Username='" + username1 + "'";
+       PreparedStatement preparedStatement = (PreparedStatement) con.prepareStatement(st);
+       preparedStatement.execute();
+       System.out.println("Team deleted");
+       Alert alert = new Alert(Alert.AlertType.INFORMATION);
+       alert.setTitle("Team deleted Successfully");
+       alert.setHeaderText("Click ok to Back!");
+       File file = new File("src/main/Font/icon1.png");
+       Image image = new Image(file.toURI().toString());
+       Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+       stage.getIcons().add(image);
+       // alert.initOwner(stage);
+       //alert.setGraphic(new ImageView(image));
+       //user.setImage(image);
+       Optional<ButtonType> result = alert.showAndWait();
+   }catch (Exception e) {
+       System.out.println(e.getMessage());
+   }
+
+}
+    @FXML
+    void mailcc(ActionEvent e){
+
+        try {
+            if (Desktop.isDesktopSupported()) {
+                Desktop desktop = Desktop.getDesktop();
+                if (desktop.isSupported(Desktop.Action.MAIL)) {
+                    URI mailto = new URI("mailto:"+mail.getText().toString());
+                    desktop.mail(mailto);
+                }
+            }
+        }catch (Exception ee )
+        {
+            System.out.println(ee.getMessage());
+        }
+    }  @FXML
+    void whatsapp(ActionEvent e){
+        try {
+
+            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                Desktop.getDesktop().browse(new URI("https://wa.me/88"+phone.getText().toString()));
+            }
+        }catch (Exception ee) {
+            System.out.println(ee.getMessage());
+        }
+
+
+    }
    @FXML
      void mail(MouseEvent e){
 
@@ -258,6 +365,20 @@ public class TeamProfileController {
         }catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+@FXML
+Button mailc;
+    @FXML
+    Button whats;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ImageView i=new ImageView(new javafx.scene.image.Image(new File("src/main/Font/new.png").toURI().toString()));
+        i.setFitHeight(20);
+        mailc.setGraphic(i);
+        ImageView i1=new ImageView(new Image(new File("src/main/Font/whats/100.png").toURI().toString()));
+        i.setFitWidth(20); i1.setFitHeight(20);
+        i1.setFitWidth(20);
+        whats.setGraphic(i1);
     }
 }
 

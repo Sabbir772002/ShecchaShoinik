@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="554.0" prefWidth="694.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_in.ForgetController">
+   <children>
+      <AnchorPane layoutX="172.0" layoutY="123.0" prefHeight="338.0" prefWidth="349.0" style="-fx-background-color: white; -fx-background-radius: 20,20,20,20;">
+         <children>
+            <Label alignment="CENTER" layoutX="93.0" layoutY="14.0" prefHeight="32.0" prefWidth="143.0" text="You are" textFill="#c7c7c7">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="sign_in_box" layoutX="88.0" layoutY="46.0" prefHeight="26.0" prefWidth="150.0" promptText="User" />
+           
+            <Button alignment="CENTER" defaultButton="true" layoutX="101.0" layoutY="239.0" mnemonicParsing="false" onAction="#signin" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: green; -fx-background-radius: 5,5,5,5; -fx-cursor: hand;" text="Sign in">
+               <font>
+                  <Font name="Bell MT Bold" size="14.0" />
+               </font></Button>
+            <Label fx:id="userl" layoutX="87.0" layoutY="129.0" prefHeight="10.0" prefWidth="62.0" text="*Field Required" textFill="RED" visible="false">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Label>
+            <Label fx:id="passl" layoutX="87.0" layoutY="169.0" prefHeight="10.0" prefWidth="62.0" text="*Field Required" textFill="RED" visible="false">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Label>
+            <Label fx:id="selectl" layoutX="87.0" layoutY="88.0" prefHeight="14.0" prefWidth="92.0" text="*Have to select one" textFill="RED" visible="false">
+               <font>
+
+                  <Font size="9.0" />
+               </font>
+            </Label>
+            <Button fx:id="forgetb" layoutX="101.0" layoutY="199.0" mnemonicParsing="false" onAction="#forget" prefHeight="30.0" prefWidth="132.0" style="-fx-background-color: green; -fx-background-radius: 5,5,5,5;" text="Send Code" textAlignment="CENTER" textFill="#0000008c">
+               <font>
+                  <Font name="Bell MT Bold" size="14.0" />
+               </font></Button>
+            <TextField fx:id="mail" layoutX="39.0" layoutY="141.0" prefHeight="37.0" prefWidth="252.0" promptText="Mail" styleClass="vi" stylesheets="@../../Style/style.css" />
+            <Button fx:id="changeb" alignment="CENTER" defaultButton="true" layoutX="101.0" layoutY="199.0" mnemonicParsing="false" onAction="#change" prefHeight="30.0" prefWidth="132.0" style="-fx-background-color: green; -fx-background-radius: 5,5,5,5; -fx-cursor: hand;" text="Change Password" visible="false">
+               <font>
+                  <Font name="Bell MT Bold" size="14.0" />
+               </font>
+            </Button>
+            <TextField fx:id="username" layoutX="39.0" layoutY="89.0" prefHeight="37.0" prefWidth="252.0" promptText="Username" styleClass="vi" stylesheets="@../../Style/style.css" />
+            <Label fx:id="s1" layoutX="83.0" layoutY="72.0" prefHeight="18.0" prefWidth="132.0" text="*must select one" textFill="RED" visible="false" />
+            <Label fx:id="s2" layoutX="41.0" layoutY="123.0" prefHeight="18.0" prefWidth="132.0" text="*must provide username" textFill="RED" visible="false" />
+            <Label fx:id="s3" layoutX="41.0" layoutY="173.0" prefHeight="18.0" prefWidth="132.0" text="*must provide email" textFill="RED" visible="false" />
+            <TextField fx:id="pass" layoutX="66.0" layoutY="141.0" prefHeight="38.0" prefWidth="201.0" promptText="New Password" styleClass="vi" stylesheets="@../../Style/style.css" visible="false" />
+            <TextField fx:id="code" layoutX="66.0" layoutY="89.0" prefHeight="38.0" prefWidth="201.0" promptText="Code" styleClass="vi" stylesheets="@../../Style/style.css" visible="false" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

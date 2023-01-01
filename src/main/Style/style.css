@@ -1,11 +1,13 @@
 .bt{
--fx-border-color: #521839;
+/*-fx-border-color: #521839;*/
 /*-fx-background-color:  linear-gradient(from 0% 0% to 100% 100%,#ED213A 0%, #93291E 100%);*/
- -fx-background-color:   #4f0202;
+/* -fx-background-color:   #4f0202;*/
+-fx-background-color:black;
 -fx-background-radius: 10px;
 -fx-border-radius: 10px;
  -fx-text-fill: #E8E8E6;
  -fx-cursor: hand;
+ -fx-opacity: 0.90;
 
 
 }
@@ -68,3 +70,16 @@
        -fx-background-insets: 0, 0 0 1 0;
        -fx-padding: 0.0em;
    }
+.vi{
+
+-fx-background-color: transparent;
+-fx-border-color: gray;
+-fx-border-style: solid;
+-fx-border-radius: 4,4,4,4;
+-fx-background-radius: 5;
+-fx-font-size: 18;
+-fx-font-weight: "BOLD";
+-fx-font-family: "Bell MT";
+-fx-text-fill: #ffffff;
+
+}

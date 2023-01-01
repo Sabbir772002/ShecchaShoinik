@@ -1,37 +1,47 @@
 package Others;
 
 import BloodBank.User;
+import Chat.ChatPrivateController;
+import Chat.ChatPrivateTeamController;
 import Chat.userlist;
 import DB.ConnectionDb;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 import java.awt.*;
+import java.io.File;
 import java.net.URI;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class VolunteerNearController implements Initializable {
     Connection con;
     String username="";
     String role="";
+
     @FXML
-    void mail(MouseEvent e){
+    void mail(ActionEvent e){
 
         try {
             if (Desktop.isDesktopSupported()) {
@@ -45,8 +55,23 @@ public class VolunteerNearController implements Initializable {
         {
             System.out.println(ee.getMessage());
         }
+    }  @FXML
+    void whatsapp(ActionEvent e){
+
+        try {
+
+            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                Desktop.getDesktop().browse(new URI("https://wa.me/88"+Phone.getText().toString()));
+            }
+        }catch (Exception ee) {
+            System.out.println(ee.getMessage());
+        }
+
+
     }
     public void set(String username, String role) {
+        if(!role.equals("User")){joinb.setVisible(false);}else{joinb.setVisible(true);}
+
         con= ConnectionDb.DBC();
         role=role;
         this.role = role;
@@ -68,19 +93,58 @@ public class VolunteerNearController implements Initializable {
             System.out.println(username2);
             PreparedStatement preparedStatement;
             con= ConnectionDb.DBC();
-            String st = "update Volunteer set Teams=? WHERE Username ='"+username+"'";
+            String st = "update Volunteer set Teams=?, approve=0 WHERE Username ='"+username+"'";
             preparedStatement = (PreparedStatement) con.prepareStatement(st);
             preparedStatement.setString(1, username2);
             preparedStatement.execute();
             preparedStatement.close();
             con.close();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Team join Request sent!");
+            alert.setHeaderText("After approve by team leader, \nyou will be member of that team!");
+            File file = new File("src/main/Font/logooo.png");
+            Image image = new Image(file.toURI().toString());
+           Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(image);
+            //choice.getSelectionModel().select(null);
+
+            // alert.initOwner(stage);
+            //alert.setGraphic(new ImageView(image));
+            //user.setImage(image);
+            Optional<ButtonType> result = alert.showAndWait();
+
         }catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
     }
+    @FXML
+    Button chatb;
+
+    @FXML
+    void chat(ActionEvent event) {
+
+        try{
+            FXMLLoader fxmlLoader=new FXMLLoader();
+            fxmlLoader.setLocation(Chat.ChatPrivateController.class.getResource("ChatPrivateTeam.fxml"));
+            AnchorPane ap=fxmlLoader.load();
+            ChatPrivateTeamController padmin=fxmlLoader.getController();
+            padmin.set(username,role,Name.getText().toString(),username2,pane,"Team Leader");
+            pane.setCenter(ap);
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+
+    }
+
+    @FXML
+    Button joinb;
 
     public void set(String username, String role, BorderPane pane) {
+        if(!role.equals("User")){
+            joinb.setVisible(false);
+        }
         con=ConnectionDb.DBC();
         this.pane=pane;
         // user.setText(username);
@@ -179,7 +243,7 @@ public class VolunteerNearController implements Initializable {
                 loadduserinfo();
                // System.out.println(district+" "+division);
                 // System.out.println("hlw");
-                PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity FROM Teams where District='" + district + "'");
+                PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity FROM Teams where District='" + district + "' and approve=1");
                 ;
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
@@ -223,7 +287,7 @@ public class VolunteerNearController implements Initializable {
 
 
                 }
-                ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity FROM Teams where Division='" + division + "' And District!='"+district +"'");
+                ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity FROM Teams where Division='" + division + "' And District!='"+district +"' and approve=1");
                 ;
                 rs = ps.executeQuery();
                 while (rs.next()) {
@@ -264,7 +328,7 @@ public class VolunteerNearController implements Initializable {
                     }
                 }
 
-                ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity FROM Teams where Division!='" + division + "'");
+                ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity FROM Teams where Division!='" + division + "' and approve=1");
                     ;
                     rs = ps.executeQuery();
                     while (rs.next()) {
@@ -331,7 +395,7 @@ public class VolunteerNearController implements Initializable {
         col_name.setCellValueFactory(new PropertyValueFactory<Team, String>("Name"));
         col_district.setCellValueFactory(new PropertyValueFactory<Team, String>("District"));
         col_user.setCellValueFactory(new PropertyValueFactory<Team, String>("Username"));
-        listF = ConnectionDb.getTeamlist(division,district);
+        listF = ConnectionDb.getTeamlist(division,district,role);
          vtable.setItems(listF);
 
     }
@@ -356,7 +420,7 @@ public class VolunteerNearController implements Initializable {
         String t=vtable.getSelectionModel().getSelectedItem().getUsername();
         try {
             con=ConnectionDb.DBC();
-            PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity,Mail FROM Teams where Username='" + vtable.getSelectionModel().getSelectedItem().getUsername() + "'");
+            PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,Type,Phone,Availablity,Mail FROM Teams where Username='" +t+ "'");
             ;
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -418,10 +482,21 @@ public class VolunteerNearController implements Initializable {
             throw new RuntimeException(ex);
         }
     }
+    @FXML
+    Button mailc;
+    @FXML
+    Button whats;
         @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        con=ConnectionDb.DBC();
-        tableclick();
+            ImageView i=new ImageView(new javafx.scene.image.Image(new File("src/main/Font/new.png").toURI().toString()));
+            i.setFitHeight(20);
+            mailc.setGraphic(i);
+            ImageView i1=new ImageView(new Image(new File("src/main/Font/whats/100.png").toURI().toString()));
+            i.setFitWidth(20); i1.setFitHeight(20);
+            i1.setFitWidth(20);
+            whats.setGraphic(i1);
+            con=ConnectionDb.DBC();
+            tableclick();
       /*  loadduserinfo();
         loadtable();*/
     }

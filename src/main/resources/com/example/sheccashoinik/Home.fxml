@@ -9,12 +9,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="788.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sheccashoinik.HomeController">
    <children>
-      <Button fx:id="Signinb2" alignment="CENTER" layoutX="28.0" layoutY="539.0" mnemonicParsing="false" onAction="#GuideLines" prefHeight="42.0" prefWidth="378.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-cursor: hand;" styleClass="btguide" stylesheets="@../../../../Style/style.css" text="Click To See Disaster Guidelines" textFill="#610404">
+      <Button fx:id="teamsignuo" alignment="CENTER" layoutY="541.0" mnemonicParsing="false" onAction="#TeamSignup" prefHeight="42.0" prefWidth="512.0" style="-fx-background-color: tranesparent; -fx-text-fill: black; -fx-cursor: hand;" stylesheets="@../../../../Style/style.css" text="Click to Create a Volunteer team for your Area" underline="true" wrapText="true">
          <font>
             <Font name="Book Antiqua Bold" size="22.0" />
          </font>
       </Button>
-      <Button fx:id="Signinb" alignment="CENTER" layoutX="617.0" layoutY="541.0" mnemonicParsing="false" onAction="#Signin" prefHeight="42.0" prefWidth="144.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-cursor: hand;" styleClass="btlogin" stylesheets="@../../../../Style/style.css" text="Sign in" textFill="#1e0808">
+      <Button fx:id="Signinb" alignment="CENTER" layoutX="617.0" layoutY="541.0" mnemonicParsing="false" onAction="#Signin" opacity="0.63" prefHeight="42.0" prefWidth="144.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%); -fx-cursor: hand;" styleClass="btlogin" stylesheets="@../../../../Style/style.css" text="Sign in">
          <font>
             <Font name="Book Antiqua Bold" size="22.0" />
          </font>
