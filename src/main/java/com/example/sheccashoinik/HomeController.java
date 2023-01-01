@@ -90,10 +90,10 @@ public class HomeController implements Initializable {
     }
     String images[]={
             //"src/main/Font/Hand.png",
-            "src/main/Font/1.jpg",
-            "src/main/Font/2.jpg",
+            "src/main/Font/whats/Untitled-2.png",
+            "src/main/Font/whats/Untitled-2.png",
            // "src/main/Font/2.png",
-            "src/main/Font/3.jpg",
+            "src/main/Font/whats/Untitled-2.png",
             "src/main/Font/4.jpg",
             "src/main/Font/5.jpg",
             "src/main/Font/6.jpg",
@@ -486,7 +486,7 @@ public class HomeController implements Initializable {
        // loginimage.setImage(new Image(new File("src/main/Font/mlogin0.png").toURI().toString()));
         File file = new File("src/main/Font/logo.png");
         Image image0 = new Image(file.toURI().toString());
-        file = new File("src/main/Font/icon1.png");
+        file = new File("src/main/Font/logooo.png");
         image0 = new Image(file.toURI().toString());
         logo.setImage(image0);
         file = new File("src/main/Font/blacklogo.png");

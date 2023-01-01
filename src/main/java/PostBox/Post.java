@@ -212,7 +212,7 @@ public class Post {
         this.id = id;
         loadbox();
         title.setText(dlist.getTitle());
-        user.setText(username);
+        user.setText("@"+username);
         type.setText(dlist.getType());
         address.setText(dlist.getAddress());
         division.setText(dlist.Division);
