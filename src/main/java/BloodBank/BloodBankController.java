@@ -36,12 +36,17 @@ public class BloodBankController implements Initializable
     Connection con;
     String username="";
     String role="";
+    @FXML
+    Button controlb;
 
     public void set(String username, String role) {
         con = ConnectionDb.DBC();
         role = role;
         this.role = role;
         this.username = username;
+        if(role.equals("Team Leader")&& (username.equals("Rajshahi")||username.equals("Dhaka"))){
+            controlb.setVisible(true);
+        }
         showDonator();
 
     }
@@ -140,7 +145,48 @@ public class BloodBankController implements Initializable
 
     @FXML
     private Button o1;
+    @FXML
+    public  TableView<User>  banklist;
+    @FXML
+    TableColumn<User,String> bankname;
+    @FXML
+    void give(ActionEvent event) {
 
+    }
+    void showbank(){
+        loaddonator();
+        bankname.setCellValueFactory(new PropertyValueFactory<User,String>("Name"));
+        listt =loadteam();
+        banklist.setItems(listt);
+
+    }
+@FXML
+void add(ActionEvent event) {
+
+}
+    ObservableList<User> listt = FXCollections.observableArrayList();
+    ObservableList<User> loadteam() {
+        ObservableList<User> listt = FXCollections.observableArrayList();
+        con = ConnectionDb.DBC();
+        String s = "Select Name from banklist";
+        try {
+            // System.out.println("hlw");
+            PreparedStatement ps = con.prepareStatement(s);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                String s1 = rs.getString(1);
+                listt.add(new User(s1));
+
+            }
+            ps.close();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+
+        return listt;
+}
     @FXML
     private TextField reason;
 
@@ -150,7 +196,19 @@ public class BloodBankController implements Initializable
     @FXML
     private Button rh;
     @FXML
-    private TextField  search;;
+    private TextField  search;
+    @FXML
+    private AnchorPane panep;
+    @FXML
+    void control(ActionEvent e) {
+        panep.setVisible(true);
+        donatepane1.setVisible(false);
+        donatorpane.setVisible(false);
+        Requestpane.setVisible(false);
+
+
+                        }
+
     @FXML
     void keyclick(KeyEvent e) {
         ObservableList<User> list1 = FXCollections.observableArrayList();
