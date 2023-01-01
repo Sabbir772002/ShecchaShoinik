@@ -62,6 +62,7 @@
                   <Font name="Bell MT Bold" size="14.0" />
                </font>
             </Label>
+            <Button fx:id="ctbb" layoutX="53.0" layoutY="449.0" mnemonicParsing="false" onAction="#control" prefHeight="26.0" prefWidth="131.0" style="-fx-text-fill: white;" styleClass="btguide" stylesheets="@../../Style/style.css" text="Show Control" visible="false" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="265.0" layoutY="32.0" prefHeight="544.0" prefWidth="238.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css">
@@ -87,38 +88,27 @@
             <Button fx:id="donatebtt" layoutX="67.0" layoutY="316.0" mnemonicParsing="false" onAction="#donatort" prefHeight="66.0" prefWidth="78.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Donator" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="claimpane" layoutX="523.0" layoutY="32.0" prefHeight="544.0" prefWidth="218.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css" visible="false">
+      <AnchorPane fx:id="claimpane" layoutX="523.0" layoutY="32.0" prefHeight="544.0" prefWidth="218.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css">
          <children>
-            <Label alignment="CENTER" layoutX="14.0" layoutY="225.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="District:">
+            <ComboBox fx:id="cbdivc" layoutX="93.0" layoutY="139.0" onAction="#selectc" prefHeight="26.0" prefWidth="130.0" promptText="Division" />
+            <Label alignment="CENTER" layoutX="14.0" layoutY="134.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Type:">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cbdisc" layoutX="107.0" layoutY="230.0" prefHeight="26.0" prefWidth="127.0" promptText="District" />
-            <ComboBox fx:id="cbdivc" layoutX="107.0" layoutY="179.0" onAction="#selectc" prefHeight="26.0" prefWidth="130.0" promptText="Division" />
-            <Label alignment="CENTER" layoutX="16.0" layoutY="174.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Division:">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="14.0" layoutY="127.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Hospital:">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <TextField fx:id="hosc" layoutX="108.0" layoutY="132.0" prefHeight="26.0" prefWidth="128.0" />
-            <DatePicker fx:id="date" layoutX="107.0" layoutY="271.0" prefHeight="26.0" prefWidth="131.0" />
-            <Label alignment="CENTER" layoutX="14.0" layoutY="269.0" prefHeight="33.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Date:">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <Button layoutX="88.0" layoutY="345.0" mnemonicParsing="false" onAction="#claim" prefHeight="27.0" prefWidth="70.0" styleClass="bt" stylesheets="@../../Style/style.css" text="claim" />
-            <Label alignment="CENTER" layoutX="28.0" layoutY="46.0" prefHeight="36.0" prefWidth="192.0" style="-fx-text-fill: black; -fx-background-color: brown;" styleClass="bt" stylesheets="@../../Style/style.css" text="Claim Request">
+            <Button layoutX="86.0" layoutY="304.0" mnemonicParsing="false" onAction="#add" prefHeight="27.0" prefWidth="86.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Add" />
+            <Label alignment="CENTER" layoutX="28.0" layoutY="46.0" prefHeight="36.0" prefWidth="192.0" style="-fx-text-fill: black; -fx-background-color: brown;" styleClass="bt" stylesheets="@../../Style/style.css" text="Control Bank">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
+            <Label alignment="CENTER" layoutX="14.0" layoutY="193.0" prefHeight="36.0" prefWidth="72.0" style="-fx-text-fill: white; -fx-background-color: grey;" styleClass="bt" stylesheets="@../../Style/style.css" text="Bag:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField layoutX="92.0" layoutY="198.0" prefHeight="26.0" prefWidth="131.0" promptText="2" />
+            <Button fx:id="a011" layoutX="86.0" layoutY="265.0" mnemonicParsing="false" onAction="#give" prefHeight="26.0" prefWidth="86.0" style="-fx-text-fill: white; -fx-background-radius: 10;" styleClass="btguide" stylesheets="@../../Style/style.css" text="Give" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="donatepane1" layoutX="509.0" layoutY="31.0" prefHeight="542.0" prefWidth="258.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css" visible="false">
@@ -201,7 +191,7 @@
             <TextField fx:id="bag" layoutX="109.0" layoutY="379.0" prefHeight="26.0" prefWidth="131.0" promptText="2" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="Requestpane" layoutX="524.0" layoutY="43.0" prefHeight="541.0" prefWidth="246.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css">
+      <AnchorPane fx:id="Requestpane" layoutX="518.0" layoutY="33.0" prefHeight="541.0" prefWidth="246.0" style="-fx-background-color: white;" styleClass="bt" stylesheets="@../../Style/style.css" visible="false">
          <children>
             <Label alignment="CENTER" layoutX="27.0" layoutY="10.0" prefHeight="36.0" prefWidth="202.0" style="-fx-background-color: white;" stylesheets="@../../Style/style.css" text="Contact with any of those team">
                <font>
@@ -210,8 +200,7 @@
             </Label>
             <TableView fx:id="banklist" layoutX="9.0" layoutY="86.0" onMouseClicked="#usergo" prefHeight="447.0" prefWidth="238.0">
                <columns>
-                  <TableColumn fx:id="colname1" prefWidth="236.800048828125" text="BloodBank Team" />
-                  <TableColumn fx:id="bankname" minWidth="0.0" prefWidth="0.7999267578125" text="C2" />
+                  <TableColumn fx:id="bankname" prefWidth="236.800048828125" text="BloodBank Team" />
                </columns>
             </TableView>
             <TextField fx:id="search1" layoutX="35.0" layoutY="53.0" onKeyPressed="#keyclick" prefHeight="26.0" prefWidth="186.0" promptText="Search" style="-fx-background-radius: 5;" />
