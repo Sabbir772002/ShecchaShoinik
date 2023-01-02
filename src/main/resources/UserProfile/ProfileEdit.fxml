@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="567.0" prefWidth="775.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserProfile.ProfileEditController">
+<AnchorPane prefHeight="567.0" prefWidth="775.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserProfile.ProfileEditController">
    <children>
       <Label layoutX="75.0" layoutY="225.0" prefHeight="31.0" prefWidth="93.0" text="Phone:" textFill="WHITE">
          <font>

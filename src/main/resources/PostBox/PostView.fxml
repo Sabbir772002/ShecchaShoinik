@@ -75,7 +75,7 @@
          </font>
       </Label>
       <Button fx:id="delete" layoutX="169.0" layoutY="501.0" mnemonicParsing="false" onAction="#Delete" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: red;" text="Delete" visible="false" />
-      <TableView fx:id="pteam" layoutX="412.0" layoutY="257.0" onMouseClicked="#tableclickteam" prefHeight="338.0" prefWidth="334.0" style="-fx-border-radius: 0,0,0,0;" styleClass="column-header" stylesheets="@../Style/style.css">
+      <TableView fx:id="pteam" layoutX="412.0" layoutY="257.0" onMouseClicked="#tableclickteam" prefHeight="338.0" prefWidth="334.0" style="-fx-border-radius: 0,0,0,0; -fx-background-color: black;" styleClass="column-header">
         <columns>
           <TableColumn fx:id="Name" minWidth="0.0" prefWidth="183.20001220703125" text="Name" />
             <TableColumn fx:id="Username" minWidth="0.0" prefWidth="0.0" text="Username" visible="false" />

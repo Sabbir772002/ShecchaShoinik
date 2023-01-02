@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="907.0" style="-fx-background-color: #0A3CCF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_UP.SignupController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="907.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_UP.SignupController">
    <children>
-      <AnchorPane layoutX="327.0" layoutY="-4.0" prefHeight="620.0" prefWidth="582.0" style="-fx-background-color: linear-gradient(to right, #360033, #0b8793); -fx-background-radius: 10;" AnchorPane.leftAnchor="327.0">
+      <AnchorPane layoutX="327.0" layoutY="-4.0" prefHeight="620.0" prefWidth="582.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%); -fx-background-radius: 10;" AnchorPane.leftAnchor="327.0">
          <children>
             <Label alignment="CENTER" layoutX="163.0" prefHeight="54.0" prefWidth="322.0" text="Fill up this from carefully" textFill="WHITE">
                <font>
@@ -44,7 +44,7 @@
             <ComboBox fx:id="cbdivision" layoutX="133.0" layoutY="293.0" onAction="#Select" opacity="0.58" prefHeight="35.0" prefWidth="180.0" promptText="Division" style="-fx-background-color: white;" styleClass="vi" stylesheets="@../../Style/style.css" />
             <ComboBox fx:id="cbdistrict" layoutX="331.0" layoutY="293.0" opacity="0.58" prefHeight="37.0" prefWidth="186.0" promptText="District" style="-fx-background-color: white;" styleClass="vi" stylesheets="@../../Style/style.css" />
             <ComboBox fx:id="bloodgroup" layoutX="133.0" layoutY="342.0" opacity="0.58" prefHeight="37.0" prefWidth="180.0" promptText="Blood group" style="-fx-background-color: white;" styleClass="vi" stylesheets="@../../Style/style.css" />
-            <Button fx:id="sign" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="273.0" layoutY="545.0" mnemonicParsing="false" onAction="#Sign_up" prefHeight="35.0" prefWidth="138.0" style="-fx-background-color: #0A3CCF; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="#f0f2f1" AnchorPane.leftAnchor="273.0">
+            <Button fx:id="sign" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="273.0" layoutY="545.0" mnemonicParsing="false" onAction="#Sign_up" prefHeight="35.0" prefWidth="138.0" style="-fx-background-color: green; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN UP" textFill="#f0f2f1" AnchorPane.leftAnchor="273.0">
                <font>
                   <Font name="Bell MT Bold" size="18.0" />
                </font>
@@ -63,7 +63,7 @@
             <Button fx:id="imageup" layoutX="133.0" layoutY="390.0" mnemonicParsing="false" onAction="#upimage" prefHeight="38.0" prefWidth="180.0" styleClass="vi" stylesheets="@../../Style/style.css" text="Upload image" />
          </children>
       </AnchorPane>
-      <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="104.0" layoutY="396.0" mnemonicParsing="false" onAction="#Signin" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: linear-gradient(to right, #360033, #0b8793); -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN IN" textFill="#f0f2f1">
+      <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="104.0" layoutY="396.0" mnemonicParsing="false" onAction="#Signin" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: green; -fx-background-radius: 10,10,10,10; -fx-cursor: hand;" text="SIGN IN" textFill="#f0f2f1">
          <font>
             <Font size="18.0" />
          </font>
