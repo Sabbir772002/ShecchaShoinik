@@ -206,9 +206,21 @@ public class BloodBankController implements Initializable
     TableColumn<User,String> bankname;
     @FXML
     TableColumn<User,String> usernamet;
+
     @FXML
     void give(ActionEvent event) {
-
+        try {
+            String s1 = "Insert into bloodbank (Username,Type,Avail,Bag) Values(?,?,?,?)";
+            PreparedStatement ps = con.prepareStatement(s1);
+            ps.setString(1, username);
+            ps.setString(2, bloodtype);
+            ps.setInt(3, 1);
+            ps.setInt(4, -(Integer.parseInt(bag.getText().toString())));
+            ps.execute();
+            System.out.println("done add blood");
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
     void showbank(){
         loaddonator();
@@ -220,6 +232,26 @@ public class BloodBankController implements Initializable
     }
 @FXML
 void add(ActionEvent event) {
+        try{
+    String s1 = "Insert into bloodbank (Username,Type,Avail,Bag) Values(?,?,?,?)";
+    PreparedStatement ps = con.prepareStatement(s1);
+    ps.setString(1, username);
+    ps.setString(2, bloodtype);
+    ps.setInt(3, 1);
+    ps.setInt(4, Integer.parseInt(bag.getText().toString()));
+    ps.execute();
+            System.out.println("done add blood");
+  /* // String s2 = "UPDATE userlist set LastTime='" + dated.getValue().toString() + "' where username='" + username + "'";
+    ps = con.prepareStatement(s2);
+    ps.execute();
+    ps.close();
+    System.out.println("rokto jog hoise");
+*/
+} catch (Exception ee) {
+        System.out.println(ee.getMessage());
+
+        }
+
 
 }
     ObservableList<User> listtt = FXCollections.observableArrayList();
@@ -609,15 +641,15 @@ void add(ActionEvent event) {
         }
         try {
             //String s="INSERT INTO bloodbank (Username,Type) VALUES(?,?);";
-            String s1="select Type from bloodbank where Type='"+bloodtype+"' and Avail=true";
+            String s1="select Bag from bloodbank where Type='"+bloodtype+"' and Avail=true";
             PreparedStatement ps= con.prepareStatement(s1);
             //ps.setString()
             ResultSet rs = ps.executeQuery();
             //ps.executeQuery();
             int i=0;
             while(rs.next()) {
-                rs.getString(1);
-                i++;
+
+                i+=rs.getInt(1);;
             }
             rs.close();
             BloodAvailableno.setText(i+" BAG");

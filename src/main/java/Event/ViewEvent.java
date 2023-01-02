@@ -50,7 +50,7 @@ public class ViewEvent implements Initializable {
 
             byte pic[];
             Blob blob;
-            PreparedStatement ps = con.prepareStatement("SELECT Title,Date,Division,District,Address,Author,Image FROM Event where Id="+3+" order by id desc;");
+            PreparedStatement ps = con.prepareStatement("SELECT Title,Date,Division,District,Address,Author,Image FROM Event where Id="+list.get(0).Id +" order by id desc;");
             ResultSet rs = ps.executeQuery();
             if(rs.next()) {
                 Title.setText(rs.getString(1));

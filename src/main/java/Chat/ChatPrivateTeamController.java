@@ -1,6 +1,8 @@
 package Chat;
 
 import DB.ConnectionDb;
+import Others.Team;
+import TeamProfile.TeamProfileController;
 import UserProfile.ProfileController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -146,17 +148,19 @@ public class ChatPrivateTeamController implements Initializable{
     private TableColumn<userlist, String> coluser;
     @FXML
     void UserClick(ActionEvent event) {
+/*
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(ProfileController.class.getResource("Profile.fxml"));
+            fxmlLoader.setLocation(ProfileController.class.getResource("TeamProfile.fxml"));
             AnchorPane ap = fxmlLoader.load();
-           ProfileController sadmin = fxmlLoader.getController();
+           TeamProfileController sadmin = fxmlLoader.getController();
             sadmin.set(username, role,name2,user2,pane);
             pane.setCenter(ap);
         } catch (Exception e) {
             System.out.println("bhool hoilo Admin Dashbaord profile button profile controller");
         }
+*/
 
     }
 
@@ -169,9 +173,9 @@ public class ChatPrivateTeamController implements Initializable{
             String user2 = usertable.getSelectionModel().getSelectedItem().getUsername().toString();
             FXMLLoader fxmlLoader=new FXMLLoader();
 
-            fxmlLoader.setLocation(ChatPrivateController.class.getResource("ChatPrivate.fxml"));
+            fxmlLoader.setLocation(ChatPrivateController.class.getResource("ChatPrivateTeam.fxml"));
             AnchorPane pane1=fxmlLoader.load();
-            ChatPrivateController adminController=fxmlLoader.getController();
+            ChatPrivateTeamController adminController=fxmlLoader.getController();
             adminController.set(username, role, Name2, user2, pane);
             pane.setCenter(pane1);
 
@@ -182,13 +186,13 @@ public class ChatPrivateTeamController implements Initializable{
     }
 
     @FXML
-    private TableView<userlist> usertable;
+    private TableView<Team> usertable;
     @FXML
 
-    ObservableList<userlist> listF;
+    ObservableList<Team> listF;
 
-    ObservableList<userlist> getdiasterList() {
-        ObservableList<userlist> userlist1 = FXCollections.observableArrayList();
+    ObservableList<Team> getdiasterList() {
+        ObservableList<Team> userlist1 = FXCollections.observableArrayList();
 
 
         return userlist1;
@@ -200,7 +204,7 @@ public class ChatPrivateTeamController implements Initializable{
         colname.setCellValueFactory(new PropertyValueFactory<userlist, String>("Name"));
         coluser.setCellValueFactory(new PropertyValueFactory<userlist, String>("Username"));
         //table.setItems(list);
-        listF = ConnectionDb.getuserlist();
+        listF = ConnectionDb.getTeamlist();
         usertable.setItems(listF);
         refresh();
     }
@@ -392,8 +396,8 @@ ImageView privateimage;
     @FXML
     void search(KeyEvent e){
         con=ConnectionDb.DBC();
-        ObservableList<userlist> list1 = FXCollections.observableArrayList();
-        //i++;
+        ObservableList<Team> list1 = FXCollections.observableArrayList();
+      /*  //i++;
         try {
             PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,BG,Gender,Phone FROM userlist");
 
@@ -439,8 +443,8 @@ ImageView privateimage;
         }catch (Exception ee){
             System.out.println("load problem on user");
 
-        }
-      /*  try {
+        }*/
+      try {
             //System.out.println("in team");
 
                PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,Phone,Type FROM Teams");
@@ -479,7 +483,7 @@ ImageView privateimage;
                     }
                     if (i) {
                         //we can create another parameter for team or user
-                        list1.add(new userlist(s1, s5));
+                        list1.add(new Team(s1, s5));
                     }
 
             }
@@ -492,7 +496,7 @@ ImageView privateimage;
                 // con.close();
             } catch (Exception ee) {
             }
-        }*/
+        }
         colname.setCellValueFactory(new PropertyValueFactory<userlist, String>("Name"));
         coluser.setCellValueFactory(new PropertyValueFactory<userlist, String>("Username"));
         usertable.setItems(list1);

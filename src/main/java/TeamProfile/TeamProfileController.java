@@ -1,7 +1,6 @@
 package TeamProfile;
 
 import DB.ConnectionDb;
-import com.sun.mail.imap.IMAPNestedMessage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -372,10 +371,10 @@ Button mailc;
     Button whats;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ImageView i=new ImageView(new javafx.scene.image.Image(new File("src/main/Font/new.png").toURI().toString()));
+        ImageView i=new ImageView(new javafx.scene.image.Image(new File("src/main/Font/whats/icons8-composing-mail-80.png").toURI().toString()));
         i.setFitHeight(20);
         mailc.setGraphic(i);
-        ImageView i1=new ImageView(new Image(new File("src/main/Font/whats/100.png").toURI().toString()));
+        ImageView i1=new ImageView(new Image(new File("src/main/Font/whats/icons8-whatsapp-100 (2).png").toURI().toString()));
         i.setFitWidth(20); i1.setFitHeight(20);
         i1.setFitWidth(20);
         whats.setGraphic(i1);
