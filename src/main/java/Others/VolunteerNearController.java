@@ -489,6 +489,8 @@ public class VolunteerNearController implements Initializable {
     Button mailc;
     @FXML
     Button whats;
+    @FXML
+    ImageView imaged;
         @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
             ImageView i=new ImageView(new javafx.scene.image.Image(new File("src/main/Font/new.png").toURI().toString()));
@@ -499,7 +501,8 @@ public class VolunteerNearController implements Initializable {
             i1.setFitWidth(20);
             whats.setGraphic(i1);
             imagev.setImage(new Image(new File("src/main/Font/icons/volunteerNear.png").toURI().toString()));
-
+            Image p= new Image(new File("src/main/Font/icons/helpresponse.png").toURI().toString());
+            imaged.setImage(p);
             con=ConnectionDb.DBC();
             tableclick();
       /*  loadduserinfo();
