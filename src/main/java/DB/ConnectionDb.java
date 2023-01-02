@@ -10,6 +10,8 @@ import Others.Team;
 import com.example.sheccashoinik.disaster;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.input.KeyEvent;
 
 import java.sql.*;
 
@@ -158,6 +160,30 @@ public static ObservableList<Team> getTeamlist(String Division, String District,
         return list;
     }
 
+public static ObservableList<Team> getTeamlist() {
+    Connection con = DBC();
+    ObservableList<Team> list = FXCollections.observableArrayList();
+    try {
 
+        PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,Phone,Type FROM Teams");
+
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            //  System.out.println("in team");
+            String s1 = rs.getString(1);
+            String s5 = rs.getString(3);
+
+            list.add(new Team(s1, s5));
+        }
+        // rs.getString(1)), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7))
+    } catch (Exception i) {
+        System.out.println("error at cmchat serch user" + i.getMessage());
+    }
+
+
+    return list;
 }
+    }
+
+
 

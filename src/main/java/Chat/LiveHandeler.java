@@ -316,7 +316,7 @@ public class LiveHandeler extends Thread implements Initializable {
             }catch (Exception ee){
                 System.out.println(ee.getMessage());
             }
-            try{
+           /* try{
 
                 PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,Phone,Type FROM Teams");
                 ResultSet rs = ps.executeQuery();
@@ -355,8 +355,8 @@ public class LiveHandeler extends Thread implements Initializable {
                         list1.add(new userlist(s1, s5));
                     }
 
-            }
-
+            }*/
+/*
             // rs.getString(1)), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7))
         } catch(Exception i){
             System.out.println("error at cmchat serch user" + i.getMessage());
@@ -366,7 +366,7 @@ public class LiveHandeler extends Thread implements Initializable {
                 // con.close();
             } catch (Exception ee) {
             }
-        }
+        }*/
         colname.setCellValueFactory(new PropertyValueFactory<userlist, String>("Name"));
         coluser.setCellValueFactory(new PropertyValueFactory<userlist, String>("Username"));
         usertable.setItems(list1);

@@ -490,9 +490,12 @@ public class HomeController implements Initializable {
         file = new File("src/main/Font/logooo.png");
         image0 = new Image(file.toURI().toString());
         logo.setImage(image0);
-        file = new File("src/main/Font/blacklogo.png");
+        file = new File("src/main/Font/nameee.png");
         image0 = new Image(file.toURI().toString());
         logo1.setImage(image0);
+        logo1.setFitWidth(400);
+        logo1.setFitHeight(200);
+        logo1.setLayoutX(225);logo1.setLayoutY(5);
         File f1=new File("src/main/Font/whats/Untitled-3.png");
         b.setImage(new Image(f1.toURI().toString()));
      /*   image.setImage(new Image(new File(images[0]).toURI().toString()));

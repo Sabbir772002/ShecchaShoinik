@@ -369,8 +369,12 @@ public class ChatPrivateController implements Initializable{
 
     @FXML
     public void send(ActionEvent e) {
+
        // msgbox.clear();
        // refresh();
+        if(writebox.getText().isEmpty()|| writebox.getText().toString().equals("")){
+            return;
+        }
         try {
             String s=username+": "+writebox.getText().toString();
             char []c=s.toCharArray();
@@ -399,7 +403,7 @@ public class ChatPrivateController implements Initializable{
         preparedStatement.execute();
         preparedStatement.close();
         con.close();
-        msgbox.appendText(username+" :"+writebox.getText());
+        msgbox.appendText(username+": "+writebox.getText());
         msgbox.appendText("\n");
         writebox.setText("");
             System.out.println("send message");
