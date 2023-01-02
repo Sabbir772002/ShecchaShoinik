@@ -336,11 +336,11 @@ public class ChatPrivateTeamController implements Initializable{
        // refresh();
         try {
             String s=username+": "+writebox.getText().toString();
-            char []c=s.toCharArray();
+            //char []c=s.toCharArray();
             /*for(int i=0;i<c.length;i++){
                 c[i]=(char)(c[i]+10);
             }*/
-            s=new String(c);
+         /*   s=new String(c);*/
             con=ConnectionDb.DBC();
             String st="";
             if(f==0){

@@ -293,6 +293,7 @@ public class VolunteerNearController implements Initializable {
                 ;
                 rs = ps.executeQuery();
                 while (rs.next()) {
+                    System.out.println("system work");
 
                     String s1 = rs.getString(1);
                     String s3 = rs.getString(2);

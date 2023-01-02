@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="554.0" prefWidth="694.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_in.ForgetController">
+<AnchorPane prefHeight="554.0" prefWidth="694.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%)black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sign_in.ForgetController">
    <children>
-      <AnchorPane layoutX="172.0" layoutY="123.0" prefHeight="338.0" prefWidth="349.0" style="-fx-background-color: white; -fx-background-radius: 20,20,20,20;">
+      <AnchorPane layoutX="182.0" layoutY="108.0" prefHeight="338.0" prefWidth="349.0" style="-fx-background-color: w linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%)hite; -fx-background-radius: 20,20,20,20;" styleClass="vi" stylesheets="@../../Style/style.css">
          <children>
             <Label alignment="CENTER" layoutX="93.0" layoutY="14.0" prefHeight="32.0" prefWidth="143.0" text="You are" textFill="#c7c7c7">
                <font>

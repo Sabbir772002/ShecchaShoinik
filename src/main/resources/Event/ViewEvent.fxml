@@ -18,7 +18,7 @@
                   </font>
               </Label>
               <TextField fx:id="search" layoutX="26.0" layoutY="64.0" onMouseClicked="#serchkey" prefHeight="30.0" prefWidth="302.0" promptText="Search event" />
-              <Label fx:id="Title" alignment="CENTER" layoutX="365.0" layoutY="64.0" prefHeight="30.0" prefWidth="388.0" text="Seminar on guidelines to winter" textFill="WHITE">
+              <Label fx:id="Title" alignment="CENTER" layoutX="365.0" layoutY="64.0" prefHeight="30.0" prefWidth="388.0" styleClass="vi" stylesheets="@../../Style/style.css" text="Seminar on guidelines to winter" textFill="WHITE">
                   <font>
                       <Font name="System Bold" size="20.0" />
                   </font>
@@ -35,37 +35,37 @@
             <URL value="@../Style/style.css" />
          </stylesheets>
               </TableView>
-              <Label alignment="CENTER" layoutX="221.0" layoutY="350.20001220703125" prefHeight="30.0" prefWidth="388.0" text="Details:" textFill="WHITE">
+              <Label alignment="CENTER" layoutX="221.0" layoutY="346.0" prefHeight="30.0" prefWidth="388.0" text="Details:" textFill="WHITE">
                   <font>
                       <Font name="System Bold" size="20.0" />
                   </font>
               </Label>
-              <Label layoutX="385.0" layoutY="390.20001220703125" prefHeight="31.0" prefWidth="101.0" text="Date:" textFill="WHITE">
+              <Label layoutX="385.0" layoutY="374.0" prefHeight="31.0" prefWidth="101.0" text="Date:" textFill="WHITE">
                   <font>
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Label fx:id="date" alignment="CENTER" layoutX="530.0" layoutY="390.20001220703125" prefHeight="31.0" prefWidth="218.0" text="03:40" textFill="WHITE">
+              <Label fx:id="date" alignment="CENTER" layoutX="530.0" layoutY="374.0" prefHeight="31.0" prefWidth="218.0" styleClass="vi" stylesheets="@../../Style/style.css" text="03:40" textFill="WHITE">
                   <font>
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Label layoutX="385.0" layoutY="422.20001220703125" prefHeight="31.0" prefWidth="101.0" text="District:" textFill="WHITE">
+              <Label layoutX="385.0" layoutY="415.0" prefHeight="31.0" prefWidth="101.0" text="District:" textFill="WHITE">
                   <font>
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Label fx:id="district" alignment="CENTER" layoutX="532.0" layoutY="422.20001220703125" prefHeight="31.0" prefWidth="214.0" text="Dhaka" textFill="WHITE">
+              <Label fx:id="district" alignment="CENTER" layoutX="532.0" layoutY="409.0" prefHeight="31.0" prefWidth="214.0" styleClass="vi" stylesheets="@../../Style/style.css" text="Dhaka" textFill="WHITE">
                   <font>
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Label layoutX="385.0" layoutY="454.20001220703125" prefHeight="31.0" prefWidth="101.0" text="Division:" textFill="WHITE">
+              <Label layoutX="385.0" layoutY="454.0" prefHeight="31.0" prefWidth="101.0" text="Division:" textFill="WHITE">
                   <font>
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Label fx:id="division" alignment="CENTER" layoutX="532.0" layoutY="454.20001220703125" prefHeight="31.0" prefWidth="214.0" text="Dhaka" textFill="WHITE">
+              <Label fx:id="division" alignment="CENTER" layoutX="532.0" layoutY="444.0" prefHeight="31.0" prefWidth="214.0" styleClass="vi" stylesheets="@../../Style/style.css" text="Dhaka" textFill="WHITE">
                   <font>
                       <Font size="21.0" />
                   </font>
@@ -75,18 +75,18 @@
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Label fx:id="address" alignment="CENTER" layoutX="532.0" layoutY="479.20001220703125" prefHeight="31.0" prefWidth="214.0" text="Dhaka" textFill="WHITE">
+              <Label fx:id="address" alignment="CENTER" layoutX="532.0" layoutY="479.20001220703125" prefHeight="31.0" prefWidth="214.0" styleClass="vi" stylesheets="@../../Style/style.css" text="Dhaka" textFill="WHITE">
                   <font>
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Button fx:id="team" layoutX="481.0" layoutY="549.0" mnemonicParsing="false" onAction="#addevent" prefHeight="30.0" prefWidth="147.0" style="-fx-background-color: green;" text="Add Your Event" visible="false" />
+              <Button fx:id="team" layoutX="485.0" layoutY="556.0" mnemonicParsing="false" onAction="#addevent" prefHeight="30.0" prefWidth="147.0" style="-fx-background-color: green;" text="Add Your Event" />
               <Label layoutX="385.0" layoutY="511.20001220703125" prefHeight="31.0" prefWidth="101.0" text="Event By:" textFill="WHITE">
                   <font>
                       <Font size="21.0" />
                   </font>
               </Label>
-              <Label fx:id="author" alignment="CENTER" layoutX="540.0" layoutY="511.20001220703125" prefHeight="31.0" prefWidth="229.0" text="UIU Playground " textFill="WHITE">
+              <Label fx:id="author" alignment="CENTER" layoutX="530.0" layoutY="513.0" prefHeight="31.0" prefWidth="218.0" styleClass="vi" stylesheets="@../../Style/style.css" text="UIU Playground " textFill="WHITE">
                   <font>
                       <Font size="21.0" />
                   </font>

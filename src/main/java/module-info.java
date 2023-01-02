@@ -5,7 +5,7 @@ module com.example.sheccashoinik {
     requires javafx.graphics;
      requires javafx.web;
     requires java.desktop;
-    requires mail;
+    requires java.mail;
 
 
     opens UserProfile to javafx.fxml;
