@@ -405,7 +405,6 @@ public class ChatPrivateController implements Initializable{
             System.out.println("send message");
 
     }catch (Exception ie){
-
             System.out.println("from send privatechat "+ie.getMessage());
     }
 }
@@ -432,7 +431,7 @@ ImageView privateimage;
         ObservableList<userlist> list1 = FXCollections.observableArrayList();
         //i++;
         try {
-            PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,BG,Gender,Phone,Volunteer FROM userlist");
+            PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,BG,Gender,Phone FROM userlist");
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -444,9 +443,8 @@ ImageView privateimage;
                 String s7 = rs.getString(5);
                 String s8 = rs.getString(6);
                 String s9 = rs.getString(7);
-                String s10 = rs.getString(8);
 
-                String s0 = s1 + s3 + s5 + s6 + s7 + s8 + s9 + s10;
+                String s0 = s1 + s3 + s5 + s6 + s7 + s8 + s9;
 
 
                 String s2 = search.getText().toString() + "";

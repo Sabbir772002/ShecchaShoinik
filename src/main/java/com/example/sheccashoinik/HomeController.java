@@ -473,16 +473,17 @@ public class HomeController implements Initializable {
 
     }
     @FXML
-    private ImageView loginimage;
+    private ImageView b;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ImageView imageView = new ImageView(new Image(new File("src/main/Font/login0.png").toURI().toString()));
+        ImageView imageView = new ImageView(new Image(new File("src/main/Font/whats/101.png").toURI().toString()));
         imageView.setFitHeight(31);
         imageView.setLayoutX(240);
         imageView.setLayoutY(569);
         imageView.setFitWidth(35);
         Signinb.setGraphic(imageView);
         sliderThread.start();
+
        // loginimage.setImage(new Image(new File("src/main/Font/mlogin0.png").toURI().toString()));
         File file = new File("src/main/Font/logo.png");
         Image image0 = new Image(file.toURI().toString());
@@ -492,6 +493,8 @@ public class HomeController implements Initializable {
         file = new File("src/main/Font/blacklogo.png");
         image0 = new Image(file.toURI().toString());
         logo1.setImage(image0);
+        File f1=new File("src/main/Font/whats/Untitled-3.png");
+        b.setImage(new Image(f1.toURI().toString()));
      /*   image.setImage(new Image(new File(images[0]).toURI().toString()));
         image2.setImage(new Image(new File(images[1]).toURI().toString()));
         image3.setImage(new Image(new File(images[2]).toURI().toString()));

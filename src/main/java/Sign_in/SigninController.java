@@ -54,6 +54,10 @@ public class SigninController implements Initializable {
      Parent root;
     String usern="";
     String role="";
+    @FXML
+    ImageView logo;
+    @FXML
+    ImageView nameee;
     public void set(String role){
         this.usern=role;
     }
@@ -308,6 +312,8 @@ public class SigninController implements Initializable {
         loginimage1.setFitHeight(22);
         sib.setGraphic(loginimage1);
         loginimage.setLayoutX(107);
+        logo.setImage(new Image(new File("src/main/Font/logooo.png").toURI().toString()));
+        nameee.setImage(new Image(new File("src/main/Font/nameee.png").toURI().toString()));
        // sb.setContentDisplay(ContentDisplay.LEFT);
 
     }
