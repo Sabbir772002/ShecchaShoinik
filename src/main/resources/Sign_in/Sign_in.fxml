@@ -64,7 +64,7 @@
                   <Image url="@../../Font/lock-outline.png" />
                </image>
             </ImageView>
-            <Label layoutX="133.0" layoutY="346.0" prefHeight="18.0" prefWidth="132.0" text="Don't have an account?" textFill="WHITE" />
+            <Label layoutX="137.0" layoutY="342.0" prefHeight="18.0" prefWidth="132.0" text="Don't have an account?" textFill="WHITE" />
             <ImageView fx:id="loginimage" fitHeight="26.0" fitWidth="32.0" layoutX="143.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Font/login.png" />
