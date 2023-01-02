@@ -35,6 +35,29 @@ public class TeamApproveController{
         con=ConnectionDb.DBC();
         loadtable();
     }
+
+
+    String division, district;
+    void loadduserinfo(){
+        try {
+            System.out.println(username);
+            PreparedStatement ps = con.prepareStatement("SELECT Division FROM admin where Username='" + username + "'");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                division=rs.getString(1);
+            }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+
+        }
+
+
+
+
+    }
+
+
     @FXML
     ImageView imageview;
 
@@ -83,9 +106,28 @@ public class TeamApproveController{
     }
     @FXML
     void Delete(){
+        try {
+            con=ConnectionDb.DBC();
+            PreparedStatement ps = con.prepareStatement("Delete from teams where Username='"+user+"'");
+            ps.executeUpdate();
+            ps.close();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Team Deleted!");
+            alert.setHeaderText("Team Deleted Succesfully!");
+            // alert.setContentText("");
+            File file = new File("src/main/Font/logoo.png");
+            Image image = new Image(file.toURI().toString());
+            stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(image);
+            Optional<ButtonType> result=alert.showAndWait();
+            loadtable();
+        }catch(Exception e){
+            System.out.println(e.getMessage());
 
-
+        }
     }
+
+
     @FXML
     void Approve(ActionEvent event) {
         try {
@@ -123,9 +165,10 @@ public class TeamApproveController{
     ObservableList<Team> list = FXCollections.observableArrayList();
 
     ObservableList<Team> loadTeam(){
+        loadduserinfo();
         ObservableList<Team>list = FXCollections.observableArrayList();
         try {
-            PreparedStatement ps = con.prepareStatement("SELECT Name,Username FROM Teams where approve=0");
+            PreparedStatement ps = con.prepareStatement("SELECT Name,Username FROM Teams where approve=0 and Division='"+division+"'");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new Team(rs.getString(1),rs.getString(2)));
@@ -144,7 +187,7 @@ public class TeamApproveController{
         Username.setCellValueFactory(new PropertyValueFactory<Team, String>("Username"));
         list = loadTeam();
         allteam.setItems(list);
-        load("Teamdurbar");
+        load(list.get(0).Username);
 
     }
 

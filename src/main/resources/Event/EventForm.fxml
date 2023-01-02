@@ -8,82 +8,73 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="630.0" prefWidth="758.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Event.EventForm">
+<AnchorPane prefHeight="630.0" prefWidth="758.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Event.EventForm">
    <children>
             <Label layoutX="48.0" layoutY="8.0" prefHeight="43.0" prefWidth="238.0" text="Event Title" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="29.0" />
                </font>
             </Label>
-            <Label layoutX="222.0" layoutY="111.0" prefHeight="31.0" prefWidth="268.0" text="Details About Event" textFill="WHITE">
+            <Label layoutX="219.0" layoutY="101.0" prefHeight="31.0" prefWidth="268.0" text="Details About Event" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="49.0" layoutY="164.0" prefHeight="31.0" prefWidth="96.0" text="Event By:" textFill="WHITE">
+            <Label layoutX="59.0" layoutY="145.0" prefHeight="31.0" prefWidth="101.0" text="Event By:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="48.0" layoutY="242.0" prefHeight="31.0" prefWidth="87.0" text="District:" textFill="WHITE">
+            <Label layoutX="61.0" layoutY="247.0" prefHeight="31.0" prefWidth="87.0" text="District:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <ComboBox fx:id="division" layoutX="213.0" layoutY="206.0" onAction="#select" prefHeight="26.0" prefWidth="148.0" promptText="Dhaka" />
-            <Label layoutX="46.0" layoutY="203.0" prefHeight="31.0" prefWidth="94.0" text="Division:" textFill="WHITE">
+            <ComboBox fx:id="division" layoutX="220.0" layoutY="193.0" onAction="#select" opacity="0.58" prefHeight="26.0" prefWidth="148.0" promptText="Dhaka" style="-fx-background-color: white;" styleClass="vi" stylesheets="@../../Style/style.css" />
+            <Label layoutX="58.0" layoutY="195.0" prefHeight="31.0" prefWidth="94.0" text="Division:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <ComboBox fx:id="district" layoutX="213.0" layoutY="245.0" prefHeight="26.0" prefWidth="148.0" />
-            <Label layoutX="49.0" layoutY="283.0" prefHeight="34.0" prefWidth="158.0" text="Date &amp; Time:" textFill="WHITE">
+            <ComboBox fx:id="district" layoutX="220.0" layoutY="245.0" opacity="0.58" prefHeight="26.0" prefWidth="148.0" style="-fx-background-color: white;" styleClass="vi" stylesheets="@../../Style/style.css" />
+            <Label layoutX="61.0" layoutY="298.0" prefHeight="34.0" prefWidth="158.0" text="Date &amp; Time:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="48.0" layoutY="369.0" prefHeight="31.0" prefWidth="154.0" text="Address:" textFill="WHITE">
+            <Label layoutX="63.0" layoutY="343.0" prefHeight="31.0" prefWidth="154.0" text="Address:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="49.0" layoutY="453.0" prefHeight="31.0" prefWidth="132.0" text="Add image:" textFill="WHITE">
+            <Label layoutX="63.0" layoutY="429.0" prefHeight="31.0" prefWidth="132.0" text="Add image:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Button fx:id="imageup" layoutX="218.0" layoutY="456.0" mnemonicParsing="false" onAction="#upimage" prefHeight="26.0" prefWidth="137.0" text="Upload image" />
-            <Button layoutX="267.0" layoutY="510.0" mnemonicParsing="false" onAction="#Submit" prefHeight="30.0" prefWidth="188.0" style="-fx-background-color: pink; -fx-background-radius: 10;" styleClass="bt" stylesheets="@../../Style/style.css" text="Submit Post">
+            <Button fx:id="imageup" layoutX="217.0" layoutY="427.0" mnemonicParsing="false" onAction="#upimage" prefHeight="26.0" prefWidth="137.0" styleClass="vi" stylesheets="@../../Style/style.css" text="Upload image" />
+            <Button layoutX="215.0" layoutY="472.0" mnemonicParsing="false" onAction="#Submit" prefHeight="30.0" prefWidth="138.0" style="-fx-background-color: green; -fx-background-radius: 10;" styleClass="bt" stylesheets="@../../Style/style.css" text="Submit Post">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <TextField fx:id="author" layoutX="210.0" layoutY="160.0" prefHeight="27.0" prefWidth="356.0" promptText="Awami League" styleClass="tt" stylesheets="@../../Style/style.css">
+            <TextField fx:id="author" layoutX="220.0" layoutY="143.0" prefHeight="27.0" prefWidth="356.0" promptText="Awami League" styleClass="vi" stylesheets="@../../Style/style.css">
                <font>
                   <Font size="15.0" />
                </font>
       </TextField>
-            <TextField fx:id="address" layoutX="214.0" layoutY="371.0" prefHeight="26.0" prefWidth="362.0" promptText="UIU Playground" styleClass="tt" stylesheets="@../../Style/style.css" />
-            <TextField fx:id="Title" layoutX="47.0" layoutY="64.0" prefHeight="30.0" prefWidth="524.0" promptText="Strict against BNP" styleClass="tt" stylesheets="@../../Style/style.css">
+            <TextField fx:id="address" layoutX="220.0" layoutY="337.0" prefHeight="43.0" prefWidth="356.0" promptText="UIU Playground" styleClass="vi" stylesheets="@../../Style/style.css" />
+            <TextField fx:id="Title" layoutX="47.0" layoutY="64.0" prefHeight="30.0" prefWidth="524.0" promptText="Strict against BNP" styleClass="vi" stylesheets="@../../Style/style.css">
                <font>
                   <Font size="13.0" />
                </font>
             </TextField>
-            <DatePicker fx:id="date" layoutX="213.0" layoutY="287.0" prefHeight="26.0" prefWidth="143.0" promptText="22/12/2022" />
-            <TextField fx:id="time" layoutX="361.0" layoutY="286.0" prefHeight="27.0" prefWidth="30.0" promptText="12\" style="-fx-background-radius: 0;" styleClass="tt" stylesheets="@../../Style/style.css" />
-            <TextField fx:id="timem" layoutX="403.0" layoutY="286.0" prefHeight="27.0" prefWidth="30.0" promptText="30" style="-fx-background-radius: 0;" styleClass="tt" stylesheets="@../../Style/style.css" />
-            <Label layoutX="48.0" layoutY="327.0" prefHeight="31.0" prefWidth="157.0" text="Duration:" textFill="WHITE">
+            <DatePicker fx:id="date" layoutX="220.0" layoutY="290.0" prefHeight="37.0" prefWidth="148.0" promptText="22/12/2022" styleClass="vi" stylesheets="@../../Style/style.css" />
+            <Label layoutX="62.0" layoutY="387.0" prefHeight="31.0" prefWidth="155.0" text="Add Info:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <TextField fx:id="address32" layoutX="214.0" layoutY="329.0" prefHeight="27.0" prefWidth="33.0" promptText="12" style="-fx-background-radius: 0;" styleClass="tt" stylesheets="@../../Style/style.css" />
-            <ComboBox fx:id="division1" layoutX="263.0" layoutY="329.0" onAction="#select" prefHeight="26.0" prefWidth="85.0" promptText="Hour" />
-            <Label layoutX="49.0" layoutY="413.0" prefHeight="31.0" prefWidth="155.0" text="Add Info:" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="21.0" />
-               </font>
-            </Label>
-            <TextField fx:id="Extra" layoutX="214.0" layoutY="415.0" prefHeight="26.0" prefWidth="362.0" promptText="Extra Information" styleClass="tt" stylesheets="@../../Style/style.css" />
+            <TextField fx:id="Extra" layoutX="217.0" layoutY="385.0" prefHeight="37.0" prefWidth="356.0" promptText="Extra Information" styleClass="vi" stylesheets="@../../Style/style.css" />
          </children>
       </AnchorPane>

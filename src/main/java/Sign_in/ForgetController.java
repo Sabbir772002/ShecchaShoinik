@@ -1,4 +1,5 @@
 package Sign_in;
+import java.io.File;
 import java.lang.Math;
 import DB.ConnectionDb;
 import javafx.event.ActionEvent;
@@ -9,10 +10,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.w3c.dom.ls.LSOutput;
-
 import javax.mail.*;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
@@ -59,15 +60,41 @@ public class ForgetController implements Initializable {
         @FXML
         void change(ActionEvent e)  {
                  if(c==Integer.parseInt(code.getText().toString())){
+    Connection con=ConnectionDb.DBC();
+                try {
+                    String  s;
+                    if(role.equals("User")){
+                        s="Update userlist set password='"+pass.getText().toString()+"' where username='"+Username+"'";
+
+                    }else{
+
+                   s="Update teams set pass='"+pass.getText().toString()+"' where username='"+Username+"'";
 
 
+                    }
+                    PreparedStatement ps = (PreparedStatement) con.prepareStatement(s);
+                    ps.executeUpdate();
+                    ps.close();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
 
 
-                     Alert alert = new Alert(Alert.AlertType.WARNING);
+                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                      alert.setHeaderText("Password Changed Successfully");
                      alert.setContentText("Your Password Changed Succesfully!\n" +
                              "Please login to use!\n");
                      alert.showAndWait();
+                     try {
+                         Parent root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
+                         Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                         Scene scene = new Scene(root);
+                         stage.setScene(scene);
+                         stage.setTitle("SIGN IN");
+                         stage.show();
+                     } catch (Exception en) {
+                         System.out.println(en.getMessage());
+                     }
 
 
                  }else{
@@ -79,6 +106,13 @@ public class ForgetController implements Initializable {
             }
 
               }
+              @FXML
+              Label s1;
+               @FXML
+              Label s2;
+              @FXML
+              Label s3;
+              String Username,role,password;
 
         @FXML
         void forget(ActionEvent event) {
@@ -86,9 +120,30 @@ public class ForgetController implements Initializable {
              c=n;
             System.out.println(n);
             System.out.println(c);
-            int f = 1;
+            int f = 1,t=1;
             con = ConnectionDb.DBC();
-            if (sign_in_box.getValue().toString().equals("User")) {
+            Username=username.getText().toString();
+            role=sign_in_box.getValue().toString();
+            if(username.getText().isEmpty() || mail.getText().isEmpty() || sign_in_box.getSelectionModel().isEmpty()){
+                if(username.getText().isEmpty()){
+                    s2.setVisible(true);
+                }
+                if(mail.getText().isEmpty()){
+                    s3.setVisible(true);
+                }
+                if(sign_in_box.getSelectionModel().isEmpty()) {
+                    s1.setVisible(true);
+
+                }
+                f=0;
+                t=0;
+                /* Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Info Missing");
+                alert.setHeaderText("");
+                alert.setContentText("Please input data properly!");
+                alert.showAndWait();*/
+
+            } else if (sign_in_box.getValue().toString().equals("User")) {
 
                 // System.out.println("Inbox");
                 String sql = "SELECT * FROM userlist Where username = ? and Mail = ?";
@@ -124,25 +179,19 @@ public class ForgetController implements Initializable {
             }
             if (f == 1) {
 
-                // Recipient's email ID needs to be mentioned.
                 String to = mail.getText().toString();
-                // String to=  "srafi213101@bscse.uiu.ac.bd";
-                // Sender's email ID needs to be mentioned
+
                 final String from = "sabbir772002@gmail.com";
 
-                // Assuming you are sending email from through gmails smtp
                 String host = "smtp.gmail.com";
 
-                // Get system properties
                 Properties properties = System.getProperties();
 
-                // Setup mail server
                 properties.put("mail.smtp.host", host);
                 properties.put("mail.smtp.port", "465");
                 properties.put("mail.smtp.ssl.enable", "true");
                 properties.put("mail.smtp.auth", "true");
 
-                // Get the Session object.// and pass username and password
                 Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
 
                     protected PasswordAuthentication getPasswordAuthentication() {
@@ -153,7 +202,6 @@ public class ForgetController implements Initializable {
 
                 });
 
-                // Used to debug SMTP issues
                 session.setDebug(true);
 
                 try {
@@ -177,10 +225,14 @@ public class ForgetController implements Initializable {
                     // Send message
                     Transport.send(message);
                     System.out.println("Sent message successfully....");
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    Image image = new Image(new File("src/main/Font/logooo.png").toURI().toString());
+                    Stage   stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(image);
                     alert.setHeaderText("Send code Sucessfully");
                     alert.setContentText("Code sent succesfully! Please Check your Mail.");
                     alert.showAndWait();
+                    s1.setVisible(false);s2.setVisible(false);s3.setVisible(false);
                     username.setVisible(false);
                     mail.setVisible(false);
                     forgetb.setVisible(false);
@@ -192,11 +244,15 @@ public class ForgetController implements Initializable {
                     mex.printStackTrace();
                 }
 
-            }else {
+            }else if(t==1) {
 
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setHeaderText("Send code failed");
                 alert.setContentText("Please try again! \nYour Given information not matched!");
+                Image image = new Image(new File("src/main/Font/logooo.png").toURI().toString());
+             Stage   stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(image);
+
                 alert.showAndWait();
             }
         }
@@ -214,11 +270,11 @@ public class ForgetController implements Initializable {
                     System.out.println(e.getMessage());
             }
         }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
             String role[]={"User","Team Leader"};
-        sign_in_box.getItems().addAll(role);
+             sign_in_box.getItems().addAll(role);
+             sign_in_box.getSelectionModel().select(0);
 
     }
 }

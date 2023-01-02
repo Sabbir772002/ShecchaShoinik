@@ -50,7 +50,7 @@ public class ViewEvent implements Initializable {
 
             byte pic[];
             Blob blob;
-            PreparedStatement ps = con.prepareStatement("SELECT Title,Date,Division,District,Address,Author,Image FROM Event where Id="+3+" order by id desc;");
+            PreparedStatement ps = con.prepareStatement("SELECT Title,Date,Division,District,Address,Author,Image FROM Event where Id="+list.get(0).Id +" order by id desc;");
             ResultSet rs = ps.executeQuery();
             if(rs.next()) {
                 Title.setText(rs.getString(1));
@@ -159,7 +159,7 @@ public class ViewEvent implements Initializable {
     Button team;
 
     public void set(String username, String role, BorderPane pane) {
-        if(role=="Volunteer Leader") team.setVisible(true);
+        if(role=="Team Leader") team.setVisible(true);
         if(role=="User") team.setVisible(false);
         con= ConnectionDb.DBC();
         this.pane = pane;

@@ -8,6 +8,10 @@ public class User {
         Username = username;
 
     }
+    public User(String name){
+
+        this.Name=name;
+    }
 
     public String getName() {
         return Name;

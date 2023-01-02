@@ -1,21 +1,15 @@
 package Chat;
 
-import AdminDB.AdminDashboardController;
-import AdminDB.TeamDashboardController;
-import AdminDB.UserDashboardController;
 import DB.ConnectionDb;
-import Others.TaskCompletedController;
-import PostBox.AddPostController;
-import Sign_in.SigninController;
+import Others.Team;
+import TeamProfile.TeamProfileController;
 import UserProfile.ProfileController;
-import UserProfile.ProfileEditController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -32,18 +26,14 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.net.URL;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
-import static java.lang.Thread.sleep;
-
-public class ChatPrivateController implements Initializable{
+public class ChatPrivateTeamController implements Initializable{
     Connection con;
     private Stage stage;
     private Scene scene;
@@ -67,7 +57,7 @@ public class ChatPrivateController implements Initializable{
        // rolee.setText("@" + role);
         this.role = role;
         this.username = username;
-        loadimage();
+      //  loadimage();
         loadtable();
         refresh();
 //        if(username.equals("Sabbir")){
@@ -88,7 +78,7 @@ public class ChatPrivateController implements Initializable{
         this.name2 = name2;
         Name2.setText(name2);
         refresh();
-        loadimage();
+
         loadtable();
         /*Thread chatwriter = new PrivateThread(msgbox,username,user2);
         chatwriter.start();*/
@@ -108,7 +98,7 @@ public class ChatPrivateController implements Initializable{
         this.role2=role2;
         f=1;
         refresh();
-        loadimage();
+      //  loadimage();
         loadtable();
 
         /*Thread chatwriter = new PrivateThread(msgbox,username,user2);
@@ -118,36 +108,6 @@ public class ChatPrivateController implements Initializable{
 
     @FXML
     Circle image;
-    void loadimage(){
-
-        try {
-                File file = new File("src/main/Font/Image/pp.png");
-
-                FileOutputStream fos = new FileOutputStream(file);
-                byte b[];
-                Blob blob;
-                System.out.println(user2);
-
-                PreparedStatement ps = con.prepareStatement("select Image from pp where Username='" + user2 + "'");
-                ResultSet rs1 = ps.executeQuery();
-
-                while (rs1.next()) {
-                    blob = rs1.getBlob("Image");
-                    b = blob.getBytes(1, (int) blob.length());
-                    fos.write(b);
-                }
-                ps.close();
-                fos.close();
-                image.setFill(new ImagePattern(new Image(file.toURI().toString())));
-                System.out.println("Imgae Rerived successfully to " + file.getPath() + "  path");
-
-
-            }catch(Exception e){
-
-                System.out.println(e.getMessage());
-            }
-
-    }
     @FXML
     private Button b;
 
@@ -188,17 +148,19 @@ public class ChatPrivateController implements Initializable{
     private TableColumn<userlist, String> coluser;
     @FXML
     void UserClick(ActionEvent event) {
+/*
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(UserProfile.ProfileController.class.getResource("Profile.fxml"));
+            fxmlLoader.setLocation(ProfileController.class.getResource("TeamProfile.fxml"));
             AnchorPane ap = fxmlLoader.load();
-           ProfileController sadmin = fxmlLoader.getController();
+           TeamProfileController sadmin = fxmlLoader.getController();
             sadmin.set(username, role,name2,user2,pane);
             pane.setCenter(ap);
         } catch (Exception e) {
             System.out.println("vul hoilo Admin Dashbaord profile button profile controller");
         }
+*/
 
     }
 
@@ -211,9 +173,9 @@ public class ChatPrivateController implements Initializable{
             String user2 = usertable.getSelectionModel().getSelectedItem().getUsername().toString();
             FXMLLoader fxmlLoader=new FXMLLoader();
 
-            fxmlLoader.setLocation(Chat.ChatPrivateController.class.getResource("ChatPrivate.fxml"));
+            fxmlLoader.setLocation(ChatPrivateController.class.getResource("ChatPrivateTeam.fxml"));
             AnchorPane pane1=fxmlLoader.load();
-            ChatPrivateController adminController=fxmlLoader.getController();
+            ChatPrivateTeamController adminController=fxmlLoader.getController();
             adminController.set(username, role, Name2, user2, pane);
             pane.setCenter(pane1);
 
@@ -224,13 +186,13 @@ public class ChatPrivateController implements Initializable{
     }
 
     @FXML
-    private TableView<userlist> usertable;
+    private TableView<Team> usertable;
     @FXML
 
-    ObservableList<userlist> listF;
+    ObservableList<Team> listF;
 
-    ObservableList<userlist> getdiasterList() {
-        ObservableList<userlist> userlist1 = FXCollections.observableArrayList();
+    ObservableList<Team> getdiasterList() {
+        ObservableList<Team> userlist1 = FXCollections.observableArrayList();
 
 
         return userlist1;
@@ -242,7 +204,7 @@ public class ChatPrivateController implements Initializable{
         colname.setCellValueFactory(new PropertyValueFactory<userlist, String>("Name"));
         coluser.setCellValueFactory(new PropertyValueFactory<userlist, String>("Username"));
         //table.setItems(list);
-        listF = ConnectionDb.getuserlist();
+        listF = ConnectionDb.getTeamlist();
         usertable.setItems(listF);
         refresh();
     }
@@ -251,7 +213,7 @@ public class ChatPrivateController implements Initializable{
 
 
 
-    public ChatPrivateController(){
+    public ChatPrivateTeamController(){
 
         con = ConnectionDb.DBC();
        // loadtable();
@@ -304,13 +266,13 @@ public class ChatPrivateController implements Initializable{
             ResultSet resultSet = preparedStatement.executeQuery();
             while(resultSet.next()) {
                 String s = resultSet.getString(3);
-               /* // String s=writebox.getText().toString();
+                // String s=writebox.getText().toString();
                 char []c=s.toCharArray();
-              *//*  for(int i=0;i<c.length;i++){
+              /*  for(int i=0;i<c.length;i++){
                     c[i]=(char)(c[i]-10);
 
-                }*//*
-                s=new String(c);*/
+                }*/
+                s=new String(c);
                 msgbox.appendText(s/*resultSet.getString(3)*/);
                 msgbox.appendText("\n");
             }
@@ -352,6 +314,11 @@ public class ChatPrivateController implements Initializable{
             while(resultSet.next()) {
                 String s = resultSet.getString(3);
                // String s=writebox.getText().toString();
+                char []c=s.toCharArray();
+                for(int i=0;i<c.length;i++){
+                    c[i]=(char)(c[i]-10);
+                }
+                s=new String(c);
                 msgbox.appendText(s/*resultSet.getString(3)*/);
                 msgbox.appendText("\n");
             }
@@ -369,12 +336,8 @@ public class ChatPrivateController implements Initializable{
 
     @FXML
     public void send(ActionEvent e) {
-
        // msgbox.clear();
        // refresh();
-        if(writebox.getText().isEmpty()|| writebox.getText().toString().equals("")){
-            return;
-        }
         try {
             String s=username+": "+writebox.getText().toString();
             char []c=s.toCharArray();
@@ -403,12 +366,13 @@ public class ChatPrivateController implements Initializable{
         preparedStatement.execute();
         preparedStatement.close();
         con.close();
-        msgbox.appendText(username+": "+writebox.getText());
+        msgbox.appendText(username+" :"+writebox.getText());
         msgbox.appendText("\n");
         writebox.setText("");
             System.out.println("send message");
 
     }catch (Exception ie){
+
             System.out.println("from send privatechat "+ie.getMessage());
     }
 }
@@ -419,7 +383,7 @@ ImageView privateimage;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadimage();
+
       //  person.setImage(new Image(new File("src/main/Font/group.png").toURI().toString()));
         privateimage.setImage(new Image(new File("src/main/Font/account-circle-fill.png.png").toURI().toString()));
 
@@ -432,8 +396,8 @@ ImageView privateimage;
     @FXML
     void search(KeyEvent e){
         con=ConnectionDb.DBC();
-        ObservableList<userlist> list1 = FXCollections.observableArrayList();
-        //i++;
+        ObservableList<Team> list1 = FXCollections.observableArrayList();
+      /*  //i++;
         try {
             PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,BG,Gender,Phone FROM userlist");
 
@@ -447,6 +411,7 @@ ImageView privateimage;
                 String s7 = rs.getString(5);
                 String s8 = rs.getString(6);
                 String s9 = rs.getString(7);
+               // String s10 = rs.getString(8);
 
                 String s0 = s1 + s3 + s5 + s6 + s7 + s8 + s9;
 
@@ -478,8 +443,8 @@ ImageView privateimage;
         }catch (Exception ee){
             System.out.println("load problem on user");
 
-        }
-      /*  try {
+        }*/
+      try {
             //System.out.println("in team");
 
                PreparedStatement ps = con.prepareStatement("SELECT Name,District,Username,Division,Phone,Type FROM Teams");
@@ -518,7 +483,7 @@ ImageView privateimage;
                     }
                     if (i) {
                         //we can create another parameter for team or user
-                        list1.add(new userlist(s1, s5));
+                        list1.add(new Team(s1, s5));
                     }
 
             }
@@ -531,7 +496,7 @@ ImageView privateimage;
                 // con.close();
             } catch (Exception ee) {
             }
-        }*/
+        }
         colname.setCellValueFactory(new PropertyValueFactory<userlist, String>("Name"));
         coluser.setCellValueFactory(new PropertyValueFactory<userlist, String>("Username"));
         usertable.setItems(list1);

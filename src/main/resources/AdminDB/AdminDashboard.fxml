@@ -149,7 +149,7 @@
    <left>
       <VBox layoutX="50.0" prefHeight="617.0" prefWidth="199.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane prefHeight="621.0" prefWidth="199.0" style="-fx-cursor: hand;">
+            <AnchorPane prefHeight="621.0" prefWidth="199.0" style="-fx-background-color: white;">
                <children>
                   <ImageView fx:id="imageview1" fitHeight="105.0" fitWidth="117.0" layoutX="-4.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true" x="50.0" y="20.0">
                      <image>
@@ -164,14 +164,14 @@
                         <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="user" alignment="CENTER" layoutX="-5.0" layoutY="117.0" prefHeight="52.0" prefWidth="204.0" style="-fx-cursor: had;" text="Rajshahi" textFill="WHITE" AnchorPane.leftAnchor="-5.0">
+                  <Label fx:id="user" alignment="CENTER" layoutX="-5.0" layoutY="117.0" prefHeight="52.0" prefWidth="204.0" style="-fx-cursor: had;" text="Rajshahi" AnchorPane.leftAnchor="-5.0">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
-                  <VBox layoutX="13.0" layoutY="169.0" prefHeight="358.0" prefWidth="178.0">
+                  <VBox layoutX="13.0" layoutY="169.0" prefHeight="306.0" prefWidth="178.0">
                      <children>
-                        <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" prefHeight="22.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Home">
+                        <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" prefHeight="33.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Home">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -236,14 +236,6 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Disaster Guidelines">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                        </Button>
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="10.0" top="5.0" />
@@ -252,7 +244,12 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </VBox>
-                  <Button layoutX="19.0" layoutY="549.0" mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Log out">
+                  <Button layoutX="24.0" layoutY="554.0" mnemonicParsing="false" onAction="#logout" prefHeight="33.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Log out">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="24.0" layoutY="475.0" mnemonicParsing="false" onAction="#News" prefHeight="34.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="News">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>

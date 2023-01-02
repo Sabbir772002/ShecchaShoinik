@@ -10,14 +10,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane focusTraversable="true" prefHeight="596.0" prefWidth="776.0" style="-fx-background-color: black; -fx-background-radius: 0; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PostBox.Post">
+<AnchorPane focusTraversable="true" prefHeight="596.0" prefWidth="776.0" style="-fx-background-color: black; -fx-background-radius: 0; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PostBox.Post">
    <children>
       <ImageView fx:id="poster" fitHeight="207.0" fitWidth="334.0" layoutX="412.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Font/2.jpg" />
          </image>
       </ImageView>
-      <Text fx:id="title" fill="WHITE" fontSmoothingType="LCD" layoutX="66.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white;" text="Disaster hazard at uiu" wrappingWidth="429.2371063232422">
+      <Text fx:id="title" fill="WHITE" fontSmoothingType="LCD" layoutX="55.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white;" text="Disaster hazard at uiu" wrappingWidth="429.2371063232422">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
@@ -48,40 +48,40 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="address" alignment="CENTER" layoutX="166.0" layoutY="122.0" prefHeight="70.0" prefWidth="204.0" style="-fx-background-radius: 5; -fx-border-color: white; -fx-padding: 5;" text="Kuril Road" textFill="WHITE" wrapText="true">
+      <Label fx:id="address" alignment="TOP_LEFT" layoutX="166.0" layoutY="122.0" prefHeight="70.0" prefWidth="204.0" style="-fx-border-color: white; -fx-padding: 5;" styleClass="vi" stylesheets="@../../Style/style.css" text="Kuril Road" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="district" alignment="CENTER" layoutX="167.0" layoutY="198.0" prefHeight="26.0" prefWidth="204.0" style="-fx-background-radius: 5;" text="Gazipur" textFill="WHITE">
+      <Label fx:id="district" alignment="CENTER" layoutX="167.0" layoutY="198.0" prefHeight="26.0" prefWidth="204.0" style="-fx-background-radius: 5;" styleClass="vi" stylesheets="@../../Style/style.css" text="Gazipur" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="type" alignment="CENTER" contentDisplay="TOP" layoutX="169.0" layoutY="263.0" prefHeight="26.0" prefWidth="202.0" style="-fx-background-color: null; -fx-background-radius: 5;" text="EarthQuake" textFill="WHITE">
+      <Label fx:id="type" alignment="CENTER" contentDisplay="TOP" layoutX="169.0" layoutY="263.0" prefHeight="26.0" prefWidth="202.0" style="-fx-background-color: null; -fx-background-radius: 5;" styleClass="vi" stylesheets="@../../Style/style.css" text="EarthQuake" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="division" layoutX="168.0" layoutY="229.0" prefHeight="28.0" prefWidth="202.0" style="-fx-alignment: Center; -fx-background-radius: 5;" text="Dhaka" textFill="WHITE">
+      <Label fx:id="division" layoutX="168.0" layoutY="229.0" prefHeight="28.0" prefWidth="202.0" style="-fx-alignment: Center; -fx-background-radius: 5;" styleClass="vi" stylesheets="@../../Style/style.css" text="Dhaka" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="68.0" layoutY="57.0" prefHeight="18.0" prefWidth="98.0" text="\@Sabbir" textFill="WHITE" />
-      <Label fx:id="addinfo" alignment="CENTER" layoutX="71.0" layoutY="334.0" prefHeight="98.0" prefWidth="304.0" style="-fx-background-color: null; -fx-background-radius: 5; -fx-border-color: white; -fx-padding: 5;" text="There is a car accident with 3 buses" textFill="#fff7f7" wrapText="true">
+      <Label fx:id="user" layoutX="55.0" layoutY="42.0" prefHeight="18.0" prefWidth="98.0" text="\@Sabbir" textFill="WHITE" />
+      <Label fx:id="addinfo" alignment="TOP_LEFT" layoutX="71.0" layoutY="334.0" prefHeight="98.0" prefWidth="304.0" style="-fx-background-radius: 5; -fx-padding: 5;" styleClass="vi" stylesheets="@../../Style/style.css" text="There is a car accident with 3 buses" textFill="#fff7f7" wrapText="true">
          <font>
             <Font name="Bell MT Bold" size="17.0" />
          </font>
       </Label>
       <Button fx:id="delete" layoutX="169.0" layoutY="501.0" mnemonicParsing="false" onAction="#Delete" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: red;" text="Delete" visible="false" />
-      <TableView fx:id="pteam" layoutX="412.0" layoutY="257.0" onMouseClicked="#tableclickteam" prefHeight="338.0" prefWidth="334.0" style="-fx-border-radius: 0,0,0,0;" stylesheets="@../Style/style.css">
+      <TableView fx:id="pteam" layoutX="412.0" layoutY="257.0" onMouseClicked="#tableclickteam" prefHeight="338.0" prefWidth="334.0" style="-fx-border-radius: 0,0,0,0;" styleClass="column-header">
         <columns>
           <TableColumn fx:id="Name" minWidth="0.0" prefWidth="183.20001220703125" text="Name" />
             <TableColumn fx:id="Username" minWidth="0.0" prefWidth="0.0" text="Username" visible="false" />
           <TableColumn fx:id="Contact" minWidth="0.0" prefWidth="143.0" text="Contact" />
         </columns>
       </TableView>
-      <Button fx:id="gob" layoutX="678.0" layoutY="4.0" mnemonicParsing="false" onAction="#go" opacity="0.84" prefHeight="18.0" prefWidth="90.0" style="-fx-background-color: green; -fx-border-radius: 10;" text="GO Here" />
+      <Button fx:id="gob" layoutX="169.0" layoutY="501.0" mnemonicParsing="false" onAction="#go" opacity="0.84" prefHeight="18.0" prefWidth="90.0" style="-fx-background-color: green; -fx-border-radius: 10;" text="GO Here" />
    </children>
 </AnchorPane>

@@ -8,6 +8,7 @@ import Chat.LiveHandeler;
 import DB.ConnectionDb;
 import Event.ApproveEVentController;
 import Event.ViewEvent;
+import News.NewsBox;
 import Others.HRequest;
 import Others.TeamApproveController;
 import Others.VolunteerNearController;
@@ -94,7 +95,21 @@ public class AdminDashboardController implements Initializable {
     private Parent root;
     public String username = "";
     public String role = "";
+    @FXML
+    void News(ActionEvent event) {
 
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(NewsBox.class.getResource("NewsBox.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            NewsBox sadmin = fxmlLoader.getController();
+            sadmin.set(username, role, pane1);
+            pane1.setCenter(ap);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     public void set(String username, String role) {
         user.setText(username);
@@ -389,6 +404,8 @@ public class AdminDashboardController implements Initializable {
                 stage.setScene(scene);
                 stage.setTitle("SIGN IN");
                 stage.show();
+                choice.getSelectionModel().select(null);
+
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -407,11 +424,14 @@ public class AdminDashboardController implements Initializable {
                 Image image = new Image(file.toURI().toString());
                 stage = (Stage) alert.getDialogPane().getScene().getWindow();
                 stage.getIcons().add(image);
+                choice.getSelectionModel().select(null);
+
                 // alert.initOwner(stage);
                 //alert.setGraphic(new ImageView(image));
                 //user.setImage(image);
                 Optional<ButtonType> result = alert.showAndWait();
                 if (alert.getResult().getText().equals("OK")) {
+                    choice.getSelectionModel().select(null);
                     root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     scene = new Scene(root);
@@ -961,7 +981,7 @@ public class AdminDashboardController implements Initializable {
             fxmlLoader.setLocation(BloodBankController.class.getResource("BloodBank.fxml"));
             AnchorPane ap = fxmlLoader.load();
             BloodBankController sadmin = fxmlLoader.getController();
-            sadmin.set(username, role);
+            sadmin.set(username, role,pane1);
             pane1.setCenter(ap);
             System.out.println("kno holo na");
 

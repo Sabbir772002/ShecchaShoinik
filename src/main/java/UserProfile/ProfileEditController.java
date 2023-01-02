@@ -3,13 +3,20 @@ package UserProfile;
 import DB.ConnectionDb;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.sql.*;
 import java.util.Optional;
 
@@ -46,7 +53,7 @@ public class ProfileEditController {
         role=role;
         this.role = role;
         this.username = username;
-      output();
+        output();
 
         // alertcount();
         //alertnum.setText(String.valueOf(newcount));
@@ -56,11 +63,74 @@ public class ProfileEditController {
 
     }
 
+    @FXML
+    private Button imageup;
 
 
 
+    String imagef = "src/main/Font/icons/profile.png";
+    @FXML
+    void upimage(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+
+        //final Button openButton = new Button("Choose Background Image");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Select Image", "*.jpg", "*.png","*.jpeg"));
+        // fileChooser.setInitialDirectory(new File("C:\\Users\\USER\\Pictures"));e
+        Node node=(Node)event.getSource();
+       Stage stage = (Stage)node.getScene().getWindow();
+        File file = fileChooser.showOpenDialog(stage);
+        System.out.println(imagef);
+        if (file != null) {
+            System.out.println(file);
+            imagef = file.getAbsolutePath();
+            System.out.println(imagef);
+            String s[] = imagef.split("\\\\");
+            //System.out.println(imagef);
+            //  System.out.println(s[s.length - 1]);
+            imageup.setText(s[s.length - 1]);
+            // File f= new File("src/main/file.image");
+
+            // openFile(file);
+            // where my problem is
+
+        }
+
+
+    }
+    @FXML
+    void upload( ActionEvent e) {
+        File file1=new File(imagef);
+        try {
+            Connection connection=ConnectionDb.DBC();
+            FileInputStream fis = new FileInputStream(file1);
+            String s = "Update pp set Image=? where Username=?";
+            PreparedStatement preparedStatement2 = (PreparedStatement) connection.prepareStatement(s);
+            preparedStatement2.setBinaryStream(1, fis, (int) file1.length());
+            preparedStatement2.setString(2, username);
+            preparedStatement2.execute();
+            preparedStatement2.close();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Profile Picture Updated!");
+            alert.setHeaderText("Profile Chaneged Succesfully!");
+            // alert.setContentText("");
+            File file = new File("src/main/Font/logooo.png");
+            Image image = new Image(file.toURI().toString());
+           Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(image);
+            Optional<ButtonType> result=alert.showAndWait();
+
+
+        } catch (Exception ee) {
+
+            System.out.println(ee.getMessage());
+        }
+    }
+    @FXML
+    Circle image;
     public void output(){
-            try{
+        File file = new File("src/main/Font/Image/pp.png");
+
+        try{
                 Statement stmt=con.createStatement();
                 String sql = "SELECT Name,Username,Phone,Division,District,Mail FROM userlist Where Username = \'"+username+"\'";
                 //String sql = "SELECT * FROM `userlist` Where Username = '"+1+"'";
@@ -76,10 +146,25 @@ public class ProfileEditController {
                     district.setText(rs.getString(5));
                     mail.setText(rs.getString(6));
 
+
                 }
+                FileOutputStream fos = new FileOutputStream(file);
+                byte b[];
+                Blob blob;
+
+                PreparedStatement ps = con.prepareStatement("select Image from pp where Username='"+username+"'");
+                ResultSet rs1 = ps.executeQuery();
+
+                while (rs1.next()) {
+                    blob = rs1.getBlob("Image");
+                    b = blob.getBytes(1, (int) blob.length());
+                    fos.write(b);
+                }
+                image.setFill(new ImagePattern(new Image(file.toURI().toString())));
+                ps.close();
+                fos.close();
                 rs.close();
                 stmt.close();
-                con.close();
                 name.setText(Name.getText().toString());
                 String uname = showuser.getText().toString();
            /* System.out.println(uname);
@@ -91,7 +176,7 @@ public class ProfileEditController {
 
                 }
                 showuser.setText("@"+showuser.getText().toString());
-            } catch (SQLException ex) {
+            } catch (Exception ex) {
                 System.out.println("onk error");
                 System.err.println(ex.getMessage());
             }

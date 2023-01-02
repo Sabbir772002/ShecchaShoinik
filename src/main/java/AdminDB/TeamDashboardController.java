@@ -5,6 +5,7 @@ import Chat.CommunityChatHandelar;
 import Chat.LiveHandeler;
 import DB.ConnectionDb;
 import Event.ViewEvent;
+import News.NewsBox;
 import Others.*;
 import PostBox.AddPostController;
 import PostBox.Post;
@@ -59,16 +60,18 @@ public class TeamDashboardController implements Initializable {
     @FXML
     private ImageView imageview;
     @FXML
-    private ImageView bimage;
+    Button bbutton;
+
+
     @FXML
     void BbankClick(ActionEvent event) {
         try{
-            System.out.println("hey ki khobor");
+            //System.out.println("hey ki khobor");
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(BloodBankController.class.getResource("BloodBank.fxml"));
             AnchorPane ap = fxmlLoader.load();
             BloodBankController sadmin = fxmlLoader.getController();
-            sadmin.set(username,role);
+            sadmin.set(username,role,pane1);
             pane1.setCenter(ap);
             System.out.println("kno holo na");
 
@@ -83,8 +86,7 @@ public class TeamDashboardController implements Initializable {
     @FXML
     private Button bt1;
 
-    @FXML
-    private Button bbutton;
+
 
    /* @FXML
     private ChoiceBox<?> choice;
@@ -194,6 +196,22 @@ public class TeamDashboardController implements Initializable {
 
     }
     @FXML
+    void News(ActionEvent event) {
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(NewsBox.class.getResource("NewsBox.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            NewsBox sadmin = fxmlLoader.getController();
+            sadmin.set(username, role, pane1);
+            pane1.setCenter(ap);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+        @FXML
     void Event(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -553,6 +571,8 @@ public class TeamDashboardController implements Initializable {
                 stage.setScene(scene);
                 stage.setTitle("SIGN IN");
                 stage.show();
+                choice.getSelectionModel().select(null);
+
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -574,6 +594,8 @@ public class TeamDashboardController implements Initializable {
                 //alert.setGraphic(new ImageView(image));
                 //user.setImage(image);
                 Optional<ButtonType> result=alert.showAndWait();
+                choice.getSelectionModel().select(null);
+
                 if(alert.getResult().getText().equals("OK")){
                     root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -581,6 +603,7 @@ public class TeamDashboardController implements Initializable {
                     stage.setScene(scene);
                     stage.setTitle("SIGN IN");
                     stage.show();
+
                 }
 
             } catch (Exception e) {
@@ -594,6 +617,8 @@ public class TeamDashboardController implements Initializable {
                    TeamProfileController sadmin = fxmlLoader.getController();
                    sadmin.set(username,role,pane1);
                    pane1.setCenter(ap);
+                   choice.getSelectionModel().select(null);
+
 
                }catch (Exception e){
 
@@ -650,7 +675,10 @@ public class TeamDashboardController implements Initializable {
         imageview.setImage(image);
         File file1 = new File("src/main/Font/1.png");
         Image image1 = new Image(file1.toURI().toString());
-        bimage.setImage(image1);
+        ImageView i=new ImageView(image1);
+        i.setFitWidth(26);
+        i.setFitHeight(26);
+       bbutton.setGraphic(i);
          file1 = new File("src/main/Font/logotext.png");
         Image image4 = new Image(file1.toURI().toString());
         logoimage.setImage(image4);

@@ -54,6 +54,10 @@ public class SigninController implements Initializable {
      Parent root;
     String usern="";
     String role="";
+    @FXML
+    ImageView logo;
+    @FXML
+    ImageView nameee;
     public void set(String role){
         this.usern=role;
     }
@@ -63,6 +67,7 @@ public class SigninController implements Initializable {
 
     @FXML
     void sign_in(ActionEvent event) {
+        con=ConnectionDb.DBC();
    Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             if (logIn().compareTo("Success")==0) {
@@ -282,6 +287,11 @@ public class SigninController implements Initializable {
        @FXML
        private ImageView loginimage;
        @FXML
+       Button sb;
+
+       @FXML
+       Button sib;
+       @FXML
        private ImageView loginimage1;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -291,11 +301,21 @@ public class SigninController implements Initializable {
         File file = new File("src/main/Font/user5.png");
         Image image = new Image(file.toURI().toString());
         user.setImage(image);
-        file = new File("src/main/Font/pass.png");
+        file = new File("src/main/Font/icons/lock.png");
         image = new Image(file.toURI().toString());
         pass.setImage(image);
         loginimage.setImage(new Image(new File("src/main/Font/login.png").toURI().toString()));
         loginimage1.setImage(new Image(new File("src/main/Font/add1.png").toURI().toString()));
+        sb.setGraphic(loginimage);
+        loginimage.setFitWidth(27);
+        loginimage.setFitHeight(22);
+        loginimage1.setFitHeight(22);
+        sib.setGraphic(loginimage1);
+        loginimage.setLayoutX(107);
+        logo.setImage(new Image(new File("src/main/Font/logooo.png").toURI().toString()));
+        nameee.setImage(new Image(new File("src/main/Font/nameee.png").toURI().toString()));
+       // sb.setContentDisplay(ContentDisplay.LEFT);
+
     }
     @FXML
     private AnchorPane enter;

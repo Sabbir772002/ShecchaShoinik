@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="574.0" prefWidth="776.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chat.LiveHandeler">
+<AnchorPane prefHeight="574.0" prefWidth="776.0" style="-fx-cursor: h; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#190A05  0%, #870000  100%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chat.LiveHandeler">
          <children>
             <ScrollPane layoutX="21.0" layoutY="99.0" prefHeight="388.0" prefWidth="408.0" style="-fx-border-color: black; -fx-background-color: white;">
                <content>
@@ -39,8 +39,8 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Circle fill="#d11ba7" layoutX="90.0" layoutY="44.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
-            <ImageView fitHeight="48.0" fitWidth="50.0" layoutX="66.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+            <Circle fill="WHITE" layoutX="90.0" layoutY="44.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
+            <ImageView fx:id="groupimage" fitHeight="48.0" fitWidth="50.0" layoutX="66.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Font/group.png" />
                </image>
@@ -50,15 +50,15 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Circle fill="#d11ba7" layoutX="657.0" layoutY="44.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
-            <ImageView fitHeight="48.0" fitWidth="50.0" layoutX="633.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+            <Circle fill="WHITE" layoutX="657.0" layoutY="44.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
+            <ImageView fx:id="privateimage" fitHeight="48.0" fitWidth="50.0" layoutX="633.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Font/account-circle-fill%20(1).png" />
+                  <Image url="@../../Font/account-circle-fill.png" />
                </image>
             </ImageView>
             <VBox layoutX="557.0" layoutY="130.0" prefHeight="398.0" prefWidth="198.0" styleClass="bt" stylesheets="@../../Style/style.css">
                <children>
-                  <TableView fx:id="usertable" onMouseClicked="#tableclick" prefHeight="427.0" prefWidth="197.0" styleClass="bt" stylesheets="@../../Style/style.css">
+                  <TableView fx:id="usertable" onMouseClicked="#tableclick" prefHeight="427.0" prefWidth="197.0">
                      <columns>
                         <TableColumn fx:id="colname" prefWidth="199.99993896484375" style="-fx-background-radius: 10;" text="Name" />
                         <TableColumn fx:id="coluser" minWidth="0.0" prefWidth="0.0" text="C2" visible="false" />

@@ -149,29 +149,29 @@
    <left>
       <VBox layoutX="50.0" prefHeight="617.0" prefWidth="199.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#ED213A  0%, #93291E  100%);" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane prefHeight="621.0" prefWidth="199.0" style="-fx-cursor: hand;">
+            <AnchorPane prefHeight="621.0" prefWidth="199.0" style="-fx-background-color: white;">
                <children>
                   <ImageView fx:id="imageview1" fitHeight="105.0" fitWidth="117.0" layoutX="-4.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true" x="50.0" y="20.0">
                      <image>
-                        <Image url="@../../Font/icon1.png" />
+                        <Image url="@../../Font/logooo.png" />
                      </image>
                      <viewport>
 
                      </viewport>
                   </ImageView>
-                  <Label fx:id="rolee" alignment="CENTER" layoutX="-2.0" layoutY="143.0" prefHeight="28.0" prefWidth="198.0" style="-fx-cursor: had;" text="\@User" textFill="#230505">
+                  <Label fx:id="rolee" alignment="CENTER" layoutX="-2.0" layoutY="143.0" prefHeight="28.0" prefWidth="198.0" style="-fx-cursor: had;" text="\@User" textFill="#817d7d">
                      <font>
                         <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="user" alignment="CENTER" layoutX="-5.0" layoutY="117.0" prefHeight="52.0" prefWidth="204.0" style="-fx-cursor: had;" text="Nusrat" textFill="WHITE" AnchorPane.leftAnchor="-5.0">
+                  <Label fx:id="user" alignment="CENTER" layoutX="-5.0" layoutY="117.0" prefHeight="52.0" prefWidth="204.0" style="-fx-cursor: had;" text="Nusrat" AnchorPane.leftAnchor="-5.0">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
-                  <VBox layoutX="13.0" layoutY="169.0" prefHeight="363.0" prefWidth="178.0">
+                  <VBox layoutX="13.0" layoutY="169.0" prefHeight="317.0" prefWidth="178.0">
                      <children>
-                        <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" prefHeight="22.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Home" textFill="#fafafa">
+                        <Button fx:id="bt1" mnemonicParsing="false" onAction="#Dashboard" opacity="0.83" prefHeight="22.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Home" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -193,7 +193,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#chat" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Community Chat">
+                        <Button mnemonicParsing="false" onAction="#chat" opacity="0.83" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Community Chat">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
@@ -204,7 +204,7 @@
                               <Blend />
                            </effect>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#vnear" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Volunteer Near">
+                        <Button mnemonicParsing="false" onAction="#vnear" opacity="0.83" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Volunteer Near">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -212,7 +212,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#profile" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Profile">
+                        <Button mnemonicParsing="false" onAction="#profile" opacity="0.83" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Profile">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -220,7 +220,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#Event" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Event">
+                        <Button mnemonicParsing="false" onAction="#Event" opacity="0.83" prefHeight="38.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Event">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -228,15 +228,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#News" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="News">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#Diaster" prefHeight="38.0" prefWidth="155.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Disaster Guidelines">
+                        <Button mnemonicParsing="false" onAction="#News" opacity="0.83" prefHeight="37.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="News">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -252,7 +244,7 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </VBox>
-                  <Button layoutX="24.0" layoutY="560.0" mnemonicParsing="false" onAction="#logout" prefHeight="34.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Log out">
+                  <Button layoutX="21.0" layoutY="478.0" mnemonicParsing="false" onAction="#logout" prefHeight="34.0" prefWidth="156.0" styleClass="bt" stylesheets="@../../Style/style.css" text="Log out">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -309,7 +301,7 @@
    <center>
       <AnchorPane prefHeight="596.0" prefWidth="778.0" style="-fx-cursor: had; -fx-background-color: linear-gradient(from 0% 0% to 100% 100%,#000000  0%, #e74c3c  100%);" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="table" layoutX="14.0" layoutY="55.0" onMouseClicked="#tableclick" prefHeight="532.0" prefWidth="752.0" style="-fx-background-radius: 10;" stylesheets="@../Style/style.css">
+            <TableView fx:id="table" layoutX="14.0" layoutY="55.0" onMouseClicked="#tableclick" opacity="0.81" prefHeight="532.0" prefWidth="752.0" style="-fx-background-radius: 10;" stylesheets="@../Style/style.css">
               <columns>
                 <TableColumn fx:id="col_title" prefWidth="238.39999771118164" text="Title" />
                 <TableColumn fx:id="col_type" minWidth="0.0" prefWidth="127.199951171875" text="Disaster Type" />

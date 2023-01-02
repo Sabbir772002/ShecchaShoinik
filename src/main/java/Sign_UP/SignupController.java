@@ -12,8 +12,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import java.io.File;
+import java.io.FileInputStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,9 +33,6 @@ public class SignupController implements Initializable {
 
     @FXML
     private ComboBox<String> cbdivision;
-
-    @FXML
-    private ComboBox<String> cbgroup;
 
     @FXML
     private ComboBox<String> cb_sign_up;
@@ -84,23 +83,67 @@ public class SignupController implements Initializable {
         }
 
     }
+
+    @FXML
+    TextField Nid;
+ 
+    @FXML
+    TextField Extra;
+
+
+    String imagef = "src/main/Font/icons/profile.png";
+    Image image1;
+    @FXML
+    private Button imageup;
+
+
+    @FXML
+    void upimage(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        //final Button openButton = new Button("Choose Background Image");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Select Image", "*.jpg", "*.png","*.jpeg"));
+        // fileChooser.setInitialDirectory(new File("C:\\Users\\USER\\Pictures"));
+        File file = fileChooser.showOpenDialog(stage);
+        System.out.println(imagef);
+        if (file != null) {
+            System.out.println(file);
+            imagef = file.getAbsolutePath();
+            System.out.println(imagef);
+            String s[] = imagef.split("\\\\");
+            //System.out.println(imagef);
+            //  System.out.println(s[s.length - 1]);
+            imageup.setText(s[s.length - 1]);
+            // File f= new File("src/main/file.image");
+
+            // openFile(file);
+            // where my problem is
+            image1 = new Image(file.toURI().toString());
+
+
+        }
+
+
+    }
+
     @FXML
     void Sign_up(ActionEvent event) {
-        System.out.println("bhai aita ki hoilo");
-        if(name.getText().isEmpty() || username.getText().isEmpty() || password.getText().isEmpty()||dob.getValue()==null|| cbdivision.getSelectionModel().isEmpty() ||cbdistrict.getSelectionModel().isEmpty() || cbgroup.getSelectionModel().isEmpty() || cbGender.getSelectionModel().isEmpty() || bloodgroup.getSelectionModel().isEmpty() || phone.getText().isEmpty() || mail.getText().isEmpty()){
+       // System.out.println("bhai aita ki hoilo");
+        if(name.getText().isEmpty() || username.getText().isEmpty() || password.getText().isEmpty()||dob.getValue()==null|| cbdivision.getSelectionModel().isEmpty() ||cbdistrict.getSelectionModel().isEmpty() ||cbGender.getSelectionModel().isEmpty() || bloodgroup.getSelectionModel().isEmpty() || phone.getText().isEmpty() ||Nid.getText().isEmpty() || mail.getText().isEmpty()){
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Sign up Error!");
             alert.setHeaderText("Something went wrong!\nPlease try again with proper info.");
            // alert.setContentText("");
             File file = new File("src/main/Font/icon1.png");
+            stage=(Stage) alert.getDialogPane().getScene().getWindow();
             Image image = new Image(file.toURI().toString());
-            stage = (Stage) alert.getDialogPane().getScene().getWindow();
             stage.getIcons().add(image);
             Optional<ButtonType> result=alert.showAndWait();
         }else {
-           // Connection con;
-           // con=DB.ConnectionDb.DBC();
+            File file1 = new File(imagef);
+
+            // Connection con;
+            // con=DB.ConnectionDb.DBC();
             String sql = "SELECT * FROM userlist Where username = ?";
             try {
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -111,16 +154,16 @@ public class SignupController implements Initializable {
                     alert.setTitle("Sign up Error!");
                     alert.setHeaderText("Username already taken!\nPlease use another one.");
                     // alert.setContentText("");
-                    File file = new File("src/main/Font/icon1.png");
+                    File file = new File("src/main/Font/logooo.png");
                     Image image = new Image(file.toURI().toString());
                     stage = (Stage) alert.getDialogPane().getScene().getWindow();
                     stage.getIcons().add(image);
-                    Optional<ButtonType> result=alert.showAndWait();
+                    Optional<ButtonType> result = alert.showAndWait();
 
                 } else {
                     try {
-                        String st = "INSERT INTO userlist (Name,Username,Password,Division,District,DOB,ID,Gender,Volunteer,BG,Phone,Mail) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-                        String st1 = "INSERT INTO volunteer (Name,Username,Password,Division,District,DOB,ID,Gender,Volunteer,BG,Phone,Mail) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                        String st = "INSERT INTO userlist (Name,Username,Password,Division,District,DOB,ID,Gender,Extra,BG,Phone,Mail) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                        String st1 = "INSERT INTO volunteer (Name,Username,Password,Division,District,DOB,ID,Gender,Extra,BG,Phone,Mail) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
                         preparedStatement = (PreparedStatement) connection.prepareStatement(st);
                         preparedStatement.setString(1, name.getText());
                         preparedStatement.setString(2, username.getText());
@@ -128,29 +171,36 @@ public class SignupController implements Initializable {
                         preparedStatement.setString(4, cbdivision.getValue().toString());
                         preparedStatement.setString(5, cbdistrict.getValue().toString());
                         preparedStatement.setString(6, dob.getValue().toString());
-                        preparedStatement.setString(7, "1963890981");
+                        preparedStatement.setString(7, Nid.getText().toString());
                         preparedStatement.setString(8, cbGender.getValue().toString());
-                        preparedStatement.setString(9, cbgroup.getValue().toString());
+                        preparedStatement.setString(9, Extra.getText().toString());
                         preparedStatement.setString(10, bloodgroup.getValue().toString());
                         preparedStatement.setString(11, phone.getText());
                         preparedStatement.setString(12, mail.getText());
-                        preparedStatement.execute();
-                        preparedStatement.close();
-                        PreparedStatement preparedStatement1  = (PreparedStatement) connection.prepareStatement(st1);
+                        PreparedStatement preparedStatement1 = (PreparedStatement) connection.prepareStatement(st1);
                         preparedStatement1.setString(1, name.getText());
                         preparedStatement1.setString(2, username.getText());
                         preparedStatement1.setString(3, password.getText());
                         preparedStatement1.setString(4, cbdivision.getValue().toString());
                         preparedStatement1.setString(5, cbdistrict.getValue().toString());
                         preparedStatement1.setString(6, dob.getValue().toString());
-                        preparedStatement1.setString(7, "1963890981");
+                        preparedStatement1.setString(7, Nid.getText().toString());
                         preparedStatement1.setString(8, cbGender.getValue().toString());
-                        preparedStatement1.setString(9, cbgroup.getValue().toString());
+                        preparedStatement1.setString(9, Extra.getText().toString());
                         preparedStatement1.setString(10, bloodgroup.getValue().toString());
                         preparedStatement1.setString(11, phone.getText());
                         preparedStatement1.setString(12, mail.getText());
-                        preparedStatement1.execute();
+                        FileInputStream fis = new FileInputStream(file1);
+                        String s="Insert into pp (Username,Image) values(?,?);";
+                        PreparedStatement preparedStatement2=(PreparedStatement)connection.prepareStatement(s);
+                        preparedStatement2.setString(1, username.getText().toString());
+                        preparedStatement2.setBinaryStream(2, fis, (int) file1.length());
+                        preparedStatement2.execute();
+                        preparedStatement2.close();
+                        preparedStatement1.executeUpdate();
                         preparedStatement1.close();
+                        preparedStatement.executeUpdate();
+                        preparedStatement.close();
                         connection.close();
                         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                         alert.setTitle("Sign Up Confarmation!");
@@ -160,7 +210,7 @@ public class SignupController implements Initializable {
                         Image image = new Image(file.toURI().toString());
                         stage = (Stage) alert.getDialogPane().getScene().getWindow();
                         stage.getIcons().add(image);
-                        Optional<ButtonType> result=alert.showAndWait();
+                        Optional<ButtonType> result = alert.showAndWait();
                         root = FXMLLoader.load(SigninController.class.getResource("Sign_in.fxml"));
                         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         scene = new Scene(root);
@@ -238,22 +288,29 @@ public class SignupController implements Initializable {
     }
     @FXML
     private Button sign;
+    @FXML
+    Button nsign;
+    @FXML
+    ImageView logo;
+    @FXML
+    ImageView nameee;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String []user={"User","Volunteer Team"};
         //cb_sign_up.getItems().addAll(user);
         String []division={"Dhaka","Rajshahi","Chattogram","Barishal","Rangpur","Sylhet","Khulna", "Mymensingh"};
         cbdivision.getItems().addAll(division);
-        String []user2={"EarthQuake","Storm Surge","Wildfire","Cyclone","Flood","Drought","Tsunami","Typhoon","LandSlide","Epidemic","Structural Collapse","Transport Disasters","Mining Accidents","Explosions and Fires","Others"};
-        cbgroup.getItems().addAll(user2);
         String []user1={"Male","Female","Others"};
         cbGender.getItems().addAll(user1);
 
         String []user3={"A+","A-","B+","B-","AB+","AB-","O+","O-"};
         bloodgroup.getItems().addAll(user3);
         ImageView i=new ImageView(new Image(new File("src/main/Font/add1.png").toURI().toString()));
-        i.setFitHeight(27);
-        i.setFitWidth(27);
-        sign.setGraphic(i);
+        i.setFitHeight(24);
+        i.setFitWidth(24);
+        nsign.setGraphic(i);
+        logo.setImage(new Image(new File("src/main/Font/logooo.png").toURI().toString()));
+        nameee.setImage(new Image(new File("src/main/Font/nameee.png").toURI().toString()));
+
     }
 }

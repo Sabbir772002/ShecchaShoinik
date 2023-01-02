@@ -1,5 +1,7 @@
 package com.example.sheccashoinik;
 
+import AdminDB.HomeboardController;
+import Sign_UP.TeamSignUp;
 import Sign_in.SigninController;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -71,15 +73,27 @@ public class HomeController implements Initializable {
     private  int i =0,f=1;
 
     @FXML
-    void GuideLines(ActionEvent event) {
-
+    void TeamSignup(ActionEvent event) {
+        try {
+            //fxmlLoader.setLocation(Sign_UP.TeamSignUp.class.getResource("TeamSignUp.fxml"));
+          //  AnchorPane ap = fxmlLoader.load();
+           // Sign_UP.TeamSignUp sadmin = fxmlLoader.getController();
+            root = FXMLLoader.load(Sign_UP.TeamSignUp.class.getResource("TeamSignUp.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Team Sign Up");
+            stage.show();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
     String images[]={
             //"src/main/Font/Hand.png",
-            "src/main/Font/1.jpg",
-            "src/main/Font/2.jpg",
+            "src/main/Font/whats/Untitled-2.png",
+            "src/main/Font/whats/Untitled-2.png",
            // "src/main/Font/2.png",
-            "src/main/Font/3.jpg",
+            "src/main/Font/whats/Untitled-2.png",
             "src/main/Font/4.jpg",
             "src/main/Font/5.jpg",
             "src/main/Font/6.jpg",
@@ -459,30 +473,38 @@ public class HomeController implements Initializable {
 
     }
     @FXML
-    private ImageView loginimage;
+    private ImageView b;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ImageView imageView = new ImageView(new Image(new File("src/main/Font/login0.png").toURI().toString()));
-        imageView.setFitWidth(35);
+        ImageView imageView = new ImageView(new Image(new File("src/main/Font/whats/101.png").toURI().toString()));
         imageView.setFitHeight(31);
+        imageView.setLayoutX(240);
+        imageView.setLayoutY(569);
+        imageView.setFitWidth(35);
         Signinb.setGraphic(imageView);
         sliderThread.start();
+
        // loginimage.setImage(new Image(new File("src/main/Font/mlogin0.png").toURI().toString()));
         File file = new File("src/main/Font/logo.png");
         Image image0 = new Image(file.toURI().toString());
-        file = new File("src/main/Font/icon1.png");
+        file = new File("src/main/Font/logooo.png");
         image0 = new Image(file.toURI().toString());
         logo.setImage(image0);
-        file = new File("src/main/Font/blacklogo.png");
+        file = new File("src/main/Font/nameee.png");
         image0 = new Image(file.toURI().toString());
         logo1.setImage(image0);
-        image.setImage(new Image(new File(images[0]).toURI().toString()));
+        logo1.setFitWidth(400);
+        logo1.setFitHeight(200);
+        logo1.setLayoutX(225);logo1.setLayoutY(5);
+        File f1=new File("src/main/Font/whats/Untitled-3.png");
+        b.setImage(new Image(f1.toURI().toString()));
+     /*   image.setImage(new Image(new File(images[0]).toURI().toString()));
         image2.setImage(new Image(new File(images[1]).toURI().toString()));
         image3.setImage(new Image(new File(images[2]).toURI().toString()));
         image4.setImage(new Image(new File(images[3]).toURI().toString()));
         image5.setImage(new Image(new File(images[4]).toURI().toString()));
         image6.setImage(new Image(new File(images[5]).toURI().toString()));
-        //image7.setImage(new Image(new File(images[6]).toURI().toString()));
+        //image7.setImage(new Image(new File(images[6]).toURI().toString()));*/
         //front.setImage(new Image(new File("src/main/Font/front.png").toURI().toString()));
         //back.setImage(new Image(new File("src/main/Font/back.png").toURI().toString()));
         //  translate(1,pane1,800);
