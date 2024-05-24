@@ -10,10 +10,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
-/**
- * @author : Kavishka Prabath
- * @since : 0.1.0
- **/
 
 public class MyServer {
 
